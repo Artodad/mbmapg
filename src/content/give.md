@@ -1,4 +1,4 @@
-There are many ways to contribute to the MBMA PARENTS GROUP!
+There are many ways to contribute to the MBMA Parents Group.
 
 ## Gift Cards
 
