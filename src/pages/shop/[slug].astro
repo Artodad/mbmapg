@@ -28,7 +28,7 @@ const pizzaDetailsHref = resolved.slug === 'pizza-lunch' ? withBase('pizza-lunch
 
 <Base title={resolved.name} description={resolved.summary}>
   <PageHero title={resolved.name} lede={resolved.summary} />
-  <main>
+  <main id="main">
     <div class="wrap">
       <article class="product product-detail">
         {resolved.image ? (

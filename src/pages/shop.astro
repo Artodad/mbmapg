@@ -6,12 +6,13 @@ import { productGroups, productPriceLabel, productsInGroup } from '../lib/produc
 ---
 
 <Base title="Shop" description="MBMA PG shop — pizza lunch, tees, and Path of Appreciation pavers.">
-  <PageHero title="MBMA PG SHOP" />
-  <main>
+  <PageHero title="Shop" />
+  <main id="main">
     <div class="wrap">
       <p>
         Pizza Fridays, PE tees, Path of Appreciation pavers, and seasonal items.
         Open a product to add it to your cart.
+        <a href={withBase('cart')}>Cart</a>
       </p>
       {
         productGroups.map((group) => {
@@ -27,20 +28,15 @@ import { productGroups, productPriceLabel, productsInGroup } from '../lib/produc
                   <article class="product">
                     {product.image ? (
                       <img src={asset(product.image)} alt={product.name} width="600" height="600" />
-                    ) : null}
+                    ) : (
+                      <div class="product-photo-empty" aria-hidden="true"></div>
+                    )}
                     <h3>{product.name}</h3>
                     <p class="price">{productPriceLabel(product)}</p>
                     <p>{product.summary}</p>
-                    {product.slug === 'pizza-lunch' ? (
-                      <p>
-                        <a href={withBase('pizza-lunch')}>Pizza lunch details</a>
-                      </p>
-                    ) : null}
                     <p class="product-actions">
                       <a class="btn" href={withBase(`shop/${product.slug}`)}>
-                        {product.variants?.some((variant) => variant.slices?.length)
-                          ? 'Choose slices'
-                          : 'View'}
+                        View
                       </a>
                     </p>
                   </article>
@@ -66,8 +62,20 @@ import { productGroups, productPriceLabel, productsInGroup } from '../lib/produc
     text-transform: uppercase;
   }
 
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
   .product h3 {
     margin: 0 0 0.35rem;
     font-size: 1.2rem;
+  }
+
+  .product-photo-empty {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    background: var(--warm-gray);
   }
 </style>
