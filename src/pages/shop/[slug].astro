@@ -1,0 +1,148 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import { withBase } from '../../lib/site';
+import {
+  formatCents,
+  getProduct,
+  products,
+  productPriceLabel,
+  type Product,
+} from '../../lib/products';
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+const resolved = getProduct(product.slug) ?? product;
+const pizzaDetailsHref = resolved.slug === 'pizza-lunch' ? withBase('pizza-lunch') : null;
+---
+
+<Base title={resolved.name} description={resolved.summary}>
+  <PageHero title={resolved.name} lede={resolved.summary} />
+  <main>
+    <div class="wrap">
+      <article class="product product-detail">
+        <p class="price">{productPriceLabel(resolved)}</p>
+        {resolved.cheeseOnly ? <p>Cheese only.</p> : null}
+        {
+          resolved.details.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))
+        }
+        {pizzaDetailsHref ? (
+          <p>
+            <a href={pizzaDetailsHref}>Full pizza lunch schedule and vendor notes</a>
+          </p>
+        ) : null}
+
+        <form class="contact-form add-form" id="add-form" data-slug={resolved.slug}>
+          {
+            resolved.variants?.length ? (
+              <label>
+                Option
+                <select name="variantId" required>
+                  {resolved.variants.map((variant) => (
+                    <option value={variant.id}>
+                      {variant.label}
+                      {variant.priceCents !== resolved.priceCents || resolved.variants!.some((v) => v.priceCents !== variant.priceCents)
+                        ? ` — ${formatCents(variant.priceCents)}`
+                        : ''}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            ) : null
+          }
+
+          {
+            resolved.requiredFields.includes('studentFirst') ? (
+              <>
+                <label>
+                  Student first name
+                  <input type="text" name="studentFirst" required autocomplete="given-name" />
+                </label>
+                <label>
+                  Student last name
+                  <input type="text" name="studentLast" required autocomplete="family-name" />
+                </label>
+                <label>
+                  Room #
+                  <input type="text" name="room" required />
+                </label>
+              </>
+            ) : null
+          }
+
+          {
+            resolved.optionalNote ? (
+              <label>
+                Student first name &amp; room # (optional)
+                <input type="text" name="note" />
+              </label>
+            ) : null
+          }
+
+          <label>
+            Quantity
+            <input type="number" name="quantity" min="1" step="1" value="1" required />
+          </label>
+
+          <button type="submit" class="btn">Add to cart</button>
+          <p class="muted" id="add-status" hidden></p>
+        </form>
+
+        <p>
+          <a href={withBase('shop')}>Back to shop</a>
+          {' · '}
+          <a href={withBase('cart')}>View cart</a>
+        </p>
+      </article>
+    </div>
+  </main>
+</Base>
+
+<script>
+  import { addItem, loadAndMutate } from '../../lib/cart';
+
+  const form = document.getElementById('add-form') as HTMLFormElement | null;
+  const status = document.getElementById('add-status');
+  const slug = form?.dataset.slug ?? '';
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const variantId = String(data.get('variantId') ?? '') || undefined;
+    const quantity = Number(data.get('quantity') ?? 1);
+    const studentFirst = String(data.get('studentFirst') ?? '').trim();
+    const studentLast = String(data.get('studentLast') ?? '').trim();
+    const room = String(data.get('room') ?? '').trim();
+    const note = String(data.get('note') ?? '').trim();
+    const custom = {
+      ...(studentFirst ? { studentFirst } : {}),
+      ...(studentLast ? { studentLast } : {}),
+      ...(room ? { room } : {}),
+      ...(note ? { note } : {}),
+    };
+    loadAndMutate((cart) =>
+      addItem(cart, {
+        productSlug: slug,
+        variantId,
+        quantity,
+        custom: Object.keys(custom).length ? custom : undefined,
+      }),
+    );
+    if (status) {
+      status.hidden = false;
+      status.textContent = 'Added to cart.';
+    }
+  });
+</script>

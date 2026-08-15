@@ -25,16 +25,31 @@ const current = Astro.url.pathname.replace(/\/$/, '') || withBase('').replace(/\
           );
         })
       }
+      <a class="cart-link" href={withBase('cart')} data-cart-link>
+        CART <span class="cart-count" data-cart-count></span>
+      </a>
       <a class="donate-btn" href={withBase('give')}>DONATE</a>
     </nav>
   </div>
 </header>
 
 <script>
+  import { CART_CHANGE_EVENT, cartItemCount, loadCart } from '../lib/cart';
+
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('#site-nav');
   toggle?.addEventListener('click', () => {
     const open = nav?.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
+
+  function updateCartCount() {
+    const count = cartItemCount(loadCart());
+    const badge = document.querySelector('[data-cart-count]');
+    if (!badge) return;
+    badge.textContent = count > 0 ? `(${count})` : '';
+  }
+
+  updateCartCount();
+  window.addEventListener(CART_CHANGE_EVENT, updateCartCount);
 </script>
