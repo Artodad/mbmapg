@@ -8,6 +8,8 @@ export type ProductSlug =
   | 'teachers-pizza'
   | 'halloween-wristband';
 
+export type ProductGroup = 'fundraiser' | 'merch' | 'seasonal';
+
 export type CustomFieldId = 'studentFirst' | 'studentLast' | 'room' | 'note';
 
 export interface ProductVariant {
@@ -32,11 +34,13 @@ export interface Product {
   cheeseOnly?: boolean;
   /** Repo-hosted Wix original, path under public/. */
   image?: string;
+  group: ProductGroup;
 }
 
 export const products: Product[] = [
   {
     slug: 'pizza-lunch',
+    group: 'fundraiser',
     image: 'images/products/pizza-lunch.png',
     name: 'Pizza Lunch Fridays — Fundraiser',
     priceCents: 18000,
@@ -62,6 +66,7 @@ export const products: Product[] = [
   },
   {
     slug: 'tee-youth',
+    group: 'merch',
     image: 'images/products/tee-youth.jpg',
     name: 'PE/Field Trip Tee — Youth Blue',
     priceCents: 1500,
@@ -72,6 +77,7 @@ export const products: Product[] = [
   },
   {
     slug: 'tee-adult',
+    group: 'merch',
     image: 'images/products/tee-youth.jpg',
     name: 'PE/Field Trip Tee — Adult Blue',
     priceCents: 1800,
@@ -82,6 +88,7 @@ export const products: Product[] = [
   },
   {
     slug: 'paver-500',
+    group: 'fundraiser',
     image: 'images/products/paver-500.jpg',
     name: 'Path of Appreciation Paver $500',
     priceCents: 50000,
@@ -100,6 +107,7 @@ export const products: Product[] = [
   },
   {
     slug: 'paver-250',
+    group: 'fundraiser',
     image: 'images/products/paver-500.jpg',
     name: 'Path of Appreciation Paver $250',
     priceCents: 25000,
@@ -118,6 +126,7 @@ export const products: Product[] = [
   },
   {
     slug: 'paver-100',
+    group: 'fundraiser',
     image: 'images/products/paver-500.jpg',
     name: 'Path of Appreciation Paver $100',
     priceCents: 10000,
@@ -136,6 +145,7 @@ export const products: Product[] = [
   },
   {
     slug: 'teachers-pizza',
+    group: 'fundraiser',
     image: 'images/products/teachers-pizza.png',
     name: 'TEACHERS Pizza Lunch',
     priceCents: 0,
@@ -155,6 +165,7 @@ export const products: Product[] = [
   },
   {
     slug: 'halloween-wristband',
+    group: 'seasonal',
     name: 'Halloween Wristband',
     priceCents: 5000,
     summary: 'Halloween wristband, $50.',
@@ -200,4 +211,14 @@ export function lineLabel(product: Product, variantId?: string, sliceCount?: num
   if (sliceCount == null || !Number.isFinite(sliceCount)) return base;
   const n = Math.floor(sliceCount);
   return `${base} (${n} ${n === 1 ? 'slice' : 'slices'})`;
+}
+
+export const productGroups: { id: ProductGroup; label: string }[] = [
+  { id: 'fundraiser', label: 'Fundraiser' },
+  { id: 'merch', label: 'Merch' },
+  { id: 'seasonal', label: 'Seasonal' },
+];
+
+export function productsInGroup(group: ProductGroup): Product[] {
+  return products.filter((product) => product.group === group);
 }

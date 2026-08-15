@@ -1,95 +1,73 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
-import { asset, contactEmail, withBase } from '../lib/site';
-import { products, productPriceLabel } from '../lib/products';
+import { asset, withBase } from '../lib/site';
+import { productGroups, productPriceLabel, productsInGroup } from '../lib/products';
 ---
 
 <Base title="Shop" description="MBMA PG shop — pizza lunch, tees, and Path of Appreciation pavers.">
   <PageHero title="MBMA PG SHOP" />
   <main>
     <div class="wrap">
-      <p class="note">
-        *Please put Students first name & room # in Company name field at checkout.
-        On this site those are collected as real fields (required for pizza lunch).
-      </p>
       <p>
-        Add items to your cart and review them at checkout. Online card payments are
-        not connected yet — you can email the board at
-        <a href={`mailto:${contactEmail}`}>{contactEmail}</a> or pay at the Welcome Back
-        Meet &amp; Greet.
+        Pizza Fridays, PE tees, Path of Appreciation pavers, and seasonal items.
+        Open a product to add it to your cart.
       </p>
-      <div class="product-grid">
-        {
-          products.map((product) => (
-            <article class="product">
-              {product.image ? (
-                <img src={asset(product.image)} alt={product.name} width="600" height="600" />
-              ) : null}
-              <h2>{product.name}</h2>
-              <p class="price">{productPriceLabel(product)}</p>
-              <p>{product.summary}</p>
-              {product.slug === 'pizza-lunch' ? (
-                <p>
-                  <a href={withBase('pizza-lunch')}>Pizza lunch details</a>
-                </p>
-              ) : null}
-              <div class="product-actions">
-                {product.variants?.some((variant) => variant.slices?.length) ? (
-                  <a class="btn" href={withBase(`shop/${product.slug}`)}>
-                    Choose slices
-                  </a>
-                ) : (
-                  <button
-                    type="button"
-                    class="btn"
-                    data-add-to-cart
-                    data-slug={product.slug}
-                    data-variant={product.variants?.[0]?.id ?? ''}
-                  >
-                    Add
-                  </button>
-                )}
-                <a class="btn btn-gold" href={withBase(`shop/${product.slug}`)}>
-                  View
-                </a>
+      {
+        productGroups.map((group) => {
+          const items = productsInGroup(group.id);
+          if (!items.length) return null;
+          return (
+            <section class="shop-group" aria-labelledby={`shop-${group.id}`}>
+              <h2 id={`shop-${group.id}`} class="shop-group-title">
+                {group.label}
+              </h2>
+              <div class="product-grid">
+                {items.map((product) => (
+                  <article class="product">
+                    {product.image ? (
+                      <img src={asset(product.image)} alt={product.name} width="600" height="600" />
+                    ) : null}
+                    <h3>{product.name}</h3>
+                    <p class="price">{productPriceLabel(product)}</p>
+                    <p>{product.summary}</p>
+                    {product.slug === 'pizza-lunch' ? (
+                      <p>
+                        <a href={withBase('pizza-lunch')}>Pizza lunch details</a>
+                      </p>
+                    ) : null}
+                    <p class="product-actions">
+                      <a class="btn" href={withBase(`shop/${product.slug}`)}>
+                        {product.variants?.some((variant) => variant.slices?.length)
+                          ? 'Choose slices'
+                          : 'View'}
+                      </a>
+                    </p>
+                  </article>
+                ))}
               </div>
-            </article>
-          ))
-        }
-      </div>
-      <div class="prose">
-        <h2>Path of Appreciation</h2>
-        <p>
-          MBMAPG would like to invite you to make a contribution to the Parents Group and in return,
-          get your families name and a message displayed on a permanent concrete paver. The pavers
-          will be placed in the “ Path of Appreciation ” located at the top of the main entrance,
-          just outside the office. The path has two wood arbors at the points of entry, a bench for
-          seating, and beautiful landscaping for students and families to enjoy. The benches will be
-          placed outside of the classrooms for outdoor education. This will ensure that we receive
-          the paver/bench by or before the end of the school year. Order your paver by March 26,
-          2026 and leave your lasting footprint at MBMA! This will ensure that we receive the
-          paver/bench by or before the end of the school year.
-        </p>
-      </div>
+            </section>
+          );
+        })
+      }
     </div>
   </main>
 </Base>
 
-<script>
-  import { addItem, loadAndMutate } from '../lib/cart';
+<style>
+  .shop-group {
+    margin: 2.2rem 0 2.6rem;
+  }
 
-  document.querySelectorAll<HTMLButtonElement>('[data-add-to-cart]').forEach((button) => {
-    button.addEventListener('click', () => {
-      const slug = button.dataset.slug;
-      if (!slug) return;
-      const variantId = button.dataset.variant || undefined;
-      loadAndMutate((cart) => addItem(cart, { productSlug: slug, variantId }));
-      const previous = button.textContent;
-      button.textContent = 'Added';
-      window.setTimeout(() => {
-        button.textContent = previous;
-      }, 1200);
-    });
-  });
-</script>
+  .shop-group-title {
+    margin: 0 0 1rem;
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .product h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.2rem;
+  }
+</style>
