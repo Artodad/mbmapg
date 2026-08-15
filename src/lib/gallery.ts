@@ -14,9 +14,9 @@ export const homeGallery: GalleryItem[] = [
     caption: 'The playground at MBMA',
   },
   {
-    src: 'images/gallery/jog-a-thon-group.jpg',
-    alt: 'Jog-A-Thon',
-    caption: 'Jog-A-Thon',
+    src: 'images/gallery/jog-a-thon-run.jpg',
+    alt: 'Students running at Jog-A-Thon',
+    caption: 'Students running at Jog-A-Thon',
   },
   {
     src: 'images/gallery/halloween-carnival.jpg',
