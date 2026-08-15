@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import EventCard from '../components/EventCard.astro';
 import MonthCalendar from '../components/MonthCalendar.astro';
-import PhotoCarousel from '../components/PhotoCarousel.astro';
+import PhotoGallery from '../components/PhotoGallery.astro';
 import { asset, withBase } from '../lib/site';
 import { homeGallery } from '../lib/gallery';
 
@@ -73,7 +73,7 @@ const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
     <section class="section">
       <div class="wrap wrap-gallery">
         <h2 class="section-title">Gallery</h2>
-        <PhotoCarousel items={homeGallery} label="School photo gallery" />
+        <PhotoGallery items={homeGallery} label="School photo gallery" />
       </div>
     </section>
 
