@@ -2,21 +2,31 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import { Content } from '../content/pizza-lunch.md';
-import { asset, withBase } from '../lib/site';
+import { asset, orderEmail, withBase } from '../lib/site';
+
+const productHref = withBase('shop/pizza-lunch');
+const meetHref = withBase('events/welcome-back-meet-greet');
 ---
 
 <Base title="Pizza Lunch" description="Pizza Lunch Schedule 2026-2027">
   <PageHero title="Pizza Lunch Schedule 2026-2027" />
-  <main>
+  <main id="main">
     <div class="wrap prose">
       <img
         src={asset('images/pizza-day-fridays.png')}
         alt="PIZZA DAY FRIDAYS / ANNUAL MBMA PG FUNDRAISER / *ONLY CHEESE PIZZA IS OFFERED AT THIS TIME"
       />
-      <Content />
       <p>
-        <a class="btn" href={withBase('shop')}>SHOP</a>
+        <a class="btn" href={productHref}>Pizza lunch product</a>
       </p>
+      <p>
+        Build the order on the product page (slices and student name). Complete it at the
+        <a href={meetHref}>Welcome Back Meet &amp; Greet</a>
+        or email
+        <a href={`mailto:${orderEmail}`}>{orderEmail}</a>.
+        Online card payment is not available.
+      </p>
+      <Content />
     </div>
   </main>
 </Base>

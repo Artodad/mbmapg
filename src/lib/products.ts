@@ -35,6 +35,8 @@ export interface Product {
   /** Repo-hosted Wix original, path under public/. */
   image?: string;
   group: ProductGroup;
+  /** Hidden from the public catalog (teacher/staff). */
+  staffOnly?: boolean;
 }
 
 export const products: Product[] = [
@@ -45,15 +47,10 @@ export const products: Product[] = [
     name: 'Pizza Lunch Fridays — Fundraiser',
     priceCents: 18000,
     summary:
-      'Cheese only. 31 lunches. Deadline Friday, September 11. First lunch Friday, September 18.',
+      'Cheese only. From The Pizza TapRoom in La Jolla.',
     details: [
-      'Annual MBMA PG fundraiser. Only cheese pizza is offered at this time.',
-      '31 lunches throughout the year. Fill out one form for each child.',
-      'Deadline to order: Friday, September 11. First pizza lunch: Friday, September 18.',
-      'Pizza is from The Pizza TapRoom in La Jolla.',
-      'Children’s House, Primary and Elementary students will only get cheese slices.',
-      'Slices are double cut (a large that is usually 8 slices is 16, so slices are slightly smaller).',
-      'No refunds for a student who missed a pizza lunch. One-time charge for the year; can be pro-rated for new students starting after the start of the year. Single-day sign-ups are not available. Ki’s lunch will be available on Fridays until September 11.',
+      'Pizza is from The Pizza TapRoom in La Jolla. Cheese only.',
+      'Choose a slice band, then the exact slice count. One form per child.',
     ],
     variants: [
       { id: '1-2', label: '1–2 cheese slices', priceCents: 18000, slices: [1, 2] },
@@ -78,7 +75,7 @@ export const products: Product[] = [
   {
     slug: 'tee-adult',
     group: 'merch',
-    image: 'images/products/tee-youth.jpg',
+    image: 'images/products/tee-adult.svg',
     name: 'PE/Field Trip Tee — Adult Blue',
     priceCents: 1800,
     summary: 'Adult blue PE / field trip tee.',
@@ -108,7 +105,7 @@ export const products: Product[] = [
   {
     slug: 'paver-250',
     group: 'fundraiser',
-    image: 'images/products/paver-500.jpg',
+    image: 'images/products/paver-250.jpg',
     name: 'Path of Appreciation Paver $250',
     priceCents: 25000,
     summary: '8×8 inch, 5 lines (20 characters per line). Order by March 26, 2026.',
@@ -127,7 +124,7 @@ export const products: Product[] = [
   {
     slug: 'paver-100',
     group: 'fundraiser',
-    image: 'images/products/paver-500.jpg',
+    image: 'images/products/paver-100.jpg',
     name: 'Path of Appreciation Paver $100',
     priceCents: 10000,
     summary: '4×8 inch, 2 lines (20 characters per line). Order by March 26, 2026.',
@@ -146,14 +143,13 @@ export const products: Product[] = [
   {
     slug: 'teachers-pizza',
     group: 'fundraiser',
+    staffOnly: true,
     image: 'images/products/teachers-pizza.png',
     name: 'TEACHERS Pizza Lunch',
     priceCents: 0,
-    summary: 'Cheese only. Choice of 1–2 or 3–5 slices. No charge.',
+    summary: 'Teacher/staff only. Cheese only. Choice of 1–2 or 3–5 slices.',
     details: [
-      'Cheese only. Choice of 1–2 slices or 3–5 cheese-only slices.',
-      'Slices are double cut (a large that is usually 8 slices is 16, so slices are slightly smaller).',
-      'This item is $0 and must not be charged.',
+      'Teacher/staff only. Cheese only. Choice of 1–2 or 3–5 slices.',
     ],
     variants: [
       { id: '1-2', label: '1–2 cheese slices', priceCents: 0, slices: [1, 2] },
@@ -166,6 +162,7 @@ export const products: Product[] = [
   {
     slug: 'halloween-wristband',
     group: 'seasonal',
+    image: 'images/products/halloween-wristband.svg',
     name: 'Halloween Wristband',
     priceCents: 5000,
     summary: 'Halloween wristband, $50.',
@@ -199,7 +196,8 @@ export function productPriceLabel(product: Product): string {
     : [product.priceCents];
   const min = Math.min(...amounts);
   const max = Math.max(...amounts);
-  if (min === 0 && max === 0) return formatCents(0);
+  if (product.staffOnly) return 'Teacher/staff only';
+  if (min === 0 && max === 0) return 'Teacher/staff only';
   if (min === max) return formatCents(min);
   return `${formatCents(min)} – ${formatCents(max)}`;
 }
@@ -220,5 +218,5 @@ export const productGroups: { id: ProductGroup; label: string }[] = [
 ];
 
 export function productsInGroup(group: ProductGroup): Product[] {
-  return products.filter((product) => product.group === group);
+  return products.filter((product) => product.group === group && !product.staffOnly);
 }

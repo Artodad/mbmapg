@@ -36,7 +36,8 @@ const pizzaDetailsHref = resolved.slug === 'pizza-lunch' ? withBase('pizza-lunch
           <img src={asset(resolved.image)} alt={resolved.name} width="800" height="800" />
         ) : null}
         <p class="price">{productPriceLabel(resolved)}</p>
-        {resolved.cheeseOnly ? <p>Cheese only.</p> : null}
+        {resolved.staffOnly ? <p>This item is for teachers and staff. It is not a parent product.</p> : null}
+        {resolved.cheeseOnly && !resolved.staffOnly ? <p>Cheese only.</p> : null}
         {
           resolved.details.map((paragraph) => (
             <p>{paragraph}</p>
@@ -121,14 +122,14 @@ const pizzaDetailsHref = resolved.slug === 'pizza-lunch' ? withBase('pizza-lunch
             <input type="number" name="quantity" min="1" step="1" value="1" required />
           </label>
 
-          <button type="submit" class="btn">Add to cart</button>
+          <button type="submit" class="btn">Add to order list</button>
           <p class="muted" id="add-status" hidden></p>
         </form>
 
         <p>
           <a href={withBase('shop')}>Back to shop</a>
           {' · '}
-          <a href={withBase('cart')}>View cart</a>
+          <a href={withBase('cart')}>Order list</a>
         </p>
       </article>
     </div>
@@ -222,7 +223,7 @@ const pizzaDetailsHref = resolved.slug === 'pizza-lunch' ? withBase('pizza-lunch
     );
     if (status) {
       status.hidden = false;
-      status.textContent = 'Added to cart.';
+      status.textContent = 'Saved to your order list.';
     }
   });
 </script>

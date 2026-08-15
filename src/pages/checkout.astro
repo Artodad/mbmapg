@@ -2,29 +2,25 @@
 import '../styles/shop.css';
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
-import { contactEmail, withBase } from '../lib/site';
-import { paymentsConnected } from '../lib/stripe';
-
-const connected = paymentsConnected();
+import { orderEmail, withBase } from '../lib/site';
 ---
 
-<Base title="Checkout" description="Review your MBMA PG shop order.">
-  <PageHero title="Checkout" />
+<Base title="Complete your order" description="How to finish an MBMA PG shop order.">
+  <PageHero title="Complete your order" />
   <main id="main">
     <div class="wrap">
-      {
-        connected ? null : (
-          <p class="banner-warn" role="status">Payments are not connected yet.</p>
-        )
-      }
+      <p class="banner-info" role="status">
+        Online card payment is not available. Complete this order at the
+        <a href={withBase('events/welcome-back-meet-greet')}>Welcome Back Meet &amp; Greet</a>
+        or email
+        <a href={`mailto:${orderEmail}`}>{orderEmail}</a>.
+      </p>
       <div
         id="checkout-app"
-        data-connected={connected ? 'true' : 'false'}
         data-shop={withBase('shop')}
         data-cart={withBase('cart')}
         data-meet={withBase('events/welcome-back-meet-greet')}
-        data-email={contactEmail}
-        data-api={withBase('api/create-checkout-session')}
+        data-email={orderEmail}
       >
         <p class="muted">Loading order…</p>
       </div>
@@ -39,11 +35,9 @@ const connected = paymentsConnected();
     loadAndMutate,
     loadCart,
     updateItemCustom,
-    validateCart,
     validatePizzaFields,
   } from '../lib/cart';
   import { formatCents, getProduct, lineLabel, unitAmountCents } from '../lib/products';
-  import { createCheckoutSessionPayload, paymentsConnected } from '../lib/stripe';
 
   function escapeHtml(value: string): string {
     return value
@@ -58,9 +52,7 @@ const connected = paymentsConnected();
     const shopHref = root.dataset.shop ?? '/mbmapg/shop';
     const cartHref = root.dataset.cart ?? '/mbmapg/cart';
     const meetHref = root.dataset.meet ?? '/mbmapg/events/welcome-back-meet-greet';
-    const email = root.dataset.email ?? 'info@mbmapg.org';
-    const apiHref = root.dataset.api ?? '/mbmapg/api/create-checkout-session';
-    const connected = root.dataset.connected === 'true' && paymentsConnected();
+    const email = root.dataset.email ?? 'parentsgroup@mbmapg.org';
 
     function orderText(): string {
       const cart = loadCart();
@@ -128,16 +120,10 @@ const connected = paymentsConnected();
         ? `<p class="banner-info" role="status">No payment needed — contact the board.</p>`
         : '';
 
-      const actions = teachersOnly
-        ? `<p class="checkout-actions">
-            <a class="btn btn-gold" href="${mailtoHref()}">Email the board</a>
-            <a class="btn" href="${cartHref}">Back to cart</a>
-          </p>`
-        : `<p class="checkout-actions">
-            <a class="btn btn-gold" data-email-board href="${mailtoHref()}">Email the board</a>
-            <a class="btn" href="${meetHref}">Pay at Meet &amp; Greet</a>
-            ${connected ? `<button type="button" class="btn" data-pay-online>Continue to payment</button>` : ''}
-            <a class="btn" href="${cartHref}">Back to cart</a>
+      const actions = `<p class="checkout-actions">
+            <a class="btn btn-gold" data-email-board href="${mailtoHref()}">Email ${email}</a>
+            <a class="btn" href="${meetHref}">Meet &amp; Greet details</a>
+            <a class="btn" href="${cartHref}">Back to order list</a>
           </p>`;
 
       root.innerHTML = `
@@ -163,32 +149,6 @@ const connected = paymentsConnected();
         });
       });
 
-      const pay = root.querySelector<HTMLButtonElement>('[data-pay-online]');
-      pay?.addEventListener('click', async () => {
-        if (!paymentsConnected()) return;
-        const latest = loadCart();
-        const result = validateCart(latest);
-        const errorBox = document.getElementById('checkout-errors');
-        if (!result.ok) {
-          if (errorBox) {
-            errorBox.hidden = false;
-            errorBox.textContent = result.errors.join(' ');
-          }
-          return;
-        }
-        const payload = createCheckoutSessionPayload(latest);
-        const response = await fetch(apiHref, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        if (errorBox) {
-          errorBox.hidden = false;
-          errorBox.textContent = response.ok
-            ? 'Checkout session created.'
-            : 'Payments are not connected yet.';
-        }
-      });
     }
 
     render();

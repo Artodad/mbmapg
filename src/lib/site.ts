@@ -1,5 +1,6 @@
 export const siteName = 'MBMA Parents Group';
 export const contactEmail = 'info@mbmapg.org';
+export const orderEmail = 'parentsgroup@mbmapg.org';
 export const calendarPdf =
   'https://www.mbmapg.org/_files/ugd/ae91bf_19cadddd69fd4ca8a5cc7e45f07433bb.pdf';
 

@@ -5,12 +5,12 @@ import PageHero from '../components/PageHero.astro';
 import { withBase } from '../lib/site';
 ---
 
-<Base title="Cart" description="Your MBMA PG shop cart.">
-  <PageHero title="Cart" />
+<Base title="Order list" description="Your MBMA PG shop order list.">
+  <PageHero title="Order list" />
   <main id="main">
     <div class="wrap">
       <div id="cart-app" data-shop={withBase('shop')} data-checkout={withBase('checkout')}>
-        <p class="muted">Loading cart…</p>
+        <p class="muted">Loading order list…</p>
       </div>
     </div>
   </main>
@@ -44,7 +44,7 @@ import { withBase } from '../lib/site';
       if (!root) return;
       const cart = loadCart();
       if (cart.items.length === 0) {
-        root.innerHTML = `<p class="cart-empty">Your cart is empty. <a href="${shopHref}">Continue shopping</a></p>`;
+        root.innerHTML = `<p class="cart-empty">Your order list is empty. <a href="${shopHref}">Back to shop</a></p>`;
         return;
       }
 
@@ -93,8 +93,8 @@ import { withBase } from '../lib/site';
         </table>
         <p class="cart-subtotal">Subtotal (${cartItemCount(cart)} item${cartItemCount(cart) === 1 ? '' : 's'}): <strong>${formatCents(cartTotalCents(cart))}</strong></p>
         <p class="checkout-actions">
-          <a class="btn btn-gold" href="${checkoutHref}">Checkout</a>
-          <a class="btn" href="${shopHref}">Continue shopping</a>
+          <a class="btn btn-gold" href="${checkoutHref}">How to complete this order</a>
+          <a class="btn" href="${shopHref}">Back to shop</a>
         </p>
       `;
 

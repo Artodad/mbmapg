@@ -10,7 +10,7 @@ Lunches from The Pizza TapRoom in La Jolla
 
 Fill out one form for each child participating in the pizza lunch
 
-Order Online using Shop Page linked above
+Choose slices on the pizza lunch product page. Pay at the Welcome Back Meet & Greet or email parentsgroup@mbmapg.org — online card payment is not available.
 
 DEADLINE to order: Friday, September 11
 
@@ -20,7 +20,7 @@ First pizza lunch is Friday, September 18th
 
 Ki’s lunch will be available on Fridays until September 11th
 
-More details in our SHOP
+Open the pizza lunch product to pick slices and student info.
 
 ## Product page notes (The Pizza TapRoom)
 
