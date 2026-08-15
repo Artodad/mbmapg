@@ -24,46 +24,48 @@ const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
   <main id="main" class="home-main">
     <section class="section">
       <div class="wrap">
-        <EventCard
-          heading="h2"
-          title="Welcome Back Meet & Greet"
-          month="Aug"
-          day="22"
-          meta="Sat, Aug 22 · San Diego"
-          blurb="Join us at Standley Park as we welcome in the new school year."
-          href="events/welcome-back-meet-greet"
-        />
+        <div class="home-column">
+          <EventCard
+            heading="h2"
+            title="Welcome Back Meet & Greet"
+            month="Aug"
+            day="22"
+            meta="Sat, Aug 22 · San Diego"
+            blurb="Join us at Standley Park as we welcome in the new school year."
+            href="events/welcome-back-meet-greet"
+          />
 
-        <article class="event-card home-deadline">
-          <div class="event-date" aria-hidden="true">
-            <span class="month">Sep</span>
-            <span class="day">11</span>
-          </div>
-          <div>
-            <h2>Pizza Lunch</h2>
-            <p class="event-meta">Deadline to order: Friday, September 11</p>
-            <p>First pizza lunch is Friday, September 18th</p>
-            <p class="actions">
-              <a class="btn" href={withBase('pizza-lunch')}>Pizza lunch details</a>
-            </p>
-          </div>
-        </article>
+          <article class="event-card home-deadline">
+            <div class="event-date" aria-hidden="true">
+              <span class="month">Sep</span>
+              <span class="day">11</span>
+            </div>
+            <div>
+              <h2>Pizza Lunch</h2>
+              <p class="event-meta">Deadline to order: Friday, September 11</p>
+              <p>First pizza lunch is Friday, September 18th</p>
+              <p class="actions">
+                <a class="btn" href={withBase('pizza-lunch')}>Pizza lunch details</a>
+              </p>
+            </div>
+          </article>
 
-        <div class="home-actions">
-          <article class="card">
-            <h2>Volunteer</h2>
-            <p>Classroom help, events, and other ways to pitch in.</p>
-            <p>
-              <a class="btn" href={withBase('volunteer')}>Volunteer</a>
-            </p>
-          </article>
-          <article class="card">
-            <h2>Donate</h2>
-            <p>Support enrichment, events, and classroom needs.</p>
-            <p>
-              <a class="btn btn-gold" href={withBase('give')}>Donate</a>
-            </p>
-          </article>
+          <div class="home-actions">
+            <article class="card">
+              <h2>Volunteer</h2>
+              <p>Classroom help, events, and other ways to pitch in.</p>
+              <p>
+                <a class="btn" href={withBase('volunteer')}>Volunteer</a>
+              </p>
+            </article>
+            <article class="card">
+              <h2>Donate</h2>
+              <p>Support enrichment, events, and classroom needs.</p>
+              <p>
+                <a class="btn btn-gold" href={withBase('give')}>Donate</a>
+              </p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
