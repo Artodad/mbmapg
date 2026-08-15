@@ -10,6 +10,7 @@ interface Props {
   href: string;
   heading?: 'h2' | 'h3';
   cta?: string;
+  gold?: boolean;
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   href,
   heading = 'h2',
   cta = 'Event details',
+  gold = false,
 } = Astro.props;
 ---
 
@@ -34,7 +36,9 @@ const {
     <p class="event-meta">{meta}</p>
     <p>{blurb}</p>
     <p>
-      <a class="btn" href={withBase(href)}>{cta}</a>
+      <a class:list={['btn', gold && 'btn-gold']} href={withBase(href)}>
+        {cta}
+      </a>
     </p>
   </div>
 </article>

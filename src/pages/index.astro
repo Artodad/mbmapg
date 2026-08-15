@@ -2,15 +2,10 @@
 import Base from '../layouts/Base.astro';
 import EventCard from '../components/EventCard.astro';
 import PhotoWall from '../components/PhotoWall.astro';
-import { Content as AboutBlurb } from '../content/about-blurb.md';
 import { calendarPdf, asset, withBase } from '../lib/site';
 import { homeGallery } from '../lib/gallery';
 
 const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
-const pgCal =
-  'https://calendar.google.com/calendar/embed?src=nicklococo.com_gps0v75i26qqrqt04s0k4tg0c8%40group.calendar.google.com&ctz=America%2FLos_Angeles';
-const schoolCal =
-  'https://calendar.google.com/calendar/embed?src=nicklococo.com_nkiohikg4eigqahq82jbq293oo%40group.calendar.google.com&ctz=America%2FLos_Angeles';
 ---
 
 <Base
@@ -27,19 +22,9 @@ const schoolCal =
   </section>
   <main id="main" class="home-main">
     <section class="section">
-      <div class="wrap prose">
-        <AboutBlurb />
-        <p class="actions">
-          <a class="btn" href={withBase('about')}>Our Mission</a>
-        </p>
-      </div>
-    </section>
-
-    <section class="section-band">
       <div class="wrap">
-        <h2 class="section-title">Upcoming Events</h2>
         <EventCard
-          heading="h3"
+          heading="h2"
           title="Welcome Back Meet & Greet"
           month="Aug"
           day="22"
@@ -47,13 +32,46 @@ const schoolCal =
           blurb="Join us at Standley Park as we welcome in the new school year."
           href="events/welcome-back-meet-greet"
         />
+
+        <article class="event-card home-deadline">
+          <div class="event-date" aria-hidden="true">
+            <span class="month">Sep</span>
+            <span class="day">11</span>
+          </div>
+          <div>
+            <h2>Pizza Lunch</h2>
+            <p class="event-meta">Deadline to order: Friday, September 11</p>
+            <p>First pizza lunch is Friday, September 18th</p>
+            <p class="actions">
+              <a class="btn" href={withBase('pizza-lunch')}>Pizza lunch details</a>
+              <a href={withBase('shop')}>Shop pizza</a>
+            </p>
+          </div>
+        </article>
+
+        <div class="home-actions">
+          <article class="card">
+            <h2>Volunteer</h2>
+            <p>Check out the many ways YOU can get more involved with MBMA's Parents Group!</p>
+            <p>
+              <a class="btn" href={withBase('volunteer')}>Volunteer</a>
+            </p>
+          </article>
+          <article class="card">
+            <h2>Donate</h2>
+            <p>There are many ways to contribute to the MBMA PARENTS GROUP!</p>
+            <p>
+              <a class="btn btn-gold" href={withBase('give')}>Donate</a>
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap wrap-gallery">
         <h2 class="section-title">Gallery</h2>
-        <PhotoWall items={homeGallery} />
+        <PhotoWall items={homeGallery} class="gallery-home" />
       </div>
     </section>
 
@@ -61,18 +79,10 @@ const schoolCal =
       <div class="wrap">
         <h2 class="section-title">Calendar</h2>
         <p>
+          <a href={withBase('calendar')}>Calendar</a>
+          ·
           <a href={calendarPdf}>2025-2026 calendar PDF</a>
         </p>
-        <div class="calendar-pair">
-          <div class="calendar-frame">
-            <h3>Parents Group</h3>
-            <iframe title="MBMA Parents Group calendar" src={pgCal} loading="lazy"></iframe>
-          </div>
-          <div class="calendar-frame">
-            <h3>School</h3>
-            <iframe title="MBMA school calendar" src={schoolCal} loading="lazy"></iframe>
-          </div>
-        </div>
       </div>
     </section>
   </main>
