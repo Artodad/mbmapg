@@ -14,7 +14,7 @@ The cards will be delivered to school for easy pick up or you can get it electro
 
 ## Ralphs Club
 
-### IF YOU HAVE NOT REGISTERED YOUR REWARDS CARD ONLINE
+### If you have not registered your rewards card online
 
 NOTE: We have a secured website, these procedures apply to everyone who has not entered their email address and assigned a password.
 
@@ -42,7 +42,7 @@ Remember to click on the circle to the left of your organizations’ name
 
 Click on ENROLL to finish your enrollment process
 
-### IF YOU HAVE ALREADY REGISTERED YOUR REWARDS CARD ON-LINE
+### If you have already registered your rewards card online
 
 (This means that you have already entered your email address and assigned yourself a password)
 

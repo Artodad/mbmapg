@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
-import { calendarPdf } from '../lib/site';
+import { calendarPdf, calendarPdfLabel } from '../lib/site';
 
 const pgId = 'nicklococo.com_gps0v75i26qqrqt04s0k4tg0c8@group.calendar.google.com';
 const schoolId = 'nicklococo.com_nkiohikg4eigqahq82jbq293oo@group.calendar.google.com';
@@ -18,7 +18,7 @@ const schoolIcal = `https://calendar.google.com/calendar/ical/${encodeURICompone
   <main id="main">
     <div class="wrap prose">
       <p>
-        <a href={calendarPdf}>2025–26 school calendar (PDF)</a>
+        <a href={calendarPdf}>{calendarPdfLabel}</a>
       </p>
       <p>You can add subscribe to these Calendars- see instructions below</p>
       <ul class="link-list">
