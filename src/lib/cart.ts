@@ -1,5 +1,6 @@
 import {
   getProduct,
+  getVariant,
   lineLabel,
   unitAmountCents,
   type CustomFieldId,
@@ -20,6 +21,7 @@ export interface CartItem {
   id: string;
   productSlug: string;
   variantId?: string;
+  sliceCount?: number;
   quantity: number;
   custom?: CartCustomFields;
 }
@@ -31,6 +33,7 @@ export interface Cart {
 export interface AddItemInput {
   productSlug: string;
   variantId?: string;
+  sliceCount?: number;
   quantity?: number;
   custom?: CartCustomFields;
 }
@@ -62,6 +65,12 @@ function parseCustom(value: unknown): CartCustomFields | undefined {
   return custom;
 }
 
+function parseSliceCount(value: unknown): number | undefined {
+  const n = typeof value === 'number' ? value : typeof value === 'string' && value ? Number(value) : NaN;
+  if (!Number.isFinite(n)) return undefined;
+  return Math.floor(n);
+}
+
 function parseItem(value: unknown): CartItem | null {
   if (!isRecord(value) || typeof value.id !== 'string' || typeof value.productSlug !== 'string') {
     return null;
@@ -74,6 +83,8 @@ function parseItem(value: unknown): CartItem | null {
     quantity: Math.floor(quantity),
   };
   if (typeof value.variantId === 'string' && value.variantId) item.variantId = value.variantId;
+  const sliceCount = parseSliceCount(value.sliceCount);
+  if (sliceCount != null) item.sliceCount = sliceCount;
   const custom = parseCustom(value.custom);
   if (custom) item.custom = custom;
   return item;
@@ -114,6 +125,7 @@ export function addItem(cart: Cart, input: AddItemInput): Cart {
       (item) =>
         item.productSlug === input.productSlug &&
         (item.variantId ?? '') === (input.variantId ?? '') &&
+        (item.sliceCount ?? null) === (input.sliceCount ?? null) &&
         !isPersonalized(item.custom),
     );
     if (existing) {
@@ -130,6 +142,7 @@ export function addItem(cart: Cart, input: AddItemInput): Cart {
     quantity,
   };
   if (input.variantId) next.variantId = input.variantId;
+  if (input.sliceCount != null) next.sliceCount = input.sliceCount;
   if (input.custom) next.custom = { ...input.custom };
   return { items: [...cart.items, next] };
 }
@@ -172,6 +185,25 @@ export function requiresPizzaFields(product: Product): boolean {
   return product.requiredFields.includes('studentFirst');
 }
 
+export function sliceCountError(slices: number[]): string {
+  if (slices.length === 0) return 'Choose an exact slice count';
+  if (slices.length === 1) return `Choose ${slices[0]} slices`;
+  if (slices.length === 2) return `Choose ${slices[0]} or ${slices[1]} slices`;
+  const head = slices.slice(0, -1).join(', ');
+  return `Choose ${head}, or ${slices[slices.length - 1]} slices`;
+}
+
+export function validateSliceCount(item: CartItem, product?: Product): string[] {
+  const resolved = product ?? getProduct(item.productSlug);
+  if (!resolved) return [];
+  const slices = getVariant(resolved, item.variantId)?.slices;
+  if (!slices?.length) return [];
+  if (item.sliceCount == null || !slices.includes(item.sliceCount)) {
+    return [sliceCountError(slices)];
+  }
+  return [];
+}
+
 export function validatePizzaFields(item: CartItem, product?: Product): string[] {
   const resolved = product ?? getProduct(item.productSlug);
   if (!resolved || !requiresPizzaFields(resolved)) return [];
@@ -193,9 +225,9 @@ export function validateCart(cart: Cart): { ok: boolean; errors: string[] } {
       errors.push(`Unknown product: ${item.productSlug}`);
       continue;
     }
-    const pizzaErrors = validatePizzaFields(item, product);
-    if (pizzaErrors.length) {
-      errors.push(`${lineLabel(product, item.variantId)}: ${pizzaErrors.join('; ')}`);
+    const fieldErrors = [...validateSliceCount(item, product), ...validatePizzaFields(item, product)];
+    if (fieldErrors.length) {
+      errors.push(`${lineLabel(product, item.variantId, item.sliceCount)}: ${fieldErrors.join('; ')}`);
     }
   }
   return { ok: errors.length === 0, errors };

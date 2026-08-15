@@ -65,7 +65,7 @@ const connected = paymentsConnected();
       const cart = loadCart();
       const lines = cart.items.map((item) => {
         const product = getProduct(item.productSlug);
-        const name = product ? lineLabel(product, item.variantId) : item.productSlug;
+        const name = product ? lineLabel(product, item.variantId, item.sliceCount) : item.productSlug;
         const unit = product ? unitAmountCents(product, item.variantId) : 0;
         const extras = [
           item.custom?.studentFirst || item.custom?.studentLast
@@ -100,7 +100,7 @@ const connected = paymentsConnected();
       const rows = cart.items
         .map((item) => {
           const product = getProduct(item.productSlug);
-          const name = product ? lineLabel(product, item.variantId) : item.productSlug;
+          const name = product ? lineLabel(product, item.variantId, item.sliceCount) : item.productSlug;
           const unit = product ? unitAmountCents(product, item.variantId) : 0;
           const pizza = product ? validatePizzaFields(item, product).length >= 0 && product.requiredFields.includes('studentFirst') : false;
           const fields = pizza

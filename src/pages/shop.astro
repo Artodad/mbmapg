@@ -32,15 +32,21 @@ import { products, productPriceLabel } from '../lib/products';
                 </p>
               ) : null}
               <div class="product-actions">
-                <button
-                  type="button"
-                  class="btn"
-                  data-add-to-cart
-                  data-slug={product.slug}
-                  data-variant={product.variants?.[0]?.id ?? ''}
-                >
-                  Add
-                </button>
+                {product.variants?.some((variant) => variant.slices?.length) ? (
+                  <a class="btn" href={withBase(`shop/${product.slug}`)}>
+                    Choose slices
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    class="btn"
+                    data-add-to-cart
+                    data-slug={product.slug}
+                    data-variant={product.variants?.[0]?.id ?? ''}
+                  >
+                    Add
+                  </button>
+                )}
                 <a class="btn btn-gold" href={withBase(`shop/${product.slug}`)}>
                   View
                 </a>

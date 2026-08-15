@@ -50,7 +50,7 @@ import { withBase } from '../lib/site';
       const rows = cart.items
         .map((item) => {
           const product = getProduct(item.productSlug);
-          const name = escapeHtml(product ? lineLabel(product, item.variantId) : item.productSlug);
+          const name = escapeHtml(product ? lineLabel(product, item.variantId, item.sliceCount) : item.productSlug);
           const unit = product ? unitAmountCents(product, item.variantId) : 0;
           const href = product ? `${shopHref.replace(/\/$/, '')}/${product.slug}` : shopHref;
           const extras = [

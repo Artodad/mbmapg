@@ -13,6 +13,8 @@ export interface ProductVariant {
   id: string;
   label: string;
   priceCents: number;
+  /** Exact slice counts the buyer must pick inside this band. */
+  slices?: number[];
 }
 
 export interface Product {
@@ -46,9 +48,9 @@ export const products: Product[] = [
       'No refunds for a student who missed a pizza lunch. One-time charge for the year; can be pro-rated for new students starting after the start of the year. Single-day sign-ups are not available. Ki’s lunch will be available on Fridays until September 11.',
     ],
     variants: [
-      { id: '1-2', label: '1–2 cheese slices', priceCents: 18000 },
-      { id: '3-5', label: '3–5 cheese slices', priceCents: 24000 },
-      { id: '6-8', label: '6–8 cheese slices', priceCents: 30000 },
+      { id: '1-2', label: '1–2 cheese slices', priceCents: 18000, slices: [1, 2] },
+      { id: '3-5', label: '3–5 cheese slices', priceCents: 24000, slices: [3, 4, 5] },
+      { id: '6-8', label: '6–8 cheese slices', priceCents: 30000, slices: [6, 7, 8] },
     ],
     requiredFields: ['studentFirst', 'studentLast', 'room'],
     optionalNote: false,
@@ -134,8 +136,8 @@ export const products: Product[] = [
       'This item is $0 and must not be charged.',
     ],
     variants: [
-      { id: '1-2', label: '1–2 cheese slices', priceCents: 0 },
-      { id: '3-5', label: '3–5 cheese slices', priceCents: 0 },
+      { id: '1-2', label: '1–2 cheese slices', priceCents: 0, slices: [1, 2] },
+      { id: '3-5', label: '3–5 cheese slices', priceCents: 0, slices: [3, 4, 5] },
     ],
     requiredFields: [],
     optionalNote: true,
@@ -172,7 +174,11 @@ export function productPriceLabel(product: Product): string {
   return `${formatCents(min)} – ${formatCents(max)}`;
 }
 
-export function lineLabel(product: Product, variantId?: string): string {
+export function lineLabel(product: Product, variantId?: string, sliceCount?: number): string {
   const variant = getVariant(product, variantId);
-  return variant ? `${product.name} — ${variant.label}` : product.name;
+  if (!variant) return product.name;
+  const base = `${product.name} — ${variant.label}`;
+  if (sliceCount == null || !Number.isFinite(sliceCount)) return base;
+  const n = Math.floor(sliceCount);
+  return `${base} (${n} ${n === 1 ? 'slice' : 'slices'})`;
 }
