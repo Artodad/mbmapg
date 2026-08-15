@@ -57,7 +57,8 @@ const current = Astro.url.pathname.replace(/\/$/, '') || withBase('').replace(/\
     document.body.classList.toggle('nav-locked', open);
   };
 
-  toggle?.addEventListener('click', () => {
+  toggle?.addEventListener('click', (event) => {
+    event.stopPropagation();
     const open = toggle.getAttribute('aria-expanded') !== 'true';
     setOpen(open);
   });
