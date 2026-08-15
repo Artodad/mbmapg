@@ -5,7 +5,8 @@ export type ProductSlug =
   | 'paver-500'
   | 'paver-250'
   | 'paver-100'
-  | 'teachers-pizza';
+  | 'teachers-pizza'
+  | 'halloween-wristband';
 
 export type CustomFieldId = 'studentFirst' | 'studentLast' | 'room' | 'note';
 
@@ -142,6 +143,15 @@ export const products: Product[] = [
     requiredFields: [],
     optionalNote: true,
     cheeseOnly: true,
+  },
+  {
+    slug: 'halloween-wristband',
+    name: 'Halloween Wristband',
+    priceCents: 5000,
+    summary: 'Halloween wristband, $50.',
+    details: [],
+    requiredFields: [],
+    optionalNote: true,
   },
 ];
 
