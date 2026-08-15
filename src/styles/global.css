@@ -714,11 +714,6 @@ main {
   border: 1px solid var(--rule);
 }
 
-.board-card-wide img {
-  aspect-ratio: 4 / 3;
-  object-position: center;
-}
-
 .board-card h2 {
   font-size: 1.15rem;
   margin-bottom: 0.2rem;
