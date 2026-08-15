@@ -1,8 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import EventCard from '../components/EventCard.astro';
+import MonthCalendar from '../components/MonthCalendar.astro';
 import PhotoWall from '../components/PhotoWall.astro';
-import { asset, parentsGroupCalendarEmbed, withBase } from '../lib/site';
+import { asset, withBase } from '../lib/site';
 import { homeGallery } from '../lib/gallery';
 
 const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
@@ -78,13 +79,7 @@ const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
     <section class="section">
       <div class="wrap">
         <h2 class="section-title">Calendar</h2>
-        <div class="calendar-frame">
-          <h3>Parents Group</h3>
-          <iframe title="MBMA Parents Group calendar" src={parentsGroupCalendarEmbed} loading="lazy"></iframe>
-        </div>
-        <p>
-          <a href={withBase('calendar')}>Full calendar and subscribe links</a>
-        </p>
+        <MonthCalendar />
       </div>
     </section>
   </main>
