@@ -1,3 +1,5 @@
+PIZZA DAY FRIDAYS / ANNUAL MBMA PG FUNDRAISER / *ONLY CHEESE PIZZA IS OFFERED AT THIS TIME
+
 Take a break from making lunches and help raise money
 
 For the MBMA Parents Group to enrich programs for our students!

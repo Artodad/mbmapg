@@ -6,6 +6,8 @@ DATE: FRIDAY, MARCH 27, 2026
 
 Deadline for T-Shirt Printing: FRIDAY, MARCH 13, 2026
 
+EIN 33-0683443
+
 ## INFO
 
 This is an event where the students come together, collect pledges and run to raise money to benefit their school.

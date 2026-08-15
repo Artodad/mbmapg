@@ -15,6 +15,10 @@ export function withBase(path = ''): string {
   return clean ? `${base}${clean}` : base;
 }
 
+export function asset(path: string): string {
+  return withBase(path.replace(/^\//, ''));
+}
+
 export const navItems = [
   { href: '', label: 'HOME' },
   { href: 'about', label: 'ABOUT' },

@@ -3,8 +3,9 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import FaqList from '../components/FaqList.astro';
 import { Content } from '../content/jog-a-thon.md';
+import { asset } from '../lib/site';
 
-const letter = 'https://www.mbmapg.org/_files/ugd/ae91bf_66f34b954bad4612aba5bd97b65a90c0.pdf';
+const letter = asset('files/jat-letter-to-parents-2026.pdf');
 
 const faqs = [
   {
