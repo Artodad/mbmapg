@@ -410,6 +410,19 @@ main {
   margin-top: 0.55rem;
 }
 
+.home-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+.home-column .event-card {
+  max-width: none;
+  width: 100%;
+}
+
 .home-deadline {
   margin-top: 1.15rem;
 }
@@ -419,7 +432,7 @@ main {
   gap: 1rem;
   grid-template-columns: 1fr;
   margin-top: 1.15rem;
-  max-width: 46rem;
+  width: 100%;
 }
 
 .home-actions .card {
