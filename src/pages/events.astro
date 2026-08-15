@@ -2,13 +2,18 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import EventCard from '../components/EventCard.astro';
-import { withBase } from '../lib/site';
+import { asset, withBase } from '../lib/site';
 ---
 
 <Base title="Events" description="Upcoming MBMA Parents Group events.">
   <PageHero title="Upcoming Events" />
   <main id="main">
     <div class="wrap">
+      <img
+        class="event-flyer"
+        src={asset('images/events/welcome-back-meet-greet.png')}
+        alt="Welcome Back Meet & Greet flyer for Saturday, August 22nd"
+      />
       <EventCard
         title="Welcome Back Meet & Greet"
         month="Aug"
