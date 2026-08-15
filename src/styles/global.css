@@ -715,7 +715,7 @@ main {
 }
 
 .board-card-wide img {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 4 / 3;
   object-position: center;
 }
 
