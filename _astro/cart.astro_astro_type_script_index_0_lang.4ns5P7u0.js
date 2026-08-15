@@ -1,4 +1,4 @@
-import{_ as e,a as t,c as n,f as r,g as i,l as a,o,s,v as c,y as l}from"./cart.Bo63CbOY.js";function u(e){return e.replaceAll(`&`,`&amp;`).replaceAll(`<`,`&lt;`).replaceAll(`>`,`&gt;`).replaceAll(`"`,`&quot;`)}var d=document.getElementById(`cart-app`);if(d){let f=d.dataset.shop??`/mbmapg/shop`,p=d.dataset.checkout??`/mbmapg/checkout`;function m(){if(!d)return;let h=n();if(h.items.length===0){d.innerHTML=`<p class="cart-empty">Your cart is empty. <a href="${f}">Continue shopping</a></p>`;return}d.innerHTML=`
+import{_ as e,a as t,c as n,f as r,g as i,l as a,o,s,v as c,y as l}from"./cart.Df-MTP_q.js";function u(e){return e.replaceAll(`&`,`&amp;`).replaceAll(`<`,`&lt;`).replaceAll(`>`,`&gt;`).replaceAll(`"`,`&quot;`)}var d=document.getElementById(`cart-app`);if(d){let f=d.dataset.shop??`/mbmapg/shop`,p=d.dataset.checkout??`/mbmapg/checkout`;function m(){if(!d)return;let h=n();if(h.items.length===0){d.innerHTML=`<p class="cart-empty">Your cart is empty. <a href="${f}">Continue shopping</a></p>`;return}d.innerHTML=`
         <table class="cart-table">
           <thead>
             <tr>

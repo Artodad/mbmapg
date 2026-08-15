@@ -1,1 +1,0 @@
-import{n as e,s as t}from"./cart.Bo63CbOY.js";document.querySelectorAll(`[data-add-to-cart]`).forEach(n=>{n.addEventListener(`click`,()=>{let r=n.dataset.slug;if(!r)return;let i=n.dataset.variant||void 0;t(t=>e(t,{productSlug:r,variantId:i}));let a=n.textContent;n.textContent=`Added`,window.setTimeout(()=>{n.textContent=a},1200)})});
