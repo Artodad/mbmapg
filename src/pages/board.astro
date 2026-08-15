@@ -24,7 +24,6 @@ const board = [
     year: '4th year at MBMA',
     email: 'secretarypg@mbmapg.org',
     photo: asset('images/board/julia-solaegui.jpg'),
-    wide: true,
   },
   {
     name: 'Somesh Maheshwari',
@@ -43,7 +42,7 @@ const board = [
       <div class="board-grid">
         {
           board.map((person) => (
-            <article class:list={['board-card', person.wide && 'board-card-wide']}>
+            <article class="board-card">
               <img src={person.photo} alt={person.name} />
               <h2>{person.name}</h2>
               <p class="board-role">{person.role}</p>
