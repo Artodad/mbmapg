@@ -30,11 +30,14 @@ export interface Product {
   /** Optional note (student name / room for non-pizza items). */
   optionalNote: boolean;
   cheeseOnly?: boolean;
+  /** Repo-hosted Wix original, path under public/. */
+  image?: string;
 }
 
 export const products: Product[] = [
   {
     slug: 'pizza-lunch',
+    image: 'images/products/pizza-lunch.png',
     name: 'Pizza Lunch Fridays — Fundraiser',
     priceCents: 18000,
     summary:
@@ -59,6 +62,7 @@ export const products: Product[] = [
   },
   {
     slug: 'tee-youth',
+    image: 'images/products/tee-youth.jpg',
     name: 'PE/Field Trip Tee — Youth Blue',
     priceCents: 1500,
     summary: 'Youth blue PE / field trip tee.',
@@ -68,6 +72,7 @@ export const products: Product[] = [
   },
   {
     slug: 'tee-adult',
+    image: 'images/products/tee-youth.jpg',
     name: 'PE/Field Trip Tee — Adult Blue',
     priceCents: 1800,
     summary: 'Adult blue PE / field trip tee.',
@@ -77,6 +82,7 @@ export const products: Product[] = [
   },
   {
     slug: 'paver-500',
+    image: 'images/products/paver-500.jpg',
     name: 'Path of Appreciation Paver $500',
     priceCents: 50000,
     summary: '12×12 inch, 7 lines (20 characters per line). Order by March 26, 2026.',
@@ -94,6 +100,7 @@ export const products: Product[] = [
   },
   {
     slug: 'paver-250',
+    image: 'images/products/paver-500.jpg',
     name: 'Path of Appreciation Paver $250',
     priceCents: 25000,
     summary: '8×8 inch, 5 lines (20 characters per line). Order by March 26, 2026.',
@@ -111,6 +118,7 @@ export const products: Product[] = [
   },
   {
     slug: 'paver-100',
+    image: 'images/products/paver-500.jpg',
     name: 'Path of Appreciation Paver $100',
     priceCents: 10000,
     summary: '4×8 inch, 2 lines (20 characters per line). Order by March 26, 2026.',
@@ -128,6 +136,7 @@ export const products: Product[] = [
   },
   {
     slug: 'teachers-pizza',
+    image: 'images/products/teachers-pizza.png',
     name: 'TEACHERS Pizza Lunch',
     priceCents: 0,
     summary: 'Cheese only. Choice of 1–2 or 3–5 slices. No charge.',

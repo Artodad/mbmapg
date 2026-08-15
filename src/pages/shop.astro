@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
-import { contactEmail, withBase } from '../lib/site';
+import { asset, contactEmail, withBase } from '../lib/site';
 import { products, productPriceLabel } from '../lib/products';
 ---
 
@@ -23,6 +23,9 @@ import { products, productPriceLabel } from '../lib/products';
         {
           products.map((product) => (
             <article class="product">
+              {product.image ? (
+                <img src={asset(product.image)} alt={product.name} width="600" height="600" />
+              ) : null}
               <h2>{product.name}</h2>
               <p class="price">{productPriceLabel(product)}</p>
               <p>{product.summary}</p>

@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
-import { withBase } from '../../lib/site';
+import { asset, withBase } from '../../lib/site';
 import {
   formatCents,
   getProduct,
@@ -31,6 +31,9 @@ const pizzaDetailsHref = resolved.slug === 'pizza-lunch' ? withBase('pizza-lunch
   <main>
     <div class="wrap">
       <article class="product product-detail">
+        {resolved.image ? (
+          <img src={asset(resolved.image)} alt={resolved.name} width="800" height="800" />
+        ) : null}
         <p class="price">{productPriceLabel(resolved)}</p>
         {resolved.cheeseOnly ? <p>Cheese only.</p> : null}
         {
