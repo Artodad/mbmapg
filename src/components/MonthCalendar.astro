@@ -1,0 +1,162 @@
+---
+import { calendarPdf } from '../lib/site';
+import {
+  calendarMonths,
+  eventsForMonth,
+  formatRange,
+  monthGrid,
+  monthNames,
+  pgCalDefault,
+  ymKey,
+} from '../lib/pg-events';
+
+const months = calendarMonths();
+const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const defaultKey = ymKey(pgCalDefault.year, pgCalDefault.month);
+---
+
+<div class="pg-cal" data-pg-cal>
+  <p class="pg-cal-intro">
+    Mark your calendars for this year’s Parents Group events at MBMA. We know it can be
+    challenging to take time off, so we’re sharing these dates early to help you plan ahead.
+  </p>
+
+  <div class="calendar-frame pg-cal-widget">
+    <div class="pg-cal-toolbar">
+      <button type="button" class="pg-cal-nav" data-pg-prev aria-label="Previous month">
+        Previous
+      </button>
+      <h3 class="pg-cal-label" data-pg-label>August 2026</h3>
+      <button type="button" class="pg-cal-nav" data-pg-next aria-label="Next month">Next</button>
+    </div>
+
+    {
+      months.map(({ year, month }) => {
+        const key = ymKey(year, month);
+        const isDefault = key === defaultKey;
+        const cells = monthGrid(year, month);
+        const events = eventsForMonth(year, month);
+        return (
+          <div class="pg-cal-month" data-pg-month={key} hidden={!isDefault}>
+            <div class="pg-cal-grid" role="grid" aria-label={`${monthNames[month - 1]} ${year}`}>
+              {weekdays.map((day) => (
+                <div class="pg-cal-dow" role="columnheader">
+                  {day}
+                </div>
+              ))}
+              {cells.map((cell) =>
+                cell.day ? (
+                  <div
+                    class:list={[
+                      'pg-cal-day',
+                      cell.events.length && 'has-event',
+                      cell.inRange && 'in-range',
+                      cell.rangeStart && 'range-start',
+                      cell.rangeEnd && 'range-end',
+                    ]}
+                    role="gridcell"
+                    data-date={cell.date}
+                  >
+                    <span class="pg-cal-num">{cell.day}</span>
+                    {cell.events.length ? (
+                      <span class="visually-hidden">
+                        {cell.events.map((event) => event.title).join('; ')}
+                      </span>
+                    ) : null}
+                  </div>
+                ) : (
+                  <div class="pg-cal-day is-empty" role="gridcell"></div>
+                ),
+              )}
+            </div>
+            {events.length ? (
+              <ol class="pg-cal-list">
+                {events.map((event) => (
+                  <li>
+                    <span class="pg-cal-when">{formatRange(event)}</span>
+                    <span>
+                      {event.title}
+                      {event.detail ? ` · ${event.detail}` : ''}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <p class="pg-cal-empty">No Parents Group events this month.</p>
+            )}
+          </div>
+        );
+      })
+    }
+  </div>
+
+  <p class="pg-cal-pdf">
+    <a href={calendarPdf}>2025–26 school calendar PDF</a>
+  </p>
+</div>
+
+<script>
+  const root = document.querySelector('[data-pg-cal]');
+  if (root instanceof HTMLElement) {
+    const months = Array.from(root.querySelectorAll<HTMLElement>('[data-pg-month]'));
+    const label = root.querySelector('[data-pg-label]');
+    const prev = root.querySelector('[data-pg-prev]');
+    const next = root.querySelector('[data-pg-next]');
+    const names = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+
+    const show = (index: number) => {
+      months.forEach((month, i) => {
+        month.hidden = i !== index;
+      });
+      const key = months[index]?.dataset.pgMonth ?? '2026-08';
+      const [year, month] = key.split('-').map(Number);
+      if (label) {
+        label.textContent = `${names[month - 1]} ${year}`;
+      }
+      if (prev instanceof HTMLButtonElement) {
+        prev.disabled = index === 0;
+      }
+      if (next instanceof HTMLButtonElement) {
+        next.disabled = index === months.length - 1;
+      }
+    };
+
+    let index = months.findIndex((month) => !month.hidden);
+    if (index < 0) index = 0;
+    show(index);
+
+    const today = new Date();
+    const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    root.querySelectorAll<HTMLElement>('[data-date]').forEach((cell) => {
+      if (cell.dataset.date === todayKey) {
+        cell.classList.add('is-today');
+      }
+    });
+
+    prev?.addEventListener('click', () => {
+      if (index > 0) {
+        index -= 1;
+        show(index);
+      }
+    });
+    next?.addEventListener('click', () => {
+      if (index < months.length - 1) {
+        index += 1;
+        show(index);
+      }
+    });
+  }
+</script>

@@ -2,8 +2,6 @@ export const siteName = 'MBMA Parents Group';
 export const contactEmail = 'info@mbmapg.org';
 export const calendarPdf =
   'https://www.mbmapg.org/_files/ugd/ae91bf_19cadddd69fd4ca8a5cc7e45f07433bb.pdf';
-export const parentsGroupCalendarEmbed =
-  'https://calendar.google.com/calendar/embed?src=nicklococo.com_gps0v75i26qqrqt04s0k4tg0c8%40group.calendar.google.com&ctz=America%2FLos_Angeles';
 
 export function media(id: string): string {
   return `https://static.wixstatic.com/media/${id}`;
