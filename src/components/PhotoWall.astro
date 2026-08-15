@@ -1,0 +1,21 @@
+---
+import { asset } from '../lib/site';
+import type { GalleryItem } from '../lib/gallery';
+
+interface Props {
+  items: GalleryItem[];
+  class?: string;
+}
+
+const { items, class: className } = Astro.props;
+---
+
+<div class:list={['gallery', className]}>
+  {
+    items.map((item) => (
+      <figure class={item.size ? `gallery-${item.size}` : undefined}>
+        <img src={asset(item.src)} alt={item.alt} loading="lazy" />
+      </figure>
+    ))
+  }
+</div>

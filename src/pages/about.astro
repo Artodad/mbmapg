@@ -1,7 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
+import PhotoWall from '../components/PhotoWall.astro';
 import { Content } from '../content/about.md';
+import { aboutPhotos } from '../lib/gallery';
 ---
 
 <Base title="About" description="Our mission and classroom enrichments funded by MBMA Parents Group.">
@@ -9,6 +11,9 @@ import { Content } from '../content/about.md';
   <main id="main">
     <div class="wrap prose">
       <Content />
+    </div>
+    <div class="wrap wrap-gallery about-photos">
+      <PhotoWall items={aboutPhotos} class="gallery-about" />
     </div>
   </main>
 </Base>

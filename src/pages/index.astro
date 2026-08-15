@@ -1,30 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 import EventCard from '../components/EventCard.astro';
+import PhotoWall from '../components/PhotoWall.astro';
 import { Content as AboutBlurb } from '../content/about-blurb.md';
-import { calendarPdf, media, withBase } from '../lib/site';
+import { calendarPdf, asset, withBase } from '../lib/site';
+import { homeGallery } from '../lib/gallery';
 
-const heroPhoto = media('ae91bf_33fad9239ba544a686715aa24e1cf51d~mv2.jpg');
-const gallery = [
-  {
-    src: media('ae91bf_6a63577df8a140a6a4cbb7cd1418a98d~mv2.png'),
-    alt: 'The playground at Mission Bay Montessori Academy',
-    wide: true,
-  },
-  {
-    src: media('ae91bf_33fad9239ba544a686715aa24e1cf51d~mv2.jpg'),
-    alt: 'MBMA students and families at Jog-A-Thon',
-  },
-  {
-    src: media('ae91bf_f770b0cbc65c410cac0e0d37450a0560~mv2.jpeg'),
-    alt: 'A student with a Jog-A-Thon award at MBMA',
-  },
-  {
-    src: media('ae91bf_02705adc475c4e98bb416bbfd319cca7~mv2.jpeg'),
-    alt: 'Students holding Jog-A-Thon awards',
-  },
-];
-
+const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
 const pgCal =
   'https://calendar.google.com/calendar/embed?src=nicklococo.com_gps0v75i26qqrqt04s0k4tg0c8%40group.calendar.google.com&ctz=America%2FLos_Angeles';
 const schoolCal =
@@ -69,17 +51,9 @@ const schoolCal =
     </section>
 
     <section class="section">
-      <div class="wrap">
+      <div class="wrap wrap-gallery">
         <h2 class="section-title">Gallery</h2>
-        <div class="gallery">
-          {
-            gallery.map((item) => (
-              <figure class={item.wide ? 'gallery-wide' : undefined}>
-                <img src={item.src} alt={item.alt} />
-              </figure>
-            ))
-          }
-        </div>
+        <PhotoWall items={homeGallery} />
       </div>
     </section>
 
