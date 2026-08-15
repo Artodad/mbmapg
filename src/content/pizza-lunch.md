@@ -1,23 +1,15 @@
-PIZZA DAY FRIDAYS / ANNUAL MBMA PG FUNDRAISER / *ONLY CHEESE PIZZA IS OFFERED AT THIS TIME
+Take a break from packing lunch and help raise money for the MBMA Parents Group. Pizza Day Fridays support enrichment programs for our students. Cheese pizza only.
 
-Take a break from making lunches and help raise money
+## 2026–27 dates
 
-For the MBMA Parents Group to enrich programs for our students!
+- **August 28, 2026:** Pizza lunch sign up begins
+- **September 11, 2026:** Deadline to order
+- **September 18, 2026:** First Pizza Friday (pack healthy sides; cheese only)
 
-Lunches from Leucadia Pizzeria
+## What to know
 
-31 lunches throughout the year
-
-Fill out one form for each child participating in the pizza lunch
-
-Order Online using Shop Page linked above
-
-DEADLINE to order: Friday, September 11
-
-To keep costs down, no refunds will be given for student-missed pizza
-
-First pizza lunch is Friday, September 18th
-
-Ki’s lunch will be available on Fridays until September 11th
-
-More details in our SHOP
+- Cheese pizza only
+- 31 lunches throughout the year
+- Fill out one form for each child
+- No refunds for missed days
+- Ki’s lunch is available on Fridays until September 11

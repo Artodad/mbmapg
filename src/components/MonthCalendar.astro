@@ -1,5 +1,5 @@
 ---
-import { calendarPdf } from '../lib/site';
+import { calendarPdf, calendarPdfLabel } from '../lib/site';
 import {
   calendarMonths,
   eventsForMonth,
@@ -17,7 +17,7 @@ const defaultKey = ymKey(pgCalDefault.year, pgCalDefault.month);
 
 <div class="pg-cal" data-pg-cal>
   <p class="pg-cal-intro">
-    Mark your calendars for this year’s Parents Group events at MBMA. We know it can be
+    Mark your calendars for Parents Group events 2026–27 at MBMA. We know it can be
     challenging to take time off, so we’re sharing these dates early to help you plan ahead.
   </p>
 
@@ -91,7 +91,7 @@ const defaultKey = ymKey(pgCalDefault.year, pgCalDefault.month);
   </div>
 
   <p class="pg-cal-pdf">
-    <a href={calendarPdf}>2025–26 school calendar (PDF)</a>
+    <a href={calendarPdf}>{calendarPdfLabel}</a>
   </p>
 </div>
 
