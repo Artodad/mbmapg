@@ -1,14 +1,14 @@
 :root {
-  --cream: #f3f2dc;
+  --cream: #f5f2ec;
   --charcoal: #31302c;
   --slate: #5c739d;
   --gold: #f59a28;
-  --white: #fffdf6;
+  --white: #fffdf9;
   --ink-muted: #5b5a52;
-  --rule: #c8c6b0;
+  --rule: #d2cdc4;
   --rule-strong: #a8a690;
   --slate-deep: #4a5e84;
-  --cream-deep: #e7e5c6;
+  --cream-deep: #ebe6dd;
   --overlay: rgba(49, 48, 44, 0.72);
   --heading: 'Raleway', sans-serif;
   --body: 'Roboto', sans-serif;
