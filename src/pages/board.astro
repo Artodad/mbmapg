@@ -15,7 +15,7 @@ const board = [
     name: 'Jennifer Lin',
     role: 'Vice President',
     year: '9th year at MBMA',
-    email: 'jennifer.Lin@mbmapg.org',
+    email: 'jennifer.lin@mbmapg.org',
     photo: asset('images/board/jennifer-lin.jpeg'),
   },
   {
@@ -30,7 +30,6 @@ const board = [
     role: 'Treasurer',
     year: '5th year at MBMA',
     email: contactEmail,
-    emailLabel: 'Email the treasurer',
     photo: asset('images/board/somesh-maheshwari.jpeg'),
   },
 ];
@@ -50,9 +49,7 @@ const board = [
               <p class="muted">{person.year}</p>
               {person.email ? (
                 <p>
-                  <a href={`mailto:${person.email}`}>
-                    {'emailLabel' in person && person.emailLabel ? person.emailLabel : person.email}
-                  </a>
+                  <a href={`mailto:${person.email}`}>{person.email}</a>
                 </p>
               ) : null}
             </article>
