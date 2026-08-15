@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import EventCard from '../components/EventCard.astro';
 import PhotoWall from '../components/PhotoWall.astro';
-import { calendarPdf, asset, withBase } from '../lib/site';
+import { asset, parentsGroupCalendarEmbed, withBase } from '../lib/site';
 import { homeGallery } from '../lib/gallery';
 
 const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
@@ -52,14 +52,14 @@ const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
         <div class="home-actions">
           <article class="card">
             <h2>Volunteer</h2>
-            <p>Check out the many ways YOU can get more involved with MBMA's Parents Group!</p>
+            <p>Classroom help, events, and other ways to pitch in.</p>
             <p>
               <a class="btn" href={withBase('volunteer')}>Volunteer</a>
             </p>
           </article>
           <article class="card">
             <h2>Donate</h2>
-            <p>There are many ways to contribute to the MBMA PARENTS GROUP!</p>
+            <p>Support enrichment, events, and classroom needs.</p>
             <p>
               <a class="btn btn-gold" href={withBase('give')}>Donate</a>
             </p>
@@ -78,10 +78,12 @@ const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
     <section class="section">
       <div class="wrap">
         <h2 class="section-title">Calendar</h2>
+        <div class="calendar-frame">
+          <h3>Parents Group</h3>
+          <iframe title="MBMA Parents Group calendar" src={parentsGroupCalendarEmbed} loading="lazy"></iframe>
+        </div>
         <p>
-          <a href={withBase('calendar')}>Calendar</a>
-          ·
-          <a href={calendarPdf}>2025-2026 calendar PDF</a>
+          <a href={withBase('calendar')}>Full calendar and subscribe links</a>
         </p>
       </div>
     </section>
