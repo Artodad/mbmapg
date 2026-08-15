@@ -4,6 +4,17 @@ import PageHero from '../components/PageHero.astro';
 import PhotoWall from '../components/PhotoWall.astro';
 import { Content } from '../content/about.md';
 import { aboutPhotos } from '../lib/gallery';
+
+const enrichments = ['Smart Boards', 'School Assemblies', 'School Library', 'Classroom Field Trips'];
+const support = [
+  'Playground Supplies',
+  'Running Club',
+  'School Garden',
+  'Jog-a-thon',
+  'Family Movie Night',
+  'Halloween Carnival',
+  'Thanksgiving Festivities',
+];
 ---
 
 <Base title="About" description="Our mission and classroom enrichments funded by MBMA Parents Group.">
@@ -11,6 +22,26 @@ import { aboutPhotos } from '../lib/gallery';
   <main id="main">
     <div class="wrap prose">
       <Content />
+    </div>
+    <div class="wrap">
+      <div class="about-groups">
+        <section class="card about-group">
+          <h2>Education / Classroom Enrichments</h2>
+          <ul>
+            {enrichments.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+        <section class="card about-group">
+          <h2>We Couldn't Do It Without All Your Support</h2>
+          <ul>
+            {support.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+      </div>
+      <p class="note about-note">
+        <strong>Did You Know…</strong>
+        For over 30 years, generous parents like you have helped the MBMA Parents Group fund...
+      </p>
     </div>
     <div class="wrap wrap-gallery about-photos">
       <PhotoWall items={aboutPhotos} class="gallery-about" />

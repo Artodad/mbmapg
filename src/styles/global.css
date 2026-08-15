@@ -14,7 +14,7 @@
   --body: 'Roboto', sans-serif;
   --measure: 38rem;
   --radius: 2px;
-  --header-h: 4.35rem;
+  --header-h: 7.15rem;
 }
 
 *,
@@ -159,8 +159,11 @@ p {
 
 .brand img {
   display: block;
-  width: auto;
-  height: 3.15rem;
+  width: min(12.5rem, 46vw);
+  height: auto;
+  aspect-ratio: 200 / 102;
+  object-fit: cover;
+  object-position: 50% 51%;
 }
 
 .header-tools {
@@ -591,6 +594,8 @@ main {
 .gallery-about figure {
   grid-column: auto;
   grid-row: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .gallery-about img {
@@ -621,6 +626,45 @@ main {
 
 .about-photos {
   margin-top: 2rem;
+}
+
+.about-groups {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  margin: 1.6rem 0 1.2rem;
+}
+
+.about-group {
+  margin: 0;
+}
+
+.about-group h2 {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 0.7rem;
+}
+
+.about-group ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-group li {
+  padding: 0.38rem 0;
+  border-top: 1px solid var(--cream-deep);
+}
+
+.about-group li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.about-note {
+  max-width: none;
 }
 
 .event-flyer {
@@ -774,6 +818,10 @@ main {
   border: 1px solid var(--rule);
   background: white;
   display: block;
+}
+
+.calendar-frame + p {
+  margin-top: 0.85rem;
 }
 
 .link-list {
@@ -931,7 +979,8 @@ details.faq .prose {
     grid-template-columns: 1fr 1fr;
   }
 
-  .home-actions {
+  .home-actions,
+  .about-groups {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -950,6 +999,10 @@ details.faq .prose {
 }
 
 @media (max-width: 1040px) {
+  :root {
+    --header-h: 6.35rem;
+  }
+
   .nav-toggle {
     display: inline-block;
     position: relative;
@@ -1076,12 +1129,16 @@ details.faq .prose {
 }
 
 @media (max-width: 420px) {
+  :root {
+    --header-h: 5.85rem;
+  }
+
   .wrap {
     width: min(1100px, calc(100% - 1.4rem));
   }
 
   .brand img {
-    height: 2.75rem;
+    width: min(10.5rem, 44vw);
   }
 
   .event-card {

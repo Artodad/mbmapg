@@ -34,13 +34,16 @@ export const aboutPhotos: GalleryItem[] = [
   {
     src: 'images/gallery/school-building.png',
     alt: 'Exterior of the Mission Bay Montessori Academy building',
+    caption: 'Exterior of the Mission Bay Montessori Academy building',
   },
   {
     src: 'images/gallery/halloween-pumpkins.jpg',
     alt: 'Decorated pumpkins at an MBMA Halloween contest',
+    caption: 'Decorated pumpkins at an MBMA Halloween contest',
   },
   {
     src: 'images/gallery/halloween-playground.jpg',
     alt: 'Halloween gathering on the MBMA playground',
+    caption: 'Halloween gathering on the MBMA playground',
   },
 ];
