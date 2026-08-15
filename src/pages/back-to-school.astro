@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { Content } from '../content/back-to-school.md';
+import { withBase } from '../lib/site';
+---
+
+<Base title="Back To School" description="School Starts Monday, August 24th">
+  <PageHero title="Back To School" />
+  <main>
+    <div class="wrap prose">
+      <Content />
+      <p>
+        <a class="btn" href={withBase('new-parent-faq')}>New Parents Click Here</a>
+      </p>
+    </div>
+  </main>
+</Base>

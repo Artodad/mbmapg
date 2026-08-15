@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { Content } from '../content/pizza-lunch.md';
+import { media, withBase } from '../lib/site';
+---
+
+<Base title="Pizza Lunch" description="Pizza Lunch Schedule 2026-2027">
+  <PageHero title="Pizza Lunch Schedule 2026-2027" />
+  <main>
+    <div class="wrap prose">
+      <img
+        src={media('ae91bf_8e27ea3c81a94e1eafca231069eac527~mv2.png')}
+        alt="pizza friday for website (980 x 552 px)"
+      />
+      <Content />
+      <p>
+        <a class="btn" href={withBase('shop')}>SHOP</a>
+      </p>
+    </div>
+  </main>
+</Base>

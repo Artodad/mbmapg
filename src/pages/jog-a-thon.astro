@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqList from '../components/FaqList.astro';
+import { Content } from '../content/jog-a-thon.md';
+
+const letter = 'https://www.mbmapg.org/_files/ugd/ae91bf_66f34b954bad4612aba5bd97b65a90c0.pdf';
+
+const faqs = [
+  {
+    q: 'What is Jog-A-Thon?',
+    a: 'This is an event where the students come together, collect pledges and run to raise money to benefit their school.',
+  },
+  {
+    q: 'What will the proceeds support?',
+    a: 'Our STEAM Programs!<br/>(Science, Technology, Engineering, Arts, and Mathematics)',
+  },
+  {
+    q: 'When is the Jog-A-Thon?',
+    a: 'Friday, April 5, 2024<br/>Starting at 8:30am',
+  },
+  {
+    q: 'What do the runners do?',
+    a: `The students collect pledges from friends, family and businesses who will support their run. Due to Covid-19, this year all the pledges will be collected via the pledge star website.<br/><br/>
+Students can collect pledges via a secure website<br/>
+• Go to <a href="http://pledgestar.com/mbma">http://pledgestar.com/mbma</a><br/>
+• Click “Not Registered For This Year’s Event”<br/>
+• Enter your name and email address, then click “Submit”<br/>
+• Follow the instructions on-screen to register students`,
+  },
+  {
+    q: 'What is a pledge?',
+    a: 'A pledge is a fixed fee donation collected by students for their participation in the Jog-A-Thon',
+  },
+  {
+    q: 'How far will the kids run?',
+    a: 'The kids will run as many laps as they can in a given amount of time. To ensure safety, the younger kids will run separately from the older kids and will run a shorter distance.',
+  },
+  {
+    q: 'What do the kids need to bring for the event?',
+    a: 'Each participant will receive a Jog-A-Thon T-shirt. Students should bring a water bottle, sunscreen and wear running shoes.',
+  },
+  {
+    q: 'How do I sign up for online pledges',
+    a: `Students can collect pledges via a secure website<br/>
+• Go to <a href="http://pledgestar.com/mbma">http://pledgestar.com/mbma</a><br/>
+• Click “Not Registered For This Year’s Event”<br/>
+• Enter your name and email address, then click “Submit”<br/>
+• Follow the instructions on-screen to register students`,
+  },
+];
+---
+
+<Base title="Jog-A-Thon" description="13th Annual Jog-A-Thon — Friday, March 27, 2026">
+  <PageHero title="JOG-A-THON" lede="Leave Your Lasting Footprint · FRIDAY, MARCH 27, 2026" />
+  <main>
+    <div class="wrap prose">
+      <Content />
+      <p>
+        Download our 2026 information letter: <a href={letter}>JAT letter to parents 2026.pdf</a>
+      </p>
+      <h2>More Information</h2>
+      <FaqList items={faqs} />
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,40 @@
+---
+import { logoSrc, navItems, siteName, withBase } from '../lib/site';
+
+const current = Astro.url.pathname.replace(/\/$/, '') || withBase('').replace(/\/$/, '');
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href={withBase()}>
+      <img src={logoSrc} alt={`${siteName} logo`} width="220" height="112" />
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      MENU
+    </button>
+    <nav class="nav" id="site-nav">
+      {
+        navItems.map((item) => {
+          const href = withBase(item.href);
+          const normalized = href.replace(/\/$/, '');
+          const isCurrent = current === normalized || (item.href === '' && current.endsWith('/mbmapg'));
+          return (
+            <a href={href} aria-current={isCurrent ? 'page' : undefined}>
+              {item.label}
+            </a>
+          );
+        })
+      }
+      <a class="donate-btn" href={withBase('give')}>DONATE</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('#site-nav');
+  toggle?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+</script>

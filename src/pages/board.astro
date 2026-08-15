@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { media } from '../lib/site';
+
+const board = [
+  {
+    name: 'Stephanie Willett',
+    role: 'President',
+    year: '4th year at MBMA',
+    email: 'presidentpg@mbmapg.org',
+    photo: media('ae91bf_9dfbe6be81c942ee8d9509adc3648272~mv2.jpeg'),
+  },
+  {
+    name: 'Jennifer Lin',
+    role: 'Vice President',
+    year: '9th year at MBMA',
+    email: 'jennifer.Lin@mbmapg.org',
+    photo: media('ae91bf_7dd3451dd6654d8ab61e1b31bff60f39~mv2.jpeg'),
+  },
+  {
+    name: 'Julia Solaegui',
+    role: 'Secretary',
+    year: '4th year at MBMA',
+    email: 'secretarypg@mbmapg.org',
+    photo: media('ae91bf_da558e22bb454e8894162c2b9241c3e1~mv2.jpg'),
+  },
+  {
+    name: 'Somesh Maheshwari',
+    role: 'Treasurer',
+    year: '5th year at MBMA',
+    email: '',
+    photo: media('ae91bf_4e48deb96c0b43859fbb03f905ca9093~mv2.jpg'),
+  },
+];
+---
+
+<Base title="PG Board" description="Meet the MBMA Parents Group board.">
+  <PageHero title="Meet Our Board" />
+  <main>
+    <div class="wrap">
+      <div class="board-grid">
+        {
+          board.map((person) => (
+            <article class="board-card">
+              <img src={person.photo} alt={person.name} />
+              <h2>{person.name}</h2>
+              <p>{person.role}</p>
+              <p class="muted">{person.year}</p>
+              {person.email ? (
+                <p>
+                  <a href={`mailto:${person.email}`}>{person.email}</a>
+                </p>
+              ) : null}
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</Base>

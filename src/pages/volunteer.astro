@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { Content } from '../content/volunteer.md';
+import { withBase } from '../lib/site';
+
+const signup =
+  'https://www.signupgenius.com/go/10C094CABAB2AA7FDC25-64417788-volunteer';
+const chPdf = 'https://www.mbmapg.org/_files/ugd/ae91bf_9184736fc07248ba8fbc7cef953c2bf6.pdf';
+const elemPdf = 'https://www.mbmapg.org/_files/ugd/ae91bf_add799ddf9b24bed977a6282768c0292.pdf';
+---
+
+<Base title="Volunteer" description="Ways to get involved with MBMA Parents Group.">
+  <PageHero title="VOLUNTEER" />
+  <main>
+    <div class="wrap prose">
+      <Content />
+      <p>
+        <a class="btn btn-gold" href={signup}>Sign up on SignUpGenius</a>
+      </p>
+      <p>
+        <a href={chPdf}>CH Classroom Volunteer Descriptions</a><br />
+        <a href={elemPdf}>Elementary Classroom Volunteer Descriptions</a>
+      </p>
+      <p>
+        <a href={withBase('contact')}>Questions? Contact the board</a>
+      </p>
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import { Content as AboutBlurb } from '../content/about-blurb.md';
+import { calendarPdf, media, withBase } from '../lib/site';
+
+const gallery = [
+  media('ae91bf_6a63577df8a140a6a4cbb7cd1418a98d~mv2.png'),
+  media('ae91bf_33fad9239ba544a686715aa24e1cf51d~mv2.jpg'),
+  media('ae91bf_f770b0cbc65c410cac0e0d37450a0560~mv2.jpeg'),
+  media('ae91bf_02705adc475c4e98bb416bbfd319cca7~mv2.jpeg'),
+];
+
+const pgCal =
+  'https://calendar.google.com/calendar/embed?src=nicklococo.com_gps0v75i26qqrqt04s0k4tg0c8%40group.calendar.google.com&ctz=America%2FLos_Angeles';
+const schoolCal =
+  'https://calendar.google.com/calendar/embed?src=nicklococo.com_nkiohikg4eigqahq82jbq293oo%40group.calendar.google.com&ctz=America%2FLos_Angeles';
+---
+
+<Base
+  title="Home"
+  description="MBMA Parents Group — support, enrichment, and family events for Mission Bay Montessori Academy."
+>
+  <section class="hero">
+    <div class="wrap">
+      <h1>About Mbma Parents Group</h1>
+    </div>
+  </section>
+  <main>
+    <div class="wrap prose">
+      <AboutBlurb />
+      <p>
+        <a class="btn" href={withBase('about')}>Our Mission</a>
+      </p>
+
+      <h2>Upcoming Events</h2>
+      <article class="event-card">
+        <h3>Welcome Back Meet & Greet</h3>
+        <p>Sat, Aug 22 · San Diego</p>
+        <p>Join us at Standley Park as we welcome in the new school year.</p>
+        <p>
+          <a class="btn" href={withBase('events/welcome-back-meet-greet')}>Event details</a>
+        </p>
+      </article>
+
+      <h2>Our Gallery Mbma Parents Group</h2>
+      <div class="gallery">
+        {gallery.map((src, i) => <img src={src} alt={`MBMA Parents Group gallery ${i + 1}`} />)}
+      </div>
+
+      <h2>Calendar</h2>
+      <p>
+        <a href={calendarPdf}>2025-2026 calendar PDF</a>
+      </p>
+      <div class="calendars">
+        <iframe title="MBMA Parents Group calendar" src={pgCal} loading="lazy"></iframe>
+        <iframe title="MBMA school calendar" src={schoolCal} loading="lazy"></iframe>
+      </div>
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { contactEmail, withBase } from '../lib/site';
+
+const products: { name: string; price: string; note?: string; href?: string }[] = [
+  {
+    name: 'Pizza Lunch Fridays - Fundraiser',
+    price: '$180.00',
+    note: '1–2 / 3–5 / 6–8 slices: $180 / $240 / $300. See pizza lunch page for both vendor notes.',
+    href: 'pizza-lunch',
+  },
+  {
+    name: 'PE/Field Trip Tee- Youth Blue',
+    price: '$15.00',
+  },
+  {
+    name: 'PE/Field Trip Tee - Adult Blue',
+    price: '$18.00',
+  },
+  {
+    name: 'Path of Appreciation Paver $500',
+    price: '$500.00',
+    note: '12x12 inch 7 Lines (20 characters per line) 2 Color options Tan Gray. Order your paver by March 26, 2026.',
+  },
+  {
+    name: 'Path of Appreciation Paver $250',
+    price: '$250.00',
+    note: '8x8 inch 5 Lines (20 characters per line) 2 Color options Gray Beige. Order your paver by March 26, 2026.',
+  },
+  {
+    name: 'Path of Appreciation Paver $100',
+    price: '$100.00',
+    note: '4x8 inch 2 Lines (20 characters per line) 2 Color options Tan Beige. Order your paver by March 26, 2026.',
+  },
+  {
+    name: 'TEACHERS Pizza Lunch',
+    price: '$0.00',
+    note: 'Choice of 1-2 slices or 3-5 CHEESE ONLY Slices NOTE: Please be aware of that the slices are double cut (i.e: Usually a large is 8 slices, but now it will be 16 which means they will slightly smaller)',
+  },
+];
+---
+
+<Base title="Shop" description="MBMA PG shop catalog. Order at Meet & Greet or email the board.">
+  <PageHero title="MBMA PG SHOP" />
+  <main>
+    <div class="wrap">
+      <p class="note">
+        *Please put Students first name & room # in Company name field at checkout.
+      </p>
+      <p>
+        Catalog only — there is no online checkout on this site. Order at the Welcome Back Meet &
+        Greet or email the board at <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+      </p>
+      <div class="product-grid">
+        {
+          products.map((product) => (
+            <article class="product">
+              <h2>{product.name}</h2>
+              <p class="price">{product.price}</p>
+              {product.note ? <p>{product.note}</p> : null}
+              {'href' in product && product.href ? (
+                <p>
+                  <a href={withBase(product.href)}>Pizza lunch details</a>
+                </p>
+              ) : null}
+            </article>
+          ))
+        }
+      </div>
+      <div class="prose">
+        <h2>Path of Appreciation</h2>
+        <p>
+          MBMAPG would like to invite you to make a contribution to the Parents Group and in return,
+          get your families name and a message displayed on a permanent concrete paver. The pavers
+          will be placed in the “ Path of Appreciation ” located at the top of the main entrance,
+          just outside the office. The path has two wood arbors at the points of entry, a bench for
+          seating, and beautiful landscaping for students and families to enjoy. The benches will be
+          placed outside of the classrooms for outdoor education. This will ensure that we receive
+          the paver/bench by or before the end of the school year. Order your paver by March 26,
+          2026 and leave your lasting footprint at MBMA! This will ensure that we receive the
+          paver/bench by or before the end of the school year.
+        </p>
+      </div>
+    </div>
+  </main>
+</Base>

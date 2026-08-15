@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { Content } from '../content/give.md';
+
+const paypal =
+  'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2NGLAENSXP4PN';
+---
+
+<Base title="Give" description="Ways to contribute to the MBMA Parents Group.">
+  <PageHero title="WAYS TO CONTRIBUTE" />
+  <main>
+    <div class="wrap prose">
+      <p>
+        <a class="btn btn-gold" href={paypal}>Donate Now</a>
+      </p>
+      <Content />
+    </div>
+  </main>
+</Base>

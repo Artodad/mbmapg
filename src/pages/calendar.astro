@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { calendarPdf } from '../lib/site';
+
+const pgId = 'nicklococo.com_gps0v75i26qqrqt04s0k4tg0c8@group.calendar.google.com';
+const schoolId = 'nicklococo.com_nkiohikg4eigqahq82jbq293oo@group.calendar.google.com';
+const pgEmbed = `https://calendar.google.com/calendar/embed?src=${encodeURIComponent(pgId)}&ctz=America%2FLos_Angeles`;
+const schoolEmbed = `https://calendar.google.com/calendar/embed?src=${encodeURIComponent(schoolId)}&ctz=America%2FLos_Angeles`;
+const pgGmail = `https://calendar.google.com/calendar/b/2?cid=${btoa(pgId)}`;
+const schoolGmail = `https://calendar.google.com/calendar/b/2?cid=${btoa(schoolId)}`;
+const pgIcal = `https://calendar.google.com/calendar/ical/${encodeURIComponent(pgId)}/public/basic.ics`;
+const schoolIcal = `https://calendar.google.com/calendar/ical/${encodeURIComponent(schoolId)}/public/basic.ics`;
+---
+
+<Base title="Calendar" description="Parents Group and School Events">
+  <PageHero title="Calendar" lede="Includes Parents Group and School Events" />
+  <main>
+    <div class="wrap prose">
+      <p>
+        <a href={calendarPdf}>2025-2026 calendar PDF</a>
+      </p>
+      <p>You can add subscribe to these Calendars- see instructions below</p>
+      <p>
+        <a href={pgGmail}>•Subscribe to MBMAPG Calendar Events for Gmail Accounts•</a><br />
+        <a href={schoolGmail}>Subscribe to MBMA School Events for Gmail Accounts•</a>
+      </p>
+      <p>
+        <a href={pgIcal}>•Subscribe to MBMAPG Events for iCal/iPhone•</a><br />
+        <a href={schoolIcal}>•Subscribe to MBMA School Events for iCal/iPhone•</a>
+      </p>
+      <p>INSTRUCTIONS COMING SOON...</p>
+      <div class="calendars">
+        <iframe title="MBMA Parents Group calendar" src={pgEmbed} loading="lazy"></iframe>
+        <iframe title="MBMA school calendar" src={schoolEmbed} loading="lazy"></iframe>
+      </div>
+    </div>
+  </main>
+</Base>

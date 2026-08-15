@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { Content } from '../content/about.md';
+---
+
+<Base title="About" description="Our mission and classroom enrichments funded by MBMA Parents Group.">
+  <PageHero title="Our Mission" />
+  <main>
+    <div class="wrap prose">
+      <Content />
+    </div>
+  </main>
+</Base>

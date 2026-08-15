@@ -1,0 +1,108 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqList from '../components/FaqList.astro';
+import { contactEmail, withBase } from '../lib/site';
+
+const faqs = [
+  {
+    q: 'How do I Help or Volunteer',
+    a: `Just ask a teacher or MBMA Parents Group Board member... Or <a href="${withBase('volunteer')}">Click Here</a>`,
+  },
+  {
+    q: 'What are Parents Group funds used for?',
+    a: `MBMAPG Funds go to a lot of different things, including:<br/>
+Education/ Classroom Enrichments<br/>
+Smart Boards<br/>
+School Assemblies<br/>
+Books for Students<br/>
+School Library<br/>
+Classroom Field Trips<br/>
+Playground Supplies<br/>
+Running Club<br/>
+School Gardens<br/>
+Jog-A-Thon<br/>
+Family Movie Nights<br/>
+Halloween Carnival<br/>
+Thanksgiving Festivities`,
+  },
+  {
+    q: 'How long has the Parents Group been around?',
+    a: 'The MBMA Parents Group Foundation has been around for over 40 years!',
+  },
+  {
+    q: 'I work full time but I want to help... What can I do?',
+    a: `Great Question! This is an easy one... Checkout the Classroom Volunteer Tasks at the beginning of the year. Some of these task not only help PG but also the teachers. Some only take as little as 30min a month and can be done during a break at work if you have computer access, like helping teachers with their calendars.<br/><br/>
+You can also just submit a simple form and tell us how much time you have and what you might be good at... We can always find something for you to help with, even things you can do at home!`,
+  },
+  {
+    q: 'I need to contact the School directly',
+    a: `Call 858-457-5895<br/>
+Email: <a href="mailto:info@mbmacademy.com">info@mbmacademy.com</a><br/>
+Address:<br/>
+2640 Soderblom Ave<br/>
+San Diego, CA 92122<br/>
+<a href="https://mbmacademy.com">mbmacademy.com</a>`,
+  },
+  {
+    q: 'Website Privacy',
+    a: `The MBMA Parents Group does not and will not sell information collected on this website. All information collected is not shared with anyone outside of the organization unless it is to fulfill an order within our store or signup for an event with an outside vendor, but then it is limited to only that order/event.<br/><br/>
+The safety of our parents, students and their information is our highest concern.`,
+  },
+];
+---
+
+<Base title="Contact" description="Questions? Comments? Contact MBMA Parents Group.">
+  <PageHero title="Contact" lede="MBMA Parents Group would love to hear from you! Questions? Comments?" />
+  <main>
+    <div class="wrap">
+      <p>Just fill out the form and we'll get back to you!</p>
+      <form class="contact-form" id="contact-form">
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+        <button type="submit">send</button>
+        <p class="muted">
+          Opens your email app to {contactEmail}. Thank you for contacting MBMA Parents Group! We will
+          respond as soon as possible.
+        </p>
+      </form>
+
+      <!--
+        Formspree placeholder (not active):
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="text" name="name" required />
+          <input type="email" name="email" required />
+          <textarea name="message" required></textarea>
+          <button type="submit">send</button>
+        </form>
+      -->
+
+      <h2>Frequently asked questions</h2>
+      <FaqList items={faqs} />
+    </div>
+  </main>
+</Base>
+
+<script>
+  const form = document.getElementById('contact-form');
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const name = String(data.get('name') ?? '');
+    const email = String(data.get('email') ?? '');
+    const message = String(data.get('message') ?? '');
+    const subject = encodeURIComponent(`MBMAPG website message from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    window.location.href = `mailto:info@mbmapg.org?subject=${subject}&body=${body}`;
+  });
+</script>

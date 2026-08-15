@@ -1,0 +1,385 @@
+:root {
+  --cream: #f3f2dc;
+  --charcoal: #31302c;
+  --slate: #5c739d;
+  --gold: #f59a28;
+  --sage: #8ea9aa;
+  --warm-gray: #c2c2b0;
+  --white: #fffdf6;
+  --heading: 'Raleway', sans-serif;
+  --body: 'Roboto', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: var(--body);
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--slate);
+}
+
+a:hover {
+  color: var(--charcoal);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--heading);
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+}
+
+.wrap {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.site-header {
+  background: var(--white);
+  border-bottom: 4px solid var(--slate);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand img {
+  width: min(220px, 52vw);
+  height: auto;
+  display: block;
+}
+
+.nav-toggle {
+  display: none;
+  background: var(--slate);
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  padding: 0.55rem 0.8rem;
+  font-family: var(--heading);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.85rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--charcoal);
+  font-family: var(--heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.nav a:hover,
+.nav a[aria-current='page'] {
+  color: var(--slate);
+}
+
+.donate-btn {
+  background: var(--gold);
+  color: var(--charcoal) !important;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: var(--heading);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-size: 0.82rem;
+}
+
+.donate-btn:hover {
+  filter: brightness(1.05);
+}
+
+.hero,
+.page-hero {
+  background: linear-gradient(180deg, var(--sage) 0%, #7d9899 100%);
+  color: white;
+  padding: 2.6rem 0 2.2rem;
+}
+
+.hero h1,
+.page-hero h1,
+.hero p,
+.page-hero p {
+  color: white;
+}
+
+.hero p,
+.page-hero p {
+  max-width: 42rem;
+  font-size: 1.05rem;
+}
+
+main {
+  padding: 2.4rem 0 3.5rem;
+}
+
+.prose :where(p, ul, ol) {
+  max-width: 46rem;
+}
+
+.prose ul {
+  padding-left: 1.2rem;
+}
+
+.card-grid,
+.gallery,
+.product-grid,
+.board-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.card-grid,
+.product-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.gallery {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.board-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card,
+.product,
+.board-card,
+.event-card {
+  background: var(--white);
+  border: 1px solid var(--warm-gray);
+  border-radius: 10px;
+  padding: 1.15rem 1.2rem;
+  box-shadow: 0 6px 18px rgba(49, 48, 44, 0.05);
+}
+
+.board-card {
+  text-align: center;
+}
+
+.board-card img,
+.gallery img,
+.product img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  background: var(--warm-gray);
+}
+
+.gallery img {
+  aspect-ratio: 4 / 3;
+}
+
+.muted {
+  color: #5b5a52;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--slate);
+  color: white;
+  text-decoration: none;
+  padding: 0.7rem 1.1rem;
+  border-radius: 6px;
+  font-family: var(--heading);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.btn:hover {
+  color: white;
+  background: #4b6086;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--charcoal);
+}
+
+.btn-gold:hover {
+  color: var(--charcoal);
+  filter: brightness(1.05);
+}
+
+.calendars {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.calendars iframe {
+  width: 100%;
+  min-height: 420px;
+  border: 1px solid var(--warm-gray);
+  background: white;
+}
+
+form.contact-form {
+  display: grid;
+  gap: 0.85rem;
+  max-width: 36rem;
+  background: var(--white);
+  border: 1px solid var(--warm-gray);
+  padding: 1.3rem;
+  border-radius: 10px;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+  font: inherit;
+  padding: 0.65rem 0.7rem;
+  border: 1px solid var(--warm-gray);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.contact-form button {
+  justify-self: start;
+  background: var(--slate);
+  color: white;
+  border: 0;
+  padding: 0.7rem 1.15rem;
+  border-radius: 6px;
+  font-family: var(--heading);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+details.faq {
+  background: var(--white);
+  border: 1px solid var(--warm-gray);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin: 0.65rem 0;
+}
+
+details.faq summary {
+  font-family: var(--heading);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.site-footer {
+  background: var(--charcoal);
+  color: var(--cream);
+  padding: 1.6rem 0;
+  font-size: 0.95rem;
+}
+
+.site-footer a {
+  color: #f3d39a;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-family: var(--heading);
+  font-weight: 700;
+  color: var(--slate);
+  font-size: 1.2rem;
+}
+
+.note {
+  background: #efe9c8;
+  border-left: 4px solid var(--gold);
+  padding: 0.85rem 1rem;
+  margin: 1.2rem 0;
+}
+
+@media (max-width: 860px) {
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  .nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.4rem 0 0.8rem;
+  }
+
+  .nav.is-open {
+    display: flex;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+  }
+
+  .nav a,
+  .donate-btn {
+    padding: 0.55rem 0.2rem;
+  }
+}

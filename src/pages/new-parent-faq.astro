@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqList from '../components/FaqList.astro';
+import { withBase } from '../lib/site';
+
+const faqs = [
+  {
+    q: 'What do I need to purchase at the begining of the year',
+    a: `There are only a few items.<br/><br/>
+Emergency Fund- This is a fee to pay for emergency earthquake kits that the school keeps, they include MRE (meals ready to eat), water, blankets, etc.. *New Students only<br/><br/>
+PE/ Field Trip Shirt- This shirt is to be worn on days when students have PE or when going on a field trip. <a href="${withBase('shop')}">Buy them here.</a><br/><br/>
+Pizza Lunch- Most of the student enjoy Friday Pizza Lunches. Signup is at the beginning of the year and includes 31 Fridays throughout the year. It's tough for new parents to know if their child wants Pizza Lunch, keep in mind that their new friends will probably be eating pizza on Fridays. We ask that you pack a healthy side or two to go with the cheese pizza.<br/><br/>
+*Children's House students can also purchase Nap Bag (to hold sheets/blanket) through the school directly in the front office.`,
+  },
+  {
+    q: "I want to volunteer but don't have that much time",
+    a: `Checkout the Classroom Volunteer Tasks at the begining of the year. Some of these tasks not only help PG but also the teachers. Some only take as little as 30min a month and can be done during a break at work if you have computer access, like helping teachers with their calendars.<br/><br/>
+You can also just fill out a simple form and tell us how much time you have and what you might be good at... We can always find something for you to help with, even things you can do at home!`,
+  },
+  {
+    q: 'How do I get a hold of the MBMA front office',
+    a: `Call 858-457-5895<br/>
+Email: <a href="mailto:info@mbmacademy.com">info@mbmacademy.com</a><br/>
+Address:<br/>
+2640 Soderblom Ave<br/>
+San Diego, CA 92122<br/>
+Website: <a href="https://www.mbmacademy.com">www.mbmacademy.com</a>`,
+  },
+  {
+    q: 'Drop Off & Parking',
+    a: `Most parents of primary and elementary students will park in the front of the school for drop off. Children's House Students will park both in front and in the back parking lot (driveway just past the school).<br/><br/>
+Remember that the speed in the parking lot is 5mph, there are little ones that are just learning how to manage getting into their new school.<br/><br/>
+*Please be kind to the neighbors and do not make a U-turn in front of the school. Proceed to the stop sign past the school and make the U-turn there.`,
+  },
+];
+---
+
+<Base title="New Parent FAQ" description="New School, New Routine, we know it's tough!!">
+  <PageHero title="New Parents" lede="New School, New Routine, we know it's tough!!" />
+  <main>
+    <div class="wrap prose">
+      <p>The Parents Group wants to help with the transition. Ask us a question anytime</p>
+      <p>Or check out our FAQ below, hopefully we can answer your questions.</p>
+      <h2>New Parents FAQ</h2>
+      <FaqList items={faqs} />
+    </div>
+  </main>
+</Base>
