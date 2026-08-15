@@ -1,0 +1,195 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { contactEmail, withBase } from '../lib/site';
+import { paymentsConnected } from '../lib/stripe';
+
+const connected = paymentsConnected();
+---
+
+<Base title="Checkout" description="Review your MBMA PG shop order.">
+  <PageHero title="Checkout" />
+  <main>
+    <div class="wrap">
+      {
+        connected ? null : (
+          <p class="banner-warn" role="status">Payments are not connected yet.</p>
+        )
+      }
+      <div
+        id="checkout-app"
+        data-connected={connected ? 'true' : 'false'}
+        data-shop={withBase('shop')}
+        data-cart={withBase('cart')}
+        data-meet={withBase('events/welcome-back-meet-greet')}
+        data-email={contactEmail}
+        data-api={withBase('api/create-checkout-session')}
+      >
+        <p class="muted">Loading order…</p>
+      </div>
+    </div>
+  </main>
+</Base>
+
+<script>
+  import {
+    cartIsTeachersOnlyFree,
+    cartTotalCents,
+    loadAndMutate,
+    loadCart,
+    updateItemCustom,
+    validateCart,
+    validatePizzaFields,
+  } from '../lib/cart';
+  import { formatCents, getProduct, lineLabel, unitAmountCents } from '../lib/products';
+  import { createCheckoutSessionPayload, paymentsConnected } from '../lib/stripe';
+
+  function escapeHtml(value: string): string {
+    return value
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;');
+  }
+
+  const root = document.getElementById('checkout-app');
+  if (root) {
+    const shopHref = root.dataset.shop ?? '/mbmapg/shop';
+    const cartHref = root.dataset.cart ?? '/mbmapg/cart';
+    const meetHref = root.dataset.meet ?? '/mbmapg/events/welcome-back-meet-greet';
+    const email = root.dataset.email ?? 'info@mbmapg.org';
+    const apiHref = root.dataset.api ?? '/mbmapg/api/create-checkout-session';
+    const connected = root.dataset.connected === 'true' && paymentsConnected();
+
+    function orderText(): string {
+      const cart = loadCart();
+      const lines = cart.items.map((item) => {
+        const product = getProduct(item.productSlug);
+        const name = product ? lineLabel(product, item.variantId, item.sliceCount) : item.productSlug;
+        const unit = product ? unitAmountCents(product, item.variantId) : 0;
+        const extras = [
+          item.custom?.studentFirst || item.custom?.studentLast
+            ? `Student: ${item.custom.studentFirst ?? ''} ${item.custom.studentLast ?? ''}`.trim()
+            : '',
+          item.custom?.room ? `Room: ${item.custom.room}` : '',
+          item.custom?.note ? `Note: ${item.custom.note}` : '',
+        ]
+          .filter(Boolean)
+          .join('; ');
+        return `- ${name} × ${item.quantity} = ${formatCents(unit * item.quantity)}${extras ? ` (${extras})` : ''}`;
+      });
+      lines.push(`Subtotal: ${formatCents(cartTotalCents(cart))}`);
+      return lines.join('\n');
+    }
+
+    function mailtoHref(): string {
+      const subject = encodeURIComponent('MBMA PG shop order');
+      const body = encodeURIComponent(`Hello,\n\nI would like to place this shop order:\n\n${orderText()}\n`);
+      return `mailto:${email}?subject=${subject}&body=${body}`;
+    }
+
+    function render() {
+      if (!root) return;
+      const cart = loadCart();
+      if (cart.items.length === 0) {
+        root.innerHTML = `<p class="cart-empty">Your cart is empty. <a href="${shopHref}">Continue shopping</a></p>`;
+        return;
+      }
+
+      const teachersOnly = cartIsTeachersOnlyFree(cart);
+      const rows = cart.items
+        .map((item) => {
+          const product = getProduct(item.productSlug);
+          const name = product ? lineLabel(product, item.variantId, item.sliceCount) : item.productSlug;
+          const unit = product ? unitAmountCents(product, item.variantId) : 0;
+          const pizza = product ? validatePizzaFields(item, product).length >= 0 && product.requiredFields.includes('studentFirst') : false;
+          const fields = pizza
+            ? `<div class="line-fields">
+                <label>Student first name <input type="text" data-field="studentFirst" data-id="${item.id}" value="${escapeHtml(item.custom?.studentFirst ?? '')}" required /></label>
+                <label>Student last name <input type="text" data-field="studentLast" data-id="${item.id}" value="${escapeHtml(item.custom?.studentLast ?? '')}" required /></label>
+                <label>Room # <input type="text" data-field="room" data-id="${item.id}" value="${escapeHtml(item.custom?.room ?? '')}" required /></label>
+              </div>`
+            : `<div class="line-fields">
+                <label>Student first name &amp; room # (optional) <input type="text" data-field="note" data-id="${item.id}" value="${escapeHtml(item.custom?.note ?? '')}" /></label>
+              </div>`;
+          return `<tr>
+            <td>
+              <strong>${escapeHtml(name)}</strong>
+              × ${item.quantity}
+              ${fields}
+            </td>
+            <td>${formatCents(unit * item.quantity)}</td>
+          </tr>`;
+        })
+        .join('');
+
+      const notice = teachersOnly
+        ? `<p class="banner-info" role="status">No payment needed — contact the board.</p>`
+        : '';
+
+      const actions = teachersOnly
+        ? `<p class="checkout-actions">
+            <a class="btn btn-gold" href="${mailtoHref()}">Email the board</a>
+            <a class="btn" href="${cartHref}">Back to cart</a>
+          </p>`
+        : `<p class="checkout-actions">
+            <a class="btn btn-gold" data-email-board href="${mailtoHref()}">Email the board</a>
+            <a class="btn" href="${meetHref}">Pay at Meet &amp; Greet</a>
+            ${connected ? `<button type="button" class="btn" data-pay-online>Continue to payment</button>` : ''}
+            <a class="btn" href="${cartHref}">Back to cart</a>
+          </p>`;
+
+      root.innerHTML = `
+        ${notice}
+        <h2>Order summary</h2>
+        <table class="cart-table">
+          <thead><tr><th>Item</th><th>Total</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+        <p class="cart-subtotal">Subtotal: <strong>${formatCents(cartTotalCents(cart))}</strong></p>
+        <p id="checkout-errors" class="banner-warn" hidden></p>
+        ${actions}
+      `;
+
+      root.querySelectorAll<HTMLInputElement>('input[data-field]').forEach((input) => {
+        input.addEventListener('input', () => {
+          const id = input.dataset.id;
+          const field = input.dataset.field;
+          if (!id || !field) return;
+          loadAndMutate((current) => updateItemCustom(current, id, { [field]: input.value }));
+          const emailLink = root.querySelector<HTMLAnchorElement>('[data-email-board]');
+          if (emailLink) emailLink.href = mailtoHref();
+        });
+      });
+
+      const pay = root.querySelector<HTMLButtonElement>('[data-pay-online]');
+      pay?.addEventListener('click', async () => {
+        if (!paymentsConnected()) return;
+        const latest = loadCart();
+        const result = validateCart(latest);
+        const errorBox = document.getElementById('checkout-errors');
+        if (!result.ok) {
+          if (errorBox) {
+            errorBox.hidden = false;
+            errorBox.textContent = result.errors.join(' ');
+          }
+          return;
+        }
+        const payload = createCheckoutSessionPayload(latest);
+        const response = await fetch(apiHref, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (errorBox) {
+          errorBox.hidden = false;
+          errorBox.textContent = response.ok
+            ? 'Checkout session created.'
+            : 'Payments are not connected yet.';
+        }
+      });
+    }
+
+    render();
+  }
+</script>

@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import { contactEmail, withBase } from '../../lib/site';
+---
+
+<Base title="Order received" description="Thank you for your MBMA PG shop order.">
+  <PageHero title="Thank you" />
+  <main>
+    <div class="wrap prose">
+      <p>
+        If you completed an online payment, this is the return page for that checkout.
+        Online payments are not connected yet, so if you still need to pay, email
+        <a href={`mailto:${contactEmail}`}>{contactEmail}</a> or pay at the Welcome Back
+        Meet &amp; Greet.
+      </p>
+      <p>
+        <a class="btn" href={withBase('shop')}>Back to shop</a>
+      </p>
+    </div>
+  </main>
+</Base>

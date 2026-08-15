@@ -1,0 +1,120 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { withBase } from '../lib/site';
+---
+
+<Base title="Cart" description="Your MBMA PG shop cart.">
+  <PageHero title="Cart" />
+  <main>
+    <div class="wrap">
+      <div id="cart-app" data-shop={withBase('shop')} data-checkout={withBase('checkout')}>
+        <p class="muted">Loading cart…</p>
+      </div>
+    </div>
+  </main>
+</Base>
+
+<script>
+  import {
+    cartItemCount,
+    cartTotalCents,
+    loadAndMutate,
+    loadCart,
+    removeItem,
+    updateQty,
+  } from '../lib/cart';
+  import { formatCents, getProduct, lineLabel, unitAmountCents } from '../lib/products';
+
+  function escapeHtml(value: string): string {
+    return value
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;');
+  }
+
+  const root = document.getElementById('cart-app');
+  if (root) {
+    const shopHref = root.dataset.shop ?? '/mbmapg/shop';
+    const checkoutHref = root.dataset.checkout ?? '/mbmapg/checkout';
+
+    function render() {
+      if (!root) return;
+      const cart = loadCart();
+      if (cart.items.length === 0) {
+        root.innerHTML = `<p class="cart-empty">Your cart is empty. <a href="${shopHref}">Continue shopping</a></p>`;
+        return;
+      }
+
+      const rows = cart.items
+        .map((item) => {
+          const product = getProduct(item.productSlug);
+          const name = escapeHtml(product ? lineLabel(product, item.variantId, item.sliceCount) : item.productSlug);
+          const unit = product ? unitAmountCents(product, item.variantId) : 0;
+          const href = product ? `${shopHref.replace(/\/$/, '')}/${product.slug}` : shopHref;
+          const extras = [
+            item.custom?.studentFirst || item.custom?.studentLast
+              ? escapeHtml(`${item.custom.studentFirst ?? ''} ${item.custom.studentLast ?? ''}`.trim())
+              : '',
+            item.custom?.room ? escapeHtml(`Room ${item.custom.room}`) : '',
+            item.custom?.note ? escapeHtml(item.custom.note) : '',
+          ]
+            .filter(Boolean)
+            .join(' · ');
+          return `<tr data-id="${item.id}">
+            <td>
+              <a href="${href}">${name}</a>
+              ${extras ? `<div class="muted">${extras}</div>` : ''}
+            </td>
+            <td>${formatCents(unit)}</td>
+            <td>
+              <input class="qty-input" type="number" min="1" step="1" value="${item.quantity}" data-qty />
+            </td>
+            <td>${formatCents(unit * item.quantity)}</td>
+            <td><button type="button" class="btn-text" data-remove>Remove</button></td>
+          </tr>`;
+        })
+        .join('');
+
+      root.innerHTML = `
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Total</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+        <p class="cart-subtotal">Subtotal (${cartItemCount(cart)} item${cartItemCount(cart) === 1 ? '' : 's'}): <strong>${formatCents(cartTotalCents(cart))}</strong></p>
+        <p class="checkout-actions">
+          <a class="btn btn-gold" href="${checkoutHref}">Checkout</a>
+          <a class="btn" href="${shopHref}">Continue shopping</a>
+        </p>
+      `;
+
+      root.querySelectorAll<HTMLInputElement>('[data-qty]').forEach((input) => {
+        input.addEventListener('change', () => {
+          const id = input.closest('tr')?.dataset.id;
+          if (!id) return;
+          loadAndMutate((cart) => updateQty(cart, id, Number(input.value)));
+          render();
+        });
+      });
+      root.querySelectorAll<HTMLButtonElement>('[data-remove]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const id = button.closest('tr')?.dataset.id;
+          if (!id) return;
+          loadAndMutate((cart) => removeItem(cart, id));
+          render();
+        });
+      });
+    }
+
+    render();
+  }
+</script>

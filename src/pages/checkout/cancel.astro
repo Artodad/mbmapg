@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import { withBase } from '../../lib/site';
+---
+
+<Base title="Checkout canceled" description="Your MBMA PG shop checkout was canceled.">
+  <PageHero title="Checkout canceled" />
+  <main>
+    <div class="wrap prose">
+      <p>
+        You can return to your cart and try again, email the board, or pay at the
+        Welcome Back Meet &amp; Greet. Nothing was charged.
+      </p>
+      <p class="checkout-actions">
+        <a class="btn btn-gold" href={withBase('cart')}>Back to cart</a>
+        <a class="btn" href={withBase('shop')}>Back to shop</a>
+      </p>
+    </div>
+  </main>
+</Base>
