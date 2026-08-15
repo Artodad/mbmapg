@@ -20,12 +20,10 @@ export function asset(path: string): string {
 }
 
 export const navItems = [
-  { href: '', label: 'HOME' },
-  { href: 'about', label: 'ABOUT' },
-  { href: 'board', label: 'PG BOARD' },
-  { href: 'contact', label: 'CONTACT' },
-  { href: 'volunteer', label: 'VOLUNTEER' },
-  { href: 'give', label: 'GIVE' },
-  { href: 'events', label: 'EVENTS' },
-  { href: 'shop', label: 'SHOP' },
+  { href: '', label: 'Home' },
+  { href: 'events', label: 'Events' },
+  { href: 'volunteer', label: 'Volunteer' },
+  { href: 'shop', label: 'Shop' },
+  { href: 'about', label: 'About' },
+  { href: 'board', label: 'Board' },
 ] as const;

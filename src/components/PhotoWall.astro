@@ -15,6 +15,7 @@ const { items, class: className } = Astro.props;
     items.map((item) => (
       <figure class={item.size ? `gallery-${item.size}` : undefined}>
         <img src={asset(item.src)} alt={item.alt} loading="lazy" />
+        {item.caption ? <figcaption>{item.caption}</figcaption> : null}
       </figure>
     ))
   }

@@ -110,8 +110,8 @@ p {
   top: 0.75rem;
   z-index: 80;
   transform: translateY(-150%);
-  background: var(--gold);
-  color: var(--charcoal);
+  background: var(--charcoal);
+  color: var(--cream);
   padding: 0.55rem 0.8rem;
   font-family: var(--heading);
   font-weight: 700;
@@ -131,8 +131,7 @@ p {
 
 .site-header {
   background: var(--white);
-  border-top: 3px solid var(--gold);
-  border-bottom: 1px solid var(--slate);
+  border-bottom: 1px solid var(--rule);
   position: sticky;
   top: 0;
   z-index: 60;
@@ -182,9 +181,9 @@ p {
   text-decoration: none;
   color: var(--charcoal);
   font-family: var(--heading);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   line-height: 1;
   padding: 0.4rem 0;
   white-space: nowrap;
@@ -203,8 +202,8 @@ p {
   text-decoration: none;
   font-family: var(--heading);
   font-weight: 700;
-  letter-spacing: 0.1em;
-  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  font-size: 0.88rem;
   line-height: 1;
   min-height: 2.5rem;
   display: inline-flex;
@@ -329,8 +328,7 @@ p {
   color: #f3d39a;
 }
 
-.home-hero h1,
-.page-hero h1 {
+.home-hero h1 {
   color: var(--white);
 }
 
@@ -340,26 +338,34 @@ p {
   display: block;
   width: 2.4rem;
   height: 2px;
-  background: var(--gold);
+  background: currentColor;
   margin-top: 0.75rem;
 }
 
 .home-hero .lede,
 .page-hero .lede {
-  color: rgba(255, 253, 246, 0.92);
   max-width: 34rem;
   font-size: 1.05rem;
   margin: 0.85rem 0 0;
 }
 
+.home-hero .lede {
+  color: rgba(255, 253, 246, 0.92);
+}
+
 .page-hero {
-  background: var(--slate);
-  color: var(--white);
+  background: var(--cream-deep);
+  color: var(--charcoal);
   padding: 1.7rem 0 1.5rem;
+}
+
+.page-hero h1 {
+  color: var(--charcoal);
 }
 
 .page-hero .lede {
   font-size: 1rem;
+  color: var(--ink-muted);
 }
 
 /* ----- Page body ----- */
@@ -381,7 +387,7 @@ main {
 }
 
 .section-band {
-  background: var(--white);
+  background: var(--cream-deep);
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   padding: 2.4rem 0;
@@ -397,8 +403,33 @@ main {
   display: block;
   width: 2.25rem;
   height: 2px;
-  background: var(--gold);
+  background: var(--charcoal);
   margin-top: 0.55rem;
+}
+
+.home-deadline {
+  margin-top: 1.15rem;
+}
+
+.home-actions {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  margin-top: 1.15rem;
+  max-width: 46rem;
+}
+
+.home-actions .card {
+  margin: 0;
+}
+
+.home-actions .actions,
+.home-deadline .actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.1rem;
+  margin-top: 0.35rem;
 }
 
 .actions {
@@ -450,7 +481,7 @@ main {
   align-items: start;
   background: var(--white);
   border: 1px solid var(--rule);
-  border-left: 3px solid var(--slate);
+  border-left: 3px solid var(--charcoal);
   border-radius: var(--radius);
   padding: 1.15rem 1.2rem 1.2rem;
   max-width: 46rem;
@@ -463,8 +494,8 @@ main {
   justify-content: center;
   min-width: 4.4rem;
   padding: 0.55rem 0.5rem 0.6rem;
-  background: var(--slate);
-  color: var(--white);
+  background: var(--charcoal);
+  color: var(--cream);
   text-align: center;
 }
 
@@ -566,6 +597,28 @@ main {
   aspect-ratio: 4 / 3;
 }
 
+.gallery-home {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.gallery-home figure {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-home img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+}
+
+.gallery figcaption {
+  padding: 0.5rem 0.2rem 0.15rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: var(--charcoal);
+}
+
 .about-photos {
   margin-top: 2rem;
 }
@@ -597,9 +650,9 @@ main {
 
 .board-card img {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center top;
   display: block;
   margin-bottom: 0.8rem;
   background: var(--cream-deep);
@@ -618,7 +671,7 @@ main {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--ink-muted);
 }
 
 .board-card .muted {
@@ -710,7 +763,7 @@ main {
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--ink-muted);
   margin: 0 0 0.55rem;
 }
 
@@ -783,7 +836,7 @@ form.contact-form {
 details.faq {
   background: var(--white);
   border: 1px solid var(--rule);
-  border-left: 3px solid var(--slate);
+  border-left: 3px solid var(--charcoal);
   border-radius: var(--radius);
   padding: 0.75rem 1rem;
   margin: 0.55rem 0;
@@ -810,14 +863,14 @@ details.faq .prose {
 .price {
   font-family: var(--heading);
   font-weight: 700;
-  color: var(--slate);
+  color: var(--charcoal);
   font-size: 1.15rem;
 }
 
 .note {
   background: var(--white);
   border: 1px solid var(--rule);
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid var(--charcoal);
   padding: 0.8rem 1rem;
   margin: 0 0 1.2rem;
 }
@@ -829,11 +882,11 @@ details.faq .prose {
   color: var(--cream);
   padding: 2rem 0 1.7rem;
   font-size: 0.92rem;
-  border-top: 3px solid var(--gold);
+  border-top: 1px solid var(--rule-strong);
 }
 
 .site-footer a {
-  color: #f3d39a;
+  color: var(--cream);
 }
 
 .site-footer a:hover {
@@ -875,6 +928,10 @@ details.faq .prose {
 
 @media (min-width: 640px) {
   .board-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .home-actions {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -948,8 +1005,8 @@ details.faq .prose {
   }
 
   .nav a {
-    font-size: 0.86rem;
-    letter-spacing: 0.1em;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
     padding: 0.85rem 0.2rem;
     border-bottom: 1px solid var(--cream-deep);
   }
@@ -960,7 +1017,8 @@ details.faq .prose {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .gallery-about {
+  .gallery-about,
+  .gallery-home {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -991,6 +1049,14 @@ details.faq .prose {
 
   .gallery-about {
     grid-template-columns: 1fr;
+  }
+
+  .gallery-home {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery-home img {
+    aspect-ratio: 4 / 3;
   }
 
   .event-card {
