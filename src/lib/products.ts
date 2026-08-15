@@ -148,7 +148,7 @@ export const products: Product[] = [
     group: 'fundraiser',
     staffOnly: true,
     image: 'images/products/teachers-pizza.png',
-    name: 'TEACHERS Pizza Lunch',
+    name: 'Teachers pizza lunch',
     priceCents: 0,
     summary: 'Teacher/staff only. Cheese only. Choice of 1–2 or 3–5 slices.',
     details: [
