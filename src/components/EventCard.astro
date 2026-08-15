@@ -1,0 +1,40 @@
+---
+import { withBase } from '../lib/site';
+
+interface Props {
+  title: string;
+  month: string;
+  day: string;
+  meta: string;
+  blurb: string;
+  href: string;
+  heading?: 'h2' | 'h3';
+  cta?: string;
+}
+
+const {
+  title,
+  month,
+  day,
+  meta,
+  blurb,
+  href,
+  heading = 'h2',
+  cta = 'Event details',
+} = Astro.props;
+---
+
+<article class="event-card">
+  <div class="event-date" aria-hidden="true">
+    <span class="month">{month}</span>
+    <span class="day">{day}</span>
+  </div>
+  <div>
+    {heading === 'h3' ? <h3>{title}</h3> : <h2>{title}</h2>}
+    <p class="event-meta">{meta}</p>
+    <p>{blurb}</p>
+    <p>
+      <a class="btn" href={withBase(href)}>{cta}</a>
+    </p>
+  </div>
+</article>

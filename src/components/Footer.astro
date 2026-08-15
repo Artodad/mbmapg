@@ -1,15 +1,19 @@
 ---
-import { calendarPdf, contactEmail } from '../lib/site';
+import { calendarPdf, contactEmail, withBase } from '../lib/site';
 ---
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <p>
-      Mission Bay Montessori Academy Parents Group Foundation · ©2025-2026 ·
-      <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-    </p>
-    <p>
+    <div>
+      <p class="footer-name">Mission Bay Montessori Academy Parents Group Foundation</p>
+      <p class="footer-meta">
+        ©2025-2026 · <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+      </p>
+    </div>
+    <p class="footer-links">
       <a href={calendarPdf}>2025-26 calendar PDF</a>
+      <a href={withBase('give')}>Donate</a>
+      <a href={withBase('contact')}>Contact</a>
     </p>
   </div>
 </footer>
