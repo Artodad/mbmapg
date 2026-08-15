@@ -38,7 +38,7 @@ const board = [
 
 <Base title="PG Board" description="Meet the MBMA Parents Group board.">
   <PageHero title="Meet Our Board" />
-  <main>
+  <main id="main">
     <div class="wrap">
       <div class="board-grid">
         {
@@ -46,11 +46,13 @@ const board = [
             <article class="board-card">
               <img src={person.photo} alt={person.name} />
               <h2>{person.name}</h2>
-              <p>{person.role}</p>
+              <p class="board-role">{person.role}</p>
               <p class="muted">{person.year}</p>
               {person.email ? (
                 <p>
-                  <a href={`mailto:${person.email}`}>{'emailLabel' in person && person.emailLabel ? person.emailLabel : person.email}</a>
+                  <a href={`mailto:${person.email}`}>
+                    {'emailLabel' in person && person.emailLabel ? person.emailLabel : person.email}
+                  </a>
                 </p>
               ) : null}
             </article>

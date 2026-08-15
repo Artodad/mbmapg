@@ -1,13 +1,28 @@
 ---
 import Base from '../layouts/Base.astro';
+import EventCard from '../components/EventCard.astro';
 import { Content as AboutBlurb } from '../content/about-blurb.md';
 import { calendarPdf, media, withBase } from '../lib/site';
 
+const heroPhoto = media('ae91bf_33fad9239ba544a686715aa24e1cf51d~mv2.jpg');
 const gallery = [
-  media('ae91bf_6a63577df8a140a6a4cbb7cd1418a98d~mv2.png'),
-  media('ae91bf_33fad9239ba544a686715aa24e1cf51d~mv2.jpg'),
-  media('ae91bf_f770b0cbc65c410cac0e0d37450a0560~mv2.jpeg'),
-  media('ae91bf_02705adc475c4e98bb416bbfd319cca7~mv2.jpeg'),
+  {
+    src: media('ae91bf_6a63577df8a140a6a4cbb7cd1418a98d~mv2.png'),
+    alt: 'The playground at Mission Bay Montessori Academy',
+    wide: true,
+  },
+  {
+    src: media('ae91bf_33fad9239ba544a686715aa24e1cf51d~mv2.jpg'),
+    alt: 'MBMA students and families at Jog-A-Thon',
+  },
+  {
+    src: media('ae91bf_f770b0cbc65c410cac0e0d37450a0560~mv2.jpeg'),
+    alt: 'A student with a Jog-A-Thon award at MBMA',
+  },
+  {
+    src: media('ae91bf_02705adc475c4e98bb416bbfd319cca7~mv2.jpeg'),
+    alt: 'Students holding Jog-A-Thon awards',
+  },
 ];
 
 const pgCal =
@@ -20,41 +35,71 @@ const schoolCal =
   title="Home"
   description="MBMA Parents Group — support, enrichment, and family events for Mission Bay Montessori Academy."
 >
-  <section class="hero">
-    <div class="wrap">
-      <h1>About Mbma Parents Group</h1>
+  <section class="home-hero">
+    <div class="home-hero-media" style={`background-image: url('${heroPhoto}')`}></div>
+    <div class="wrap home-hero-inner">
+      <p class="eyebrow">Mission Bay Montessori Academy</p>
+      <h1>Welcome to MBMA Parents Group</h1>
+      <p class="lede">Open to all parents at Mission Bay Montessori Academy.</p>
     </div>
   </section>
-  <main>
-    <div class="wrap prose">
-      <AboutBlurb />
-      <p>
-        <a class="btn" href={withBase('about')}>Our Mission</a>
-      </p>
-
-      <h2>Upcoming Events</h2>
-      <article class="event-card">
-        <h3>Welcome Back Meet & Greet</h3>
-        <p>Sat, Aug 22 · San Diego</p>
-        <p>Join us at Standley Park as we welcome in the new school year.</p>
-        <p>
-          <a class="btn" href={withBase('events/welcome-back-meet-greet')}>Event details</a>
+  <main id="main" class="home-main">
+    <section class="section">
+      <div class="wrap prose">
+        <AboutBlurb />
+        <p class="actions">
+          <a class="btn" href={withBase('about')}>Our Mission</a>
         </p>
-      </article>
-
-      <h2>Our Gallery Mbma Parents Group</h2>
-      <div class="gallery">
-        {gallery.map((src, i) => <img src={src} alt={`MBMA Parents Group gallery ${i + 1}`} />)}
       </div>
+    </section>
 
-      <h2>Calendar</h2>
-      <p>
-        <a href={calendarPdf}>2025-2026 calendar PDF</a>
-      </p>
-      <div class="calendars">
-        <iframe title="MBMA Parents Group calendar" src={pgCal} loading="lazy"></iframe>
-        <iframe title="MBMA school calendar" src={schoolCal} loading="lazy"></iframe>
+    <section class="section-band">
+      <div class="wrap">
+        <h2 class="section-title">Upcoming Events</h2>
+        <EventCard
+          heading="h3"
+          title="Welcome Back Meet & Greet"
+          month="Aug"
+          day="22"
+          meta="Sat, Aug 22 · San Diego"
+          blurb="Join us at Standley Park as we welcome in the new school year."
+          href="events/welcome-back-meet-greet"
+        />
       </div>
-    </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">Gallery</h2>
+        <div class="gallery">
+          {
+            gallery.map((item) => (
+              <figure class={item.wide ? 'gallery-wide' : undefined}>
+                <img src={item.src} alt={item.alt} />
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">Calendar</h2>
+        <p>
+          <a href={calendarPdf}>2025-2026 calendar PDF</a>
+        </p>
+        <div class="calendar-pair">
+          <div class="calendar-frame">
+            <h3>Parents Group</h3>
+            <iframe title="MBMA Parents Group calendar" src={pgCal} loading="lazy"></iframe>
+          </div>
+          <div class="calendar-frame">
+            <h3>School</h3>
+            <iframe title="MBMA school calendar" src={schoolCal} loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </Base>

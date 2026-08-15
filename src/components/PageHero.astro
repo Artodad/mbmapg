@@ -2,13 +2,15 @@
 interface Props {
   title: string;
   lede?: string;
+  eyebrow?: string;
 }
-const { title, lede } = Astro.props;
+const { title, lede, eyebrow } = Astro.props;
 ---
 
 <section class="page-hero">
   <div class="wrap">
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
     <h1>{title}</h1>
-    {lede && <p>{lede}</p>}
+    {lede && <p class="lede">{lede}</p>}
   </div>
 </section>

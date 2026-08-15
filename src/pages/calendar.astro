@@ -15,28 +15,42 @@ const schoolIcal = `https://calendar.google.com/calendar/ical/${encodeURICompone
 
 <Base title="Calendar" description="Parents Group and School Events">
   <PageHero title="Calendar" lede="Includes Parents Group and School Events" />
-  <main>
+  <main id="main">
     <div class="wrap prose">
       <p>
         <a href={calendarPdf}>2025-2026 calendar PDF</a>
       </p>
       <p>You can add subscribe to these Calendars- see instructions below</p>
-      <p>
-        <a href={pgGmail}>•Subscribe to MBMAPG Calendar Events for Gmail Accounts•</a><br />
-        <a href={schoolGmail}>Subscribe to MBMA School Events for Gmail Accounts•</a>
-      </p>
-      <p>
-        <a href={pgIcal}>•Subscribe to MBMAPG Events for iCal/iPhone•</a><br />
-        <a href={schoolIcal}>•Subscribe to MBMA School Events for iCal/iPhone•</a>
-      </p>
+      <ul class="link-list">
+        <li>
+          <a href={pgGmail}>•Subscribe to MBMAPG Calendar Events for Gmail Accounts•</a>
+        </li>
+        <li>
+          <a href={schoolGmail}>Subscribe to MBMA School Events for Gmail Accounts•</a>
+        </li>
+        <li>
+          <a href={pgIcal}>•Subscribe to MBMAPG Events for iCal/iPhone•</a>
+        </li>
+        <li>
+          <a href={schoolIcal}>•Subscribe to MBMA School Events for iCal/iPhone•</a>
+        </li>
+      </ul>
       <p>INSTRUCTIONS COMING SOON...</p>
       <p>
         School: 2640 Soderblom Ave, San Diego, CA 92122, Tel 858-457-5895,
         <a href="mailto:info@mbmacademy.com">info@mbmacademy.com</a>
       </p>
-      <div class="calendars">
-        <iframe title="MBMA Parents Group calendar" src={pgEmbed} loading="lazy"></iframe>
-        <iframe title="MBMA school calendar" src={schoolEmbed} loading="lazy"></iframe>
+    </div>
+    <div class="wrap">
+      <div class="calendar-pair">
+        <div class="calendar-frame">
+          <h3>Parents Group</h3>
+          <iframe title="MBMA Parents Group calendar" src={pgEmbed} loading="lazy"></iframe>
+        </div>
+        <div class="calendar-frame">
+          <h3>School</h3>
+          <iframe title="MBMA school calendar" src={schoolEmbed} loading="lazy"></iframe>
+        </div>
       </div>
     </div>
   </main>

@@ -1,22 +1,25 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
+import EventCard from '../components/EventCard.astro';
 import { withBase } from '../lib/site';
 ---
 
 <Base title="Events" description="Upcoming MBMA Parents Group events.">
-  <PageHero title="UPCOMING EVENTS" />
-  <main>
+  <PageHero title="Upcoming Events" />
+  <main id="main">
     <div class="wrap">
-      <article class="event-card">
-        <h2>Welcome Back Meet & Greet</h2>
-        <p>Aug 22, 2026, 10:00 AM – 12:00 PM</p>
-        <p>San Diego, 3585 Governor Dr, San Diego, CA 92122, USA</p>
-        <p>Join us at Standley Park as we welcome in the new school year.</p>
-        <p>
-          <a class="btn" href={withBase('events/welcome-back-meet-greet')}>Event details</a>
-        </p>
-      </article>
+      <EventCard
+        title="Welcome Back Meet & Greet"
+        month="Aug"
+        day="22"
+        meta="Aug 22, 2026, 10:00 AM – 12:00 PM · San Diego, 3585 Governor Dr, San Diego, CA 92122, USA"
+        blurb="Join us at Standley Park as we welcome in the new school year."
+        href="events/welcome-back-meet-greet"
+      />
+      <p class="muted" style="margin-top: 1.4rem;">
+        <a href={withBase('calendar')}>View the full calendar</a>
+      </p>
     </div>
   </main>
 </Base>
