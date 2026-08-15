@@ -4,7 +4,7 @@ Take a break from making lunches and help raise money
 
 For the MBMA Parents Group to enrich programs for our students!
 
-Lunches from Leucadia Pizzeria
+Lunches from The Pizza TapRoom in La Jolla
 
 31 lunches throughout the year
 

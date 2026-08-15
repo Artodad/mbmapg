@@ -50,7 +50,7 @@ export const products: Product[] = [
       'Annual MBMA PG fundraiser. Only cheese pizza is offered at this time.',
       '31 lunches throughout the year. Fill out one form for each child.',
       'Deadline to order: Friday, September 11. First pizza lunch: Friday, September 18.',
-      'Vendor notes from the current site (both are listed; this catalog does not pick a winner): Lunches from Leucadia Pizzeria. Pizza is from a new vendor this year: The Pizza TapRoom in La Jolla.',
+      'Pizza is from The Pizza TapRoom in La Jolla.',
       'Children’s House, Primary and Elementary students will only get cheese slices.',
       'Slices are double cut (a large that is usually 8 slices is 16, so slices are slightly smaller).',
       'No refunds for a student who missed a pizza lunch. One-time charge for the year; can be pro-rated for new students starting after the start of the year. Single-day sign-ups are not available. Ki’s lunch will be available on Fridays until September 11.',
