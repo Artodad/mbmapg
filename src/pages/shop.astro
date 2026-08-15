@@ -12,7 +12,8 @@ import { productGroups, productPriceLabel, productsInGroup } from '../lib/produc
       <p>
         Pizza Fridays, PE tees, Path of Appreciation pavers, and seasonal items.
         Open a product to add it to your cart.
-        <a href={withBase('cart')}>Cart</a>
+        {' '}
+        <a href={withBase('cart')}>View cart</a>
       </p>
       {
         productGroups.map((group) => {
