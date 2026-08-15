@@ -3,12 +3,14 @@ import '../styles/shop.css';
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import { withBase } from '../lib/site';
+import OrderHow from '../components/OrderHow.astro';
 ---
 
 <Base title="Order list" description="Your MBMA PG shop order list.">
   <PageHero title="Order list" />
   <main id="main">
     <div class="wrap">
+      <OrderHow />
       <div id="cart-app" data-shop={withBase('shop')} data-checkout={withBase('checkout')}>
         <p class="muted">Loading order list…</p>
       </div>

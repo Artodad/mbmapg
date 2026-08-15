@@ -7,9 +7,10 @@ import { siteName, logoSrc } from '../lib/site';
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
 const pageTitle = title ? `${title} | ${siteName}` : siteName;
 const desc =
   description ??
@@ -23,6 +24,7 @@ const desc =
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={desc} />
+    {noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
     <link rel="icon" href={logoSrc} type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -1,0 +1,11 @@
+---
+import { orderEmail, withBase } from '../lib/site';
+---
+
+<p class="order-how">
+  Complete an order at the
+  <a href={withBase('events/welcome-back-meet-greet')}>Welcome Back Meet &amp; Greet</a>
+  or email
+  <a href={`mailto:${orderEmail}`}>{orderEmail}</a>.
+  Online card payment is not available.
+</p>

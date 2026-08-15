@@ -3,6 +3,7 @@ import '../../styles/shop.css';
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import { asset, withBase } from '../../lib/site';
+import OrderHow from '../../components/OrderHow.astro';
 import {
   formatCents,
   getProduct,
@@ -27,14 +28,21 @@ const resolved = getProduct(product.slug) ?? product;
 const pizzaDetailsHref = resolved.slug === 'pizza-lunch' ? withBase('pizza-lunch') : null;
 ---
 
-<Base title={resolved.name} description={resolved.summary}>
+<Base title={resolved.name} description={resolved.summary} noindex={resolved.staffOnly}>
   <PageHero title={resolved.name} lede={resolved.summary} />
   <main id="main">
     <div class="wrap">
+      {resolved.staffOnly ? null : <OrderHow />}
       <article class="product product-detail">
         {resolved.image ? (
-          <img src={asset(resolved.image)} alt={resolved.name} width="800" height="800" />
+          <img
+            src={asset(resolved.image)}
+            alt={resolved.imagePlaceholder ? `${resolved.name} — photo not on the old shop` : resolved.name}
+            width="800"
+            height="800"
+          />
         ) : null}
+        {resolved.imagePlaceholder ? <p class="photo-note">Photo not on the old shop</p> : null}
         <p class="price">{productPriceLabel(resolved)}</p>
         {resolved.staffOnly ? <p>This item is for teachers and staff. It is not a parent product.</p> : null}
         {resolved.cheeseOnly && !resolved.staffOnly ? <p>Cheese only.</p> : null}
@@ -49,6 +57,7 @@ const pizzaDetailsHref = resolved.slug === 'pizza-lunch' ? withBase('pizza-lunch
           </p>
         ) : null}
 
+        {!resolved.staffOnly ? (
         <form
           class="contact-form add-form"
           id="add-form"
@@ -125,6 +134,9 @@ const pizzaDetailsHref = resolved.slug === 'pizza-lunch' ? withBase('pizza-lunch
           <button type="submit" class="btn">Add to order list</button>
           <p class="muted" id="add-status" hidden></p>
         </form>
+        ) : (
+          <p>This page is not a public order form. <a href={withBase('shop')}>Back to shop</a></p>
+        )}
 
         <p>
           <a href={withBase('shop')}>Back to shop</a>

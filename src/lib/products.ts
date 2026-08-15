@@ -37,6 +37,8 @@ export interface Product {
   group: ProductGroup;
   /** Hidden from the public catalog (teacher/staff). */
   staffOnly?: boolean;
+  /** Labeled stand-in, not a real product photo. */
+  imagePlaceholder?: boolean;
 }
 
 export const products: Product[] = [
@@ -76,6 +78,7 @@ export const products: Product[] = [
     slug: 'tee-adult',
     group: 'merch',
     image: 'images/products/tee-adult.svg',
+    imagePlaceholder: true,
     name: 'PE/Field Trip Tee — Adult Blue',
     priceCents: 1800,
     summary: 'Adult blue PE / field trip tee.',
@@ -163,6 +166,7 @@ export const products: Product[] = [
     slug: 'halloween-wristband',
     group: 'seasonal',
     image: 'images/products/halloween-wristband.svg',
+    imagePlaceholder: true,
     name: 'Halloween Wristband',
     priceCents: 5000,
     summary: 'Halloween wristband, $50.',
