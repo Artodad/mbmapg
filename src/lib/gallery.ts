@@ -40,6 +40,18 @@ const captions: Record<string, { alt: string; caption: string }> = {
 
 const restoredGallery: GalleryItem[] = [
   {
+    src: 'images/gallery/back-to-school-picnic-banner.jpg',
+    alt: 'Families at the MBMA Parents Group Back to School picnic',
+  },
+  {
+    src: 'images/gallery/back-to-school-picnic-families.jpg',
+    alt: 'Families at an MBMA Parents Group Back to School picnic',
+  },
+  {
+    src: 'images/gallery/back-to-school-picnic-snacks.jpg',
+    alt: 'Snack table at the MBMA Parents Group Back to School picnic',
+  },
+  {
     src: 'images/gallery/playground.png',
     alt: 'The playground at Mission Bay Montessori Academy',
   },
