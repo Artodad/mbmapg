@@ -16,7 +16,9 @@ const current = Astro.url.pathname.replace(/\/$/, '') || withBase('').replace(/\
             const href = withBase(item.href);
             const normalized = href.replace(/\/$/, '');
             const isCurrent =
-              current === normalized || (item.href === '' && current.endsWith('/mbmapg'));
+              current === normalized ||
+              (item.href === '' &&
+                (current === withBase('home').replace(/\/$/, '') || current.endsWith('/v2')));
             return (
               <a href={href} aria-current={isCurrent ? 'page' : undefined}>
                 {item.label}
