@@ -19,11 +19,15 @@ export const logoSrc = asset('images/logo.png');
 export const calendarPdf = asset('files/2025-26-school-calendar.pdf');
 export const calendarPdfLabel = '2025–26 school calendar (PDF)';
 
+/** Live Wix money doors. Do not point /v2/ Donate or Shop at Astro give/shop. */
+export const wixShopUrl = 'https://www.mbmapg.org/shop';
+export const wixDonateUrl = 'https://www.mbmapg.org/donate';
+
 export const navItems = [
-  { href: '', label: 'Home' },
+  { href: 'home', label: 'Home' },
+  { href: 'about', label: 'Our Mission' },
   { href: 'events', label: 'Events' },
   { href: 'volunteer', label: 'Volunteer' },
-  { href: 'shop', label: 'Shop' },
-  { href: 'about', label: 'About' },
+  { href: wixShopUrl, label: 'Shop' },
   { href: 'board', label: 'Board' },
 ] as const;

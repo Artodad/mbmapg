@@ -1,22 +1,26 @@
 ---
-import { logoSrc, navItems, siteName, withBase } from '../lib/site';
+import { navItems, siteName, withBase, wixDonateUrl } from '../lib/site';
 
 const current = Astro.url.pathname.replace(/\/$/, '') || withBase('').replace(/\/$/, '');
+const homePath = withBase('home').replace(/\/$/, '');
 ---
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href={withBase()}>
-      <img src={logoSrc} alt={`${siteName} logo`} width="200" height="102" />
+    <a class="brand" href={withBase('home')}>
+      <span class="brand-text">{siteName}</span>
     </a>
     <div class="header-tools">
       <nav class="nav" id="site-nav" aria-label="Primary">
         {
           navItems.map((item) => {
-            const href = withBase(item.href);
+            const external = item.href.startsWith('http');
+            const href = external ? item.href : withBase(item.href);
             const normalized = href.replace(/\/$/, '');
             const isCurrent =
-              current === normalized || (item.href === '' && current.endsWith('/mbmapg'));
+              !external &&
+              (current === normalized ||
+                (item.href === 'home' && (current === homePath || current.endsWith('/v2'))));
             return (
               <a href={href} aria-current={isCurrent ? 'page' : undefined}>
                 {item.label}
@@ -25,7 +29,7 @@ const current = Astro.url.pathname.replace(/\/$/, '') || withBase('').replace(/\
           })
         }
       </nav>
-      <a class="donate-btn" href={withBase('give')}>Donate</a>
+      <a class="donate-btn" href={wixDonateUrl}>Donate</a>
       <button
         class="nav-toggle"
         type="button"
@@ -33,8 +37,7 @@ const current = Astro.url.pathname.replace(/\/$/, '') || withBase('').replace(/\
         aria-controls="site-nav"
         aria-label="Open menu"
       >
-        <span class="nav-toggle-bars" aria-hidden="true"></span>
-        <span class="visually-hidden">Menu</span>
+        Menu
       </button>
     </div>
   </div>
