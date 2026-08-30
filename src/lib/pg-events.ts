@@ -151,6 +151,25 @@ export function eventsCovering(date: string, events = pgEvents): PgEvent[] {
   return events.filter((event) => event.start <= date && date <= event.end);
 }
 
+export function todayISO(now = new Date()): string {
+  return now.toISOString().slice(0, 10);
+}
+
+/** Next event whose start is today or later. List is chronological. */
+export function nextUpcomingEvent(today = todayISO(), events = pgEvents): PgEvent | undefined {
+  return events.find((event) => event.start >= today);
+}
+
+export function formatEventDate(iso: string): string {
+  const [year, month, day] = iso.split('-').map(Number);
+  return new Date(Date.UTC(year, month - 1, day)).toLocaleDateString('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+    timeZone: 'UTC',
+  }).toUpperCase();
+}
+
 export function eventsForMonth(year: number, month: number, events = pgEvents): PgEvent[] {
   const start = ymd(year, month, 1);
   const end = ymd(year, month, daysInMonth(year, month));
