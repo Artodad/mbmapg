@@ -2,7 +2,8 @@
 
 Static website for the Mission Bay Montessori Academy Parents Group Foundation.
 
-- **Live:** https://www.mbmapg.org/v2/home (Wix remains at `/`)
+- **Current (GitHub Pages):** https://artodad.github.io/mbmapg/
+- **Target:** Astro mounts at `/v2/home` on https://www.mbmapg.org once the host split exists (Wix remains at `/`)
 - **Repo:** https://github.com/Artodad/mbmapg
 - **Contact:** info@mbmapg.org
 
@@ -14,4 +15,4 @@ npm run dev
 npm run build
 ```
 
-The Astro site is mounted at `base: /v2/` on https://www.mbmapg.org. Home is `/v2/home`.
+This repo is configured with `base: /v2/` so it can sit next to Wix at `/` after the host split. Home will be `/v2/home`. Until then, the public site is GitHub Pages; preview this branch via Vercel after a push.
