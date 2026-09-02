@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/mbmapg", "destination": "/" },
+    { "source": "/mbmapg/:path*", "destination": "/:path*" }
+  ]
+}
