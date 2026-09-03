@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import EventCard from '../components/EventCard.astro';
 import MonthCalendar from '../components/MonthCalendar.astro';
 import PhotoGallery from '../components/PhotoGallery.astro';
-import { asset, withBase } from '../lib/site';
+import { asset, withBase, wixDonateUrl } from '../lib/site';
 import { homeGallery } from '../lib/gallery';
 
 const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
@@ -62,7 +62,7 @@ const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
               <h2>Donate</h2>
               <p>Support enrichment, events, and classroom needs.</p>
               <p>
-                <a class="btn btn-gold" href={withBase('give')}>Donate</a>
+                <a class="btn btn-gold" href={wixDonateUrl}>Donate</a>
               </p>
             </article>
           </div>

@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import { Content } from '../content/pizza-lunch.md';
-import { asset, withBase } from '../lib/site';
+import { asset, wixShopUrl } from '../lib/site';
 ---
 
 <Base title="Pizza lunch 2026–27" description="Pizza lunch 2026–27 — cheese pizza Fridays for the MBMA Parents Group.">
@@ -15,7 +15,7 @@ import { asset, withBase } from '../lib/site';
       />
       <Content />
       <p class="actions">
-        <a class="btn btn-gold" href={withBase('shop/pizza-lunch')}>Order pizza lunch</a>
+        <a class="btn btn-gold" href={wixShopUrl}>Order pizza lunch</a>
       </p>
     </div>
   </main>
