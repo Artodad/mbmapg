@@ -32,3 +32,7 @@ Do not use the root-base build for GitHub Pages — project Pages still needs `/
 `vercel.json` keeps `/mbmapg` rewrites for the default `/mbmapg/` preview. `PUBLIC_BASE=/` builds do not need those rewrites.
 
 Header Donate and nav Shop (and other checkout CTAs) point at the live Wix URLs `https://www.mbmapg.org/donate` and `https://www.mbmapg.org/shop`. Astro still has `/give` (PayPal) and `/shop` (catalog) in the tree.
+
+## Cloudflare Worker (preview only)
+
+`workers/mbmapg-split/` is a workers.dev dry-run that sends money paths to Wix and everything else to Astro (with `/mbmapg` prefix rewrite for GH Pages). See that folder's README for `npx wrangler deploy`. Do not attach `www.mbmapg.org` yet.
