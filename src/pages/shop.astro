@@ -3,6 +3,9 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import { contactEmail, withBase } from '../lib/site';
 
+const zeffyCheckoutHref = 'https://www.zeffy.com/en-US/ticketing/test-with-chase';
+const zeffyFormLink = 'https://www.zeffy.com/embed/ticketing/test-with-chase?modal=true';
+
 const products: { name: string; price: string; note?: string; href?: string }[] = [
   {
     name: 'Pizza Lunch Fridays - Fundraiser',
@@ -41,7 +44,7 @@ const products: { name: string; price: string; note?: string; href?: string }[] 
 ];
 ---
 
-<Base title="Shop" description="MBMA PG shop catalog and a demo Zeffy checkout for a Chase test purchase.">
+<Base title="Shop" description="MBMA PG shop catalog. Demo checkout opens in a Zeffy popup.">
   <PageHero title="Shop" />
   <main id="main">
     <div class="wrap">
@@ -49,19 +52,10 @@ const products: { name: string; price: string; note?: string; href?: string }[] 
         *Please put Students first name & room # in Company name field at checkout.
       </p>
       <p>
-        Demo Zeffy form below is for a test purchase with Chase. The shop catalog is still listed
-        under the form. For questions, email the board at{' '}
+        Demo checkout via Zeffy popup for a test purchase with Chase. For questions, email the board
+        at{' '}
         <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
       </p>
-      <Fragment>
-<div>
-  <div data-zeffy-embed data-form-url="/embed/ticketing/test-with-chase"></div>
-  <div data-zeffy-embed-fallback style="display:none;">
-    <div style="position:relative;overflow:hidden;height:450px;width:100%;padding-top:450px;"><iframe title='Donation form powered by Zeffy' style='position: absolute; border: 0; top:0;left:0;bottom:0;right:0;width:100%;height:100%' data-zeffy-embed-src='https://www.zeffy.com/embed/ticketing/test-with-chase' allowpaymentrequest allowTransparency="true"></iframe></div>
-  </div>
-  <script is:inline src="https://www.zeffy.com/embed/v2/zeffy-embed.js" onerror="document.querySelectorAll('[data-zeffy-embed-fallback]').forEach(function(el){el.style.display='block';el.querySelectorAll('iframe[data-zeffy-embed-src]').forEach(function(f){f.src=f.getAttribute('data-zeffy-embed-src');});});"></script>
-</div>
-      </Fragment>
       <div class="product-grid">
         {
           products.map((product) => (
@@ -69,11 +63,14 @@ const products: { name: string; price: string; note?: string; href?: string }[] 
               <h2>{product.name}</h2>
               <p class="price">{product.price}</p>
               {product.note ? <p>{product.note}</p> : null}
-              {'href' in product && product.href ? (
-                <p>
+              <p class="product-actions">
+                <a class="btn btn-gold" href={zeffyCheckoutHref} zeffy-form-link={zeffyFormLink}>
+                  Buy
+                </a>
+                {'href' in product && product.href ? (
                   <a href={withBase(product.href)}>Pizza lunch details</a>
-                </p>
-              ) : null}
+                ) : null}
+              </p>
             </article>
           ))
         }
@@ -94,10 +91,17 @@ const products: { name: string; price: string; note?: string; href?: string }[] 
       </div>
     </div>
   </main>
+  <script
+    is:inline
+    src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"></script>
 </Base>
 
 <style>
-  [data-zeffy-embed] {
-    margin: 1.25rem 0 0;
+  .product-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    margin: 0.85rem 0 0;
   }
 </style>
