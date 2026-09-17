@@ -1,45 +1,58 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
-import { contactEmail, withBase } from '../lib/site';
+import { asset, contactEmail, withBase } from '../lib/site';
 
 const zeffyCheckoutHref = 'https://www.zeffy.com/en-US/ticketing/test-with-chase';
 const zeffyFormLink = 'https://www.zeffy.com/embed/ticketing/test-with-chase?modal=true';
 
-const products: { name: string; price: string; note?: string; href?: string }[] = [
+const products: {
+  name: string;
+  price: string;
+  note?: string;
+  href?: string;
+  image?: string;
+}[] = [
   {
     name: 'Pizza Lunch Fridays - Fundraiser',
     price: '$180.00',
     note: '1–2 / 3–5 / 6–8 slices: $180 / $240 / $300. See pizza lunch page for both vendor notes.',
     href: 'pizza-lunch',
+    image: 'images/shop/pizza-lunch.png',
   },
   {
     name: 'PE/Field Trip Tee- Youth Blue',
     price: '$15.00',
+    image: 'images/shop/pe-tee.jpg',
   },
   {
     name: 'PE/Field Trip Tee - Adult Blue',
     price: '$18.00',
+    image: 'images/shop/pe-tee.jpg',
   },
   {
     name: 'Path of Appreciation Paver $500',
     price: '$500.00',
     note: '12x12 inch 7 Lines (20 characters per line) 2 Color options Tan Gray. Order your paver by March 26, 2026.',
+    image: 'images/shop/paver.jpg',
   },
   {
     name: 'Path of Appreciation Paver $250',
     price: '$250.00',
     note: '8x8 inch 5 Lines (20 characters per line) 2 Color options Gray Beige. Order your paver by March 26, 2026.',
+    image: 'images/shop/paver.jpg',
   },
   {
     name: 'Path of Appreciation Paver $100',
     price: '$100.00',
     note: '4x8 inch 2 Lines (20 characters per line) 2 Color options Tan Beige. Order your paver by March 26, 2026.',
+    image: 'images/shop/paver.jpg',
   },
   {
     name: 'TEACHERS Pizza Lunch',
     price: '$0.00',
     note: 'Choice of 1-2 slices or 3-5 CHEESE ONLY Slices NOTE: Please be aware of that the slices are double cut (i.e: Usually a large is 8 slices, but now it will be 16 which means they will slightly smaller)',
+    image: 'images/shop/teachers-pizza.png',
   },
 ];
 ---
@@ -60,6 +73,7 @@ const products: { name: string; price: string; note?: string; href?: string }[] 
         {
           products.map((product) => (
             <article class="product">
+              {product.image ? <img src={asset(product.image)} alt={product.name} /> : null}
               <h2>{product.name}</h2>
               <p class="price">{product.price}</p>
               {product.note ? <p>{product.note}</p> : null}
@@ -110,6 +124,11 @@ const products: { name: string; price: string; note?: string; href?: string }[] 
 </Base>
 
 <style>
+  .product img {
+    display: block;
+    border-radius: 0;
+  }
+
   .product-actions {
     display: flex;
     flex-wrap: wrap;
