@@ -52,9 +52,8 @@ const products: { name: string; price: string; note?: string; href?: string }[] 
         *Please put Students first name & room # in Company name field at checkout.
       </p>
       <p>
-        Demo checkout via Zeffy popup for a test purchase with Chase. If the popup does not open,
-        use the{' '}
-        <a href={zeffyCheckoutHref}>plain Zeffy checkout link</a>. For questions, email the board at{' '}
+        Demo checkout via Zeffy popup for a test purchase with Chase. For questions, email the board
+        at{' '}
         <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
       </p>
       <div class="product-grid">
@@ -65,9 +64,9 @@ const products: { name: string; price: string; note?: string; href?: string }[] 
               <p class="price">{product.price}</p>
               {product.note ? <p>{product.note}</p> : null}
               <p class="product-actions">
-                <button type="button" class="btn btn-gold" zeffy-form-link={zeffyFormLink}>
+                <a class="btn btn-gold" href={zeffyCheckoutHref} zeffy-form-link={zeffyFormLink}>
                   Buy
-                </button>
+                </a>
                 {'href' in product && product.href ? (
                   <a href={withBase(product.href)}>Pizza lunch details</a>
                 ) : null}
@@ -95,6 +94,19 @@ const products: { name: string; price: string; note?: string; href?: string }[] 
   <script
     is:inline
     src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"></script>
+  <script is:inline>
+    document.addEventListener(
+      'click',
+      function (event) {
+        var trigger = event.target.closest('a[zeffy-form-link]');
+        if (!trigger) return;
+        if (document.querySelector('iframe[title="Form powered and secured by Zeffy"]')) {
+          event.preventDefault();
+        }
+      },
+      true
+    );
+  </script>
 </Base>
 
 <style>
@@ -104,11 +116,5 @@ const products: { name: string; price: string; note?: string; href?: string }[] 
     align-items: center;
     gap: 0.75rem 1rem;
     margin: 0.85rem 0 0;
-  }
-
-  .product-actions .btn {
-    appearance: none;
-    border: 0;
-    cursor: pointer;
   }
 </style>
