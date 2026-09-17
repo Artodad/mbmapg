@@ -3,6 +3,9 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import { contactEmail, withBase } from '../lib/site';
 
+const zeffyCheckoutHref = 'https://www.zeffy.com/en-US/ticketing/test-with-chase';
+const zeffyFormLink = 'https://www.zeffy.com/embed/ticketing/test-with-chase?modal=true';
+
 const products: { name: string; price: string; note?: string; href?: string }[] = [
   {
     name: 'Pizza Lunch Fridays - Fundraiser',
@@ -41,7 +44,7 @@ const products: { name: string; price: string; note?: string; href?: string }[] 
 ];
 ---
 
-<Base title="Shop" description="MBMA PG shop catalog. Order at Meet & Greet or email the board.">
+<Base title="Shop" description="MBMA PG shop catalog. Demo checkout opens in a Zeffy popup.">
   <PageHero title="Shop" />
   <main id="main">
     <div class="wrap">
@@ -49,8 +52,9 @@ const products: { name: string; price: string; note?: string; href?: string }[] 
         *Please put Students first name & room # in Company name field at checkout.
       </p>
       <p>
-        Catalog only — there is no online checkout on this site. Order at the Welcome Back Meet &
-        Greet or email the board at <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+        Demo checkout via Zeffy popup for a test purchase with Chase. For questions, email the board
+        at{' '}
+        <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
       </p>
       <div class="product-grid">
         {
@@ -59,11 +63,14 @@ const products: { name: string; price: string; note?: string; href?: string }[] 
               <h2>{product.name}</h2>
               <p class="price">{product.price}</p>
               {product.note ? <p>{product.note}</p> : null}
-              {'href' in product && product.href ? (
-                <p>
+              <p class="product-actions">
+                <a class="btn btn-gold" href={zeffyCheckoutHref} zeffy-form-link={zeffyFormLink}>
+                  Buy
+                </a>
+                {'href' in product && product.href ? (
                   <a href={withBase(product.href)}>Pizza lunch details</a>
-                </p>
-              ) : null}
+                ) : null}
+              </p>
             </article>
           ))
         }
@@ -84,4 +91,30 @@ const products: { name: string; price: string; note?: string; href?: string }[] 
       </div>
     </div>
   </main>
+  <script
+    is:inline
+    src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"></script>
+  <script is:inline>
+    document.addEventListener(
+      'click',
+      function (event) {
+        var trigger = event.target.closest('a[zeffy-form-link]');
+        if (!trigger) return;
+        if (document.querySelector('iframe[title="Form powered and secured by Zeffy"]')) {
+          event.preventDefault();
+        }
+      },
+      true
+    );
+  </script>
 </Base>
+
+<style>
+  .product-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    margin: 0.85rem 0 0;
+  }
+</style>
