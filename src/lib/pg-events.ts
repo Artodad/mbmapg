@@ -7,7 +7,33 @@ export type PgEvent = {
 
 export const pgCalStart = { year: 2026, month: 8 };
 export const pgCalEnd = { year: 2027, month: 6 };
-export const pgCalDefault = { year: 2026, month: 8 };
+
+type YearMonth = { year: number; month: number };
+
+function ymValue({ year, month }: YearMonth): number {
+  return year * 12 + month;
+}
+
+/**
+ * Default month for the PG calendar widget: the current month in
+ * America/Los_Angeles (Pacific), clamped to the in-range school year
+ * (before Aug 2026 → start; after Jun 2027 → end).
+ */
+export function pgCalDefaultMonth(now = new Date()): YearMonth {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Los_Angeles',
+    year: 'numeric',
+    month: 'numeric',
+  }).formatToParts(now);
+  const year = Number(parts.find((part) => part.type === 'year')?.value);
+  const month = Number(parts.find((part) => part.type === 'month')?.value);
+  const current = ymValue({ year, month });
+  if (current < ymValue(pgCalStart)) return { ...pgCalStart };
+  if (current > ymValue(pgCalEnd)) return { ...pgCalEnd };
+  return { year, month };
+}
+
+export const pgCalDefault = pgCalDefaultMonth();
 
 export const pgEvents: PgEvent[] = [
   {

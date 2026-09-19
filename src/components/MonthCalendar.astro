@@ -6,13 +6,14 @@ import {
   formatRange,
   monthGrid,
   monthNames,
-  pgCalDefault,
+  pgCalDefaultMonth,
   ymKey,
 } from '../lib/pg-events';
 
 const months = calendarMonths();
 const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const defaultKey = ymKey(pgCalDefault.year, pgCalDefault.month);
+const defaultMonth = pgCalDefaultMonth();
+const defaultKey = ymKey(defaultMonth.year, defaultMonth.month);
 ---
 
 <div class="pg-cal" data-pg-cal>
@@ -26,7 +27,9 @@ const defaultKey = ymKey(pgCalDefault.year, pgCalDefault.month);
       <button type="button" class="pg-cal-nav" data-pg-prev aria-label="Previous month">
         Previous
       </button>
-      <h3 class="pg-cal-label" data-pg-label>August 2026</h3>
+      <h3 class="pg-cal-label" data-pg-label>
+        {`${monthNames[defaultMonth.month - 1]} ${defaultMonth.year}`}
+      </h3>
       <button type="button" class="pg-cal-nav" data-pg-next aria-label="Next month">Next</button>
     </div>
 
@@ -96,6 +99,8 @@ const defaultKey = ymKey(pgCalDefault.year, pgCalDefault.month);
 </div>
 
 <script>
+  import { pgCalDefaultMonth, ymKey } from '../lib/pg-events';
+
   const root = document.querySelector('[data-pg-cal]');
   if (root instanceof HTMLElement) {
     const months = Array.from(root.querySelectorAll<HTMLElement>('[data-pg-month]'));
@@ -121,7 +126,8 @@ const defaultKey = ymKey(pgCalDefault.year, pgCalDefault.month);
       months.forEach((month, i) => {
         month.hidden = i !== index;
       });
-      const key = months[index]?.dataset.pgMonth ?? '2026-08';
+      const fallback = pgCalDefaultMonth();
+      const key = months[index]?.dataset.pgMonth ?? ymKey(fallback.year, fallback.month);
       const [year, month] = key.split('-').map(Number);
       if (label) {
         label.textContent = `${names[month - 1]} ${year}`;
@@ -134,7 +140,10 @@ const defaultKey = ymKey(pgCalDefault.year, pgCalDefault.month);
       }
     };
 
-    let index = months.findIndex((month) => !month.hidden);
+    const startAt = pgCalDefaultMonth();
+    const preferred = ymKey(startAt.year, startAt.month);
+    let index = months.findIndex((month) => month.dataset.pgMonth === preferred);
+    if (index < 0) index = months.findIndex((month) => !month.hidden);
     if (index < 0) index = 0;
     show(index);
 
