@@ -71,53 +71,55 @@ const products: {
 ---
 
 <Base title="Shop" description="MBMA PG shop catalog. Checkout opens in a Zeffy popup.">
-  <PageHero title="Shop" />
-  <main id="main">
-    <div class="wrap">
-      <p class="note">
-        *Please put Students first name & room # in Company name field at checkout.
-      </p>
-      <p>
-        Checkout opens in a popup. For questions, email the board
-        at{' '}
-        <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
-      </p>
-      <div class="product-grid">
-        {
-          products.map((product) => (
-            <article class="product">
-              {product.image ? <img src={asset(product.image)} alt={product.name} /> : null}
-              <h2>{product.name}</h2>
-              <p class="price">{product.price}</p>
-              {product.note ? <p>{product.note}</p> : null}
-              <p class="product-actions">
-                <a class="btn btn-gold" href={product.buyHref} zeffy-form-link={product.zeffyFormLink}>
-                  Buy
-                </a>
-                {'href' in product && product.href ? (
-                  <a href={withBase(product.href)}>Pizza lunch details</a>
-                ) : null}
-              </p>
-            </article>
-          ))
-        }
-      </div>
-      <div class="prose">
-        <h2>Path of Appreciation</h2>
-        <p>
-          MBMAPG would like to invite you to make a contribution to the Parents Group and in return,
-          get your families name and a message displayed on a permanent concrete paver. The pavers
-          will be placed in the “ Path of Appreciation ” located at the top of the main entrance,
-          just outside the office. The path has two wood arbors at the points of entry, a bench for
-          seating, and beautiful landscaping for students and families to enjoy. The benches will be
-          placed outside of the classrooms for outdoor education. This will ensure that we receive
-          the paver/bench by or before the end of the school year. Order your paver by March 26,
-          2026 and leave your lasting footprint at MBMA! This will ensure that we receive the
-          paver/bench by or before the end of the school year.
+  <div class="shop-zeffy">
+    <PageHero title="Shop" />
+    <main id="main">
+      <div class="wrap">
+        <p class="note">
+          *Please put Students first name & room # in Company name field at checkout.
         </p>
+        <p>
+          Checkout opens in a popup. For questions, email the board
+          at{' '}
+          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+        </p>
+        <div class="product-grid">
+          {
+            products.map((product) => (
+              <article class="product">
+                {product.image ? <img src={asset(product.image)} alt={product.name} /> : null}
+                <h2>{product.name}</h2>
+                <p class="price">{product.price}</p>
+                {product.note ? <p class="product-note">{product.note}</p> : null}
+                <p class="product-actions">
+                  <a class="btn btn-peach" href={product.buyHref} zeffy-form-link={product.zeffyFormLink}>
+                    Buy
+                  </a>
+                  {'href' in product && product.href ? (
+                    <a href={withBase(product.href)}>Pizza lunch details</a>
+                  ) : null}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+        <div class="prose">
+          <h2>Path of Appreciation</h2>
+          <p>
+            MBMAPG would like to invite you to make a contribution to the Parents Group and in return,
+            get your families name and a message displayed on a permanent concrete paver. The pavers
+            will be placed in the “ Path of Appreciation ” located at the top of the main entrance,
+            just outside the office. The path has two wood arbors at the points of entry, a bench for
+            seating, and beautiful landscaping for students and families to enjoy. The benches will be
+            placed outside of the classrooms for outdoor education. This will ensure that we receive
+            the paver/bench by or before the end of the school year. Order your paver by March 26,
+            2026 and leave your lasting footprint at MBMA! This will ensure that we receive the
+            paver/bench by or before the end of the school year.
+          </p>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
+  </div>
   <script
     is:inline
     src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"></script>
@@ -137,9 +139,90 @@ const products: {
 </Base>
 
 <style>
-  .product img {
+  .shop-zeffy {
+    --shop-cream: #FEF5ED;
+    --shop-card: #FFFFFF;
+    --shop-chocolate: #4A3520;
+    --shop-ochre: #B87B37;
+    --shop-peach: #F9DCC4;
+    --shop-border: #E8D5C0;
+    --shop-muted: #6B5340;
+    --shop-radius: 10px;
+    --shop-hero: #F7E8DA;
+    background: var(--shop-cream);
+    color: var(--shop-chocolate);
+  }
+
+  .shop-zeffy :global(.page-hero) {
+    background: var(--shop-hero);
+    color: var(--shop-chocolate);
+  }
+
+  .shop-zeffy :global(.page-hero h1) {
+    color: var(--shop-chocolate);
+  }
+
+  .shop-zeffy :global(.page-hero h1::after) {
+    background: var(--shop-chocolate);
+  }
+
+  .shop-zeffy h2,
+  .shop-zeffy p {
+    color: var(--shop-chocolate);
+  }
+
+  .shop-zeffy .note {
+    background: var(--shop-card);
+    border: 1px solid var(--shop-border);
+    border-left: 3px solid var(--shop-ochre);
+    border-radius: var(--shop-radius);
+    color: var(--shop-muted);
+  }
+
+  .shop-zeffy .product {
+    background: var(--shop-card);
+    border: 1px solid var(--shop-border);
+    border-radius: var(--shop-radius);
+  }
+
+  .shop-zeffy .product img {
     display: block;
-    border-radius: 0;
+    border-radius: 8px;
+    border-color: var(--shop-border);
+    background: var(--shop-cream);
+  }
+
+  .shop-zeffy .price {
+    color: var(--shop-ochre);
+  }
+
+  .shop-zeffy .product-note {
+    color: var(--shop-muted);
+  }
+
+  .shop-zeffy a:not(.btn) {
+    color: var(--shop-ochre);
+  }
+
+  .shop-zeffy a:not(.btn):hover {
+    color: var(--shop-chocolate);
+  }
+
+  .shop-zeffy a:not(.btn):focus-visible,
+  .shop-zeffy .btn-peach:focus-visible {
+    outline-color: var(--shop-ochre);
+  }
+
+  .shop-zeffy .btn-peach {
+    background: var(--shop-peach);
+    color: var(--shop-chocolate);
+    border-radius: 8px;
+  }
+
+  .shop-zeffy .btn-peach:hover {
+    background: color-mix(in srgb, var(--shop-peach) 78%, var(--shop-chocolate));
+    color: var(--shop-chocolate);
+    filter: none;
   }
 
   .product-actions {
