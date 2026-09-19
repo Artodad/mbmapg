@@ -1145,6 +1145,40 @@ body.lightbox-locked {
   font-size: 0.92rem;
 }
 
+.upcoming-list,
+.upcoming-empty {
+  margin: 0 0 2.2rem;
+}
+
+.upcoming-list {
+  list-style: none;
+  padding: 0;
+  max-width: 42rem;
+}
+
+.upcoming-list li {
+  display: grid;
+  grid-template-columns: 12.5rem 1fr;
+  gap: 0.65rem 1.1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.98rem;
+}
+
+.upcoming-list li:first-child {
+  border-top: 1px solid var(--rule);
+}
+
+.upcoming-when {
+  font-family: var(--heading);
+  font-weight: 700;
+  color: var(--ochre);
+}
+
+.events-cal-link {
+  margin-top: 1.4rem;
+}
+
 .link-list {
   max-width: var(--measure);
   padding: 0;
@@ -1498,6 +1532,11 @@ details.faq .prose {
   .pg-cal-list li {
     grid-template-columns: 3.6rem 1fr;
     gap: 0.45rem;
+  }
+
+  .upcoming-list li {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
   }
 }
 
