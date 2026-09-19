@@ -1,0 +1,18 @@
+# Preview-only path-split Worker. Deploy to workers.dev.
+# Do NOT add routes / custom domains here — especially not www.mbmapg.org.
+name = "mbmapg-split"
+main = "src/index.ts"
+compatibility_date = "2026-09-03"
+workers_dev = true
+
+# Plain vars (override in the dashboard or with `wrangler secret put` if needed).
+# ASTRO_BASE_PREFIX=/mbmapg  → GH Pages project site (request /x → ORIGIN/mbmapg/x)
+# ASTRO_BASE_PREFIX=""       → Astro already at origin root (PUBLIC_BASE=/ or CF Pages)
+[vars]
+ASTRO_ORIGIN = "https://artodad.github.io"
+ASTRO_BASE_PREFIX = "/mbmapg"
+WIX_ORIGIN = "https://wix-origin.mbmapg.org"
+
+# Until the DNS-only wix-origin.mbmapg.org hostname exists, a *local* dry-run can
+# override WIX_ORIGIN to a known Wix URL (wixsite / *.wix.com). Never www.mbmapg.org:
+# WIX_ORIGIN = "https://example.wixsite.com/your-site"

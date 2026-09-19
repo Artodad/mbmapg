@@ -1,5 +1,5 @@
 ---
-import { logoSrc, navItems, siteName, withBase } from '../lib/site';
+import { isAbsoluteUrl, logoSrc, navItems, siteName, withBase, wixDonateUrl } from '../lib/site';
 
 const current = Astro.url.pathname.replace(/\/$/, '') || withBase('').replace(/\/$/, '');
 ---
@@ -16,7 +16,8 @@ const current = Astro.url.pathname.replace(/\/$/, '') || withBase('').replace(/\
             const href = withBase(item.href);
             const normalized = href.replace(/\/$/, '');
             const isCurrent =
-              current === normalized || (item.href === '' && current.endsWith('/mbmapg'));
+              !isAbsoluteUrl(item.href) &&
+              (current === normalized || (item.href === '' && current.endsWith('/mbmapg')));
             return (
               <a href={href} aria-current={isCurrent ? 'page' : undefined}>
                 {item.label}
@@ -25,7 +26,7 @@ const current = Astro.url.pathname.replace(/\/$/, '') || withBase('').replace(/\
           })
         }
       </nav>
-      <a class="donate-btn" href={withBase('give')}>Donate</a>
+      <a class="donate-btn" href={wixDonateUrl}>Donate</a>
       <button
         class="nav-toggle"
         type="button"

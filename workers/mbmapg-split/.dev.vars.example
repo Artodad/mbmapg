@@ -1,0 +1,5 @@
+# Local wrangler overrides / secret placeholders. Copy to .dev.vars (gitignored).
+# Do not point WIX_ORIGIN at https://www.mbmapg.org.
+ASTRO_ORIGIN=https://artodad.github.io
+ASTRO_BASE_PREFIX=/mbmapg
+WIX_ORIGIN=https://wix-origin.mbmapg.org
