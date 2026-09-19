@@ -3,15 +3,14 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import { asset, contactEmail, withBase } from '../lib/site';
 
-const zeffyCheckoutHref = 'https://www.zeffy.com/en-US/ticketing/test-with-chase';
-const zeffyFormLink = 'https://www.zeffy.com/embed/ticketing/test-with-chase?modal=true';
-
 const products: {
   name: string;
   price: string;
   note?: string;
   href?: string;
   image?: string;
+  buyHref: string;
+  zeffyFormLink: string;
 }[] = [
   {
     name: 'Pizza Lunch Fridays - Fundraiser',
@@ -19,45 +18,59 @@ const products: {
     note: '1–2 / 3–5 / 6–8 slices: $180 / $240 / $300. See pizza lunch page for both vendor notes.',
     href: 'pizza-lunch',
     image: 'images/shop/pizza-lunch.png',
+    buyHref: 'https://www.zeffy.com/en-US/ticketing/pizza-lunch-fridays-fundraiser',
+    zeffyFormLink: 'https://www.zeffy.com/embed/ticketing/pizza-lunch-fridays-fundraiser?modal=true',
   },
   {
     name: 'PE/Field Trip Tee- Youth Blue',
     price: '$15.00',
     image: 'images/shop/pe-tee.jpg',
+    buyHref: 'https://www.zeffy.com/en-US/ticketing/pefield-trip-tee-youth-blue',
+    zeffyFormLink: 'https://www.zeffy.com/embed/ticketing/pefield-trip-tee-youth-blue?modal=true',
   },
   {
     name: 'PE/Field Trip Tee - Adult Blue',
     price: '$18.00',
     image: 'images/shop/pe-tee.jpg',
+    buyHref: 'https://www.zeffy.com/en-US/ticketing/pefield-trip-tee-adult-blue',
+    zeffyFormLink: 'https://www.zeffy.com/embed/ticketing/pefield-trip-tee-adult-blue?modal=true',
   },
   {
     name: 'Path of Appreciation Paver $500',
     price: '$500.00',
     note: '12x12 inch 7 Lines (20 characters per line) 2 Color options Tan Gray. Order your paver by March 26, 2026.',
     image: 'images/shop/paver.jpg',
+    buyHref: 'https://www.zeffy.com/en-US/ticketing/path-of-appreciation-paver-dollar500',
+    zeffyFormLink: 'https://www.zeffy.com/embed/ticketing/path-of-appreciation-paver-dollar500?modal=true',
   },
   {
     name: 'Path of Appreciation Paver $250',
     price: '$250.00',
     note: '8x8 inch 5 Lines (20 characters per line) 2 Color options Gray Beige. Order your paver by March 26, 2026.',
     image: 'images/shop/paver.jpg',
+    buyHref: 'https://www.zeffy.com/en-US/ticketing/path-of-appreciation-paver-dollar250',
+    zeffyFormLink: 'https://www.zeffy.com/embed/ticketing/path-of-appreciation-paver-dollar250?modal=true',
   },
   {
     name: 'Path of Appreciation Paver $100',
     price: '$100.00',
     note: '4x8 inch 2 Lines (20 characters per line) 2 Color options Tan Beige. Order your paver by March 26, 2026.',
     image: 'images/shop/paver.jpg',
+    buyHref: 'https://www.zeffy.com/en-US/ticketing/path-of-appreciation-paver-dollar100',
+    zeffyFormLink: 'https://www.zeffy.com/embed/ticketing/path-of-appreciation-paver-dollar100?modal=true',
   },
   {
     name: 'TEACHERS Pizza Lunch',
     price: '$0.00',
     note: 'Choice of 1-2 slices or 3-5 CHEESE ONLY Slices NOTE: Please be aware of that the slices are double cut (i.e: Usually a large is 8 slices, but now it will be 16 which means they will slightly smaller)',
     image: 'images/shop/teachers-pizza.png',
+    buyHref: 'https://www.zeffy.com/en-US/ticketing/teachers-pizza-lunch',
+    zeffyFormLink: 'https://www.zeffy.com/embed/ticketing/teachers-pizza-lunch?modal=true',
   },
 ];
 ---
 
-<Base title="Shop" description="MBMA PG shop catalog. Demo checkout opens in a Zeffy popup.">
+<Base title="Shop" description="MBMA PG shop catalog. Checkout opens in a Zeffy popup.">
   <PageHero title="Shop" />
   <main id="main">
     <div class="wrap">
@@ -65,7 +78,7 @@ const products: {
         *Please put Students first name & room # in Company name field at checkout.
       </p>
       <p>
-        Demo checkout via Zeffy popup for a test purchase with Chase. For questions, email the board
+        Checkout opens in a popup. For questions, email the board
         at{' '}
         <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
       </p>
@@ -78,7 +91,7 @@ const products: {
               <p class="price">{product.price}</p>
               {product.note ? <p>{product.note}</p> : null}
               <p class="product-actions">
-                <a class="btn btn-gold" href={zeffyCheckoutHref} zeffy-form-link={zeffyFormLink}>
+                <a class="btn btn-gold" href={product.buyHref} zeffy-form-link={product.zeffyFormLink}>
                   Buy
                 </a>
                 {'href' in product && product.href ? (
