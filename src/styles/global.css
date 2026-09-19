@@ -1,19 +1,24 @@
 :root {
-  --cream: #f5f2ec;
-  --charcoal: #31302c;
-  --slate: #5c739d;
-  --gold: #f59a28;
-  --white: #fffdf9;
-  --ink-muted: #5b5a52;
-  --rule: #d2cdc4;
-  --rule-strong: #a8a690;
-  --slate-deep: #4a5e84;
-  --cream-deep: #ebe6dd;
-  --overlay: rgba(49, 48, 44, 0.72);
+  --cream: #FEF5ED;
+  --charcoal: #4A3520;
+  --ochre: #B87B37;
+  --peach: #F9DCC4;
+  --white: #FFFFFF;
+  --ink-muted: #6B5340;
+  --rule: #E8D5C0;
+  --rule-strong: #C9B08A;
+  --cream-deep: #F7E8DA;
+  /* Aliases so leftover token refs cannot stay slate-blue / gold-orange */
+  --slate: var(--ochre);
+  --slate-deep: var(--charcoal);
+  --gold: var(--peach);
+  --overlay: rgba(74, 53, 32, 0.72);
   --heading: 'Raleway', sans-serif;
   --body: 'Roboto', sans-serif;
   --measure: 38rem;
-  --radius: 2px;
+  --radius: 10px;
+  --radius-btn: 8px;
+  --radius-img: 8px;
   --header-h: 7.15rem;
 }
 
@@ -48,7 +53,7 @@ img {
 }
 
 a {
-  color: var(--slate);
+  color: var(--ochre);
   text-underline-offset: 0.14em;
 }
 
@@ -57,7 +62,7 @@ a:hover {
 }
 
 :focus-visible {
-  outline: 2px solid var(--slate);
+  outline: 2px solid var(--ochre);
   outline-offset: 3px;
 }
 
@@ -194,14 +199,14 @@ p {
 
 .nav a:hover,
 .nav a[aria-current='page'] {
-  color: var(--slate);
+  color: var(--ochre);
 }
 
 .donate-btn {
-  background: var(--gold);
+  background: var(--peach);
   color: var(--charcoal) !important;
   padding: 0.5rem 0.85rem;
-  border-radius: var(--radius);
+  border-radius: var(--radius-btn);
   text-decoration: none;
   font-family: var(--heading);
   font-weight: 700;
@@ -214,7 +219,8 @@ p {
 }
 
 .donate-btn:hover {
-  filter: brightness(1.06);
+  background: color-mix(in srgb, var(--peach) 78%, var(--charcoal));
+  filter: none;
   color: var(--charcoal) !important;
 }
 
@@ -230,7 +236,7 @@ p {
   border: 1px solid var(--rule);
   background: var(--white);
   color: var(--charcoal);
-  border-radius: var(--radius);
+  border-radius: var(--radius-btn);
   cursor: pointer;
   position: relative;
 }
@@ -310,8 +316,8 @@ p {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(49, 48, 44, 0.38) 0%, rgba(49, 48, 44, 0.58) 42%, rgba(49, 48, 44, 0.9) 100%),
-    linear-gradient(90deg, rgba(49, 48, 44, 0.4), transparent 62%);
+    linear-gradient(180deg, rgba(74, 53, 32, 0.38) 0%, rgba(74, 53, 32, 0.58) 42%, rgba(74, 53, 32, 0.9) 100%),
+    linear-gradient(90deg, rgba(74, 53, 32, 0.4), transparent 62%);
 }
 
 .home-hero-inner {
@@ -343,6 +349,10 @@ p {
   height: 2px;
   background: currentColor;
   margin-top: 0.75rem;
+}
+
+.page-hero h1::after {
+  background: var(--ochre);
 }
 
 .home-hero .lede,
@@ -406,7 +416,7 @@ main {
   display: block;
   width: 2.25rem;
   height: 2px;
-  background: var(--charcoal);
+  background: var(--ochre);
   margin-top: 0.55rem;
 }
 
@@ -486,6 +496,7 @@ main {
   border: 1px solid var(--rule);
   background: var(--white);
   padding: 0.4rem;
+  border-radius: var(--radius-img);
 }
 
 /* ----- Event card ----- */
@@ -585,6 +596,7 @@ main {
   object-fit: cover;
   display: block;
   background: var(--cream-deep);
+  border-radius: var(--radius-img);
 }
 
 .gallery-wide img {
@@ -644,7 +656,7 @@ main {
 /* ----- Home 4-up gallery ----- */
 
 .photo-gallery:focus-visible {
-  outline: 2px solid var(--slate);
+  outline: 2px solid var(--ochre);
   outline-offset: 4px;
 }
 
@@ -659,7 +671,7 @@ main {
 }
 
 .gallery-open:focus-visible {
-  outline: 2px solid var(--slate);
+  outline: 2px solid var(--ochre);
   outline-offset: 2px;
 }
 
@@ -683,10 +695,10 @@ main {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--ochre);
   background: var(--white);
   border: 1px solid var(--rule);
-  border-radius: var(--radius);
+  border-radius: var(--radius-btn);
   padding: 0.65rem 0.9rem;
   min-height: 2.75rem;
   min-width: 6.4rem;
@@ -840,6 +852,7 @@ body.lightbox-locked {
   border: 1px solid var(--rule);
   background: var(--white);
   padding: 0.4rem;
+  border-radius: var(--radius-img);
 }
 
 /* ----- Board ----- */
@@ -867,6 +880,7 @@ body.lightbox-locked {
   margin-bottom: 0.8rem;
   background: var(--cream-deep);
   border: 1px solid var(--rule);
+  border-radius: var(--radius-img);
 }
 
 .board-card h2 {
@@ -912,6 +926,7 @@ body.lightbox-locked {
 }
 
 .product img {
+  display: block;
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
@@ -919,6 +934,7 @@ body.lightbox-locked {
   margin-bottom: 0.75rem;
   background: var(--cream-deep);
   border: 1px solid var(--rule);
+  border-radius: var(--radius-img);
 }
 
 .product h2 {
@@ -927,32 +943,27 @@ body.lightbox-locked {
 
 /* ----- Buttons ----- */
 
-.btn {
+.btn,
+.btn-gold,
+.btn-peach {
   display: inline-block;
-  background: var(--slate);
-  color: white;
+  background: var(--peach);
+  color: var(--charcoal);
   text-decoration: none;
   padding: 0.62rem 1rem;
-  border-radius: var(--radius);
+  border-radius: var(--radius-btn);
   font-family: var(--heading);
   font-weight: 700;
   letter-spacing: 0.05em;
   font-size: 0.88rem;
 }
 
-.btn:hover {
-  color: white;
-  background: var(--slate-deep);
-}
-
-.btn-gold {
-  background: var(--gold);
+.btn:hover,
+.btn-gold:hover,
+.btn-peach:hover {
   color: var(--charcoal);
-}
-
-.btn-gold:hover {
-  color: var(--charcoal);
-  filter: brightness(1.05);
+  background: color-mix(in srgb, var(--peach) 78%, var(--charcoal));
+  filter: none;
 }
 
 /* ----- Calendars ----- */
@@ -1024,10 +1035,10 @@ body.lightbox-locked {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--ochre);
   background: var(--white);
   border: 1px solid var(--rule);
-  border-radius: var(--radius);
+  border-radius: var(--radius-btn);
   padding: 0.4rem 0.65rem;
   min-height: 2.4rem;
   cursor: pointer;
@@ -1081,11 +1092,11 @@ body.lightbox-locked {
 
 .pg-cal-day.has-event .pg-cal-num {
   font-weight: 700;
-  color: var(--slate-deep);
+  color: var(--ochre);
 }
 
 .pg-cal-day.in-range {
-  background: rgba(92, 115, 157, 0.12);
+  background: rgba(184, 123, 55, 0.12);
 }
 
 .pg-cal-day.has-event:not(.in-range) {
@@ -1119,7 +1130,7 @@ body.lightbox-locked {
 .pg-cal-when {
   font-family: var(--heading);
   font-weight: 700;
-  color: var(--slate-deep);
+  color: var(--ochre);
 }
 
 .pg-cal-empty {
@@ -1176,11 +1187,11 @@ form.contact-form {
 
 .contact-form button {
   justify-self: start;
-  background: var(--slate);
-  color: white;
+  background: var(--peach);
+  color: var(--charcoal);
   border: 0;
   padding: 0.65rem 1.1rem;
-  border-radius: var(--radius);
+  border-radius: var(--radius-btn);
   font-family: var(--heading);
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -1188,7 +1199,8 @@ form.contact-form {
 }
 
 .contact-form button:hover {
-  background: var(--slate-deep);
+  background: color-mix(in srgb, var(--peach) 78%, var(--charcoal));
+  color: var(--charcoal);
 }
 
 details.faq {
@@ -1221,16 +1233,18 @@ details.faq .prose {
 .price {
   font-family: var(--heading);
   font-weight: 700;
-  color: var(--charcoal);
+  color: var(--ochre);
   font-size: 1.15rem;
 }
 
 .note {
   background: var(--white);
   border: 1px solid var(--rule);
-  border-left: 3px solid var(--charcoal);
+  border-left: 3px solid var(--ochre);
+  border-radius: var(--radius);
   padding: 0.8rem 1rem;
   margin: 0 0 1.2rem;
+  color: var(--ink-muted);
 }
 
 /* ----- Footer ----- */
@@ -1333,7 +1347,7 @@ details.faq .prose {
     display: block;
     position: fixed;
     inset: 0;
-    background: rgba(49, 48, 44, 0.42);
+    background: rgba(74, 53, 32, 0.42);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s ease;
