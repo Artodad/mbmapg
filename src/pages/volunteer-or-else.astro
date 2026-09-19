@@ -1,0 +1,695 @@
+---
+import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/site';
+
+const signup =
+  'https://www.signupgenius.com/go/10C094CABAB2AA7FDC25-64417788-volunteer';
+
+const hearts = [
+  { left: '4%', delay: '0s', size: '1.1rem', dur: '8s', drift: '18px' },
+  { left: '14%', delay: '1.2s', size: '0.75rem', dur: '10s', drift: '-22px' },
+  { left: '22%', delay: '3.4s', size: '1.35rem', dur: '7.5s', drift: '12px' },
+  { left: '38%', delay: '0.6s', size: '0.85rem', dur: '11s', drift: '-16px' },
+  { left: '51%', delay: '2.1s', size: '1.2rem', dur: '9s', drift: '24px' },
+  { left: '63%', delay: '4s', size: '0.7rem', dur: '8.5s', drift: '-10px' },
+  { left: '74%', delay: '1.8s', size: '1.45rem', dur: '12s', drift: '20px' },
+  { left: '83%', delay: '3s', size: '0.9rem', dur: '7s', drift: '-18px' },
+  { left: '92%', delay: '0.3s', size: '1.05rem', dur: '10.5s', drift: '14px' },
+];
+
+const ticker =
+  'WE’LL FIND YOU  ·  VOLUNTEER  ·  WE ALREADY KNOW PICKUP  ·  BRING NAPKINS  ·  PIZZA FRIDAYS  ·  STILL FIND YOU  ·  ';
+---
+
+<Base
+  title="Volunteer… or else"
+  description="A dramatic (joke) invitation to volunteer with the MBMA Parents Group. The real signup is still SignUpGenius."
+>
+  <main id="main" class="voe-page">
+    <div class="voe-glow" aria-hidden="true"></div>
+    <div class="voe-hearts" aria-hidden="true">
+      {
+        hearts.map((heart) => (
+          <span
+            class="voe-float-heart"
+            style={`left:${heart.left};animation-delay:${heart.delay};--voe-heart-size:${heart.size};animation-duration:${heart.dur};--voe-drift:${heart.drift}`}
+          >
+            ♥
+          </span>
+        ))
+      }
+    </div>
+
+    <div class="voe-marquee" aria-hidden="true">
+      <div class="voe-marquee-track">
+        <span>{ticker}</span>
+        <span>{ticker}</span>
+      </div>
+    </div>
+
+    <div class="wrap voe-layout">
+      <figure class="voe-mascot">
+        <div class="voe-aura" aria-hidden="true"></div>
+        <svg
+          class="voe-face"
+          viewBox="0 0 320 400"
+          role="img"
+          aria-labelledby="voe-mascot-title voe-mascot-desc"
+        >
+          <title id="voe-mascot-title">Original clingy Parents Group cartoon</title>
+          <desc id="voe-mascot-desc">
+            A peach-and-chocolate cartoon parent with huge shiny eyes, an intense smile, heart-shaped blush, and a pulsing heart necklace. Original art — not a copyrighted meme photo.
+          </desc>
+
+          <defs>
+            <radialGradient id="voeSkin" cx="42%" cy="32%" r="70%">
+              <stop offset="0%" stop-color="#FFE0C8"></stop>
+              <stop offset="70%" stop-color="#F3C4A3"></stop>
+              <stop offset="100%" stop-color="#E8AE88"></stop>
+            </radialGradient>
+            <radialGradient id="voeHair" cx="40%" cy="30%" r="75%">
+              <stop offset="0%" stop-color="#6B4630"></stop>
+              <stop offset="100%" stop-color="#3D2618"></stop>
+            </radialGradient>
+            <radialGradient id="voeIris" cx="38%" cy="34%" r="70%">
+              <stop offset="0%" stop-color="#8A5A32"></stop>
+              <stop offset="55%" stop-color="#5C3A22"></stop>
+              <stop offset="100%" stop-color="#2A1810"></stop>
+            </radialGradient>
+            <linearGradient id="voeCardigan" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F4C9A0"></stop>
+              <stop offset="100%" stop-color="#D9A06C"></stop>
+            </linearGradient>
+            <linearGradient id="voeLip" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#D96A5C"></stop>
+              <stop offset="100%" stop-color="#B2473C"></stop>
+            </linearGradient>
+          </defs>
+
+          <ellipse class="voe-halo" cx="160" cy="168" rx="128" ry="138"></ellipse>
+
+          <path
+            class="voe-hair-back"
+            d="M62 168 C54 88 96 42 160 38 C224 42 266 88 258 168 C252 128 230 92 160 86 C90 92 68 128 62 168Z"
+            fill="url(#voeHair)"
+          >
+          </path>
+
+          <path
+            d="M48 392 C56 318 86 292 160 286 C234 292 264 318 272 392 Z"
+            fill="url(#voeCardigan)"
+          >
+          </path>
+          <path d="M118 300 C132 318 188 318 202 300 L210 392 L110 392 Z" fill="#FEF5ED"></path>
+          <path d="M148 286 C154 304 166 304 172 286" fill="none" stroke="#C9B08A" stroke-width="2"></path>
+
+          <path d="M138 248 C142 278 178 278 182 248" fill="#E8AE88"></path>
+
+          <ellipse cx="68" cy="188" rx="16" ry="22" fill="url(#voeSkin)"></ellipse>
+          <ellipse cx="252" cy="188" rx="16" ry="22" fill="url(#voeSkin)"></ellipse>
+          <ellipse cx="68" cy="192" rx="8" ry="12" fill="#E8897A" opacity="0.35"></ellipse>
+          <ellipse cx="252" cy="192" rx="8" ry="12" fill="#E8897A" opacity="0.35"></ellipse>
+
+          <ellipse cx="160" cy="178" rx="94" ry="102" fill="url(#voeSkin)"></ellipse>
+
+          <ellipse class="voe-bun" cx="160" cy="58" rx="44" ry="36" fill="url(#voeHair)"></ellipse>
+          <ellipse cx="160" cy="48" rx="22" ry="10" fill="#2A1810" opacity="0.25"></ellipse>
+          <path d="M128 70 C140 86 180 86 192 70" fill="url(#voeHair)"></path>
+
+          <path
+            d="M70 150 C78 96 112 78 160 74 C208 78 242 96 250 150 C236 112 206 100 160 98 C114 100 84 112 70 150Z"
+            fill="url(#voeHair)"
+          >
+          </path>
+          <path d="M86 128 C104 118 118 142 112 158" fill="url(#voeHair)"></path>
+          <path d="M234 128 C216 118 202 142 208 158" fill="url(#voeHair)"></path>
+
+          <path
+            class="voe-brow voe-brow-l"
+            d="M82 128 Q118 112 140 128"
+            fill="none"
+            stroke="#3D2618"
+            stroke-width="7"
+            stroke-linecap="round"
+          >
+          </path>
+          <path
+            class="voe-brow voe-brow-r"
+            d="M180 128 Q202 112 238 128"
+            fill="none"
+            stroke="#3D2618"
+            stroke-width="7"
+            stroke-linecap="round"
+          >
+          </path>
+
+          <g class="voe-eye voe-eye-l">
+            <ellipse class="voe-sclera" cx="116" cy="168" rx="38" ry="33" fill="#FFFDF8"></ellipse>
+            <g class="voe-gaze">
+              <circle cx="118" cy="170" r="21" fill="url(#voeIris)"></circle>
+              <circle cx="118" cy="171" r="11.5" fill="#1A100C"></circle>
+              <circle class="voe-spark" cx="110" cy="162" r="5.5" fill="#FFFDF8"></circle>
+              <circle class="voe-spark" cx="126" cy="176" r="2.4" fill="#FFFDF8"></circle>
+            </g>
+            <path d="M80 160 Q116 148 152 160" fill="none" stroke="#3D2618" stroke-width="3.2" stroke-linecap="round"></path>
+            <rect class="voe-lid" x="76" y="134" width="80" height="68" rx="34" fill="#F3C4A3"></rect>
+          </g>
+
+          <g class="voe-eye voe-eye-r">
+            <ellipse class="voe-sclera" cx="204" cy="168" rx="38" ry="33" fill="#FFFDF8"></ellipse>
+            <g class="voe-gaze">
+              <circle cx="206" cy="170" r="21" fill="url(#voeIris)"></circle>
+              <circle cx="206" cy="171" r="11.5" fill="#1A100C"></circle>
+              <circle class="voe-spark" cx="198" cy="162" r="5.5" fill="#FFFDF8"></circle>
+              <circle class="voe-spark" cx="214" cy="176" r="2.4" fill="#FFFDF8"></circle>
+            </g>
+            <path d="M168 160 Q204 148 240 160" fill="none" stroke="#3D2618" stroke-width="3.2" stroke-linecap="round"></path>
+            <rect class="voe-lid" x="164" y="134" width="80" height="68" rx="34" fill="#F3C4A3"></rect>
+          </g>
+
+          <path d="M156 186 C158 204 164 208 170 188" fill="none" stroke="#C48A6A" stroke-width="3" stroke-linecap="round"></path>
+          <ellipse cx="164" cy="204" rx="7" ry="4" fill="#E8AE88" opacity="0.55"></ellipse>
+
+          <g transform="translate(78 208) scale(0.9)">
+            <g class="voe-blush">
+              <path d="M16 6 C16 0 8 0 8 6 C8 0 0 0 0 6 C0 14 16 22 16 22 C16 22 32 14 32 6 C32 0 24 0 24 6 C24 0 16 0 16 6Z" fill="#E8897A"></path>
+            </g>
+          </g>
+          <g transform="translate(210 208) scale(0.9)">
+            <g class="voe-blush">
+              <path d="M16 6 C16 0 8 0 8 6 C8 0 0 0 0 6 C0 14 16 22 16 22 C16 22 32 14 32 6 C32 0 24 0 24 6 C24 0 16 0 16 6Z" fill="#E8897A"></path>
+            </g>
+          </g>
+
+          <path
+            class="voe-smile"
+            d="M96 226 C118 262 202 262 224 226"
+            fill="none"
+            stroke="url(#voeLip)"
+            stroke-width="8"
+            stroke-linecap="round"
+          >
+          </path>
+          <path d="M108 230 C128 254 192 254 212 230 C188 246 132 246 108 230Z" fill="#FFF6EE"></path>
+          <path d="M124 236 L136 248" stroke="#E8D5C0" stroke-width="2"></path>
+          <path d="M160 240 L160 252" stroke="#E8D5C0" stroke-width="2"></path>
+          <path d="M196 236 L184 248" stroke="#E8D5C0" stroke-width="2"></path>
+          <ellipse cx="110" cy="236" rx="6" ry="5" fill="#E8897A" opacity="0.45"></ellipse>
+          <ellipse cx="210" cy="236" rx="6" ry="5" fill="#E8897A" opacity="0.45"></ellipse>
+
+          <path d="M160 286 C148 308 128 318 118 322" fill="none" stroke="#C9B08A" stroke-width="2.4"></path>
+          <path d="M160 286 C172 308 192 318 202 322" fill="none" stroke="#C9B08A" stroke-width="2.4"></path>
+          <g transform="translate(144 318)">
+            <g class="voe-heart-charm">
+              <path
+                d="M16 6 C16 0 8 0 8 6 C8 0 0 0 0 6 C0 14 16 22 16 22 C16 22 32 14 32 6 C32 0 24 0 24 6 C24 0 16 0 16 6Z"
+                fill="#C45C4A"
+              >
+              </path>
+            </g>
+          </g>
+        </svg>
+        <figcaption class="voe-bubble">we already saved you a shift ♥</figcaption>
+      </figure>
+
+      <div class="voe-copy">
+        <p class="voe-eyebrow">A totally normal Parents Group message</p>
+        <h1 class="voe-title">Volunteer… <span>or else we’ll find you.</span></h1>
+        <p class="voe-lede">
+          We already know your child’s classroom. We already know Friday pickup. We already know you
+          “meant to sign up last week.” This is just the reminder with extra eye contact.
+        </p>
+        <p>
+          If you don’t volunteer, <strong>we have to do it all</strong> — pizza Fridays, book-fair
+          bookmarks, carnival booths, the feast, the jog-a-thon, teacher appreciation, movie night,
+          and the website that somehow still needs “just a quick update.”
+        </p>
+        <p class="voe-find">
+          We’ll still find you. At the curb. In the parking lot. In the group chat you muted. In your
+          dreams, holding a stack of napkins and smiling like this.
+        </p>
+        <p>
+          We’re not mad. We’re just… attached. To this school. To these kids. To the idea of you
+          bringing paper plates on Friday.
+        </p>
+
+        <p class="voe-actions">
+          <a class="btn voe-cta" href={signup}>Fine. I’ll volunteer</a>
+          <a class="voe-calm" href={withBase('volunteer')}>Take me to the calm page</a>
+        </p>
+        <p class="voe-fineprint">
+          This page is a joke. The Parents Group is made of actual humans who would rather you sign
+          up than hunt you for sport. (We will still find you, though. Affectionately.)
+        </p>
+      </div>
+    </div>
+  </main>
+</Base>
+
+<script>
+  const page = document.querySelector('.voe-page');
+  const face = document.querySelector('.voe-face');
+  if (page instanceof HTMLElement && face instanceof SVGElement) {
+    const setGaze = (x: number, y: number) => {
+      page.style.setProperty('--gaze-x', `${x}px`);
+      page.style.setProperty('--gaze-y', `${y}px`);
+    };
+
+    const follow = (event: PointerEvent) => {
+      const box = face.getBoundingClientRect();
+      const nx = (event.clientX - box.left) / box.width - 0.5;
+      const ny = (event.clientY - box.top) / box.height - 0.5;
+      page.classList.add('is-watching');
+      setGaze(nx * 10, ny * 6);
+    };
+
+    face.addEventListener('pointermove', follow);
+    page.addEventListener('pointermove', (event) => {
+      if (event.target === face || face.contains(event.target as Node)) return;
+      const box = page.getBoundingClientRect();
+      const nx = (event.clientX - box.left) / box.width - 0.5;
+      const ny = (event.clientY - box.top) / box.height - 0.5;
+      page.classList.add('is-watching');
+      setGaze(nx * 7, ny * 4);
+    });
+    page.addEventListener('pointerleave', () => {
+      page.classList.remove('is-watching');
+      setGaze(0, 0);
+    });
+  }
+</script>
+
+<style>
+  .voe-page {
+    --gaze-x: 0px;
+    --gaze-y: 0px;
+    position: relative;
+    overflow: hidden;
+    padding: 0 0 3.6rem;
+    background:
+      radial-gradient(ellipse 70% 50% at 18% 12%, rgba(249, 220, 196, 0.95), transparent 60%),
+      radial-gradient(ellipse 55% 45% at 88% 8%, rgba(232, 137, 122, 0.22), transparent 55%),
+      linear-gradient(180deg, #fff6ee 0%, var(--cream) 42%, var(--cream-deep) 100%);
+  }
+
+  .voe-glow {
+    position: absolute;
+    inset: -10% 10% auto;
+    height: 18rem;
+    background: radial-gradient(circle, rgba(196, 92, 74, 0.18), transparent 68%);
+    filter: blur(12px);
+    animation: voe-breathe 4.2s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .voe-hearts {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .voe-float-heart {
+    position: absolute;
+    bottom: -2rem;
+    color: #c45c4a;
+    font-size: var(--voe-heart-size, 1rem);
+    opacity: 0.55;
+    animation-name: voe-rise;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    text-shadow: 0 0 12px rgba(196, 92, 74, 0.45);
+  }
+
+  .voe-marquee {
+    border-block: 1px solid var(--rule);
+    background: color-mix(in srgb, var(--peach) 70%, var(--white));
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: var(--heading);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    color: var(--charcoal);
+  }
+
+  .voe-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: voe-marquee 18s linear infinite;
+  }
+
+  .voe-marquee-track span {
+    padding: 0.55rem 0;
+  }
+
+  .voe-layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 1.6rem 2.2rem;
+    align-items: center;
+    padding-top: 2rem;
+  }
+
+  .voe-mascot {
+    margin: 0;
+    position: relative;
+    justify-self: center;
+    width: min(22rem, 92vw);
+  }
+
+  .voe-aura {
+    position: absolute;
+    inset: 8% 10% 18%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(249, 220, 196, 0.95), rgba(196, 92, 74, 0.18) 55%, transparent 72%);
+    filter: blur(8px);
+    animation: voe-breathe 3.2s ease-in-out infinite;
+  }
+
+  .voe-face {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 16px 24px rgba(74, 53, 32, 0.16));
+  }
+
+  .voe-halo {
+    fill: rgba(249, 220, 196, 0.55);
+    animation: voe-breathe 3.6s ease-in-out infinite;
+  }
+
+  .voe-gaze {
+    transform: translate(var(--gaze-x), var(--gaze-y));
+    animation: voe-look 5.6s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .voe-page.is-watching .voe-gaze {
+    animation: none;
+  }
+
+  .voe-lid {
+    transform-box: fill-box;
+    transform-origin: center top;
+    transform: scaleY(0);
+    animation: voe-blink 5.4s ease-in-out infinite;
+  }
+
+  .voe-eye-r .voe-lid {
+    animation-delay: 0.08s;
+  }
+
+  .voe-spark {
+    animation: voe-twinkle 2.4s ease-in-out infinite;
+  }
+
+  .voe-brow {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: voe-brow 3.8s ease-in-out infinite;
+  }
+
+  .voe-brow-r {
+    animation-delay: 0.2s;
+  }
+
+  .voe-blush,
+  .voe-heart-charm {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: voe-pulse 1.15s ease-in-out infinite;
+  }
+
+  .voe-heart-charm {
+    animation-duration: 0.95s;
+  }
+
+  .voe-smile {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: voe-grin 2.8s ease-in-out infinite;
+  }
+
+  .voe-bubble {
+    position: absolute;
+    right: -0.4rem;
+    top: 1.1rem;
+    max-width: 9.4rem;
+    margin: 0;
+    padding: 0.55rem 0.7rem;
+    background: var(--white);
+    border: 2px solid var(--charcoal);
+    border-radius: 1rem 1rem 1rem 0.2rem;
+    font-family: var(--heading);
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--charcoal);
+    box-shadow: 0 0 0 6px rgba(249, 220, 196, 0.55);
+    animation: voe-pop 3.4s ease-in-out infinite;
+  }
+
+  .voe-copy {
+    max-width: 36rem;
+  }
+
+  .voe-eyebrow {
+    margin: 0 0 0.45rem;
+    font-family: var(--heading);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ochre);
+  }
+
+  .voe-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.05;
+    margin-bottom: 0.85rem;
+  }
+
+  .voe-title span {
+    display: inline-block;
+    color: #c45c4a;
+    animation: voe-shake 0.7s ease-in-out infinite;
+    text-shadow: 0 0 18px rgba(196, 92, 74, 0.28);
+  }
+
+  .voe-lede,
+  .voe-find {
+    font-size: 1.08rem;
+  }
+
+  .voe-find {
+    font-family: var(--heading);
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+
+  .voe-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem 1.15rem;
+    margin: 1.35rem 0 0.7rem;
+  }
+
+  .voe-cta {
+    position: relative;
+    font-size: 0.95rem;
+    padding: 0.78rem 1.2rem;
+    box-shadow: 0 0 0 0 rgba(196, 92, 74, 0.35);
+    animation: voe-cta-glow 1.6s ease-in-out infinite;
+  }
+
+  .voe-cta:hover {
+    animation: voe-shake 0.35s ease-in-out infinite;
+  }
+
+  .voe-calm {
+    font-family: var(--heading);
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+
+  .voe-fineprint {
+    max-width: 34rem;
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+  }
+
+  @keyframes voe-look {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    18% {
+      transform: translate(6px, 2px);
+    }
+    36% {
+      transform: translate(-5px, -1px);
+    }
+    58% {
+      transform: translate(4px, 3px);
+    }
+    78% {
+      transform: translate(-3px, 1px);
+    }
+  }
+
+  @keyframes voe-blink {
+    0%,
+    90%,
+    100% {
+      transform: scaleY(0);
+    }
+    93%,
+    96% {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes voe-twinkle {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.45;
+    }
+  }
+
+  @keyframes voe-brow {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+
+  @keyframes voe-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.14);
+    }
+  }
+
+  @keyframes voe-grin {
+    0%,
+    100% {
+      transform: scaleX(1);
+    }
+    50% {
+      transform: scaleX(1.04);
+    }
+  }
+
+  @keyframes voe-shake {
+    0%,
+    100% {
+      transform: translate(0, 0) rotate(0);
+    }
+    25% {
+      transform: translate(-2px, 1px) rotate(-0.6deg);
+    }
+    50% {
+      transform: translate(2px, -1px) rotate(0.5deg);
+    }
+    75% {
+      transform: translate(-1px, 1px) rotate(0.4deg);
+    }
+  }
+
+  @keyframes voe-rise {
+    0% {
+      transform: translate3d(0, 0, 0) scale(0.8);
+      opacity: 0;
+    }
+    12% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translate3d(var(--voe-drift, 16px), -115vh, 0) scale(1.15);
+      opacity: 0;
+    }
+  }
+
+  @keyframes voe-breathe {
+    0%,
+    100% {
+      opacity: 0.7;
+      transform: scale(0.96);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.06);
+    }
+  }
+
+  @keyframes voe-pop {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-4deg);
+    }
+    50% {
+      transform: translateY(-6px) rotate(3deg);
+    }
+  }
+
+  @keyframes voe-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes voe-cta-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(196, 92, 74, 0.28);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(196, 92, 74, 0);
+    }
+  }
+
+  @media (min-width: 860px) {
+    .voe-layout {
+      grid-template-columns: minmax(16rem, 22rem) 1fr;
+      padding-top: 2.4rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .voe-glow,
+    .voe-float-heart,
+    .voe-marquee-track,
+    .voe-aura,
+    .voe-halo,
+    .voe-gaze,
+    .voe-lid,
+    .voe-spark,
+    .voe-brow,
+    .voe-blush,
+    .voe-heart-charm,
+    .voe-smile,
+    .voe-bubble,
+    .voe-title span,
+    .voe-cta {
+      animation: none !important;
+    }
+  }
+</style>
