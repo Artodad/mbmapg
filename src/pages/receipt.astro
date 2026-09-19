@@ -150,13 +150,13 @@ const nextUrl = new URL(`${withBase('receipt').replace(/\/?$/, '/')}?sent=1`, As
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--slate);
+    color: var(--charcoal);
     text-decoration: none;
     line-height: 1;
   }
 
   .receipt-wordmark:hover {
-    color: var(--slate-deep);
+    color: var(--ochre);
   }
 
   .receipt-main {
@@ -169,19 +169,19 @@ const nextUrl = new URL(`${withBase('receipt').replace(/\/?$/, '/')}?sent=1`, As
   }
 
   .receipt-main h1 {
-    color: var(--slate);
+    color: var(--charcoal);
     font-size: clamp(1.85rem, 7vw, 2.15rem);
     margin-bottom: 0.35rem;
   }
 
   .receipt-lede {
-    color: var(--slate);
+    color: var(--ink-muted);
     font-size: 0.95rem;
     margin: 0 0 1.35rem;
   }
 
   .receipt-sent {
-    color: var(--slate);
+    color: var(--charcoal);
     font-size: 1.05rem;
     margin: 0;
   }
@@ -234,7 +234,7 @@ const nextUrl = new URL(`${withBase('receipt').replace(/\/?$/, '/')}?sent=1`, As
     background: none;
     border: 0;
     padding: 0;
-    color: var(--slate);
+    color: var(--ochre);
     text-decoration: underline;
     text-underline-offset: 0.14em;
     font: inherit;
@@ -244,7 +244,7 @@ const nextUrl = new URL(`${withBase('receipt').replace(/\/?$/, '/')}?sent=1`, As
   }
 
   .receipt-choose:hover {
-    color: var(--slate-deep);
+    color: var(--charcoal);
   }
 
   .receipt-form:has([name='attachment']:valid) .receipt-pickers {
@@ -288,14 +288,14 @@ const nextUrl = new URL(`${withBase('receipt').replace(/\/?$/, '/')}?sent=1`, As
     display: grid;
     gap: 0.28rem;
     margin: 0 0 0.95rem;
-    color: var(--slate);
+    color: var(--charcoal);
     font-size: 0.95rem;
   }
 
   .receipt-field input[type='text'] {
     width: 100%;
     min-height: 44px;
-    border: 1px solid var(--slate);
+    border: 1px solid var(--rule);
     background: #fff;
     border-radius: 0;
     padding: 0.45rem 0.65rem;
@@ -307,7 +307,7 @@ const nextUrl = new URL(`${withBase('receipt').replace(/\/?$/, '/')}?sent=1`, As
     display: flex;
     align-items: stretch;
     min-height: 44px;
-    border: 1px solid var(--slate);
+    border: 1px solid var(--rule);
     background: #fff;
   }
 
@@ -315,7 +315,7 @@ const nextUrl = new URL(`${withBase('receipt').replace(/\/?$/, '/')}?sent=1`, As
     display: flex;
     align-items: center;
     padding: 0 0.15rem 0 0.7rem;
-    color: #9aa3b2;
+    color: var(--ink-muted);
     line-height: 1;
   }
 
@@ -331,7 +331,7 @@ const nextUrl = new URL(`${withBase('receipt').replace(/\/?$/, '/')}?sent=1`, As
   }
 
   .receipt-amount:focus-within {
-    outline: 2px solid var(--slate);
+    outline: 2px solid var(--ochre);
     outline-offset: 3px;
   }
 
