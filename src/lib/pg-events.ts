@@ -147,6 +147,38 @@ export function formatRange(event: PgEvent): string {
   return `${Number(start)}–${endMonth} ${Number(end)}`;
 }
 
+function parseYmd(value: string): Date {
+  const [year, month, day] = value.split('-').map(Number);
+  return new Date(Date.UTC(year, month - 1, day));
+}
+
+function formatLongDate(date: Date): string {
+  return `${monthNames[date.getUTCMonth()]} ${date.getUTCDate()}, ${date.getUTCFullYear()}`;
+}
+
+/** Local calendar date as `YYYY-MM-DD` (matches `PgEvent` start/end). */
+export function todayYmd(now = new Date()): string {
+  return ymd(now.getFullYear(), now.getMonth() + 1, now.getDate());
+}
+
+/** Events that have not ended yet, in calendar order. */
+export function upcomingEvents(from = todayYmd(), events = pgEvents): PgEvent[] {
+  return events.filter((event) => event.end >= from);
+}
+
+/** Full date for upcoming lists, e.g. `October 9, 2026` or `November 16–19, 2026`. */
+export function formatEventWhen(event: PgEvent): string {
+  const start = parseYmd(event.start);
+  if (event.start === event.end) {
+    return formatLongDate(start);
+  }
+  const end = parseYmd(event.end);
+  if (event.start.slice(0, 7) === event.end.slice(0, 7)) {
+    return `${monthNames[start.getUTCMonth()]} ${start.getUTCDate()}–${end.getUTCDate()}, ${start.getUTCFullYear()}`;
+  }
+  return `${formatLongDate(start)} – ${formatLongDate(end)}`;
+}
+
 export function eventsCovering(date: string, events = pgEvents): PgEvent[] {
   return events.filter((event) => event.start <= date && date <= event.end);
 }

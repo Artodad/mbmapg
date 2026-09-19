@@ -1,16 +1,48 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
+import MonthCalendar from '../components/MonthCalendar.astro';
 import { withBase } from '../lib/site';
+import { formatEventWhen, upcomingEvents } from '../lib/pg-events';
+
+const upcoming = upcomingEvents();
 ---
 
-<Base title="Events" description="Upcoming MBMA Parents Group events.">
-  <PageHero title="Upcoming Events" />
+<Base
+  title="Events"
+  description="Upcoming MBMA Parents Group events for the 2026–27 school year."
+>
+  <PageHero
+    title="Upcoming Events"
+    lede="Parents Group dates for the 2026–27 school year."
+  />
   <main id="main">
     <div class="wrap">
-      <p class="muted">No upcoming events right now.</p>
-      <p class="muted" style="margin-top: 1.4rem;">
+      <h2 class="section-title">Coming up</h2>
+      {
+        upcoming.length ? (
+          <ol class="upcoming-list">
+            {upcoming.map((event) => (
+              <li>
+                <span class="upcoming-when">{formatEventWhen(event)}</span>
+                <span>
+                  {event.title}
+                  {event.detail ? ` · ${event.detail}` : ''}
+                </span>
+              </li>
+            ))}
+          </ol>
+        ) : (
+          <p class="muted upcoming-empty">No upcoming events right now.</p>
+        )
+      }
+
+      <h2 class="section-title">Parents Group events 2026–27</h2>
+      <MonthCalendar />
+
+      <p class="muted events-cal-link">
         <a href={withBase('calendar')}>View the full calendar</a>
+        to subscribe or see Google calendar embeds.
       </p>
     </div>
   </main>
