@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import EventCard from '../components/EventCard.astro';
 import MonthCalendar from '../components/MonthCalendar.astro';
 import PhotoGallery from '../components/PhotoGallery.astro';
 import { asset, withBase } from '../lib/site';
@@ -25,15 +24,11 @@ const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
     <section class="section">
       <div class="wrap">
         <div class="home-column">
-          <EventCard
-            heading="h2"
-            title="Welcome Back Meet & Greet"
-            month="Aug"
-            day="22"
-            meta="Sat, Aug 22 · San Diego"
-            blurb="Join us at Standley Park as we welcome in the new school year."
-            href="events/welcome-back-meet-greet"
-          />
+          <p class="muted">
+            No upcoming featured events right now.
+            <a href={withBase('calendar')}>Check the calendar</a>
+            for the Parents Group schedule.
+          </p>
 
           <article class="event-card home-deadline">
             <div class="event-date" aria-hidden="true">
