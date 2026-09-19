@@ -1,6 +1,7 @@
 {
-  "rewrites": [
-    { "source": "/mbmapg", "destination": "/" },
-    { "source": "/mbmapg/:path*", "destination": "/:path*" }
-  ]
+  "build": {
+    "env": {
+      "PUBLIC_BASE": "/"
+    }
+  }
 }
