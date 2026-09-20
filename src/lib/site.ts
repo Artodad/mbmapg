@@ -16,8 +16,8 @@ export function asset(path: string): string {
 }
 
 export const logoSrc = asset('images/logo.png');
-export const calendarPdf = asset('files/2025-26-school-calendar.pdf');
-export const calendarPdfLabel = '2025–26 school calendar (PDF)';
+export const calendarPdf = asset('files/2026-27-school-calendar.pdf');
+export const calendarPdfLabel = '2026–27 school calendar (PDF)';
 
 export const navItems = [
   { href: '', label: 'Home' },
