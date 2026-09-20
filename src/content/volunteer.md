@@ -1,6 +1,6 @@
-Ways to get involved with MBMA’s Parents Group.
+Want to make a difference? Volunteer with the MBMA Parents Group. Serve pizza, check out books, garden, or run a booth at the Halloween carnival.
 
-Want to make a difference, volunteer and help the MBMA Parents group. Serve Pizza, check out books, garden, or run a booth at the halloween carnival.
+## Ways to help
 
 - Pizza Lunch Fridays
 - Book Fair
