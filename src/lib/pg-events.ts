@@ -182,14 +182,57 @@ function formatLongDate(date: Date): string {
   return `${monthNames[date.getUTCMonth()]} ${date.getUTCDate()}, ${date.getUTCFullYear()}`;
 }
 
-/** Local calendar date as `YYYY-MM-DD` (matches `PgEvent` start/end). */
+/** Pacific calendar date as `YYYY-MM-DD` (matches `PgEvent` start/end). */
 export function todayYmd(now = new Date()): string {
-  return ymd(now.getFullYear(), now.getMonth() + 1, now.getDate());
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Los_Angeles',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+  }).formatToParts(now);
+  const year = Number(parts.find((part) => part.type === 'year')?.value);
+  const month = Number(parts.find((part) => part.type === 'month')?.value);
+  const day = Number(parts.find((part) => part.type === 'day')?.value);
+  return ymd(year, month, day);
 }
 
 /** Events that have not ended yet, in calendar order. */
 export function upcomingEvents(from = todayYmd(), events = pgEvents): PgEvent[] {
   return events.filter((event) => event.end >= from);
+}
+
+function isPizzaEvent(event: PgEvent): boolean {
+  return /pizza/i.test(event.title);
+}
+
+/**
+ * Next 1–2 Parents Group dates for the homepage. Pizza stays on its own
+ * deadline card, so those titles are left out of this list.
+ */
+export function homeComingUp(
+  from = todayYmd(),
+  events = pgEvents,
+  limit = 2,
+): PgEvent[] {
+  return upcomingEvents(from, events)
+    .filter((event) => !isPizzaEvent(event))
+    .slice(0, limit);
+}
+
+export function eventPageHref(event: PgEvent): string {
+  const title = event.title.toLowerCase();
+  if (title.includes('welcome back')) return 'events/welcome-back-meet-greet';
+  if (title.includes('jog-a-thon')) return 'jog-a-thon';
+  if (title.includes('pizza')) return 'pizza-lunch';
+  return 'events';
+}
+
+export function eventMonthShort(event: PgEvent): string {
+  return monthNames[Number(event.start.slice(5, 7)) - 1].slice(0, 3);
+}
+
+export function eventDayLabel(event: PgEvent): string {
+  return String(Number(event.start.slice(8)));
 }
 
 /** Full date for upcoming lists, e.g. `October 9, 2026` or `November 16–19, 2026`. */
