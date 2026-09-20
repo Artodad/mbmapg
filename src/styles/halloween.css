@@ -1,0 +1,854 @@
+/* Seasonal Halloween skin. Applied when <html data-theme="halloween">. */
+
+[data-theme='halloween'] {
+  --hw-orange: #e86a14;
+  --hw-orange-deep: #c44f0a;
+  --hw-orange-soft: #f39a3c;
+  --hw-ink: #1f140e;
+  --hw-purple: #6b3f86;
+  --hw-purple-deep: #4a2c5c;
+  --hw-purple-soft: #e8d4f2;
+  --hw-candy: #ffd45c;
+  --hw-cream: #fff6e8;
+  --hw-stripe: repeating-linear-gradient(
+    90deg,
+    #fff4c4 0 16px,
+    #ffd45c 16px 34px,
+    #e86a14 34px 52px,
+    #1f140e 52px 64px
+  );
+}
+
+[data-theme='halloween'] {
+  --cream: #352238;
+  --cream-deep: #4a2d42;
+  --white: #fff6ea;
+  --peach: #f39a3c;
+  --ochre: #ffb347;
+  --charcoal: #fff4e6;
+  --ink-muted: #f0d2b0;
+  --rule: #c98a4a;
+  --rule-strong: #e86a14;
+  --overlay: rgba(20, 10, 16, 0.78);
+}
+
+[data-theme='halloween'] html {
+  background: #2a1824;
+}
+
+[data-theme='halloween'] body {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 212, 92, 0.2) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 82% 36%, rgba(255, 212, 92, 0.16) 0 1px, transparent 2px),
+    radial-gradient(circle at 64% 72%, rgba(232, 106, 20, 0.2) 0 1.5px, transparent 2.5px),
+    radial-gradient(ellipse 90% 48% at 100% 6%, rgba(232, 106, 20, 0.32), transparent 54%),
+    radial-gradient(ellipse 70% 50% at 0% 70%, rgba(107, 63, 134, 0.42), transparent 52%),
+    linear-gradient(180deg, #3d2444 0%, #2c1b22 46%, #3a2418 100%);
+  color: #fff4e6;
+}
+
+[data-theme='halloween'] a {
+  color: var(--hw-candy);
+}
+
+[data-theme='halloween'] a:hover {
+  color: var(--hw-orange-soft);
+}
+
+[data-theme='halloween'] .site-header {
+  background: linear-gradient(180deg, #f4e8f6 0%, #efe0f4 55%, #f7eef8 100%);
+  border-bottom: 1px solid #d7c2e0;
+}
+
+[data-theme='halloween'] .header-inner {
+  background: transparent;
+}
+
+[data-theme='halloween'] .site-header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 10px;
+  background: var(--hw-stripe);
+  box-shadow: 0 2px 0 rgba(31, 20, 14, 0.18);
+  pointer-events: none;
+  z-index: 71;
+}
+
+[data-theme='halloween'] .nav a {
+  color: #4a3520;
+}
+
+[data-theme='halloween'] .nav a:hover,
+[data-theme='halloween'] .nav a[aria-current='page'] {
+  color: #b87b37;
+}
+
+[data-theme='halloween'] .nav a[aria-current='page'] {
+  box-shadow: inset 0 -3px 0 var(--hw-orange);
+}
+
+[data-theme='halloween'] .nav-toggle {
+  background: #fff6ea;
+  border-color: var(--hw-orange);
+  color: var(--hw-ink);
+}
+
+[data-theme='halloween'] .nav-toggle-bars,
+[data-theme='halloween'] .nav-toggle-bars::before,
+[data-theme='halloween'] .nav-toggle-bars::after {
+  background: var(--hw-ink);
+}
+
+[data-theme='halloween'] .donate-btn {
+  background: var(--hw-orange);
+  color: var(--hw-ink) !important;
+  box-shadow: 0 0 0 3px var(--hw-ink);
+  gap: 0.4rem;
+}
+
+[data-theme='halloween'] .donate-btn:hover {
+  background: var(--hw-candy);
+  color: var(--hw-ink) !important;
+}
+
+[data-theme='halloween'] .donate-mark {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
+  animation: hw-bob 2.8s ease-in-out infinite;
+}
+
+[data-theme='halloween'] :focus-visible {
+  outline-color: var(--hw-orange-deep);
+}
+
+[data-theme='halloween'] .home-hero-media::after {
+  background:
+    radial-gradient(ellipse 55% 70% at 92% 20%, rgba(232, 106, 20, 0.38), transparent 58%),
+    radial-gradient(ellipse 50% 60% at 8% 80%, rgba(107, 63, 134, 0.42), transparent 60%),
+    linear-gradient(
+      180deg,
+      rgba(62, 32, 58, 0.38) 0%,
+      rgba(86, 40, 18, 0.58) 46%,
+      rgba(22, 12, 10, 0.94) 100%
+    );
+}
+
+[data-theme='halloween'] .home-hero .eyebrow {
+  color: var(--hw-candy);
+}
+
+[data-theme='halloween'] .home-hero h1::after {
+  width: 3.2rem;
+  height: 3px;
+  background: var(--hw-orange-soft);
+}
+
+[data-theme='halloween'] .home-hero-season {
+  display: block;
+}
+
+[data-theme='halloween'] .home-hero-inner {
+  z-index: 2;
+}
+
+[data-theme='halloween'] .hw-hero-chip {
+  display: inline-block;
+}
+
+[data-theme='halloween'] .page-hero {
+  background:
+    radial-gradient(ellipse 40% 80% at 100% 0%, rgba(107, 63, 134, 0.22), transparent 55%),
+    linear-gradient(115deg, #ffd89a 0%, #f4b06a 46%, #e4c8f0 100%);
+  border-bottom: 4px solid var(--hw-orange);
+  color: var(--hw-ink);
+}
+
+[data-theme='halloween'] .page-hero h1,
+[data-theme='halloween'] .page-hero .lede {
+  color: var(--hw-ink);
+}
+
+[data-theme='halloween'] .page-hero .lede {
+  color: #5c3d28;
+}
+
+[data-theme='halloween'] .page-hero h1 {
+  padding-right: 4.4rem;
+}
+
+[data-theme='halloween'] .page-hero h1::after {
+  width: 2.8rem;
+  height: 3px;
+  background: var(--hw-orange-deep);
+}
+
+[data-theme='halloween'] .hw-hero-mark,
+[data-theme='halloween'] .hw-hero-candy-mark {
+  display: block;
+}
+
+[data-theme='halloween'] .section-title {
+  color: #fff4e6;
+}
+
+[data-theme='halloween'] .section-title::after {
+  width: 2.8rem;
+  height: 3px;
+  background: var(--hw-candy);
+}
+
+[data-theme='halloween'] main:not(.voe-page):not(.receipt-main) :is(h1, h2, h3, h4) {
+  color: #fff4e6;
+}
+
+[data-theme='halloween'] .section-band {
+  background: rgba(74, 45, 66, 0.45);
+  border-color: #c98a4a;
+}
+
+[data-theme='halloween'] .upcoming-when,
+[data-theme='halloween'] .pg-cal-when,
+[data-theme='halloween'] .price {
+  color: var(--hw-candy);
+}
+
+[data-theme='halloween'] .upcoming-list li,
+[data-theme='halloween'] .upcoming-list li:first-child {
+  border-color: #c98a4a;
+}
+
+[data-theme='halloween'] .card,
+[data-theme='halloween'] .product,
+[data-theme='halloween'] .board-card,
+[data-theme='halloween'] .event-card,
+[data-theme='halloween'] .note,
+[data-theme='halloween'] .calendar-frame,
+[data-theme='halloween'] form.contact-form,
+[data-theme='halloween'] details.faq,
+[data-theme='halloween'] .lightbox-panel,
+[data-theme='halloween'] .gallery figure,
+[data-theme='halloween'] .volunteer-intro ul {
+  color: var(--hw-ink);
+  background: #fff6ea;
+  border-color: #e8b86a;
+}
+
+[data-theme='halloween'] .card,
+[data-theme='halloween'] .product,
+[data-theme='halloween'] .board-card,
+[data-theme='halloween'] .event-card,
+[data-theme='halloween'] .note,
+[data-theme='halloween'] details.faq {
+  box-shadow: 0 0 0 1px rgba(232, 106, 20, 0.18);
+}
+
+[data-theme='halloween'] .event-card {
+  border: 2px solid #ffd45c;
+  border-left: 6px solid var(--hw-orange);
+}
+
+[data-theme='halloween'] .event-date {
+  background: var(--hw-ink);
+  color: var(--hw-candy);
+  box-shadow: 0 0 0 2px var(--hw-orange);
+}
+
+[data-theme='halloween'] :is(.card, .product, .board-card, .event-card, .note, .calendar-frame, form.contact-form, details.faq, .lightbox-panel, .volunteer-intro ul) :is(h1, h2, h3, h4) {
+  color: var(--hw-ink);
+}
+
+[data-theme='halloween'] :is(.card, .product, .board-card, .event-card, .note, .calendar-frame, details.faq) .muted,
+[data-theme='halloween'] .event-meta,
+[data-theme='halloween'] .board-role,
+[data-theme='halloween'] .board-card .muted,
+[data-theme='halloween'] .product .muted,
+[data-theme='halloween'] .note {
+  color: #6b4530;
+}
+
+[data-theme='halloween'] :is(.card, .product, .board-card, .event-card, .note, details.faq, form.contact-form, .volunteer-intro) a:not(.btn):not(.btn-gold):not(.btn-peach) {
+  color: var(--hw-orange-deep);
+}
+
+[data-theme='halloween'] .pg-cal-intro,
+[data-theme='halloween'] .pg-cal-pdf,
+[data-theme='halloween'] .events-cal-link {
+  color: #f0d2b0;
+}
+
+[data-theme='halloween'] .pg-cal-label,
+[data-theme='halloween'] .pg-cal-dow,
+[data-theme='halloween'] .pg-cal-num,
+[data-theme='halloween'] .calendar-frame h3,
+[data-theme='halloween'] .pg-cal-empty {
+  color: var(--hw-ink);
+}
+
+[data-theme='halloween'] .calendar-frame h3,
+[data-theme='halloween'] .pg-cal-empty,
+[data-theme='halloween'] .pg-cal-dow {
+  color: #6b4530;
+}
+
+[data-theme='halloween'] .pg-cal-day.has-event .pg-cal-num {
+  color: var(--hw-orange-deep);
+}
+
+[data-theme='halloween'] .pg-cal-day.in-range {
+  background: rgba(232, 106, 20, 0.16);
+}
+
+[data-theme='halloween'] .pg-cal-day.has-event:not(.in-range) {
+  background: #ffe7c4;
+  border-color: #e8b86a;
+}
+
+[data-theme='halloween'] .pg-cal-nav,
+[data-theme='halloween'] .gallery-nav,
+[data-theme='halloween'] .lightbox-nav,
+[data-theme='halloween'] .lightbox-close {
+  background: #fff6ea;
+  color: var(--hw-orange-deep);
+  border-color: #e8b86a;
+}
+
+[data-theme='halloween'] .gallery-status {
+  color: #fff4e6;
+}
+
+[data-theme='halloween'] .gallery figcaption,
+[data-theme='halloween'] .lightbox-figure figcaption {
+  color: var(--hw-ink);
+}
+
+[data-theme='halloween'] .about-group li {
+  border-color: #f0d4a8;
+}
+
+[data-theme='halloween'] .btn,
+[data-theme='halloween'] .btn-gold,
+[data-theme='halloween'] .btn-peach,
+[data-theme='halloween'] .contact-form button {
+  background: #f0b36a;
+  color: var(--hw-ink);
+}
+
+[data-theme='halloween'] .btn:hover,
+[data-theme='halloween'] .btn-gold:hover,
+[data-theme='halloween'] .btn-peach:hover,
+[data-theme='halloween'] .contact-form button:hover {
+  background: color-mix(in srgb, #f0b36a 70%, var(--hw-ink));
+  color: var(--hw-ink);
+}
+
+[data-theme='halloween'] .hw-spotlight {
+  display: grid;
+  gap: 0.85rem;
+  margin-bottom: 1.35rem;
+  padding: 1.05rem 1.05rem 1.15rem;
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(255, 212, 92, 0.28), transparent 58%),
+    linear-gradient(180deg, #5a3a6c 0%, #3d2618 100%);
+  box-shadow: 0 0 0 3px var(--hw-ink);
+}
+
+[data-theme='halloween'] .hw-featured-fallback {
+  display: none;
+}
+
+[data-theme='halloween'] .hw-spotlight .section-title {
+  color: var(--hw-cream);
+  margin-bottom: 0.35rem;
+}
+
+[data-theme='halloween'] .hw-spotlight .section-title::after {
+  background: var(--hw-candy);
+}
+
+[data-theme='halloween'] .hw-spotlight .hw-spotlight-lede {
+  color: #f6e3c4;
+}
+
+[data-theme='halloween'] .hw-spotlight .event-card {
+  border: 2px solid #ffd45c;
+  border-left: 6px solid var(--hw-orange);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(232, 106, 20, 0.1), transparent 42%),
+    var(--hw-cream);
+}
+
+[data-theme='halloween'] .hw-spotlight .event-card h2,
+[data-theme='halloween'] .hw-spotlight .event-card h3 {
+  color: var(--hw-ink);
+}
+
+[data-theme='halloween'] .hw-spotlight .event-date {
+  background: var(--hw-ink);
+  color: var(--hw-candy);
+  box-shadow: 0 0 0 2px var(--hw-orange);
+}
+
+[data-theme='halloween'] .hw-spotlight .btn {
+  background: var(--hw-orange);
+  color: var(--hw-ink);
+  box-shadow: 0 0 0 2px var(--hw-ink);
+}
+
+[data-theme='halloween'] .hw-spotlight .btn:hover {
+  background: var(--hw-candy);
+  color: var(--hw-ink);
+}
+
+[data-theme='halloween'] .site-footer {
+  position: relative;
+  background:
+    linear-gradient(180deg, #3d2618 0%, #1f140e 100%);
+  border-top: 0;
+  padding-top: 2.6rem;
+}
+
+[data-theme='halloween'] .site-footer::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 10px;
+  background: var(--hw-stripe);
+}
+
+[data-theme='halloween'] .footer-season {
+  display: flex;
+}
+
+[data-theme='halloween'] .hw-decor {
+  display: block;
+}
+
+.donate-mark,
+.home-hero-season,
+.hw-hero-chip,
+.hw-hero-mark,
+.hw-hero-candy-mark,
+.hw-spotlight,
+.footer-season,
+.hw-decor,
+.hw-lights {
+  display: none;
+}
+
+.home-hero-season {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hw-hero-pumpkin {
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
+  width: 6.2rem;
+  height: 6.2rem;
+  filter: drop-shadow(0 8px 14px rgba(20, 10, 8, 0.4));
+  animation: hw-bob 4.6s ease-in-out infinite;
+}
+
+.hw-hero-pumpkin-sm {
+  position: absolute;
+  right: 22%;
+  bottom: 14%;
+  width: 3.1rem;
+  height: 3.1rem;
+  filter: drop-shadow(0 5px 8px rgba(20, 10, 8, 0.32));
+  animation: hw-bob 5.4s ease-in-out infinite reverse;
+}
+
+.hw-hero-candy {
+  position: absolute;
+  right: 17%;
+  bottom: 42%;
+  width: 2rem;
+  height: 2.5rem;
+  filter: drop-shadow(0 4px 6px rgba(20, 10, 8, 0.28));
+  animation: hw-bob-right 5.8s ease-in-out infinite;
+}
+
+.hw-hero-candy-2 {
+  position: absolute;
+  right: 28%;
+  bottom: 28%;
+  width: 1.55rem;
+  height: 1.95rem;
+  filter: drop-shadow(0 4px 6px rgba(20, 10, 8, 0.24));
+  animation: hw-bob-left 6.6s ease-in-out infinite;
+}
+
+.hw-hero-bat {
+  position: absolute;
+  right: 8%;
+  top: 12%;
+  width: 4.4rem;
+  height: 2.2rem;
+  opacity: 0.92;
+  animation: hw-drift 6.8s ease-in-out infinite;
+}
+
+.hw-hero-bat-2 {
+  position: absolute;
+  right: 24%;
+  top: 22%;
+  width: 3rem;
+  height: 1.5rem;
+  opacity: 0.82;
+  animation: hw-drift 8.4s ease-in-out infinite reverse;
+}
+
+.hw-hero-chip {
+  margin: 0.85rem 0 0;
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(31, 20, 14, 0.45);
+  border: 2px solid var(--hw-candy);
+  color: var(--hw-candy);
+  font-family: var(--heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.page-hero .wrap {
+  position: relative;
+}
+
+.hw-hero-mark {
+  position: absolute;
+  right: 0;
+  top: 0.15rem;
+  width: 3.1rem;
+  height: 3.1rem;
+  animation: hw-bob 4.8s ease-in-out infinite;
+}
+
+.hw-hero-candy-mark {
+  position: absolute;
+  right: 3.2rem;
+  top: 0.85rem;
+  width: 1.35rem;
+  height: 1.7rem;
+  animation: hw-bob-left 5.6s ease-in-out infinite;
+}
+
+.hw-spotlight-lede {
+  margin-bottom: 0.2rem;
+}
+
+.hw-lights {
+  display: none;
+}
+
+[data-theme='halloween'] .hw-lights {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0 0.35rem;
+}
+
+.hw-bulb {
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  box-shadow: 0 0 8px currentColor;
+  animation: hw-twinkle 1.8s ease-in-out infinite;
+}
+
+.hw-bulb-0 {
+  color: #ffd45c;
+  background: #ffd45c;
+}
+
+.hw-bulb-1 {
+  color: #e86a14;
+  background: #e86a14;
+  animation-delay: 0.35s;
+}
+
+.hw-bulb-2 {
+  color: #c9a0e0;
+  background: #c9a0e0;
+  animation-delay: 0.7s;
+}
+
+.footer-season {
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.45rem 0 0;
+  font-family: var(--heading);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #ffd45c;
+}
+
+.footer-season-mark {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.hw-decor {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hw-sky {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.hw-float {
+  position: fixed;
+  opacity: 0.9;
+}
+
+.hw-bat-a {
+  top: calc(var(--header-h) + 0.85rem);
+  left: 0.85rem;
+  width: 3.6rem;
+  height: 1.8rem;
+  animation: hw-drift 7s ease-in-out infinite;
+}
+
+.hw-bat-b {
+  top: calc(var(--header-h) + 2.6rem);
+  right: 1.1rem;
+  width: 3rem;
+  height: 1.5rem;
+  animation: hw-drift 9s ease-in-out infinite reverse;
+}
+
+.hw-bat-c {
+  top: 42%;
+  left: 0.4rem;
+  width: 2.4rem;
+  height: 1.2rem;
+  opacity: 0.72;
+  animation: hw-drift 11s ease-in-out infinite;
+}
+
+.hw-pumpkin-corner {
+  right: 0.55rem;
+  bottom: 0.85rem;
+  width: 4rem;
+  height: 4rem;
+  animation: hw-bob 5s ease-in-out infinite;
+}
+
+.hw-candy-a {
+  left: 0.7rem;
+  bottom: 1.1rem;
+  width: 1.7rem;
+  height: 2.15rem;
+  animation: hw-bob-left 5.8s ease-in-out infinite;
+}
+
+.hw-candy-b {
+  left: 2.5rem;
+  bottom: 2.6rem;
+  width: 1.3rem;
+  height: 1.65rem;
+  animation: hw-bob-right 6.6s ease-in-out infinite;
+}
+
+.hw-twinkle {
+  position: fixed;
+  width: 0.42rem;
+  height: 0.42rem;
+  background: #ffd45c;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 3px rgba(255, 212, 92, 0.65);
+  animation: hw-twinkle 2.2s ease-in-out infinite;
+}
+
+.hw-twinkle-1 {
+  top: calc(var(--header-h) + 1.2rem);
+  left: 5.4rem;
+}
+
+.hw-twinkle-2 {
+  top: calc(var(--header-h) + 3.4rem);
+  right: 5.2rem;
+  animation-delay: 0.5s;
+}
+
+.hw-twinkle-3 {
+  top: 38%;
+  right: 1.1rem;
+  animation-delay: 1s;
+}
+
+.hw-twinkle-4 {
+  bottom: 6.4rem;
+  left: 1.6rem;
+  animation-delay: 0.25s;
+}
+
+@keyframes hw-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(16px, -12px);
+  }
+}
+
+@keyframes hw-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes hw-bob-left {
+  0%,
+  100% {
+    transform: rotate(-16deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-16deg) translateY(-8px);
+  }
+}
+
+@keyframes hw-bob-right {
+  0%,
+  100% {
+    transform: rotate(14deg) translateY(0);
+  }
+  50% {
+    transform: rotate(14deg) translateY(-7px);
+  }
+}
+
+@keyframes hw-twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.75);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+body:has(.voe-page) .hw-sky {
+  display: none;
+}
+
+@media (max-width: 1040px) {
+  [data-theme='halloween'] .nav {
+    background: #fff6ea;
+    border-left-color: #e8b86a;
+  }
+
+  [data-theme='halloween'] .nav a {
+    color: var(--hw-ink);
+    border-bottom-color: #f0d4a8;
+  }
+
+  [data-theme='halloween'] .nav a:hover,
+  [data-theme='halloween'] .nav a[aria-current='page'] {
+    color: var(--hw-orange-deep);
+  }
+}
+
+@media (max-width: 700px) {
+  .hw-hero-pumpkin,
+  .hw-hero-pumpkin-sm,
+  .hw-hero-candy,
+  .hw-hero-candy-2,
+  .hw-hero-bat,
+  .hw-hero-bat-2,
+  .hw-bat-b,
+  .hw-bat-c,
+  .hw-candy-b,
+  .hw-candy-a,
+  .hw-pumpkin-corner,
+  .hw-twinkle,
+  .hw-hero-candy-mark {
+    display: none;
+  }
+
+  .hw-hero-mark {
+    width: 2.2rem;
+    height: 2.2rem;
+    top: 0.15rem;
+    animation: none;
+  }
+
+  [data-theme='halloween'] .page-hero h1 {
+    padding-right: 2.6rem;
+  }
+
+  [data-theme='halloween'] .hw-spotlight {
+    padding: 0.9rem 0.8rem 1rem;
+  }
+
+  .hw-bulb {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hw-hero-bat,
+  .hw-hero-bat-2,
+  .hw-hero-pumpkin,
+  .hw-hero-pumpkin-sm,
+  .hw-hero-candy,
+  .hw-hero-candy-2,
+  .hw-hero-mark,
+  .hw-hero-candy-mark,
+  .hw-float,
+  .hw-bat-a,
+  .hw-bat-b,
+  .hw-bat-c,
+  .hw-pumpkin-corner,
+  .hw-candy-a,
+  .hw-candy-b,
+  .hw-twinkle,
+  .hw-bulb,
+  .donate-mark {
+    animation: none !important;
+  }
+
+  .hw-candy-a,
+  .hw-hero-candy-2,
+  .hw-hero-candy-mark {
+    transform: rotate(-16deg);
+  }
+
+  .hw-candy-b,
+  .hw-hero-candy {
+    transform: rotate(14deg);
+  }
+
+  .hw-twinkle,
+  .hw-bulb {
+    opacity: 0.85;
+  }
+}

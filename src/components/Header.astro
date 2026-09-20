@@ -1,5 +1,6 @@
 ---
 import { logoSrc, navItems, siteName, withBase } from '../lib/site';
+import SeasonalArt from './SeasonalArt.astro';
 
 const current = Astro.url.pathname.replace(/\/$/, '') || withBase('').replace(/\/$/, '');
 ---
@@ -25,7 +26,10 @@ const current = Astro.url.pathname.replace(/\/$/, '') || withBase('').replace(/\
           })
         }
       </nav>
-      <a class="donate-btn" href={withBase('give')}>Donate</a>
+      <a class="donate-btn" href={withBase('give')}>
+        <SeasonalArt kind="pumpkin" class="donate-mark" />
+        Donate
+      </a>
       <button
         class="nav-toggle"
         type="button"

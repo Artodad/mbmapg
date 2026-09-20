@@ -1,0 +1,64 @@
+---
+interface Props {
+  kind: 'pumpkin' | 'bat' | 'candy';
+  class?: string;
+}
+
+const { kind, class: className } = Astro.props;
+---
+
+{
+  kind === 'pumpkin' ? (
+    <svg
+      class={className}
+      viewBox="0 0 64 64"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <ellipse cx="32" cy="38" rx="20" ry="18" fill="#E07A2F"></ellipse>
+      <ellipse cx="22" cy="38" rx="11" ry="16" fill="#F0A04A"></ellipse>
+      <ellipse cx="42" cy="38" rx="11" ry="16" fill="#C65F18"></ellipse>
+      <path
+        d="M32 18 C33 12 38 9 41 13 C37 15 34 18 32 22 C30 18 27 15 23 13 C26 9 31 12 32 18Z"
+        fill="#5B8A45"
+      >
+      </path>
+      <circle cx="25" cy="36" r="2.4" fill="#3D2618"></circle>
+      <circle cx="39" cy="36" r="2.4" fill="#3D2618"></circle>
+      <path
+        d="M24 45 Q32 50 40 45"
+        fill="none"
+        stroke="#3D2618"
+        stroke-width="2.2"
+        stroke-linecap="round"
+      >
+      </path>
+    </svg>
+  ) : kind === 'bat' ? (
+    <svg
+      class={className}
+      viewBox="0 0 88 44"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        d="M44 30 C40 22 30 8 18 14 C24 18 26 24 22 32 C30 27 36 30 44 36 C52 30 58 27 66 32 C62 24 64 18 70 14 C58 8 48 22 44 30Z"
+        fill="#4A3558"
+      >
+      </path>
+      <circle cx="40" cy="27" r="1.5" fill="#F6E3A1"></circle>
+      <circle cx="48" cy="27" r="1.5" fill="#F6E3A1"></circle>
+    </svg>
+  ) : (
+    <svg
+      class={className}
+      viewBox="0 0 40 50"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M20 4 L36 46 H4 Z" fill="#F4C14A"></path>
+      <path d="M13 26 L27 26 L32 38 H8 Z" fill="#E07A2F"></path>
+      <path d="M16 12 L24 12 L27 26 H13 Z" fill="#FFF8EE"></path>
+    </svg>
+  )
+}

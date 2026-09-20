@@ -1,8 +1,11 @@
 ---
 import '../styles/global.css';
+import '../styles/halloween.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import HalloweenDecor from '../components/HalloweenDecor.astro';
 import { siteName, logoSrc } from '../lib/site';
+import { isForcedHalloween, isOctoberPacific } from '../lib/theme';
 
 interface Props {
   title?: string;
@@ -16,13 +19,72 @@ const pageTitle = title ? `${title} | ${siteName}` : siteName;
 const desc =
   description ??
   'Mission Bay Montessori Academy Parents Group — enrichment, events, and family fun for MBMA.';
+const envTheme = String(import.meta.env.PUBLIC_THEME ?? '');
+const buildTheme = isForcedHalloween(envTheme) || isOctoberPacific() ? 'halloween' : undefined;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme={buildTheme} data-env-theme={envTheme || undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      (function () {
+        var root = document.documentElement;
+        var params = new URLSearchParams(location.search);
+        var query = params.get('theme');
+        var env = root.getAttribute('data-env-theme') || '';
+        var key = 'mbmapg-theme';
+        var stored = null;
+        try {
+          stored = sessionStorage.getItem(key);
+        } catch (e) {}
+
+        function on(v) {
+          if (!v) return false;
+          v = String(v).trim().toLowerCase();
+          return v === 'halloween' || v === '1' || v === 'true' || v === 'on';
+        }
+        function off(v) {
+          if (!v) return false;
+          v = String(v).trim().toLowerCase();
+          return v === 'off' || v === 'default' || v === 'none' || v === '0' || v === 'false';
+        }
+
+        if (query === 'auto') {
+          try {
+            sessionStorage.removeItem(key);
+          } catch (e) {}
+          stored = null;
+          query = null;
+        } else if (on(query)) {
+          try {
+            sessionStorage.setItem(key, 'halloween');
+          } catch (e) {}
+        } else if (off(query)) {
+          try {
+            sessionStorage.setItem(key, 'off');
+          } catch (e) {}
+        }
+
+        var active = false;
+        if (on(query)) active = true;
+        else if (off(query)) active = false;
+        else if (on(stored)) active = true;
+        else if (off(stored)) active = false;
+        else if (on(env)) active = true;
+        else {
+          var month = new Intl.DateTimeFormat('en-US', {
+            timeZone: 'America/Los_Angeles',
+            month: 'numeric',
+          }).format(new Date());
+          active = month === '10';
+        }
+
+        if (active) root.setAttribute('data-theme', 'halloween');
+        else root.removeAttribute('data-theme');
+      })();
+    </script>
     <title>{pageTitle}</title>
     <meta name="description" content={desc} />
     <link rel="icon" href={logoSrc} type="image/png" />
@@ -37,6 +99,7 @@ const desc =
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     {bare ? <slot name="chrome-header" /> : <Header />}
+    {bare ? null : <HalloweenDecor />}
     <slot />
     {bare ? <slot name="chrome-footer" /> : <Footer />}
   </body>

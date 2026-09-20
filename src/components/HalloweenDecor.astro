@@ -1,0 +1,17 @@
+---
+import SeasonalArt from './SeasonalArt.astro';
+
+const twinkles = ['hw-twinkle-1', 'hw-twinkle-2', 'hw-twinkle-3', 'hw-twinkle-4'];
+---
+
+<div class="hw-decor" aria-hidden="true">
+  <div class="hw-sky">
+    <SeasonalArt kind="bat" class="hw-float hw-bat-a" />
+    <SeasonalArt kind="bat" class="hw-float hw-bat-b" />
+    <SeasonalArt kind="bat" class="hw-float hw-bat-c" />
+    <SeasonalArt kind="pumpkin" class="hw-float hw-pumpkin-corner" />
+    <SeasonalArt kind="candy" class="hw-float hw-candy-a" />
+    <SeasonalArt kind="candy" class="hw-float hw-candy-b" />
+    {twinkles.map((name) => <span class:list={['hw-twinkle', name]}></span>)}
+  </div>
+</div>
