@@ -215,6 +215,11 @@ export function eventsForMonth(year: number, month: number, events = pgEvents): 
   return events.filter((event) => event.start <= end && event.end >= start);
 }
 
+/** PG events that fall in October (any year). Used for the seasonal homepage spotlight. */
+export function octoberSpotlightEvents(events = pgEvents): PgEvent[] {
+  return events.filter((event) => event.start.slice(5, 7) === '10' || event.end.slice(5, 7) === '10');
+}
+
 export function calendarMonths(
   start = pgCalStart,
   end = pgCalEnd,

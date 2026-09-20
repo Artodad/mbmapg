@@ -1,11 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
+import EventCard from '../components/EventCard.astro';
 import MonthCalendar from '../components/MonthCalendar.astro';
 import PhotoGallery from '../components/PhotoGallery.astro';
+import SeasonalArt from '../components/SeasonalArt.astro';
 import { asset, withBase } from '../lib/site';
 import { homeGallery } from '../lib/gallery';
+import { formatEventWhen, monthNames, octoberSpotlightEvents } from '../lib/pg-events';
 
 const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
+const octoberEvents = octoberSpotlightEvents();
 ---
 
 <Base
@@ -14,17 +18,42 @@ const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
 >
   <section class="home-hero">
     <div class="home-hero-media" style={`background-image: url('${heroPhoto}')`}></div>
+    <div class="home-hero-season" aria-hidden="true">
+      <SeasonalArt kind="bat" class="hw-hero-bat" />
+      <SeasonalArt kind="candy" class="hw-hero-candy" />
+      <SeasonalArt kind="pumpkin" class="hw-hero-pumpkin" />
+    </div>
     <div class="wrap home-hero-inner">
       <p class="eyebrow">Mission Bay Montessori Academy</p>
       <h1>Welcome to MBMA Parents Group</h1>
       <p class="lede">Open to all parents at Mission Bay Montessori Academy.</p>
+      <p class="hw-hero-chip">Family-friendly October on the PG calendar</p>
     </div>
   </section>
   <main id="main" class="home-main">
     <section class="section">
       <div class="wrap">
         <div class="home-column">
-          <p class="muted">
+          <div class="hw-spotlight">
+            <h2 class="section-title">October gatherings</h2>
+            <p class="muted hw-spotlight-lede">
+              Family-friendly Parents Group events already on the 2026–27 calendar.
+            </p>
+            {
+              octoberEvents.map((event) => (
+                <EventCard
+                  title={event.title}
+                  month={monthNames[Number(event.start.slice(5, 7)) - 1].slice(0, 3)}
+                  day={String(Number(event.start.slice(8)))}
+                  meta={formatEventWhen(event)}
+                  blurb={event.detail ?? 'On the Parents Group calendar.'}
+                  href="events"
+                  cta="See events"
+                />
+              ))
+            }
+          </div>
+          <p class="muted hw-featured-fallback">
             No upcoming featured events right now.
             <a href={withBase('calendar')}>Check the calendar</a>
             for the Parents Group schedule.

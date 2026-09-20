@@ -1,5 +1,6 @@
 ---
 import { calendarPdf, calendarPdfLabel, contactEmail, withBase } from '../lib/site';
+import SeasonalArt from './SeasonalArt.astro';
 ---
 
 <footer class="site-footer">
@@ -8,6 +9,10 @@ import { calendarPdf, calendarPdfLabel, contactEmail, withBase } from '../lib/si
       <p class="footer-name">Mission Bay Montessori Academy Parents Group Foundation</p>
       <p class="footer-meta">
         ©2026 · <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+      </p>
+      <p class="footer-season">
+        <SeasonalArt kind="pumpkin" class="footer-season-mark" />
+        Happy October from the Parents Group
       </p>
     </div>
     <p class="footer-links">

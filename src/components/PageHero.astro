@@ -1,4 +1,6 @@
 ---
+import SeasonalArt from './SeasonalArt.astro';
+
 interface Props {
   title: string;
   lede?: string;
@@ -9,6 +11,7 @@ const { title, lede, eyebrow } = Astro.props;
 
 <section class="page-hero">
   <div class="wrap">
+    <SeasonalArt kind="pumpkin" class="hw-hero-mark" />
     {eyebrow && <p class="eyebrow">{eyebrow}</p>}
     <h1>{title}</h1>
     {lede && <p class="lede">{lede}</p>}
