@@ -117,6 +117,11 @@ const elemPdf = asset('files/elementary-classroom-volunteer.pdf');
     gap: 1rem;
   }
 
+  .volunteer-cta {
+    background: color-mix(in srgb, var(--peach) 38%, var(--white));
+    border-color: color-mix(in srgb, var(--peach) 55%, var(--rule));
+  }
+
   .volunteer-cta h2,
   .volunteer-links h2 {
     font-size: 1.12rem;
@@ -126,6 +131,7 @@ const elemPdf = asset('files/elementary-classroom-volunteer.pdf');
   .volunteer-cta p,
   .volunteer-links p {
     margin: 0 0 0.85rem;
+    overflow-wrap: anywhere;
   }
 
   .volunteer-signup {
@@ -136,6 +142,7 @@ const elemPdf = asset('files/elementary-classroom-volunteer.pdf');
     display: inline-flex;
     justify-content: center;
     text-align: center;
+    width: 100%;
   }
 
   .volunteer-receipt {
