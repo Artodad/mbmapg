@@ -367,15 +367,12 @@ body:has(.voe-page) .hw-sky {
 }
 
 @media (max-width: 700px) {
-  .hw-hero-pumpkin {
-    width: 3.4rem;
-    height: 3.4rem;
-    right: 4%;
-  }
-
+  .hw-hero-pumpkin,
   .hw-hero-candy,
   .hw-bat-b,
-  .hw-candy-b {
+  .hw-candy-b,
+  .hw-candy-a,
+  .hw-pumpkin-corner {
     display: none;
   }
 
