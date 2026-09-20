@@ -236,9 +236,9 @@ const scareTicker =
 
             <defs>
               <radialGradient id="voeHorrorSkin" cx="38%" cy="28%" r="72%">
-                <stop offset="0%" stop-color="#E4E2D4"></stop>
-                <stop offset="55%" stop-color="#C4B8A8"></stop>
-                <stop offset="100%" stop-color="#8E8174"></stop>
+                <stop offset="0%" stop-color="#F6F0E4"></stop>
+                <stop offset="55%" stop-color="#D8C8B4"></stop>
+                <stop offset="100%" stop-color="#A89080"></stop>
               </radialGradient>
               <radialGradient id="voeHorrorHair" cx="42%" cy="24%" r="80%">
                 <stop offset="0%" stop-color="#2A1C1C"></stop>
@@ -455,11 +455,12 @@ const scareTicker =
       document.body.classList.remove('voe-horror-body');
     };
 
-    const startScare = () => {
+    const startScare = (hold = false) => {
       if (motion.matches) return;
       page.classList.add('is-horror');
       document.body.classList.add('voe-horror-body');
       window.clearTimeout(scareHold);
+      if (hold) return;
       scareHold = window.setTimeout(endScare, holdMs());
     };
 
@@ -475,7 +476,16 @@ const scareTicker =
       }, nextGap());
     };
 
-    scheduleScare();
+    const params = new URLSearchParams(window.location.search);
+    const scareParam = params.get('scare');
+    if (scareParam === 'hold') {
+      startScare(true);
+    } else if (scareParam === 'now') {
+      startScare();
+      scheduleScare();
+    } else {
+      scheduleScare();
+    }
     motion.addEventListener('change', scheduleScare);
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
@@ -513,13 +523,12 @@ const scareTicker =
 
   .voe-horror-veil {
     background:
-      radial-gradient(ellipse at 50% 42%, transparent 18%, rgba(8, 0, 0, 0.78) 100%),
+      radial-gradient(ellipse at 28% 48%, transparent 32%, rgba(8, 0, 0, 0.42) 100%),
       repeating-linear-gradient(
         180deg,
-        transparent 0 2px,
-        rgba(90, 0, 10, 0.14) 2px 3px
+        transparent 0 3px,
+        rgba(90, 0, 10, 0.08) 3px 4px
       );
-    mix-blend-mode: multiply;
   }
 
   .voe-horror-flash {
@@ -599,6 +608,7 @@ const scareTicker =
   .voe-mascot {
     margin: 0;
     position: relative;
+    z-index: 3;
     justify-self: center;
     width: min(22rem, 92vw);
   }
@@ -733,6 +743,8 @@ const scareTicker =
   }
 
   .voe-copy {
+    position: relative;
+    z-index: 3;
     max-width: 36rem;
   }
 
@@ -915,7 +927,8 @@ const scareTicker =
     animation: voe-shake 0.12s linear infinite;
   }
 
-  .voe-page.is-horror .voe-cta {
+  .voe-page.is-horror .voe-cta,
+  .voe-page.is-horror :global(.btn.voe-cta) {
     background: #7a1018;
     border-color: #ff3b3b;
     color: #fff6f2;
