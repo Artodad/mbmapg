@@ -166,9 +166,8 @@ p {
   display: block;
   width: min(12.5rem, 46vw);
   height: auto;
-  aspect-ratio: 200 / 102;
-  object-fit: cover;
-  object-position: 50% 51%;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .header-tools {
