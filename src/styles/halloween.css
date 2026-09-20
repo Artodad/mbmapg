@@ -56,11 +56,12 @@
 }
 
 [data-theme='halloween'] .site-header {
-  background: linear-gradient(180deg, #4d2f4c 0%, #352238 100%);
+  background: #ffffff;
+  border-bottom: 1px solid #e8d5c0;
 }
 
 [data-theme='halloween'] .header-inner {
-  background: transparent;
+  background: #ffffff;
 }
 
 [data-theme='halloween'] .site-header::after {
@@ -77,12 +78,12 @@
 }
 
 [data-theme='halloween'] .nav a {
-  color: #fff4e6;
+  color: #4a3520;
 }
 
 [data-theme='halloween'] .nav a:hover,
 [data-theme='halloween'] .nav a[aria-current='page'] {
-  color: var(--hw-candy);
+  color: #b87b37;
 }
 
 [data-theme='halloween'] .nav a[aria-current='page'] {
