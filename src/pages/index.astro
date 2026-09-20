@@ -10,6 +10,7 @@ import { formatEventWhen, monthNames, octoberSpotlightEvents } from '../lib/pg-e
 
 const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
 const octoberEvents = octoberSpotlightEvents();
+const carnivalLights = Array.from({ length: 14 }, (_, index) => index % 3);
 ---
 
 <Base
@@ -20,8 +21,11 @@ const octoberEvents = octoberSpotlightEvents();
     <div class="home-hero-media" style={`background-image: url('${heroPhoto}')`}></div>
     <div class="home-hero-season" aria-hidden="true">
       <SeasonalArt kind="bat" class="hw-hero-bat" />
+      <SeasonalArt kind="bat" class="hw-hero-bat-2" />
       <SeasonalArt kind="candy" class="hw-hero-candy" />
+      <SeasonalArt kind="candy" class="hw-hero-candy-2" />
       <SeasonalArt kind="pumpkin" class="hw-hero-pumpkin" />
+      <SeasonalArt kind="pumpkin" class="hw-hero-pumpkin-sm" />
     </div>
     <div class="wrap home-hero-inner">
       <p class="eyebrow">Mission Bay Montessori Academy</p>
@@ -35,6 +39,9 @@ const octoberEvents = octoberSpotlightEvents();
       <div class="wrap">
         <div class="home-column">
           <div class="hw-spotlight">
+            <div class="hw-lights" aria-hidden="true">
+              {carnivalLights.map((tone) => <span class:list={['hw-bulb', `hw-bulb-${tone}`]}></span>)}
+            </div>
             <h2 class="section-title">October gatherings</h2>
             <p class="muted hw-spotlight-lede">
               Family-friendly Parents Group events already on the 2026–27 calendar.
