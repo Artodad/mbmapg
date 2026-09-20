@@ -6,31 +6,56 @@ import { asset, withBase } from '../lib/site';
 
 const signup =
   'https://www.signupgenius.com/go/10C094CABAB2AA7FDC25-64417788-volunteer';
+const boardEmail = 'parentsgroup@mbmapg.org';
 const chPdf = asset('files/ch-classroom-volunteer.pdf');
 const elemPdf = asset('files/elementary-classroom-volunteer.pdf');
 ---
 
 <Base title="Volunteer" description="Ways to get involved with MBMA Parents Group.">
-  <PageHero title="Volunteer" />
+  <PageHero
+    title="Volunteer"
+    lede="Ways to get involved with MBMA’s Parents Group."
+  />
   <main id="main">
-    <div class="wrap prose">
-      <Content />
-      <p class="actions">
-        <a class="btn btn-gold" href={signup}>Sign up on SignUpGenius</a>
-      </p>
-      <p>
-        <a href={withBase('receipt')}>Send a receipt</a>
-      </p>
-      <p>
-        <a href={chPdf}>CH Classroom Volunteer Descriptions</a><br />
-        <a href={elemPdf}>Elementary Classroom Volunteer Descriptions</a>
-      </p>
-      <p>
-        PDFs say contact <a href="mailto:parentsgroup@mbmapg.org">parentsgroup@mbmapg.org</a>
-      </p>
-      <p>
-        <a href={withBase('contact')}>Questions? Contact the board</a>
-      </p>
+    <div class="wrap volunteer">
+      <div class="volunteer-layout">
+        <section class="volunteer-intro prose">
+          <Content />
+        </section>
+
+        <div class="volunteer-aside">
+          <section class="card volunteer-cta">
+            <h2>Ready to sign up?</h2>
+            <p>Pick a shift on SignUpGenius — pizza Fridays, events, and other ways to pitch in.</p>
+            <p class="volunteer-signup">
+              <a class="btn btn-gold" href={signup}>Sign up on SignUpGenius</a>
+            </p>
+            <p class="volunteer-receipt">
+              Already volunteered? <a href={withBase('receipt')}>Send a receipt</a>
+            </p>
+          </section>
+
+          <section class="card volunteer-links">
+            <h2>Classroom roles</h2>
+            <ul class="volunteer-pdfs">
+              <li>
+                <a href={chPdf}>CH Classroom Volunteer Descriptions</a>
+              </li>
+              <li>
+                <a href={elemPdf}>Elementary Classroom Volunteer Descriptions</a>
+              </li>
+            </ul>
+            <p>
+              Questions about classroom volunteer roles? Contact the Parents Group at{' '}
+              <a href={`mailto:${boardEmail}`}>{boardEmail}</a>.
+            </p>
+            <p class="volunteer-email">
+              <a href={`mailto:${boardEmail}`}>Questions? Email the Parents Group</a>
+            </p>
+          </section>
+        </div>
+      </div>
+
       <p class="muted voe-egg">
         <a href={withBase('volunteer-or-else')}>feeling dramatic?</a>
       </p>
@@ -39,8 +64,144 @@ const elemPdf = asset('files/elementary-classroom-volunteer.pdf');
 </Base>
 
 <style>
+  .volunteer-layout {
+    display: grid;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .volunteer-intro {
+    margin: 0;
+  }
+
+  .volunteer-intro :global(h2) {
+    margin-top: 1.5rem;
+  }
+
+  .volunteer-intro :global(ul) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: none;
+    margin: 0;
+    list-style: none;
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 0.35rem 1.1rem 0.45rem;
+  }
+
+  .volunteer-intro :global(li) {
+    padding: 0.55rem 0 0.55rem 1.15rem;
+    border-top: 1px solid var(--cream-deep);
+    position: relative;
+  }
+
+  .volunteer-intro :global(li:first-child) {
+    border-top: 0;
+  }
+
+  .volunteer-intro :global(li)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.95rem;
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 50%;
+    background: var(--ochre);
+  }
+
+  .volunteer-aside {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .volunteer-cta {
+    background: color-mix(in srgb, var(--peach) 38%, var(--white));
+    border-color: color-mix(in srgb, var(--peach) 55%, var(--rule));
+  }
+
+  .volunteer-cta h2,
+  .volunteer-links h2 {
+    font-size: 1.12rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .volunteer-cta p,
+  .volunteer-links p {
+    margin: 0 0 0.85rem;
+    overflow-wrap: anywhere;
+  }
+
+  .volunteer-signup {
+    margin: 1rem 0 0;
+  }
+
+  .volunteer-signup .btn {
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .volunteer-receipt {
+    margin: 1.35rem 0 0;
+    padding-top: 1.05rem;
+    border-top: 1px solid var(--cream-deep);
+    color: var(--ink-muted);
+  }
+
+  .volunteer-pdfs {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+  }
+
+  .volunteer-pdfs li + li {
+    margin-top: 0.45rem;
+  }
+
+  .volunteer-email {
+    margin: 1.05rem 0 0;
+    padding-top: 0.95rem;
+    border-top: 1px solid var(--cream-deep);
+    font-family: var(--heading);
+    font-weight: 700;
+  }
+
+  .volunteer-email a {
+    text-decoration: none;
+  }
+
+  .volunteer-email a:hover {
+    text-decoration: underline;
+  }
+
   .voe-egg {
-    margin-top: 2.4rem;
+    margin-top: 2.2rem;
     font-size: 0.82rem;
+  }
+
+  @media (min-width: 560px) {
+    .volunteer-intro :global(ul) {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 1.15rem;
+    }
+
+    .volunteer-intro :global(li:nth-child(2)) {
+      border-top: 0;
+    }
+  }
+
+  @media (min-width: 860px) {
+    .volunteer-layout {
+      grid-template-columns: minmax(0, 1.15fr) minmax(17.5rem, 0.85fr);
+      gap: 1.75rem 2rem;
+    }
+
+    .volunteer-intro :global(h2) {
+      margin-top: 0.35rem;
+    }
   }
 </style>
