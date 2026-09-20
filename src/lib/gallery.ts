@@ -40,6 +40,10 @@ const captions: Record<string, { alt: string; caption: string }> = {
 
 const restoredGallery: GalleryItem[] = [
   {
+    src: 'images/gallery/first-pg-meeting-outdoor-theatre.jpg',
+    alt: 'Parents Group meeting — outdoor theatre / Fall Family Movie Night setup',
+  },
+  {
     src: 'images/gallery/back-to-school-picnic-banner.jpg',
     alt: 'Families at the MBMA Parents Group Back to School picnic',
   },
