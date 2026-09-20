@@ -513,8 +513,9 @@ main {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background: color-mix(in srgb, var(--peach) 28%, var(--white));
-  border-color: color-mix(in srgb, var(--peach) 48%, var(--rule));
+  background: color-mix(in srgb, var(--peach) 42%, var(--white));
+  border-color: color-mix(in srgb, var(--peach) 58%, var(--rule));
+  border-top: 3px solid var(--peach);
 }
 
 .home-actions .card h2 {
