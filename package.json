@@ -11,7 +11,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "node --experimental-strip-types --test src/lib/pg-events.test.ts"
+    "test": "node --experimental-strip-types --test src/lib/pg-events.test.ts src/lib/zeffy-checkout.test.ts"
   },
   "dependencies": {
     "astro": "^7.2.2"

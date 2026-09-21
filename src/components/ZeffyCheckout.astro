@@ -1,0 +1,9 @@
+---
+import { zeffyCheckoutBoot } from '../lib/zeffy-checkout';
+---
+
+<!--
+  Place after the Buy/Order anchors. On phones and narrow windows the boot script
+  removes zeffy-form-link so the href ticketing URL loads as a full page.
+-->
+<script is:inline set:html={zeffyCheckoutBoot}></script>
