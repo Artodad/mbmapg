@@ -206,8 +206,8 @@ function isPizzaEvent(event: PgEvent): boolean {
 }
 
 /**
- * Next 1–2 Parents Group dates for the homepage. Pizza stays on its own
- * deadline card, so those titles are left out of this list.
+ * Next 1–2 Parents Group dates for the homepage. Pizza lunch lives on its
+ * own page and shop listing, so those titles are left out of this list.
  */
 export function homeComingUp(
   from = todayYmd(),

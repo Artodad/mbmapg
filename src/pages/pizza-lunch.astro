@@ -2,7 +2,11 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import { Content } from '../content/pizza-lunch.md';
-import { asset, withBase } from '../lib/site';
+import { asset } from '../lib/site';
+
+const orderHref = 'https://www.zeffy.com/en-US/ticketing/pizza-lunch-fridays-fundraiser';
+const orderZeffyFormLink =
+  'https://www.zeffy.com/embed/ticketing/pizza-lunch-fridays-fundraiser?modal=true';
 ---
 
 <Base title="Pizza lunch 2026–27" description="Pizza lunch 2026–27 — cheese pizza Fridays for the MBMA Parents Group.">
@@ -15,8 +19,26 @@ import { asset, withBase } from '../lib/site';
       />
       <Content />
       <p class="actions">
-        <a class="btn btn-gold" href={withBase('shop/pizza-lunch')}>Order pizza lunch</a>
+        <a class="btn btn-gold" href={orderHref} zeffy-form-link={orderZeffyFormLink}>
+          Order pizza lunch
+        </a>
       </p>
     </div>
   </main>
+  <script
+    is:inline
+    src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"></script>
+  <script is:inline>
+    document.addEventListener(
+      'click',
+      function (event) {
+        var trigger = event.target.closest('a[zeffy-form-link]');
+        if (!trigger) return;
+        if (document.querySelector('iframe[title="Form powered and secured by Zeffy"]')) {
+          event.preventDefault();
+        }
+      },
+      true
+    );
+  </script>
 </Base>

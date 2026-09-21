@@ -24,7 +24,7 @@ test('homeComingUp elevates the next two non-pizza dates', () => {
   );
 });
 
-test('homeComingUp skips pizza titles so the deadline card stays unique', () => {
+test('homeComingUp skips pizza titles', () => {
   const next = homeComingUp('2026-09-10', sample);
   assert.equal(next.some((event) => /pizza/i.test(event.title)), false);
   assert.equal(next[0]?.title, 'Fall Family Movie Night');

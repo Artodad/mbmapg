@@ -496,16 +496,10 @@ main {
   padding-top: 2.15rem;
 }
 
-.home-deadline {
-  max-width: none;
-  width: 100%;
-}
-
 .home-actions {
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
-  margin-top: 1.15rem;
   width: 100%;
 }
 
@@ -528,8 +522,7 @@ main {
   padding-top: 0.2rem;
 }
 
-.home-actions .actions,
-.home-deadline .actions {
+.home-actions .actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
