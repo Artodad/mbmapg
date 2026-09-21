@@ -93,7 +93,7 @@ The safety of our parents, students and their information is our highest concern
   </main>
 </Base>
 
-<script>
+<script define:vars={{ contactEmail }}>
   const form = document.getElementById('contact-form');
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -103,6 +103,6 @@ The safety of our parents, students and their information is our highest concern
     const message = String(data.get('message') ?? '');
     const subject = encodeURIComponent(`MBMAPG website message from ${name}`);
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-    window.location.href = `mailto:info@mbmapg.org?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
   });
 </script>
