@@ -5,7 +5,7 @@ Static website for the Mission Bay Montessori Academy Parents Group Foundation.
 - **Live (GitHub Pages):** https://artodad.github.io/mbmapg/
 - **Custom domain (later, after DNS):** https://www.mbmapg.org/
 - **Repo:** https://github.com/Artodad/mbmapg
-- **Contact:** info@mbmapg.org
+- **Contact:** mbmaparentsgroup@mbmapg.org
 
 Built with [Astro](https://astro.build) and deployed with the official Astro GitHub Pages Action. Page bodies live in `src/content/*.md` so board members can edit copy without touching layout code.
 

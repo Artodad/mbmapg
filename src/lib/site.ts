@@ -1,5 +1,5 @@
 export const siteName = 'MBMA Parents Group';
-export const contactEmail = 'info@mbmapg.org';
+export const contactEmail = 'mbmaparentsgroup@mbmapg.org';
 
 export function media(id: string): string {
   return `https://static.wixstatic.com/media/${id}`;
