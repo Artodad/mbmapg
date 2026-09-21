@@ -6,7 +6,7 @@ interface Props {
   month: string;
   day: string;
   meta: string;
-  blurb: string;
+  blurb?: string;
   href: string;
   heading?: 'h2' | 'h3';
   cta?: string;
@@ -34,7 +34,7 @@ const {
   <div>
     {heading === 'h3' ? <h3>{title}</h3> : <h2>{title}</h2>}
     <p class="event-meta">{meta}</p>
-    <p>{blurb}</p>
+    {blurb ? <p>{blurb}</p> : null}
     <p>
       <a class:list={['btn', gold && 'btn-gold']} href={withBase(href)}>
         {cta}

@@ -1,11 +1,20 @@
 ---
 import Base from '../layouts/Base.astro';
+import EventCard from '../components/EventCard.astro';
 import MonthCalendar from '../components/MonthCalendar.astro';
 import PhotoGallery from '../components/PhotoGallery.astro';
 import { asset, withBase } from '../lib/site';
 import { homeGallery } from '../lib/gallery';
+import {
+  eventDayLabel,
+  eventMonthShort,
+  eventPageHref,
+  formatEventWhen,
+  homeComingUp,
+} from '../lib/pg-events';
 
 const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
+const comingUp = homeComingUp();
 ---
 
 <Base
@@ -21,53 +30,90 @@ const heroPhoto = asset('images/gallery/jog-a-thon-group.jpg');
     </div>
   </section>
   <main id="main" class="home-main">
-    <section class="section">
+    <section class="section-band home-coming" aria-labelledby="home-coming-title">
       <div class="wrap">
-        <div class="home-column">
-          <p class="muted">
-            No upcoming featured events right now.
-            <a href={withBase('calendar')}>Check the calendar</a>
-            for the Parents Group schedule.
-          </p>
-
-          <article class="event-card home-deadline">
-            <div class="event-date" aria-hidden="true">
-              <span class="month">Sep</span>
-              <span class="day">11</span>
+        <h2 class="section-title" id="home-coming-title">Coming up</h2>
+        {
+          comingUp.length ? (
+            <div class="home-coming-grid" data-count={comingUp.length}>
+              {comingUp.map((event) => {
+                const href = eventPageHref(event);
+                return (
+                  <EventCard
+                    heading="h3"
+                    title={event.title}
+                    month={eventMonthShort(event)}
+                    day={eventDayLabel(event)}
+                    meta={formatEventWhen(event)}
+                    blurb={event.detail}
+                    href={href}
+                    cta={href === 'events' ? 'View events' : 'Event details'}
+                  />
+                );
+              })}
             </div>
-            <div>
-              <h2>Pizza Lunch</h2>
-              <p class="event-meta">Deadline to order: Friday, September 11</p>
-              <p>First pizza lunch is Friday, September 18th</p>
-              <p class="actions">
-                <a class="btn" href={withBase('pizza-lunch')}>Pizza lunch details</a>
+          ) : (
+            <div class="home-coming-empty">
+              <p class="home-coming-kicker">Parents Group calendar</p>
+              <h3>The year is on the calendar</h3>
+              <p>
+                Browse Parents Group dates and mark what works for your family.
+              </p>
+              <p>
+                <a class="btn" href={withBase('calendar')}>View the calendar</a>
               </p>
             </div>
-          </article>
+          )
+        }
+        {
+          comingUp.length ? (
+            <p class="home-coming-more">
+              <a href={withBase('events')}>All upcoming events</a>
+            </p>
+          ) : null
+        }
+      </div>
+    </section>
 
-          <div class="home-actions">
-            <article class="card">
-              <h2>Volunteer</h2>
-              <p>Classroom help, events, and other ways to pitch in.</p>
-              <p>
-                <a class="btn" href={withBase('volunteer')}>Volunteer</a>
-              </p>
-            </article>
-            <article class="card">
-              <h2>Donate</h2>
-              <p>Support enrichment, events, and classroom needs.</p>
-              <p>
-                <a class="btn btn-gold" href={withBase('give')}>Donate</a>
-              </p>
-            </article>
-            <article class="card">
-              <h2>Send a receipt</h2>
-              <p>Photo or upload a receipt for reimbursement to the treasurer.</p>
-              <p>
-                <a class="btn btn-gold" href={withBase('receipt')}>Send a receipt</a>
-              </p>
-            </article>
+    <section class="section home-tools">
+      <div class="wrap">
+        <article class="event-card home-deadline">
+          <div class="event-date" aria-hidden="true">
+            <span class="month">Sep</span>
+            <span class="day">11</span>
           </div>
+          <div>
+            <h2>Pizza Lunch</h2>
+            <p class="event-meta">Deadline to order: Friday, September 11</p>
+            <p>First pizza lunch is Friday, September 18th</p>
+            <p class="actions">
+              <a class="btn" href={withBase('pizza-lunch')}>Pizza lunch details</a>
+            </p>
+          </div>
+        </article>
+
+        <div class="home-actions">
+          <article class="card">
+            <h2>Volunteer</h2>
+            <p>Classroom help, events, and other ways to pitch in.</p>
+            <p>
+              <a class="btn" href={withBase('volunteer')}>Volunteer</a>
+            </p>
+          </article>
+          <article class="card">
+            <h2>Donate</h2>
+            <p>Support enrichment, events, and classroom needs.</p>
+            <p>
+              <a class="btn" href={withBase('give')}>Donate</a>
+            </p>
+          </article>
+          <article class="card">
+            <h2>Send a receipt</h2>
+            <p>Photo or upload a receipt for reimbursement to the treasurer.</p>
+            <p>
+              <a class="btn" href={withBase('receipt')}>Send a receipt</a>
+            </p>
+          </article>
         </div>
       </div>
     </section>
