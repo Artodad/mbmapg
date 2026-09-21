@@ -75,11 +75,17 @@ const products: {
   <PageHero title="Shop" />
   <main id="main">
     <div class="wrap">
-      <p>
-        On a computer, checkout opens in a popup. On a phone or tablet, it opens on Zeffy's site. For
-        questions, email the board at{' '}
-        <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
-      </p>
+      <div class="shop-notice" role="note">
+        <p class="shop-notice-title">Set Zeffy’s tip to $0</p>
+        <p>
+          At checkout, Zeffy may ask for an optional tip. Set that to <strong>$0</strong>. It goes
+          to Zeffy, not to MBMA or the parents group.
+        </p>
+        <p class="shop-notice-contact">
+          Questions? Email the board at{' '}
+          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+        </p>
+      </div>
       <div class="product-grid">
         {
           products.map((product) => (
@@ -106,6 +112,38 @@ const products: {
 </Base>
 
 <style>
+  .shop-notice {
+    background: color-mix(in srgb, var(--peach) 42%, var(--white));
+    border: 1px solid color-mix(in srgb, var(--peach) 58%, var(--rule));
+    border-top: 3px solid var(--peach);
+    border-radius: var(--radius);
+    padding: 1rem 1.15rem 0.95rem;
+    margin: 0 0 1.35rem;
+  }
+
+  .shop-notice-title {
+    font-family: var(--heading);
+    font-weight: 700;
+    font-size: 1.08rem;
+    margin: 0 0 0.3rem;
+  }
+
+  .shop-notice p {
+    margin: 0;
+  }
+
+  .shop-notice-title + p {
+    margin-top: 0.15rem;
+  }
+
+  .shop-notice-contact {
+    margin-top: 0.75rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid color-mix(in srgb, var(--peach) 55%, var(--rule));
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+  }
+
   .product-actions {
     display: flex;
     flex-wrap: wrap;
