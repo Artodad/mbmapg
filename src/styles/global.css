@@ -1343,16 +1343,6 @@ details.faq .prose {
   font-size: 1.15rem;
 }
 
-.note {
-  background: var(--white);
-  border: 1px solid var(--rule);
-  border-left: 3px solid var(--ochre);
-  border-radius: var(--radius);
-  padding: 0.8rem 1rem;
-  margin: 0 0 1.2rem;
-  color: var(--ink-muted);
-}
-
 /* ----- Footer ----- */
 
 .site-footer {
