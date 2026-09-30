@@ -123,6 +123,31 @@ test('shop and halloween share the boxed Zeffy tip notice without confirmation c
   assert.doesNotMatch(shop, /type="checkbox"/);
 });
 
+test('halloween wristband section shows the official flyer and pre-sale copy', () => {
+  const page = readFileSync(new URL('../pages/shop/halloween.astro', import.meta.url), 'utf8');
+  assert.match(page, /images\/shop\/halloween-carnival-wristbands-flyer\.png/);
+  assert.doesNotMatch(page, /halloween-carnival-wristbands-flyer\.jpg/);
+  assert.match(page, /images\/shop\/halloween-wristband\.jpg/);
+  assert.match(page, /images\/gallery\/halloween-pumpkins\.jpg/);
+  assert.match(page, /max-width:\s*480px/);
+  const copy = [
+    'Pre-Sale Halloween Carnival Wristbands',
+    'Every child must have a wristband to enter the carnival.  Adults and Children under 2 are free. Admission wristbands allow unlimited access to carnival games and activities (Children without admission wristbands will not be allowed entry to the carnival following the parade)',
+    "You can purchase for more than one student/child - Just add to the cart with the first student's information, then go back to the shop and select the wristband again adding to the cart with the second student's information.  Repeat steps for as many wristbands needed.  Checkout when all student wristband information is in the cart.",
+    'Early Bird purchase will end after Oct 23rd, and will then go to pricing @ $50.',
+    'All pre-order wristbands will be put into bags handed out to students the day of the carnival.',
+    'If you are purchasing for MBMA Alumni or non-MBMA persons, please pick up their ticket at the ticket booth on the day of carnival.',
+  ];
+  for (const line of copy) assert.match(page, new RegExp(line.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  assert.equal((page.match(/class="sponsor-art"/g) ?? []).length, 5);
+  assert.match(page, /item\.name === 'Plentiful Pumpkins'/);
+  assert.match(page, /item\.name === 'Giving Goblins'/);
+  assert.match(page, /item\.name === 'Philanthropic Phantoms'/);
+  assert.match(page, /item\.name === 'Magnanimous Mummies'/);
+  assert.match(page, /item\.name === 'Bounteous Bats'/);
+  assert.doesNotMatch(page, /\$60|prize ticket|checkbox/i);
+});
+
 test('carnival sentence is the flyer wording', () => {
   assert.equal(
     carnivalNonprofitSentence,
