@@ -1,9 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
-import HalloweenCheckoutGate from '../../components/HalloweenCheckoutGate.astro';
 import ZeffyCheckout from '../../components/ZeffyCheckout.astro';
-import { asset, contactEmail, withBase } from '../../lib/site';
+import { asset, withBase } from '../../lib/site';
 import {
   carnivalNonprofitSentence,
   currentWristbandTierNow,
@@ -73,22 +72,11 @@ const currentTier = currentWristbandTierNow();
           <p class="muted wristband-after" data-wristband-after hidden={currentTier !== null}>
             These listed prices apply through October 29, 2026.
           </p>
-          <div class="shop-notice" role="note">
-            <p class="shop-notice-title">Set Zeffy’s tip to $0</p>
-            <p>
-              At checkout, Zeffy may ask for an optional tip. Set that to <strong>$0</strong>. It goes
-              to Zeffy, not to MBMA or the parents group.
-            </p>
-            <p class="shop-notice-contact">
-              Questions? Email the board at{' '}
-              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
-            </p>
-          </div>
-          <HalloweenCheckoutGate
-            href={wristbandZeffyBuyHref}
-            formLink={wristbandZeffyFormLink}
-            label="Buy a wristband"
-          />
+          <p class="product-actions">
+            <a class="btn btn-peach" href={wristbandZeffyBuyHref} zeffy-form-link={wristbandZeffyFormLink}>
+              Buy a wristband
+            </a>
+          </p>
         </section>
 
         <section aria-labelledby="sponsorships-heading">
@@ -105,22 +93,15 @@ const currentTier = currentWristbandTierNow();
               ))
             }
           </div>
-          <div class="shop-notice" role="note">
-            <p class="shop-notice-title">Set Zeffy’s tip to $0</p>
-            <p>
-              At checkout, Zeffy may ask for an optional tip. Set that to <strong>$0</strong>. It goes
-              to Zeffy, not to MBMA or the parents group.
-            </p>
-            <p class="shop-notice-contact">
-              Questions? Email the board at{' '}
-              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
-            </p>
-          </div>
-          <HalloweenCheckoutGate
-            href={sponsorshipZeffyBuyHref}
-            formLink={sponsorshipZeffyFormLink}
-            label="Buy a sponsorship"
-          />
+          <p class="product-actions">
+            <a
+              class="btn btn-peach"
+              href={sponsorshipZeffyBuyHref}
+              zeffy-form-link={sponsorshipZeffyFormLink}
+            >
+              Buy a sponsorship
+            </a>
+          </p>
         </section>
 
         <p class="halloween-back">
@@ -133,36 +114,7 @@ const currentTier = currentWristbandTierNow();
 </Base>
 
 <script>
-  import { checkoutBoxesReady, currentWristbandTierNow } from '../../lib/halloween-shop';
-
-  document.querySelectorAll('[data-checkout-gate]').forEach((gate) => {
-    const boxes = [...gate.querySelectorAll('input[type="checkbox"]')].filter(
-      (box): box is HTMLInputElement => box instanceof HTMLInputElement,
-    );
-    const buy = gate.querySelector('a[href]');
-    if (!(buy instanceof HTMLAnchorElement) || boxes.length !== 2) return;
-
-    const sync = () => {
-      const ready = checkoutBoxesReady(boxes.map((box) => box.checked));
-      buy.classList.toggle('is-blocked', !ready);
-      buy.setAttribute('aria-disabled', ready ? 'false' : 'true');
-      if (ready) buy.removeAttribute('tabindex');
-      else buy.setAttribute('tabindex', '-1');
-    };
-
-    boxes.forEach((box) => box.addEventListener('change', sync));
-    buy.addEventListener(
-      'click',
-      (event) => {
-        if (buy.getAttribute('aria-disabled') !== 'false') {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-      },
-      true,
-    );
-    sync();
-  });
+  import { currentWristbandTierNow } from '../../lib/halloween-shop';
 
   const tier = currentWristbandTierNow();
   const appliesNowLabel = 'This price applies now';
@@ -209,38 +161,6 @@ const currentTier = currentWristbandTierNow();
     background: var(--cream-deep);
     border: 1px solid var(--rule);
     border-radius: var(--radius-img);
-  }
-
-  .shop-notice {
-    background: color-mix(in srgb, var(--peach) 42%, var(--white));
-    border: 1px solid color-mix(in srgb, var(--peach) 58%, var(--rule));
-    border-top: 3px solid var(--peach);
-    border-radius: var(--radius);
-    padding: 1rem 1.15rem 0.95rem;
-    margin: 1.15rem 0 0;
-  }
-
-  .shop-notice-title {
-    font-family: var(--heading);
-    font-weight: 700;
-    font-size: 1.08rem;
-    margin: 0 0 0.3rem;
-  }
-
-  .shop-notice p {
-    margin: 0;
-  }
-
-  .shop-notice-title + p {
-    margin-top: 0.15rem;
-  }
-
-  .shop-notice-contact {
-    margin-top: 0.75rem;
-    padding-top: 0.7rem;
-    border-top: 1px solid color-mix(in srgb, var(--peach) 55%, var(--rule));
-    color: var(--ink-muted);
-    font-size: 0.95rem;
   }
 
   .product-actions {
