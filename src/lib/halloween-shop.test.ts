@@ -4,7 +4,10 @@ import {
   carnivalNonprofitSentence,
   currentWristbandTier,
   currentWristbandTierNow,
+  halloweenZeffyBuyHref,
+  halloweenZeffyFormLink,
   sponsorships,
+  wristbandCheckoutTier,
   wristbandTiers,
 } from './halloween-shop.ts';
 
@@ -51,6 +54,22 @@ test('sponsorship names and amounts match the 2026 list', () => {
       'Plentiful Pumpkins $50.00',
       'Giving Goblins $25.00',
     ],
+  );
+});
+
+test('checkout is the one published 2026 carnival form, and only the $45 wristband is purchasable', () => {
+  assert.equal(
+    halloweenZeffyBuyHref,
+    'https://www.zeffy.com/en-US/ticketing/2026-halloween-carnival-4',
+  );
+  assert.equal(
+    halloweenZeffyFormLink,
+    'https://www.zeffy.com/embed/ticketing/2026-halloween-carnival-4?modal=true',
+  );
+  assert.equal(wristbandCheckoutTier, '45');
+  assert.equal(
+    wristbandTiers.filter((tier) => tier.id === wristbandCheckoutTier).length,
+    1,
   );
 });
 

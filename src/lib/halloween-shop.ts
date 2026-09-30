@@ -25,6 +25,15 @@ export const wristbandTiers: {
   },
 ];
 
+/** The published form sells the $45 wristband. The $50 window is listed, not a second ticket. */
+export const wristbandCheckoutTier: WristbandTier = '45';
+
+export const halloweenZeffyBuyHref =
+  'https://www.zeffy.com/en-US/ticketing/2026-halloween-carnival-4';
+
+export const halloweenZeffyFormLink =
+  'https://www.zeffy.com/embed/ticketing/2026-halloween-carnival-4?modal=true';
+
 /**
  * Which listed wristband price applies on a Pacific calendar date.
  * Dates after October 29, 2026 have no listed price.
