@@ -6,10 +6,9 @@ import { asset, contactEmail, withBase } from '../../lib/site';
 import {
   carnivalNonprofitSentence,
   currentWristbandTierNow,
-  halloweenZeffyBuyHref,
-  halloweenZeffyFormLink,
   sponsorships,
-  wristbandCheckoutTier,
+  sponsorshipZeffyBuyHref,
+  sponsorshipZeffyFormLink,
   wristbandTiers,
 } from '../../lib/halloween-shop';
 
@@ -20,96 +19,109 @@ const currentTier = currentWristbandTierNow();
   title="Halloween Carnival"
   description="Halloween Carnival wristbands and sponsorships for the MBMA Parents Group."
 >
-  <PageHero title="Halloween Carnival" />
-  <main id="main">
-    <div class="wrap">
-      <div class="shop-notice" role="note">
-        <p class="shop-notice-title">Set Zeffy’s tip to $0</p>
-        <p>
-          At checkout, Zeffy may ask for an optional tip. Set that to <strong>$0</strong>. It goes
-          to Zeffy, not to MBMA or the parents group.
-        </p>
-        <p class="shop-notice-contact">
-          Questions? Email the board at{' '}
-          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+  <div class="halloween-store">
+    <PageHero
+      title="Halloween Carnival"
+      eyebrow="School carnival"
+      lede="Wristbands and sponsorships for the MBMA Halloween Carnival."
+    />
+    <main id="main">
+      <div class="wrap">
+        <figure class="halloween-festive">
+          <img
+            src={asset('images/gallery/halloween-pumpkins.jpg')}
+            alt="Decorated pumpkins at an MBMA Halloween contest"
+            width="1200"
+            height="800"
+          />
+        </figure>
+
+        <section aria-labelledby="wristbands-heading">
+          <h2 id="wristbands-heading" class="section-title">Wristbands</h2>
+          <img
+            class="wristband-art"
+            src={asset('images/shop/halloween-wristband.jpg')}
+            alt="Orange treat bag and orange wristband"
+            width="1080"
+            height="1080"
+          />
+          <div class="product-grid">
+            {
+              wristbandTiers.map((tier) => {
+                const appliesNow = tier.id === currentTier;
+                return (
+                  <article
+                    class:list={['product', { 'is-current': appliesNow }]}
+                    data-wristband-tier={tier.id}
+                  >
+                    <h2>Halloween Carnival Wristband</h2>
+                    <p class="price">{tier.price}</p>
+                    <p class="muted">{tier.window}</p>
+                    <p class="tier-now" hidden={!appliesNow}>
+                      This price applies now
+                    </p>
+                  </article>
+                );
+              })
+            }
+          </div>
+          <p class="muted wristband-after" data-wristband-after hidden={currentTier !== null}>
+            These listed prices apply through October 29, 2026.
+          </p>
+          <div class="shop-notice" role="note">
+            <p class="shop-notice-title">Set Zeffy’s tip to $0</p>
+            <p>
+              At checkout, Zeffy may ask for an optional tip. Set that to <strong>$0</strong>. It goes
+              to Zeffy, not to MBMA or the parents group.
+            </p>
+            <p class="shop-notice-contact">
+              Questions? Email the board at{' '}
+              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+            </p>
+          </div>
+        </section>
+
+        <section aria-labelledby="sponsorships-heading">
+          <h2 id="sponsorships-heading" class="section-title">Sponsorships</h2>
+          <p>{carnivalNonprofitSentence}</p>
+          <div class="product-grid">
+            {
+              sponsorships.map((item) => (
+                <article class="product">
+                  <h2>{item.name}</h2>
+                  <p class="price">{item.price}</p>
+                </article>
+              ))
+            }
+          </div>
+          <div class="shop-notice" role="note">
+            <p class="shop-notice-title">Set Zeffy’s tip to $0</p>
+            <p>
+              At checkout, Zeffy may ask for an optional tip. Set that to <strong>$0</strong>. It goes
+              to Zeffy, not to MBMA or the parents group.
+            </p>
+            <p class="shop-notice-contact">
+              Questions? Email the board at{' '}
+              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+            </p>
+          </div>
+          <p class="product-actions">
+            <a
+              class="btn btn-peach"
+              href={sponsorshipZeffyBuyHref}
+              zeffy-form-link={sponsorshipZeffyFormLink}
+            >
+              Buy a sponsorship
+            </a>
+          </p>
+        </section>
+
+        <p class="halloween-back">
+          <a href={withBase('shop')}>Back to the shop</a>
         </p>
       </div>
-      <section aria-labelledby="wristbands-heading">
-        <h2 id="wristbands-heading" class="section-title">Wristbands</h2>
-        <img
-          class="wristband-art"
-          src={asset('images/shop/halloween-wristband.jpg')}
-          alt="Orange treat bag and orange wristband"
-          width="1080"
-          height="1080"
-        />
-        <div class="product-grid">
-          {
-            wristbandTiers.map((tier) => {
-              const appliesNow = tier.id === currentTier;
-              return (
-                <article
-                  class:list={['product', { 'is-current': appliesNow }]}
-                  data-wristband-tier={tier.id}
-                >
-                  <h2>Halloween Carnival Wristband</h2>
-                  <p class="price">{tier.price}</p>
-                  <p class="muted">{tier.window}</p>
-                  <p class="tier-now" hidden={!appliesNow}>
-                    This price applies now
-                  </p>
-                  {
-                    tier.id === wristbandCheckoutTier ? (
-                      <p class="product-actions">
-                        <a
-                          class="btn btn-peach"
-                          href={halloweenZeffyBuyHref}
-                          zeffy-form-link={halloweenZeffyFormLink}
-                        >
-                          Buy
-                        </a>
-                      </p>
-                    ) : null
-                  }
-                </article>
-              );
-            })
-          }
-        </div>
-        <p class="muted wristband-after" data-wristband-after hidden={currentTier !== null}>
-          These listed prices apply through October 29, 2026.
-        </p>
-      </section>
-
-      <section aria-labelledby="sponsorships-heading">
-        <h2 id="sponsorships-heading" class="section-title">Sponsorships</h2>
-        <p>{carnivalNonprofitSentence}</p>
-        <div class="product-grid">
-          {
-            sponsorships.map((item) => (
-              <article class="product">
-                <h2>{item.name}</h2>
-                <p class="price">{item.price}</p>
-                <p class="product-actions">
-                  <a
-                    class="btn btn-peach"
-                    href={halloweenZeffyBuyHref}
-                    zeffy-form-link={halloweenZeffyFormLink}
-                  >
-                    Buy
-                  </a>
-                </p>
-              </article>
-            ))
-          }
-        </div>
-      </section>
-
-      <p class="halloween-back">
-        <a href={withBase('shop')}>Back to the shop</a>
-      </p>
-    </div>
-  </main>
+    </main>
+  </div>
   <ZeffyCheckout />
 </Base>
 
@@ -128,13 +140,36 @@ const currentTier = currentWristbandTierNow();
 </script>
 
 <style>
+  .halloween-store :global(.page-hero) {
+    background: linear-gradient(180deg, #efe6f8 0%, var(--cream-deep) 100%);
+  }
+
+  .halloween-store :global(.page-hero .eyebrow) {
+    color: #6b4c8a;
+  }
+
+  .halloween-festive {
+    margin: 0 0 1.5rem;
+  }
+
+  .halloween-festive img {
+    display: block;
+    width: 100%;
+    max-height: 240px;
+    object-fit: cover;
+    object-position: center 42%;
+    background: var(--cream-deep);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-img);
+  }
+
   .shop-notice {
     background: color-mix(in srgb, var(--peach) 42%, var(--white));
     border: 1px solid color-mix(in srgb, var(--peach) 58%, var(--rule));
     border-top: 3px solid var(--peach);
     border-radius: var(--radius);
     padding: 1rem 1.15rem 0.95rem;
-    margin: 0 0 1.35rem;
+    margin: 1.15rem 0 0;
   }
 
   .shop-notice-title {

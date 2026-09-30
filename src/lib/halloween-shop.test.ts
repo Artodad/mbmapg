@@ -4,10 +4,9 @@ import {
   carnivalNonprofitSentence,
   currentWristbandTier,
   currentWristbandTierNow,
-  halloweenZeffyBuyHref,
-  halloweenZeffyFormLink,
   sponsorships,
-  wristbandCheckoutTier,
+  sponsorshipZeffyBuyHref,
+  sponsorshipZeffyFormLink,
   wristbandTiers,
 } from './halloween-shop.ts';
 
@@ -57,20 +56,16 @@ test('sponsorship names and amounts match the 2026 list', () => {
   );
 });
 
-test('checkout is the one published 2026 carnival form, and only the $45 wristband is purchasable', () => {
+test('sponsorship checkout is the one published 2026 carnival form', () => {
   assert.equal(
-    halloweenZeffyBuyHref,
+    sponsorshipZeffyBuyHref,
     'https://www.zeffy.com/en-US/ticketing/2026-halloween-carnival-4',
   );
   assert.equal(
-    halloweenZeffyFormLink,
+    sponsorshipZeffyFormLink,
     'https://www.zeffy.com/embed/ticketing/2026-halloween-carnival-4?modal=true',
   );
-  assert.equal(wristbandCheckoutTier, '45');
-  assert.equal(
-    wristbandTiers.filter((tier) => tier.id === wristbandCheckoutTier).length,
-    1,
-  );
+  assert.equal(wristbandTiers.length, 2);
 });
 
 test('carnival sentence is the flyer wording', () => {

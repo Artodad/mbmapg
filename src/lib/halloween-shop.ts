@@ -25,13 +25,14 @@ export const wristbandTiers: {
   },
 ];
 
-/** The published form sells the $45 wristband. The $50 window is listed, not a second ticket. */
-export const wristbandCheckoutTier: WristbandTier = '45';
-
-export const halloweenZeffyBuyHref =
+/**
+ * One published form for every sponsorship.
+ * The wristband is a separate campaign and must not use this URL.
+ */
+export const sponsorshipZeffyBuyHref =
   'https://www.zeffy.com/en-US/ticketing/2026-halloween-carnival-4';
 
-export const halloweenZeffyFormLink =
+export const sponsorshipZeffyFormLink =
   'https://www.zeffy.com/embed/ticketing/2026-halloween-carnival-4?modal=true';
 
 /**
