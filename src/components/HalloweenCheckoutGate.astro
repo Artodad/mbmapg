@@ -1,0 +1,77 @@
+---
+import {
+  zeffyDonationCheckboxLabel,
+  zeffyFeeCheckboxLabel,
+} from '../lib/halloween-shop';
+
+interface Props {
+  href: string;
+  formLink: string;
+  label: string;
+}
+
+const { href, formLink, label } = Astro.props;
+---
+
+<div class="checkout-ack" data-checkout-gate>
+  <label class="checkout-ack-row">
+    <input type="checkbox" required />
+    <span>{zeffyFeeCheckboxLabel}</span>
+  </label>
+  <label class="checkout-ack-row">
+    <input type="checkbox" required />
+    <span>{zeffyDonationCheckboxLabel}</span>
+  </label>
+  <p class="product-actions">
+    <a
+      class="btn btn-peach is-blocked"
+      href={href}
+      zeffy-form-link={formLink}
+      aria-disabled="true"
+      tabindex="-1"
+    >
+      {label}
+    </a>
+  </p>
+</div>
+
+<style>
+  .checkout-ack {
+    background: color-mix(in srgb, var(--peach) 42%, var(--white));
+    border: 1px solid color-mix(in srgb, var(--peach) 58%, var(--rule));
+    border-top: 3px solid var(--peach);
+    border-radius: var(--radius);
+    padding: 1rem 1.15rem 0.95rem;
+    margin: 0.85rem 0 0;
+  }
+
+  .checkout-ack-row {
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    margin: 0 0 0.75rem;
+    font-size: 0.98rem;
+  }
+
+  .checkout-ack-row input {
+    margin-top: 0.28rem;
+    width: 1.05rem;
+    height: 1.05rem;
+    flex: 0 0 auto;
+    accent-color: var(--ochre);
+  }
+
+  .product-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    margin: 0.85rem 0 0;
+  }
+
+  a.btn.is-blocked {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+</style>

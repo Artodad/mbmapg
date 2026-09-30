@@ -4,12 +4,15 @@ import {
   carnivalNonprofitSentence,
   currentWristbandTier,
   currentWristbandTierNow,
+  checkoutBoxesReady,
   sponsorships,
   sponsorshipZeffyBuyHref,
   sponsorshipZeffyFormLink,
   wristbandTiers,
   wristbandZeffyBuyHref,
   wristbandZeffyFormLink,
+  zeffyDonationCheckboxLabel,
+  zeffyFeeCheckboxLabel,
 } from './halloween-shop.ts';
 
 test('Sep 29, 2026 uses the $45 wristband price', () => {
@@ -80,6 +83,23 @@ test('wristband checkout is its own $45 form and is not the sponsorship form', (
     'https://www.zeffy.com/embed/ticketing/2026-halloween-carnival-wristband?modal=true',
   );
   assert.notEqual(wristbandZeffyBuyHref, sponsorshipZeffyBuyHref);
+});
+
+test('both checkout boxes are required before Buy is allowed', () => {
+  assert.equal(checkoutBoxesReady([false, false]), false);
+  assert.equal(checkoutBoxesReady([true, false]), false);
+  assert.equal(checkoutBoxesReady([false, true]), false);
+  assert.equal(checkoutBoxesReady([true]), false);
+  assert.equal(checkoutBoxesReady([true, true, true]), false);
+  assert.equal(checkoutBoxesReady([true, true]), true);
+  assert.equal(
+    zeffyFeeCheckboxLabel,
+    'MBMA uses Zeffy so 100% of your payment goes to MBMA with no processing fees. Zeffy separately suggests an optional contribution to its platform at checkout. This does not go to MBMA and can be changed to $0.*',
+  );
+  assert.equal(
+    zeffyDonationCheckboxLabel,
+    'Please make sure to confirm the Zeffy Donation amount as this does not go to MBMA.*',
+  );
 });
 
 test('carnival sentence is the flyer wording', () => {

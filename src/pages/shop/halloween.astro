@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
+import HalloweenCheckoutGate from '../../components/HalloweenCheckoutGate.astro';
 import ZeffyCheckout from '../../components/ZeffyCheckout.astro';
 import { asset, contactEmail, withBase } from '../../lib/site';
 import {
@@ -81,15 +82,11 @@ const currentTier = currentWristbandTierNow();
               <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
             </p>
           </div>
-          <p class="product-actions">
-            <a
-              class="btn btn-peach"
-              href={wristbandZeffyBuyHref}
-              zeffy-form-link={wristbandZeffyFormLink}
-            >
-              Buy a wristband
-            </a>
-          </p>
+          <HalloweenCheckoutGate
+            href={wristbandZeffyBuyHref}
+            formLink={wristbandZeffyFormLink}
+            label="Buy a wristband"
+          />
         </section>
 
         <section aria-labelledby="sponsorships-heading">
@@ -116,15 +113,11 @@ const currentTier = currentWristbandTierNow();
               <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
             </p>
           </div>
-          <p class="product-actions">
-            <a
-              class="btn btn-peach"
-              href={sponsorshipZeffyBuyHref}
-              zeffy-form-link={sponsorshipZeffyFormLink}
-            >
-              Buy a sponsorship
-            </a>
-          </p>
+          <HalloweenCheckoutGate
+            href={sponsorshipZeffyBuyHref}
+            formLink={sponsorshipZeffyFormLink}
+            label="Buy a sponsorship"
+          />
         </section>
 
         <p class="halloween-back">
@@ -137,7 +130,36 @@ const currentTier = currentWristbandTierNow();
 </Base>
 
 <script>
-  import { currentWristbandTierNow } from '../../lib/halloween-shop';
+  import { checkoutBoxesReady, currentWristbandTierNow } from '../../lib/halloween-shop';
+
+  document.querySelectorAll('[data-checkout-gate]').forEach((gate) => {
+    const boxes = [...gate.querySelectorAll('input[type="checkbox"]')].filter(
+      (box): box is HTMLInputElement => box instanceof HTMLInputElement,
+    );
+    const buy = gate.querySelector('a[href]');
+    if (!(buy instanceof HTMLAnchorElement) || boxes.length !== 2) return;
+
+    const sync = () => {
+      const ready = checkoutBoxesReady(boxes.map((box) => box.checked));
+      buy.classList.toggle('is-blocked', !ready);
+      buy.setAttribute('aria-disabled', ready ? 'false' : 'true');
+      if (ready) buy.removeAttribute('tabindex');
+      else buy.setAttribute('tabindex', '-1');
+    };
+
+    boxes.forEach((box) => box.addEventListener('change', sync));
+    buy.addEventListener(
+      'click',
+      (event) => {
+        if (buy.getAttribute('aria-disabled') !== 'false') {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      },
+      true,
+    );
+    sync();
+  });
 
   const tier = currentWristbandTierNow();
   document.querySelectorAll('[data-wristband-tier]').forEach((el) => {

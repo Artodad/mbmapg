@@ -59,6 +59,17 @@ export function currentWristbandTierNow(now = new Date()): WristbandTier | null 
 export const carnivalNonprofitSentence =
   "The carnival is a non-profit event for the sole purpose of the children's enjoyment. Please consider becoming a sponsor.";
 
+/** Required before a Halloween Buy button opens checkout. Unchecked by default. */
+export const zeffyFeeCheckboxLabel =
+  'MBMA uses Zeffy so 100% of your payment goes to MBMA with no processing fees. Zeffy separately suggests an optional contribution to its platform at checkout. This does not go to MBMA and can be changed to $0.*';
+
+export const zeffyDonationCheckboxLabel =
+  'Please make sure to confirm the Zeffy Donation amount as this does not go to MBMA.*';
+
+export function checkoutBoxesReady(checked: readonly boolean[]): boolean {
+  return checked.length === 2 && checked.every(Boolean);
+}
+
 export const sponsorships: { name: string; price: string }[] = [
   { name: 'Sponsor Halloween Carnival Face Painter', price: '$400.00' },
   { name: 'Sponsor Halloween Carnival Balloon Artist', price: '$300.00' },
