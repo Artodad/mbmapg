@@ -2,7 +2,8 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import ZeffyCheckout from '../components/ZeffyCheckout.astro';
-import { asset, contactEmail, withBase } from '../lib/site';
+import ZeffyTipNotice from '../components/ZeffyTipNotice.astro';
+import { asset, withBase } from '../lib/site';
 
 const products: {
   name: string;
@@ -75,31 +76,21 @@ const products: {
   <PageHero title="Shop" />
   <main id="main">
     <div class="wrap">
-      <div class="shop-notice" role="note">
-        <p class="shop-notice-title">Set Zeffy’s tip to $0</p>
-        <p>
-          At checkout, Zeffy may ask for an optional tip. Set that to <strong>$0</strong>. It goes
-          to Zeffy, not to MBMA or the parents group.
-        </p>
-        <p class="shop-notice-contact">
-          Questions? Email the board at{' '}
-          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
-        </p>
-      </div>
-      <article class="product halloween-shop-link">
-        <img
-          src={asset('images/shop/halloween-wristband.jpg')}
-          alt=""
-          width="1080"
-          height="1080"
-        />
-        <h2>Halloween Carnival</h2>
-        <p class="muted">Wristbands and sponsorships.</p>
-        <p class="product-actions">
-          <a class="btn btn-peach" href={withBase('shop/halloween')}>View</a>
-        </p>
-      </article>
+      <ZeffyTipNotice />
       <div class="product-grid">
+        <article class="product">
+          <img
+            src={asset('images/shop/halloween-wristband.jpg')}
+            alt="Halloween Carnival"
+            width="1080"
+            height="1080"
+          />
+          <h2>Halloween Carnival</h2>
+          <p class="muted">Wristbands and sponsorships.</p>
+          <p class="product-actions">
+            <a class="btn btn-peach" href={withBase('shop/halloween')}>View</a>
+          </p>
+        </article>
         {
           products.map((product) => (
             <article class="product">
@@ -125,48 +116,11 @@ const products: {
 </Base>
 
 <style>
-  .shop-notice {
-    background: color-mix(in srgb, var(--peach) 42%, var(--white));
-    border: 1px solid color-mix(in srgb, var(--peach) 58%, var(--rule));
-    border-top: 3px solid var(--peach);
-    border-radius: var(--radius);
-    padding: 1rem 1.15rem 0.95rem;
-    margin: 0 0 1.35rem;
-  }
-
-  .shop-notice-title {
-    font-family: var(--heading);
-    font-weight: 700;
-    font-size: 1.08rem;
-    margin: 0 0 0.3rem;
-  }
-
-  .shop-notice p {
-    margin: 0;
-  }
-
-  .shop-notice-title + p {
-    margin-top: 0.15rem;
-  }
-
-  .shop-notice-contact {
-    margin-top: 0.75rem;
-    padding-top: 0.7rem;
-    border-top: 1px solid color-mix(in srgb, var(--peach) 55%, var(--rule));
-    color: var(--ink-muted);
-    font-size: 0.95rem;
-  }
-
   .product-actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0.75rem 1rem;
     margin: 0.85rem 0 0;
-  }
-
-  .halloween-shop-link {
-    max-width: 280px;
-    margin: 0 0 1.35rem;
   }
 </style>
