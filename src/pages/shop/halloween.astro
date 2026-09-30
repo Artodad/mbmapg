@@ -75,10 +75,10 @@ const currentTier = currentWristbandTierNow();
           <div class="wristband-layout">
             <img
               class="wristband-art"
-              src={asset('images/shop/halloween-wristband.jpg')}
+              src={asset('images/shop/halloween-wristband-framed.jpg')}
               alt="Orange treat bag and orange wristband"
-              width="1080"
-              height="1080"
+              width="664"
+              height="224"
             />
             <div class="wristband-details">
               <div class="product-grid">
@@ -283,9 +283,9 @@ const currentTier = currentWristbandTierNow();
 
   .wristband-art {
     display: block;
-    width: min(100%, 32rem);
+    width: 100%;
     height: auto;
-    margin: 0 auto 0.25rem;
+    margin: 0 0 1rem;
     background: var(--cream-deep);
     border: 1px solid var(--rule);
     border-radius: var(--radius-img);
@@ -367,20 +367,6 @@ const currentTier = currentWristbandTierNow();
   @media (min-width: 720px) {
     .halloween-store .product-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (min-width: 1080px) {
-    .wristband-layout {
-      display: grid;
-      grid-template-columns: minmax(16rem, 32rem) minmax(0, 1fr);
-      gap: 1.5rem;
-      align-items: start;
-    }
-
-    .wristband-art {
-      width: 100%;
-      margin: 0;
     }
   }
 
