@@ -86,6 +86,19 @@ const products: {
           <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
         </p>
       </div>
+      <article class="product halloween-shop-link">
+        <img
+          src={asset('images/shop/halloween-wristband.jpg')}
+          alt=""
+          width="1080"
+          height="1080"
+        />
+        <h2>Halloween Carnival</h2>
+        <p class="muted">Wristbands and sponsorships.</p>
+        <p class="product-actions">
+          <a class="btn btn-peach" href={withBase('shop/halloween')}>View</a>
+        </p>
+      </article>
       <div class="product-grid">
         {
           products.map((product) => (
@@ -150,5 +163,10 @@ const products: {
     align-items: center;
     gap: 0.75rem 1rem;
     margin: 0.85rem 0 0;
+  }
+
+  .halloween-shop-link {
+    max-width: 280px;
+    margin: 0 0 1.35rem;
   }
 </style>
