@@ -60,9 +60,11 @@ const currentTier = currentWristbandTierNow();
                     <h2>Halloween Carnival Wristband</h2>
                     <p class="price">{tier.price}</p>
                     <p class="muted">{tier.window}</p>
-                    <p class="tier-now" hidden={!appliesNow}>
-                      This price applies now
-                    </p>
+                    {
+                      appliesNow ? (
+                        <p class="tier-now">This price applies now</p>
+                      ) : null
+                    }
                   </article>
                 );
               })
@@ -163,11 +165,23 @@ const currentTier = currentWristbandTierNow();
   });
 
   const tier = currentWristbandTierNow();
+  const appliesNowLabel = 'This price applies now';
   document.querySelectorAll('[data-wristband-tier]').forEach((el) => {
     const appliesNow = el.getAttribute('data-wristband-tier') === tier;
     el.classList.toggle('is-current', appliesNow);
     const flag = el.querySelector('.tier-now');
-    if (flag instanceof HTMLElement) flag.hidden = !appliesNow;
+    if (appliesNow) {
+      if (!(flag instanceof HTMLElement)) {
+        const note = document.createElement('p');
+        note.className = 'tier-now';
+        note.textContent = appliesNowLabel;
+        const scope = [...el.attributes].find((attr) => attr.name.startsWith('data-astro-cid'));
+        if (scope) note.setAttribute(scope.name, scope.value);
+        el.append(note);
+      }
+      return;
+    }
+    flag?.remove();
   });
   const after = document.querySelector('[data-wristband-after]');
   if (after instanceof HTMLElement) after.hidden = tier !== null;
@@ -262,6 +276,10 @@ const currentTier = currentWristbandTierNow();
     font-family: var(--heading);
     font-weight: 700;
     margin: 0.35rem 0 0;
+  }
+
+  .product:not(.is-current) .tier-now {
+    display: none !important;
   }
 
   .wristband-after {
