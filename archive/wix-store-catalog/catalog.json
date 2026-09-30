@@ -1,0 +1,1612 @@
+{
+  "siteId": "a8a3d656-17b3-478f-80c3-a595c84c0cea",
+  "siteName": "MBMA Parents Group",
+  "siteUrl": "https://www.mbmapg.org/",
+  "catalogVersion": "V1",
+  "exportedAt": "2026-09-21 19:14:25 UTC",
+  "source": "Wix Stores Catalog V1 API (read-only query with includeHiddenProducts + includeVariants)",
+  "productCount": 27,
+  "collections": [
+    {
+      "id": "00000000-000000-000000-000000000001",
+      "name": "All Products",
+      "slug": "all-products",
+      "numberOfProducts": 27
+    },
+    {
+      "id": "4c174851-5c13-938f-f715-9fd1f4baabd1",
+      "name": "Apparel",
+      "slug": "apparel",
+      "numberOfProducts": 5
+    }
+  ],
+  "products": [
+    {
+      "id": "5060388f-c2f1-abd4-6100-b6091dc40ba9",
+      "name": "2025-2026 MBMA Yearbook",
+      "slug": "2025-2026-mbma-yearbook",
+      "visible": false,
+      "productType": "physical",
+      "sku": "",
+      "price": 30,
+      "currency": "USD",
+      "formattedPrice": "$30.00",
+      "description": "Purchase this year's '25-'26 MBMA Yearbook $30 Yearbooks will be distributed on June 4th to your child's classroom.",
+      "categories": [],
+      "options": [],
+      "options_raw": [],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 30.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "default@30",
+      "customTextFields": [
+        "Please tell us your Child's FIRST and LAST Name*",
+        "What Classroom in your child in?  (if you have more than one child, room of OLDEST)*"
+      ],
+      "ribbons": [
+        "BUY NOW $30"
+      ],
+      "productPagePath": "/product-page/2025-2026-mbma-yearbook",
+      "productPageUrl": "https://www.mbmapg.org/product-page/2025-2026-mbma-yearbook",
+      "lastUpdated": "2026-08-14T22:21:15.457Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_a4ef8bcd99cf4f478b764d2391a61a1c~mv2.png/v1/fit/w_12788,h_16356,q_90/file.png"
+      ],
+      "localImages": [
+        "2025-2026-mbma-yearbook.png"
+      ]
+    },
+    {
+      "id": "5ed5b5a8-b863-2a01-31ab-38e6cb718c02",
+      "name": "Jog-A-Thon 2026 Tee - Adult",
+      "slug": "jog-a-thon-2026-tee-adult",
+      "visible": false,
+      "productType": "physical",
+      "sku": "",
+      "price": 15,
+      "currency": "USD",
+      "formattedPrice": "$15.00",
+      "description": "",
+      "categories": [
+        "Apparel"
+      ],
+      "options": [
+        {
+          "name": "Size",
+          "choices": [
+            "Small",
+            "Medium",
+            "Large",
+            "X-Large",
+            "XXL"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Size: Small|Medium|Large|X-Large|XXL"
+      ],
+      "variants": [
+        {
+          "choices": "Size=Small",
+          "price": 15.0,
+          "sku": ""
+        },
+        {
+          "choices": "Size=Medium",
+          "price": 15.0,
+          "sku": ""
+        },
+        {
+          "choices": "Size=Large",
+          "price": 15.0,
+          "sku": ""
+        },
+        {
+          "choices": "Size=X-Large",
+          "price": 15.0,
+          "sku": ""
+        },
+        {
+          "choices": "Size=XXL",
+          "price": 15.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "Size=Small@15; Size=Medium@15; Size=Large@15; Size=X-Large@15; Size=XXL@15",
+      "customTextFields": [
+        "Student Info- First Last Name- Room#*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/jog-a-thon-2026-tee-adult",
+      "productPageUrl": "https://www.mbmapg.org/product-page/jog-a-thon-2026-tee-adult",
+      "lastUpdated": "2026-06-07T21:16:18.490Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_dc75ac694c46442aaeb8d30976a3d707~mv2.jpg/v1/fit/w_2250,h_2781,q_90/file.jpg"
+      ],
+      "localImages": [
+        "jog-a-thon-2026-tee-adult.jpg"
+      ]
+    },
+    {
+      "id": "b08bb51a-ee1a-ae7c-6dbf-c23bda342966",
+      "name": "Jog-A-Thon 2026 Tee - Youth",
+      "slug": "jog-a-thon-2026-shirt-youth",
+      "visible": false,
+      "productType": "physical",
+      "sku": "",
+      "price": 10,
+      "currency": "USD",
+      "formattedPrice": "$10.00",
+      "description": "",
+      "categories": [
+        "Apparel"
+      ],
+      "options": [
+        {
+          "name": "Size",
+          "choices": [
+            "X-Small",
+            "Small",
+            "Medium",
+            "Large",
+            "X-Large"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Size: X-Small|Small|Medium|Large|X-Large"
+      ],
+      "variants": [
+        {
+          "choices": "Size=X-Small",
+          "price": 10.0,
+          "sku": ""
+        },
+        {
+          "choices": "Size=Small",
+          "price": 10.0,
+          "sku": ""
+        },
+        {
+          "choices": "Size=Medium",
+          "price": 10.0,
+          "sku": ""
+        },
+        {
+          "choices": "Size=Large",
+          "price": 10.0,
+          "sku": ""
+        },
+        {
+          "choices": "Size=X-Large",
+          "price": 10.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "Size=X-Small@10; Size=Small@10; Size=Medium@10; Size=Large@10; Size=X-Large@10",
+      "customTextFields": [
+        "Student Info- First Last Name- Room#*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/jog-a-thon-2026-shirt-youth",
+      "productPageUrl": "https://www.mbmapg.org/product-page/jog-a-thon-2026-shirt-youth",
+      "lastUpdated": "2026-06-07T21:16:19.335Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_dc75ac694c46442aaeb8d30976a3d707~mv2.jpg/v1/fit/w_2250,h_2781,q_90/file.jpg"
+      ],
+      "localImages": [
+        "jog-a-thon-2026-tee-youth.jpg"
+      ]
+    },
+    {
+      "id": "dc5bb6c4-8177-69e0-4906-44336b6e9cf7",
+      "name": "2026 Jog-A-Thon Sponsorship",
+      "slug": "2026-jog-a-thon-sponsorship",
+      "visible": false,
+      "productType": "physical",
+      "sku": "",
+      "price": 50,
+      "currency": "USD",
+      "formattedPrice": "$50.00",
+      "description": "Please enter a name for donation. We will use this name/entry when creating signs to thank you for your donation. (Use Last Name, The XXX Family, Company Name, etc.) Please email company logos in PNG format to arnaz.khambatta@mbmapg.org",
+      "categories": [],
+      "options": [
+        {
+          "name": "Sponsorship Level",
+          "choices": [
+            "Trot",
+            "Jog",
+            "Run",
+            "Sprint"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Sponsorship Level: Trot|Jog|Run|Sprint"
+      ],
+      "variants": [
+        {
+          "choices": "Sponsorship Level=Trot",
+          "price": 50.0,
+          "sku": ""
+        },
+        {
+          "choices": "Sponsorship Level=Jog",
+          "price": 150.0,
+          "sku": ""
+        },
+        {
+          "choices": "Sponsorship Level=Run",
+          "price": 250.0,
+          "sku": ""
+        },
+        {
+          "choices": "Sponsorship Level=Sprint",
+          "price": 500.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "Sponsorship Level=Trot@50; Sponsorship Level=Jog@150; Sponsorship Level=Run@250; Sponsorship Level=Sprint@500",
+      "customTextFields": [
+        "Name for Donation*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/2026-jog-a-thon-sponsorship",
+      "productPageUrl": "https://www.mbmapg.org/product-page/2026-jog-a-thon-sponsorship",
+      "lastUpdated": "2026-03-30T16:39:15.585Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_b91a9d49648b441791a81bdc494e3701~mv2.png/v1/fit/w_1728,h_2304,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_aa67039d26f84866ae5d8295edc74694~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_8f6a757446f843639cf82c207882baac~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_19a9a4c0155b45da83d0a2b1d244b8b7~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_36e55dc5303f4eaaa231dfc5490fb5d4~mv2.png/v1/fit/w_500,h_500,q_90/file.png"
+      ],
+      "localImages": [
+        "2026-jog-a-thon-sponsorship.png",
+        "2026-jog-a-thon-sponsorship-2.png",
+        "2026-jog-a-thon-sponsorship-3.png",
+        "2026-jog-a-thon-sponsorship-4.png",
+        "2026-jog-a-thon-sponsorship-5.png"
+      ]
+    },
+    {
+      "id": "a396a4c4-66fe-ba1c-69b9-f943e93495bc",
+      "name": "2025 Halloween Carnival Admission - Last Chance",
+      "slug": "2025-halloween-carnival-admission-lazy-bird",
+      "visible": false,
+      "productType": "physical",
+      "sku": "LASTCHANCE25",
+      "price": 50,
+      "currency": "USD",
+      "formattedPrice": "$50.00",
+      "description": "Pre-Sale Halloween Carnival Wristbands. Every child must have a wristband to enter the carnival. Adults and Children under 2 are free. LAST CHANCE TICKETS until Oct 23rd to receive 10 free prize tickets. Online purchase ended Oct 23rd; day-of tickets $60 with no prize tickets.",
+      "categories": [],
+      "options": [
+        {
+          "name": "Classroom",
+          "choices": [
+            "K1",
+            "K2",
+            "K4",
+            "RM02",
+            "RM04",
+            "RM06",
+            "RM07",
+            "RM08",
+            "RM11",
+            "Alumni or Non-MBMA student"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Classroom: K1|K2|K4|RM02|RM04|RM06|RM07|RM08|RM11|Alumni or Non-MBMA student"
+      ],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 50.0,
+          "sku": "LASTCHANCE25"
+        }
+      ],
+      "variantSummary": "default@50(sku:LASTCHANCE25)",
+      "customTextFields": [
+        "Student Name*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/2025-halloween-carnival-admission-lazy-bird",
+      "productPageUrl": "https://www.mbmapg.org/product-page/2025-halloween-carnival-admission-lazy-bird",
+      "lastUpdated": "2025-10-24T15:13:34.540Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_ee10c5c6523e4d97b523449f52187a2a~mv2.png/v1/fit/w_1080,h_1080,q_90/file.png"
+      ],
+      "localImages": [
+        "2025-halloween-carnival-admission-last-chance.png"
+      ]
+    },
+    {
+      "id": "22172069-3a03-fe32-41b3-058ea41f064a",
+      "name": "Friday Fuel Coffee Cart",
+      "slug": "friday-fuel-coffee-cart",
+      "visible": false,
+      "productType": "physical",
+      "sku": "",
+      "price": 45,
+      "currency": "USD",
+      "formattedPrice": "$45.00",
+      "description": "Kickstart parents' and teachers' Fridays by sponsoring the Friday Fuel Coffee Cart! Nespresso Vertuo pods for cafe-quality coffee to fuel the MBMA community.",
+      "categories": [],
+      "options": [],
+      "options_raw": [],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 45.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "default@45",
+      "customTextFields": [],
+      "ribbons": [],
+      "productPagePath": "/product-page/friday-fuel-coffee-cart",
+      "productPageUrl": "https://www.mbmapg.org/product-page/friday-fuel-coffee-cart",
+      "lastUpdated": "2026-03-12T17:08:07.049Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_fe0254d8cf5745f4a25ca5cce39dac40~mv2.png/v1/fit/w_1200,h_1200,q_90/file.png"
+      ],
+      "localImages": [
+        "friday-fuel-coffee-cart.png"
+      ]
+    },
+    {
+      "id": "5bcab5ae-166d-7eb7-0f76-cf14623d4e4f",
+      "name": "Halloween Carnival Face Painters",
+      "slug": "halloween-carnival-face-painters",
+      "visible": false,
+      "productType": "physical",
+      "sku": "",
+      "price": 400,
+      "currency": "USD",
+      "formattedPrice": "$400.00",
+      "description": "Sponsor carnival Face Painters — transforms kids into spooky ghosts, playful animals, and festive characters.",
+      "categories": [],
+      "options": [],
+      "options_raw": [],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 400.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "default@400",
+      "customTextFields": [],
+      "ribbons": [],
+      "productPagePath": "/product-page/halloween-carnival-face-painters",
+      "productPageUrl": "https://www.mbmapg.org/product-page/halloween-carnival-face-painters",
+      "lastUpdated": "2025-12-03T23:12:41.323Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_c7fc94e74cdf483f90c83fe40a0a605f~mv2.png/v1/fit/w_1080,h_1080,q_90/file.png"
+      ],
+      "localImages": [
+        "halloween-carnival-face-painters.png"
+      ]
+    },
+    {
+      "id": "51e87c59-2d87-e241-19e9-f9fe0d382b89",
+      "name": "Halloween Carnival Balloon Artist",
+      "slug": "halloween-carnival-balloon-artist",
+      "visible": false,
+      "productType": "physical",
+      "sku": "",
+      "price": 300,
+      "currency": "USD",
+      "formattedPrice": "$300.00",
+      "description": "Sponsor carnival Balloon Artist — creative colorful designs for kids and festive spirit.",
+      "categories": [],
+      "options": [],
+      "options_raw": [],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 300.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "default@300",
+      "customTextFields": [],
+      "ribbons": [],
+      "productPagePath": "/product-page/halloween-carnival-balloon-artist",
+      "productPageUrl": "https://www.mbmapg.org/product-page/halloween-carnival-balloon-artist",
+      "lastUpdated": "2026-09-21T15:26:44.658Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_b913df3770484e0b864a69ef9281770c~mv2.png/v1/fit/w_1080,h_1080,q_90/file.png"
+      ],
+      "localImages": [
+        "halloween-carnival-balloon-artist.png"
+      ]
+    },
+    {
+      "id": "3a9c2c4d-e29d-f18b-fe5a-8088ec25ac8e",
+      "name": "2025 Halloween Carnival Admission - Early Bird",
+      "slug": "halloween-carnival-admission-2025",
+      "visible": false,
+      "productType": "physical",
+      "sku": "EARLYBIRD25",
+      "price": 40,
+      "currency": "USD",
+      "formattedPrice": "$40.00",
+      "description": "Pre-Sale Halloween Carnival Wristbands. Early Bird until Oct 17th to receive 10 free prize tickets; then Lazy Bird @ $50.",
+      "categories": [],
+      "options": [
+        {
+          "name": "Classroom",
+          "choices": [
+            "K1",
+            "K2",
+            "K4",
+            "RM02",
+            "RM04",
+            "RM06",
+            "RM07",
+            "RM08",
+            "RM11",
+            "Alumni or Non-MBMA student"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Classroom: K1|K2|K4|RM02|RM04|RM06|RM07|RM08|RM11|Alumni or Non-MBMA student"
+      ],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 40.0,
+          "sku": "EARLYBIRD25"
+        }
+      ],
+      "variantSummary": "default@40(sku:EARLYBIRD25)",
+      "customTextFields": [
+        "Student Name*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/halloween-carnival-admission-2025",
+      "productPageUrl": "https://www.mbmapg.org/product-page/halloween-carnival-admission-2025",
+      "lastUpdated": "2025-12-03T23:12:46.954Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_099d7e71d6204135af61edf79d860deb~mv2.png/v1/fit/w_1080,h_1080,q_90/file.png"
+      ],
+      "localImages": [
+        "2025-halloween-carnival-admission-early-bird.png"
+      ]
+    },
+    {
+      "id": "084d8888-e92d-c4f3-09e2-68b5539cbd33",
+      "name": "Staff & Teacher Appreciation Week",
+      "slug": "staff-teacher-appreciation-week",
+      "visible": false,
+      "productType": "physical",
+      "sku": "",
+      "price": 50,
+      "currency": "USD",
+      "formattedPrice": "$50.00",
+      "description": "Please enter a name for donation.",
+      "categories": [],
+      "options": [
+        {
+          "name": "Sponsorship Level",
+          "choices": [
+            "Level 1",
+            "Level 2",
+            "Level 3",
+            "Level 4"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Sponsorship Level: Level 1|Level 2|Level 3|Level 4"
+      ],
+      "variants": [
+        {
+          "choices": "Sponsorship Level=Level 1",
+          "price": 50.0,
+          "sku": ""
+        },
+        {
+          "choices": "Sponsorship Level=Level 2",
+          "price": 150.0,
+          "sku": ""
+        },
+        {
+          "choices": "Sponsorship Level=Level 3",
+          "price": 250.0,
+          "sku": ""
+        },
+        {
+          "choices": "Sponsorship Level=Level 4",
+          "price": 500.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "Sponsorship Level=Level 1@50; Sponsorship Level=Level 2@150; Sponsorship Level=Level 3@250; Sponsorship Level=Level 4@500",
+      "customTextFields": [
+        "Name for Donation*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/staff-teacher-appreciation-week",
+      "productPageUrl": "https://www.mbmapg.org/product-page/staff-teacher-appreciation-week",
+      "lastUpdated": "2025-05-14T22:47:55.279Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_0e93e23b10a6450ba1047de5d6a4df94~mv2.png/v1/fit/w_1545,h_2000,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_a7e83dedb1974b7dbbb76a06abd19e19~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_c4f03c4badfb473c8e1b980a4f8da1d9~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_a42c68758acd42a29845b0835c3a6651~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_c570b6c559384a439815af189443876f~mv2.png/v1/fit/w_500,h_500,q_90/file.png"
+      ],
+      "localImages": [
+        "staff-teacher-appreciation-week.png",
+        "staff-teacher-appreciation-week-2.png",
+        "staff-teacher-appreciation-week-3.png",
+        "staff-teacher-appreciation-week-4.png",
+        "staff-teacher-appreciation-week-5.png"
+      ]
+    },
+    {
+      "id": "6da86042-bd4b-839c-92ef-c94ba51cb792",
+      "name": "2025 Jog-A-Thon Sponsorship",
+      "slug": "sponsorship",
+      "visible": false,
+      "productType": "physical",
+      "sku": "",
+      "price": 50,
+      "currency": "USD",
+      "formattedPrice": "$50.00",
+      "description": "Please enter a name for donation. We will use this name/entry when creating signs to thank you for your donation. (Use Last Name, The XXX Family, Company Name, etc.) Please email company logos in PNG format to arnaz.khambatta@mbmapg.org",
+      "categories": [],
+      "options": [
+        {
+          "name": "Sponsorship Level",
+          "choices": [
+            "Trot",
+            "Jog",
+            "Run",
+            "Sprint"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Sponsorship Level: Trot|Jog|Run|Sprint"
+      ],
+      "variants": [
+        {
+          "choices": "Sponsorship Level=Trot",
+          "price": 50.0,
+          "sku": ""
+        },
+        {
+          "choices": "Sponsorship Level=Jog",
+          "price": 150.0,
+          "sku": ""
+        },
+        {
+          "choices": "Sponsorship Level=Run",
+          "price": 250.0,
+          "sku": ""
+        },
+        {
+          "choices": "Sponsorship Level=Sprint",
+          "price": 500.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "Sponsorship Level=Trot@50; Sponsorship Level=Jog@150; Sponsorship Level=Run@250; Sponsorship Level=Sprint@500",
+      "customTextFields": [
+        "Name for Donation*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/sponsorship",
+      "productPageUrl": "https://www.mbmapg.org/product-page/sponsorship",
+      "lastUpdated": "2025-04-30T17:39:30.776Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_e51d528633354947bad61699e20ea73a~mv2.png/v1/fit/w_1200,h_1200,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_aa67039d26f84866ae5d8295edc74694~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_8f6a757446f843639cf82c207882baac~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_19a9a4c0155b45da83d0a2b1d244b8b7~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_36e55dc5303f4eaaa231dfc5490fb5d4~mv2.png/v1/fit/w_500,h_500,q_90/file.png"
+      ],
+      "localImages": [
+        "2025-jog-a-thon-sponsorship.png",
+        "2025-jog-a-thon-sponsorship-2.png",
+        "2025-jog-a-thon-sponsorship-3.png",
+        "2025-jog-a-thon-sponsorship-4.png",
+        "2025-jog-a-thon-sponsorship-5.png"
+      ]
+    },
+    {
+      "id": "53be10f7-cdf5-073f-623a-ab95a1902bea",
+      "name": "Halloween Carnival General Admission",
+      "slug": "halloween-carnival-general-admission-1",
+      "visible": false,
+      "productType": "physical",
+      "sku": "HC-2024DAYOF",
+      "price": 50,
+      "currency": "USD",
+      "formattedPrice": "$50.00",
+      "description": "Halloween Carnival Wristbands. Every child must have a wristband to enter the carnival. Adults and Children under 2 are free. Day-of / general admission 2024.",
+      "categories": [],
+      "options": [
+        {
+          "name": "Classroom",
+          "choices": [
+            "K1",
+            "K2",
+            "K3",
+            "K4",
+            "K5",
+            "K6",
+            "RM02",
+            "RM03",
+            "RM04",
+            "RM05",
+            "RM06",
+            "RM07",
+            "RM08",
+            "RM11",
+            "Alumni or Non-MBMA student"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Classroom: K1|K2|K3|K4|K5|K6|RM02|RM03|RM04|RM05|RM06|RM07|RM08|RM11|Alumni or Non-MBMA student"
+      ],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 50.0,
+          "sku": "HC-2024DAYOF"
+        }
+      ],
+      "variantSummary": "default@50(sku:HC-2024DAYOF)",
+      "customTextFields": [
+        "Student Name & Room Number*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/halloween-carnival-general-admission-1",
+      "productPageUrl": "https://www.mbmapg.org/product-page/halloween-carnival-general-admission-1",
+      "lastUpdated": "2024-10-24T00:14:22.072Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_8b9106deffd045f29ffd16c6e090f0d9~mv2.png/v1/fit/w_1080,h_1080,q_90/file.png"
+      ],
+      "localImages": [
+        "halloween-carnival-general-admission.png"
+      ]
+    },
+    {
+      "id": "f2435f53-86c2-627b-3465-66bf724e794d",
+      "name": "Halloween Carnival General Admission",
+      "slug": "halloween-carnival-general-admission",
+      "visible": false,
+      "productType": "physical",
+      "sku": "HC-2024GEN",
+      "price": 50,
+      "currency": "USD",
+      "formattedPrice": "$50.00",
+      "description": "Pre-Sale Halloween Carnival Wristbands 2024. Unlimited access to carnival games; 10 free prize tickets for pre-orders.",
+      "categories": [],
+      "options": [
+        {
+          "name": "Classroom",
+          "choices": [
+            "K1",
+            "K2",
+            "K3",
+            "K4",
+            "K5",
+            "K6",
+            "RM02",
+            "RM03",
+            "RM04",
+            "RM05",
+            "RM06",
+            "RM07",
+            "RM08",
+            "RM11",
+            "Alumni or Non-MBMA student"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Classroom: K1|K2|K3|K4|K5|K6|RM02|RM03|RM04|RM05|RM06|RM07|RM08|RM11|Alumni or Non-MBMA student"
+      ],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 50.0,
+          "sku": "HC-2024GEN"
+        }
+      ],
+      "variantSummary": "default@50(sku:HC-2024GEN)",
+      "customTextFields": [
+        "Student Name & Room Number*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/halloween-carnival-general-admission",
+      "productPageUrl": "https://www.mbmapg.org/product-page/halloween-carnival-general-admission",
+      "lastUpdated": "2024-10-24T00:10:13.452Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_d22eab7721f94afd86dc3698260bd2ab~mv2.png/v1/fit/w_1080,h_1080,q_90/file.png"
+      ],
+      "localImages": [
+        "halloween-carnival-general-admission-2.png"
+      ]
+    },
+    {
+      "id": "ff5f737a-7014-8401-9a0d-12114665af9b",
+      "name": "2024-2025 MBMA Yearbook",
+      "slug": "2023-2024-mbma-yearbook",
+      "visible": false,
+      "productType": "physical",
+      "sku": "",
+      "price": 35,
+      "currency": "USD",
+      "formattedPrice": "$35.00",
+      "description": "Purchase this year's '24-'25 MBMA Yearbook $35 Yearbooks will be distributed on June 6th to your child's classroom.",
+      "categories": [],
+      "options": [],
+      "options_raw": [],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 35.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "default@35",
+      "customTextFields": [
+        "Please tell us your Child's FIRST and LAST Name*",
+        "What Classroom in your child in?  (if you have more than one child, room of OLDEST)*"
+      ],
+      "ribbons": [
+        "BUY NOW $35"
+      ],
+      "productPagePath": "/product-page/2023-2024-mbma-yearbook",
+      "productPageUrl": "https://www.mbmapg.org/product-page/2023-2024-mbma-yearbook",
+      "lastUpdated": "2025-08-24T00:49:28.713Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_88d74d61aaa64fa995e3284d27ff364f~mv2.png/v1/fit/w_1626,h_2012,q_90/file.png"
+      ],
+      "localImages": [
+        "2024-2025-mbma-yearbook.png"
+      ]
+    },
+    {
+      "id": "84dcf9fe-2a2b-51a5-9f29-c0ee4ffda90f",
+      "name": "Halloween 10 Game Tickets for $10",
+      "slug": "halloween-10-game-tickets-for-10",
+      "visible": false,
+      "productType": "physical",
+      "sku": "",
+      "price": 10,
+      "currency": "USD",
+      "formattedPrice": "$10.00",
+      "description": "Halloween 10 Game Tickets for $10",
+      "categories": [],
+      "options": [],
+      "options_raw": [],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 10.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "default@10",
+      "customTextFields": [
+        "Please enter your Child's FIRST and LAST Name with Room #*",
+        "If purchasing for MORE than one child: Enter 2nd Child's FIRST and LAST Name with Room #"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/halloween-10-game-tickets-for-10",
+      "productPageUrl": "https://www.mbmapg.org/product-page/halloween-10-game-tickets-for-10",
+      "lastUpdated": "2021-10-28T16:18:54.957Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_2881e4ce63db455bbeeb4db94d8252cf~mv2.png/v1/fit/w_1080,h_1080,q_90/file.png"
+      ],
+      "localImages": [
+        "halloween-10-game-tickets-for-10.png"
+      ]
+    },
+    {
+      "id": "ba2d3678-2acf-303b-eb5b-3400cfeebc69",
+      "name": "TEACHERS Pizza Lunch",
+      "slug": "teachers-pizza-lunch",
+      "visible": true,
+      "productType": "physical",
+      "sku": "",
+      "price": 0,
+      "currency": "USD",
+      "formattedPrice": "$0.00",
+      "description": "Choice of 1-2 slices or 3-5 CHEESE ONLY Slices. NOTE: slices are double cut (large usually 8 becomes 16, slightly smaller).",
+      "categories": [],
+      "options": [
+        {
+          "name": "Total Pizza Slices",
+          "choices": [
+            "1-2 Slices",
+            "3-5 Slices"
+          ]
+        },
+        {
+          "name": "Cheese Slices",
+          "choices": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Total Pizza Slices: 1-2 Slices|3-5 Slices",
+        "Cheese Slices: 1|2|3|4|5"
+      ],
+      "variants": [
+        {
+          "choices": "Total Pizza Slices=1-2 Slices,Cheese Slices=1",
+          "price": 0.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=1-2 Slices,Cheese Slices=2",
+          "price": 0.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=1-2 Slices,Cheese Slices=3",
+          "price": 0.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=1-2 Slices,Cheese Slices=4",
+          "price": 0.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=1-2 Slices,Cheese Slices=5",
+          "price": 0.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=3-5 Slices,Cheese Slices=1",
+          "price": 0.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=3-5 Slices,Cheese Slices=2",
+          "price": 0.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=3-5 Slices,Cheese Slices=3",
+          "price": 0.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=3-5 Slices,Cheese Slices=4",
+          "price": 0.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=3-5 Slices,Cheese Slices=5",
+          "price": 0.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "Total Pizza Slices=1-2 Slices,Cheese Slices=1@0; Total Pizza Slices=1-2 Slices,Cheese Slices=2@0; Total Pizza Slices=1-2 Slices,Cheese Slices=3@0; Total Pizza Slices=1-2 Slices,Cheese Slices=4@0; Total Pizza Slices=1-2 Slices,Cheese Slices=5@0; Total Pizza Slices=3-5 Slices,Cheese Slices=1@0; Total Pizza Slices=3-5 Slices,Cheese Slices=2@0; Total Pizza Slices=3-5 Slices,Cheese Slices=3@0; Total Pizza Slices=3-5 Slices,Cheese Slices=4@0; Total Pizza Slices=3-5 Slices,Cheese Slices=5@0",
+      "customTextFields": [
+        "TEACHER INFO - First Last Name- Room#*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/teachers-pizza-lunch",
+      "productPageUrl": "https://www.mbmapg.org/product-page/teachers-pizza-lunch",
+      "lastUpdated": "2026-08-14T22:22:06.338Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_89e9fedbb0da4bb5823deb0444ec433f~mv2.png/v1/fit/w_1080,h_1080,q_90/file.png"
+      ],
+      "localImages": [
+        "teachers-pizza-lunch.png"
+      ]
+    },
+    {
+      "id": "e5349464-ce95-d835-2f7d-6e19a710009e",
+      "name": "PE/Field Trip Tee - Adult Blue",
+      "slug": "pe-field-trip-tee-adult-blue-1",
+      "visible": true,
+      "productType": "physical",
+      "sku": "",
+      "price": 18,
+      "currency": "USD",
+      "formattedPrice": "$18.00",
+      "description": "",
+      "categories": [
+        "Apparel"
+      ],
+      "options": [
+        {
+          "name": "Size",
+          "choices": [
+            "Small",
+            "Medium",
+            "Large",
+            "X-Large"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Size: Small|Medium|Large|X-Large"
+      ],
+      "variants": [
+        {
+          "choices": "Size=Small",
+          "price": 18.0,
+          "sku": ""
+        },
+        {
+          "choices": "Size=Medium",
+          "price": 18.0,
+          "sku": ""
+        },
+        {
+          "choices": "Size=Large",
+          "price": 18.0,
+          "sku": ""
+        },
+        {
+          "choices": "Size=X-Large",
+          "price": 18.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "Size=Small@18; Size=Medium@18; Size=Large@18; Size=X-Large@18",
+      "customTextFields": [
+        "Student Info- First Last Name- Room#*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/pe-field-trip-tee-adult-blue-1",
+      "productPageUrl": "https://www.mbmapg.org/product-page/pe-field-trip-tee-adult-blue-1",
+      "lastUpdated": "2022-09-02T00:49:07.530Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/9180b9_e1535a03e8ef455ab59095b3ff7d06db~mv2_d_3024_4032_s_4_2.jpg/v1/fit/w_3024,h_4032,q_90/file.jpg"
+      ],
+      "localImages": [
+        "pefield-trip-tee-adult-blue.jpg"
+      ]
+    },
+    {
+      "id": "f677a107-e0c9-228e-af50-5f55f0ae1e85",
+      "name": "Bench with Recognition Plaque",
+      "slug": "bench-with-recognition-plaque",
+      "visible": false,
+      "productType": "physical",
+      "sku": "",
+      "price": 750,
+      "currency": "USD",
+      "formattedPrice": "$750.00",
+      "description": "White Convert-A-Bench Permanent Recognition. Recognition Plaque Wording: punctuation marks, quotes, brackets, commas, and spaces count as characters.",
+      "categories": [],
+      "options": [],
+      "options_raw": [],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 750.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "default@750",
+      "customTextFields": [
+        "Recognition Plaque Wording*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/bench-with-recognition-plaque",
+      "productPageUrl": "https://www.mbmapg.org/product-page/bench-with-recognition-plaque",
+      "lastUpdated": "2021-09-09T09:11:27.076Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_6d2d47ba96184c3c824baf1c9f62b337~mv2.jpg/v1/fit/w_1500,h_1000,q_90/file.jpg"
+      ],
+      "localImages": [
+        "bench-with-recognition-plaque.jpg"
+      ]
+    },
+    {
+      "id": "e665ec42-1157-60bf-ecb4-cf926d5271a1",
+      "name": "Path of Appreciation Paver $500",
+      "slug": "path-of-appreciation-paver-500",
+      "visible": true,
+      "productType": "physical",
+      "sku": "",
+      "price": 500,
+      "currency": "USD",
+      "formattedPrice": "$500.00",
+      "description": "Contribution for a permanent concrete paver on the Path of Appreciation at the main entrance. Family name and message displayed.",
+      "categories": [],
+      "options": [
+        {
+          "name": "Size & Color",
+          "choices": [
+            "12x12 Tan",
+            "12x12 Gray"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Size & Color: 12x12 Tan|12x12 Gray"
+      ],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 500.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "default@500",
+      "customTextFields": [
+        "Please write desired message below.  Spaces, commas, and punctuation marks count as a character.*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/path-of-appreciation-paver-500",
+      "productPageUrl": "https://www.mbmapg.org/product-page/path-of-appreciation-paver-500",
+      "lastUpdated": "2026-03-12T17:09:40.502Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/9180b9_a8c1b01ab0854ce984aa45e92af6a071~mv2_d_4032_3024_s_4_2.jpg/v1/fit/w_4032,h_3024,q_90/file.jpg",
+        "https://static.wixstatic.com/media/9180b9_77951e60b5b64b7a99f780a1c2b1490c~mv2_d_1746_1309_s_2.jpg/v1/fit/w_1746,h_1309,q_90/file.jpg",
+        "https://static.wixstatic.com/media/9180b9_a1afc8c69f654302aff97e13ef994050~mv2_d_3316_3316_s_4_2.jpg/v1/fit/w_3316,h_3316,q_90/file.jpg",
+        "https://static.wixstatic.com/media/9180b9_63f6b1de2284417fac96d07629529dcc~mv2_d_3024_4032_s_4_2.jpg/v1/fit/w_3024,h_4032,q_90/file.jpg",
+        "https://static.wixstatic.com/media/ae91bf_237b053be72a4d36bbe8b73a6a7ec7e1~mv2.png/v1/fit/w_498,h_190,q_90/file.png"
+      ],
+      "localImages": [
+        "path-of-appreciation-paver-500.jpg",
+        "path-of-appreciation-paver-500-2.jpg",
+        "path-of-appreciation-paver-500-3.jpg",
+        "path-of-appreciation-paver-500-4.jpg",
+        "path-of-appreciation-paver-500-5.png"
+      ]
+    },
+    {
+      "id": "05a2aa34-a303-438d-2318-b2d8bb402f05",
+      "name": "Path of Appreciation Paver $250",
+      "slug": "path-of-appreciation-paver-200",
+      "visible": true,
+      "productType": "physical",
+      "sku": "",
+      "price": 250,
+      "currency": "USD",
+      "formattedPrice": "$250.00",
+      "description": "Contribution for a permanent concrete paver on the Path of Appreciation at the main entrance. Family name and message displayed.",
+      "categories": [],
+      "options": [
+        {
+          "name": "Size & Color",
+          "choices": [
+            "8x8 Gray",
+            "8x8 Beige"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Size & Color: 8x8 Gray|8x8 Beige"
+      ],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 250.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "default@250",
+      "customTextFields": [
+        "Please write desired message below.  Spaces, commas, and punctuation marks count as a character.*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/path-of-appreciation-paver-200",
+      "productPageUrl": "https://www.mbmapg.org/product-page/path-of-appreciation-paver-200",
+      "lastUpdated": "2026-03-12T17:10:00.307Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/9180b9_a8c1b01ab0854ce984aa45e92af6a071~mv2_d_4032_3024_s_4_2.jpg/v1/fit/w_4032,h_3024,q_90/file.jpg",
+        "https://static.wixstatic.com/media/9180b9_77951e60b5b64b7a99f780a1c2b1490c~mv2_d_1746_1309_s_2.jpg/v1/fit/w_1746,h_1309,q_90/file.jpg",
+        "https://static.wixstatic.com/media/9180b9_a1afc8c69f654302aff97e13ef994050~mv2_d_3316_3316_s_4_2.jpg/v1/fit/w_3316,h_3316,q_90/file.jpg",
+        "https://static.wixstatic.com/media/9180b9_63f6b1de2284417fac96d07629529dcc~mv2_d_3024_4032_s_4_2.jpg/v1/fit/w_3024,h_4032,q_90/file.jpg",
+        "https://static.wixstatic.com/media/ae91bf_237b053be72a4d36bbe8b73a6a7ec7e1~mv2.png/v1/fit/w_498,h_190,q_90/file.png"
+      ],
+      "localImages": [
+        "path-of-appreciation-paver-250.jpg",
+        "path-of-appreciation-paver-250-2.jpg",
+        "path-of-appreciation-paver-250-3.jpg",
+        "path-of-appreciation-paver-250-4.jpg",
+        "path-of-appreciation-paver-250-5.png"
+      ]
+    },
+    {
+      "id": "a9561df4-9768-025e-36c8-86ccbcc3246c",
+      "name": "Halloween Carnival Admission",
+      "slug": "halloween-carnival-admission",
+      "visible": false,
+      "productType": "physical",
+      "sku": "HC-2024",
+      "price": 40,
+      "currency": "USD",
+      "formattedPrice": "$40.00",
+      "description": "Pre-Sale Halloween Carnival Wristbands. Every child must have a wristband; adults and under-2 free. Unlimited carnival game access.",
+      "categories": [],
+      "options": [
+        {
+          "name": "Classroom",
+          "choices": [
+            "K1",
+            "K2",
+            "K3",
+            "K4",
+            "K5",
+            "K6",
+            "RM02",
+            "RM03",
+            "RM04",
+            "RM05",
+            "RM06",
+            "RM07",
+            "RM08",
+            "RM11",
+            "Alumni or Non-MBMA student"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Classroom: K1|K2|K3|K4|K5|K6|RM02|RM03|RM04|RM05|RM06|RM07|RM08|RM11|Alumni or Non-MBMA student"
+      ],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 40.0,
+          "sku": "HC-2024"
+        }
+      ],
+      "variantSummary": "default@40(sku:HC-2024)",
+      "customTextFields": [
+        "Student Name*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/halloween-carnival-admission",
+      "productPageUrl": "https://www.mbmapg.org/product-page/halloween-carnival-admission",
+      "lastUpdated": "2024-10-23T15:37:13.408Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_8ce17c721b744a7189d7156d2c726a74~mv2.png/v1/fit/w_1080,h_1080,q_90/file.png"
+      ],
+      "localImages": [
+        "halloween-carnival-admission.png"
+      ]
+    },
+    {
+      "id": "e11c1c0d-e833-0933-734a-39367fc1a709",
+      "name": "Halloween Carnival Sponsorship",
+      "slug": "halloween-carnival-sponsorship",
+      "visible": false,
+      "productType": "physical",
+      "sku": "",
+      "price": 25,
+      "currency": "USD",
+      "formattedPrice": "$25.00",
+      "description": "Please enter a name for donation. We will use this name/entry when creating signs to thank you for your donation. (Use Last Name, The XXX Family, Company Name, etc.)",
+      "categories": [],
+      "options": [
+        {
+          "name": "Sponsorship Level",
+          "choices": [
+            "Giving Goblin",
+            "Plentiful Pumpkin",
+            "Bounteous Bats",
+            "Philanthropic Phantoms",
+            "Magnanimous Mummies"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Sponsorship Level: Giving Goblin|Plentiful Pumpkin|Bounteous Bats|Philanthropic Phantoms|Magnanimous Mummies"
+      ],
+      "variants": [
+        {
+          "choices": "Sponsorship Level=Giving Goblin",
+          "price": 25.0,
+          "sku": ""
+        },
+        {
+          "choices": "Sponsorship Level=Plentiful Pumpkin",
+          "price": 50.0,
+          "sku": ""
+        },
+        {
+          "choices": "Sponsorship Level=Bounteous Bats",
+          "price": 100.0,
+          "sku": ""
+        },
+        {
+          "choices": "Sponsorship Level=Philanthropic Phantoms",
+          "price": 250.0,
+          "sku": ""
+        },
+        {
+          "choices": "Sponsorship Level=Magnanimous Mummies",
+          "price": 300.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "Sponsorship Level=Giving Goblin@25; Sponsorship Level=Plentiful Pumpkin@50; Sponsorship Level=Bounteous Bats@100; Sponsorship Level=Philanthropic Phantoms@250; Sponsorship Level=Magnanimous Mummies@300",
+      "customTextFields": [
+        "Name for Donation*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/halloween-carnival-sponsorship",
+      "productPageUrl": "https://www.mbmapg.org/product-page/halloween-carnival-sponsorship",
+      "lastUpdated": "2025-12-08T19:36:26.430Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_2e6d858e4f1a48a897679e9758720024~mv2.png/v1/fit/w_1080,h_1080,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_37b492b963e44c79904e1af840887114~mv2.png/v1/fit/w_1700,h_2200,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_93b56e452efc4ceb8d465ced3f182073~mv2.png/v1/fit/w_1700,h_2200,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_1fe312ca6e9d4544a3d2de6a6d45a6c5~mv2.png/v1/fit/w_1700,h_2200,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_5a6acfae74214a6dbbea605100a4c601~mv2.png/v1/fit/w_3230,h_4180,q_90/file.png",
+        "https://static.wixstatic.com/media/ae91bf_aa99c09a35544ab9a176468e2a703269~mv2.png/v1/fit/w_3137,h_4059,q_90/file.png"
+      ],
+      "localImages": [
+        "halloween-carnival-sponsorship.png",
+        "halloween-carnival-sponsorship-2.png",
+        "halloween-carnival-sponsorship-3.png",
+        "halloween-carnival-sponsorship-4.png",
+        "halloween-carnival-sponsorship-5.png",
+        "halloween-carnival-sponsorship-6.png"
+      ]
+    },
+    {
+      "id": "46885bb8-83a2-7d12-c071-1561a689b2a1",
+      "name": "Path of Appreciation Paver $100",
+      "slug": "path-of-appreciation-paver",
+      "visible": true,
+      "productType": "physical",
+      "sku": "",
+      "price": 100,
+      "currency": "USD",
+      "formattedPrice": "$100.00",
+      "description": "Contribution for a permanent concrete paver on the Path of Appreciation at the main entrance. Family name and message displayed.",
+      "categories": [],
+      "options": [
+        {
+          "name": "Size & Color",
+          "choices": [
+            "4x8 Tan",
+            "4x8 Beige"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Size & Color: 4x8 Tan|4x8 Beige"
+      ],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 100.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "default@100",
+      "customTextFields": [
+        "Please write desired message below.  Spaces, commas, and punctuation marks count as a character.*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/path-of-appreciation-paver",
+      "productPageUrl": "https://www.mbmapg.org/product-page/path-of-appreciation-paver",
+      "lastUpdated": "2026-03-12T17:10:31.958Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/9180b9_a8c1b01ab0854ce984aa45e92af6a071~mv2_d_4032_3024_s_4_2.jpg/v1/fit/w_4032,h_3024,q_90/file.jpg",
+        "https://static.wixstatic.com/media/9180b9_77951e60b5b64b7a99f780a1c2b1490c~mv2_d_1746_1309_s_2.jpg/v1/fit/w_1746,h_1309,q_90/file.jpg",
+        "https://static.wixstatic.com/media/9180b9_a1afc8c69f654302aff97e13ef994050~mv2_d_3316_3316_s_4_2.jpg/v1/fit/w_3316,h_3316,q_90/file.jpg",
+        "https://static.wixstatic.com/media/9180b9_63f6b1de2284417fac96d07629529dcc~mv2_d_3024_4032_s_4_2.jpg/v1/fit/w_3024,h_4032,q_90/file.jpg",
+        "https://static.wixstatic.com/media/ae91bf_237b053be72a4d36bbe8b73a6a7ec7e1~mv2.png/v1/fit/w_498,h_190,q_90/file.png"
+      ],
+      "localImages": [
+        "path-of-appreciation-paver-100.jpg",
+        "path-of-appreciation-paver-100-2.jpg",
+        "path-of-appreciation-paver-100-3.jpg",
+        "path-of-appreciation-paver-100-4.jpg",
+        "path-of-appreciation-paver-100-5.png"
+      ]
+    },
+    {
+      "id": "84e00850-d8f8-6c43-ae3b-e5fe1891e45b",
+      "name": "PE/Field Trip Tee- Adult Blue",
+      "slug": "pe-field-trip-tee-adult-blue",
+      "visible": false,
+      "productType": "physical",
+      "sku": "",
+      "price": 10,
+      "currency": "USD",
+      "formattedPrice": "$10.00",
+      "description": "",
+      "categories": [
+        "Apparel"
+      ],
+      "options": [
+        {
+          "name": "Size",
+          "choices": [
+            "X-Small",
+            "Small",
+            "Medium",
+            "Large",
+            "X-Large"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Size: X-Small|Small|Medium|Large|X-Large"
+      ],
+      "variants": [
+        {
+          "choices": "Size=X-Small",
+          "price": 10.0,
+          "sku": "APEFT-AB-XS"
+        },
+        {
+          "choices": "Size=Small",
+          "price": 10.0,
+          "sku": "APEFT-AB-S"
+        },
+        {
+          "choices": "Size=Medium",
+          "price": 10.0,
+          "sku": "APEFT-AB-M"
+        },
+        {
+          "choices": "Size=Large",
+          "price": 10.0,
+          "sku": "APEFT-AB-L"
+        },
+        {
+          "choices": "Size=X-Large",
+          "price": 10.0,
+          "sku": "APEFT-AB-XL"
+        }
+      ],
+      "variantSummary": "Size=X-Small@10(sku:APEFT-AB-XS); Size=Small@10(sku:APEFT-AB-S); Size=Medium@10(sku:APEFT-AB-M); Size=Large@10(sku:APEFT-AB-L); Size=X-Large@10(sku:APEFT-AB-XL)",
+      "customTextFields": [
+        "Student Info- First Last Name- Room#*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/pe-field-trip-tee-adult-blue",
+      "productPageUrl": "https://www.mbmapg.org/product-page/pe-field-trip-tee-adult-blue",
+      "lastUpdated": "2020-03-27T18:50:44.056Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/9180b9_e1535a03e8ef455ab59095b3ff7d06db~mv2_d_3024_4032_s_4_2.jpg/v1/fit/w_3024,h_4032,q_90/file.jpg"
+      ],
+      "localImages": [
+        "pefield-trip-tee-adult-blue-2.jpg"
+      ]
+    },
+    {
+      "id": "554ff2aa-c101-4115-b845-162193425061",
+      "name": "PE/Field Trip Tee- Youth Blue",
+      "slug": "pe-field-trip-tee-youth-blue",
+      "visible": true,
+      "productType": "physical",
+      "sku": "",
+      "price": 15,
+      "currency": "USD",
+      "formattedPrice": "$15.00",
+      "description": "",
+      "categories": [
+        "Apparel"
+      ],
+      "options": [
+        {
+          "name": "Size",
+          "choices": [
+            "X-Small",
+            "Small",
+            "Medium",
+            "Large",
+            "X-Large",
+            "2T- La Casita",
+            "3T- La Casita"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Size: X-Small|Small|Medium|Large|X-Large|2T- La Casita|3T- La Casita"
+      ],
+      "variants": [
+        {
+          "choices": "Size=X-Small",
+          "price": 15.0,
+          "sku": "APEFT-YB-XS"
+        },
+        {
+          "choices": "Size=Small",
+          "price": 15.0,
+          "sku": "APEFT-YB-S"
+        },
+        {
+          "choices": "Size=Medium",
+          "price": 15.0,
+          "sku": "APEFT-YB-M"
+        },
+        {
+          "choices": "Size=Large",
+          "price": 15.0,
+          "sku": "APEFT-YB-L"
+        },
+        {
+          "choices": "Size=X-Large",
+          "price": 15.0,
+          "sku": "APEFT-YB-XL"
+        },
+        {
+          "choices": "Size=2T- La Casita",
+          "price": 15.0,
+          "sku": "APEFT-YB-2T"
+        },
+        {
+          "choices": "Size=3T- La Casita",
+          "price": 15.0,
+          "sku": "APEFT-YB-3T"
+        }
+      ],
+      "variantSummary": "Size=X-Small@15(sku:APEFT-YB-XS); Size=Small@15(sku:APEFT-YB-S); Size=Medium@15(sku:APEFT-YB-M); Size=Large@15(sku:APEFT-YB-L); Size=X-Large@15(sku:APEFT-YB-XL); Size=2T- La Casita@15(sku:APEFT-YB-2T); Size=3T- La Casita@15(sku:APEFT-YB-3T)",
+      "customTextFields": [
+        "Student Info- First Last Name- Room#*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/pe-field-trip-tee-youth-blue",
+      "productPageUrl": "https://www.mbmapg.org/product-page/pe-field-trip-tee-youth-blue",
+      "lastUpdated": "2025-12-08T19:37:00.380Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/9180b9_e1535a03e8ef455ab59095b3ff7d06db~mv2_d_3024_4032_s_4_2.jpg/v1/fit/w_3024,h_4032,q_90/file.jpg"
+      ],
+      "localImages": [
+        "pefield-trip-tee-youth-blue.jpg"
+      ]
+    },
+    {
+      "id": "dc243766-86ad-5762-a8ba-99c6435586f1",
+      "name": "Emergency Fund (NEW Students ONLY)",
+      "slug": "emergency-fund",
+      "visible": false,
+      "productType": "physical",
+      "sku": "",
+      "price": 10,
+      "currency": "USD",
+      "formattedPrice": "$10.00",
+      "description": "*Required For New Students Only. Emergency fund for Earthquake Kits (first aid, water, MRE) for each child. Kits refreshed every 5 years. Required once for new students.",
+      "categories": [],
+      "options": [],
+      "options_raw": [],
+      "variants": [
+        {
+          "choices": "default",
+          "price": 10.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "default@10",
+      "customTextFields": [
+        "Student Info- First Last Name- Room#*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/emergency-fund",
+      "productPageUrl": "https://www.mbmapg.org/product-page/emergency-fund",
+      "lastUpdated": "2025-12-08T19:37:13.468Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_a6895b7a05e04b8f93b18011c904f0a2~mv2_d_1500_1200_s_2.jpg/v1/fit/w_1500,h_1200,q_90/file.jpg"
+      ],
+      "localImages": [
+        "emergency-fund-new-students-only.jpg"
+      ]
+    },
+    {
+      "id": "25d200de-b34e-5f81-6056-98c164a21c00",
+      "name": "Pizza Lunch Fridays - Fundraiser",
+      "slug": "pizza-lunch",
+      "visible": true,
+      "productType": "physical",
+      "sku": "",
+      "price": 180,
+      "currency": "USD",
+      "formattedPrice": "$180.00",
+      "description": "Cheese Pizza only lunch for 1 student. 1-2 slices $180/yr ($6/lunch); 3-5 $240/yr ($8); 6-8 $300/yr ($10). Children's House/Primary/Elementary get cheese only. School Year 2026-2027.",
+      "categories": [],
+      "options": [
+        {
+          "name": "Total Pizza Slices",
+          "choices": [
+            "1-2 Slices",
+            "3-5 Slices",
+            "6-8 Slices"
+          ]
+        },
+        {
+          "name": "Pizza Slices",
+          "choices": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+          ]
+        }
+      ],
+      "options_raw": [
+        "Total Pizza Slices: 1-2 Slices|3-5 Slices|6-8 Slices",
+        "Pizza Slices: 1|2|3|4|5|6|7|8"
+      ],
+      "variants": [
+        {
+          "choices": "Total Pizza Slices=1-2 Slices,Pizza Slices=1",
+          "price": 180.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=1-2 Slices,Pizza Slices=2",
+          "price": 180.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=3-5 Slices,Pizza Slices=3",
+          "price": 240.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=3-5 Slices,Pizza Slices=4",
+          "price": 240.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=3-5 Slices,Pizza Slices=5",
+          "price": 240.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=6-8 Slices,Pizza Slices=6",
+          "price": 300.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=6-8 Slices,Pizza Slices=7",
+          "price": 300.0,
+          "sku": ""
+        },
+        {
+          "choices": "Total Pizza Slices=6-8 Slices,Pizza Slices=8",
+          "price": 300.0,
+          "sku": ""
+        }
+      ],
+      "variantSummary": "Total Pizza Slices=1-2 Slices,Pizza Slices=1@180; Total Pizza Slices=1-2 Slices,Pizza Slices=2@180; Total Pizza Slices=3-5 Slices,Pizza Slices=3@240; Total Pizza Slices=3-5 Slices,Pizza Slices=4@240; Total Pizza Slices=3-5 Slices,Pizza Slices=5@240; Total Pizza Slices=6-8 Slices,Pizza Slices=6@300; Total Pizza Slices=6-8 Slices,Pizza Slices=7@300; Total Pizza Slices=6-8 Slices,Pizza Slices=8@300",
+      "customTextFields": [
+        "Student Info- First Last Name- Room#*"
+      ],
+      "ribbons": [],
+      "productPagePath": "/product-page/pizza-lunch",
+      "productPageUrl": "https://www.mbmapg.org/product-page/pizza-lunch",
+      "lastUpdated": "2026-08-14T22:19:46.747Z",
+      "imageUrls": [
+        "https://static.wixstatic.com/media/ae91bf_317c0599eb274b9fbb3c24f1523f5f9e~mv2.png/v1/fit/w_1080,h_1080,q_90/file.png"
+      ],
+      "localImages": [
+        "pizza-lunch-fridays-fundraiser.png"
+      ]
+    }
+  ]
+}
