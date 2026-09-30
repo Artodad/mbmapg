@@ -8,6 +8,8 @@ import {
   sponsorshipZeffyBuyHref,
   sponsorshipZeffyFormLink,
   wristbandTiers,
+  wristbandZeffyBuyHref,
+  wristbandZeffyFormLink,
 } from './halloween-shop.ts';
 
 test('Sep 29, 2026 uses the $45 wristband price', () => {
@@ -66,6 +68,18 @@ test('sponsorship checkout is the one published 2026 carnival form', () => {
     'https://www.zeffy.com/embed/ticketing/2026-halloween-carnival-4?modal=true',
   );
   assert.equal(wristbandTiers.length, 2);
+});
+
+test('wristband checkout is its own $45 form and is not the sponsorship form', () => {
+  assert.equal(
+    wristbandZeffyBuyHref,
+    'https://www.zeffy.com/en-US/ticketing/2026-halloween-carnival-wristband',
+  );
+  assert.equal(
+    wristbandZeffyFormLink,
+    'https://www.zeffy.com/embed/ticketing/2026-halloween-carnival-wristband?modal=true',
+  );
+  assert.notEqual(wristbandZeffyBuyHref, sponsorshipZeffyBuyHref);
 });
 
 test('carnival sentence is the flyer wording', () => {

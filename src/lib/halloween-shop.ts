@@ -35,6 +35,13 @@ export const sponsorshipZeffyBuyHref =
 export const sponsorshipZeffyFormLink =
   'https://www.zeffy.com/embed/ticketing/2026-halloween-carnival-4?modal=true';
 
+/** Published $45 wristband ticket. The $50 window is listed copy, not this form. */
+export const wristbandZeffyBuyHref =
+  'https://www.zeffy.com/en-US/ticketing/2026-halloween-carnival-wristband';
+
+export const wristbandZeffyFormLink =
+  'https://www.zeffy.com/embed/ticketing/2026-halloween-carnival-wristband?modal=true';
+
 /**
  * Which listed wristband price applies on a Pacific calendar date.
  * Dates after October 29, 2026 have no listed price.

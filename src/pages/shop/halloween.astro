@@ -10,6 +10,8 @@ import {
   sponsorshipZeffyBuyHref,
   sponsorshipZeffyFormLink,
   wristbandTiers,
+  wristbandZeffyBuyHref,
+  wristbandZeffyFormLink,
 } from '../../lib/halloween-shop';
 
 const currentTier = currentWristbandTierNow();
@@ -79,6 +81,15 @@ const currentTier = currentWristbandTierNow();
               <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
             </p>
           </div>
+          <p class="product-actions">
+            <a
+              class="btn btn-peach"
+              href={wristbandZeffyBuyHref}
+              zeffy-form-link={wristbandZeffyFormLink}
+            >
+              Buy a wristband
+            </a>
+          </p>
         </section>
 
         <section aria-labelledby="sponsorships-heading">
