@@ -1,0 +1,126 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import { asset, withBase } from '../../lib/site';
+import {
+  carnivalNonprofitSentence,
+  currentWristbandTierNow,
+  sponsorships,
+  wristbandTiers,
+} from '../../lib/halloween-shop';
+
+const currentTier = currentWristbandTierNow();
+---
+
+<Base
+  title="Halloween Carnival"
+  description="Halloween Carnival wristbands and sponsorships for the MBMA Parents Group."
+>
+  <PageHero title="Halloween Carnival" />
+  <main id="main">
+    <div class="wrap">
+      <section aria-labelledby="wristbands-heading">
+        <h2 id="wristbands-heading" class="section-title">Wristbands</h2>
+        <img
+          class="wristband-art"
+          src={asset('images/shop/halloween-wristband.jpg')}
+          alt="Orange treat bag and orange wristband"
+          width="1080"
+          height="1080"
+        />
+        <div class="product-grid">
+          {
+            wristbandTiers.map((tier) => {
+              const appliesNow = tier.id === currentTier;
+              return (
+                <article
+                  class:list={['product', { 'is-current': appliesNow }]}
+                  data-wristband-tier={tier.id}
+                >
+                  <h2>Halloween Carnival Wristband</h2>
+                  <p class="price">{tier.price}</p>
+                  <p class="muted">{tier.window}</p>
+                  <p class="tier-now" hidden={!appliesNow}>
+                    This price applies now
+                  </p>
+                </article>
+              );
+            })
+          }
+        </div>
+        <p class="muted wristband-after" data-wristband-after hidden={currentTier !== null}>
+          These listed prices apply through October 29, 2026.
+        </p>
+      </section>
+
+      <section aria-labelledby="sponsorships-heading">
+        <h2 id="sponsorships-heading" class="section-title">Sponsorships</h2>
+        <p>{carnivalNonprofitSentence}</p>
+        <div class="product-grid">
+          {
+            sponsorships.map((item) => (
+              <article class="product">
+                <h2>{item.name}</h2>
+                <p class="price">{item.price}</p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <p class="halloween-back">
+        <a href={withBase('shop')}>Back to the shop</a>
+      </p>
+    </div>
+  </main>
+</Base>
+
+<script>
+  import { currentWristbandTierNow } from '../../lib/halloween-shop';
+
+  const tier = currentWristbandTierNow();
+  document.querySelectorAll('[data-wristband-tier]').forEach((el) => {
+    const appliesNow = el.getAttribute('data-wristband-tier') === tier;
+    el.classList.toggle('is-current', appliesNow);
+    const flag = el.querySelector('.tier-now');
+    if (flag instanceof HTMLElement) flag.hidden = !appliesNow;
+  });
+  const after = document.querySelector('[data-wristband-after]');
+  if (after instanceof HTMLElement) after.hidden = tier !== null;
+</script>
+
+<style>
+  .wristband-art {
+    display: block;
+    width: min(280px, 100%);
+    aspect-ratio: 1;
+    object-fit: cover;
+    margin: 0 0 1rem;
+    background: var(--cream-deep);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-img);
+  }
+
+  .product.is-current {
+    border-color: var(--ochre);
+    box-shadow: inset 0 3px 0 var(--ochre);
+  }
+
+  .tier-now {
+    font-family: var(--heading);
+    font-weight: 700;
+    margin: 0.35rem 0 0;
+  }
+
+  .wristband-after {
+    margin-top: 0.85rem;
+  }
+
+  section + section {
+    margin-top: 2.2rem;
+  }
+
+  .halloween-back {
+    margin-top: 1.6rem;
+  }
+</style>
