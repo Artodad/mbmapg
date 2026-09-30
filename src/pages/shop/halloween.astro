@@ -70,67 +70,52 @@ const currentTier = currentWristbandTierNow();
 
         <section aria-labelledby="wristbands-heading">
           <h2 id="wristbands-heading" class="section-title">Wristbands</h2>
-          <img
-            class="wristband-art"
-            src={asset('images/shop/halloween-wristband.jpg')}
-            alt="Orange treat bag and orange wristband"
-            width="1080"
-            height="1080"
-          />
-          <div class="flyer-beside">
-          <div class="product-grid">
-            {
-              wristbandTiers.map((tier) => {
-                const appliesNow = tier.id === currentTier;
-                return (
-                  <article
-                    class:list={['product', { 'is-current': appliesNow }]}
-                    data-wristband-tier={tier.id}
-                  >
-                    <h2>Halloween Carnival Wristband</h2>
-                    <p class="price">{tier.price}</p>
-                    <p class="muted">{tier.window}</p>
-                    {
-                      appliesNow ? (
-                        <p class="tier-now">This price applies now</p>
-                      ) : null
-                    }
-                  </article>
-                );
-              })
-            }
+          <div class="wristband-layout">
+            <img
+              class="wristband-art"
+              src={asset('images/shop/halloween-wristband.jpg')}
+              alt="Orange treat bag and orange wristband"
+              width="1080"
+              height="1080"
+            />
+            <div class="wristband-details">
+              <div class="product-grid">
+                {
+                  wristbandTiers.map((tier) => {
+                    const appliesNow = tier.id === currentTier;
+                    return (
+                      <article
+                        class:list={['product', { 'is-current': appliesNow }]}
+                        data-wristband-tier={tier.id}
+                      >
+                        <h2>Halloween Carnival Wristband</h2>
+                        <p class="price">{tier.price}</p>
+                        <p class="muted">{tier.window}</p>
+                        {
+                          appliesNow ? (
+                            <p class="tier-now">This price applies now</p>
+                          ) : null
+                        }
+                      </article>
+                    );
+                  })
+                }
+              </div>
+              <p class="muted wristband-after" data-wristband-after hidden={currentTier !== null}>
+                These listed prices apply through October 29, 2026.
+              </p>
+              <p class="product-actions">
+                <a class="btn btn-peach" href={wristbandZeffyBuyHref} zeffy-form-link={wristbandZeffyFormLink}>
+                  Buy a wristband
+                </a>
+              </p>
+            </div>
           </div>
-          <div class="flyer-pumpkin flyer-pumpkin-wrist" aria-hidden="true">
-            <svg viewBox="0 0 100 112" xmlns="http://www.w3.org/2000/svg">
-              <path d="M58 24c6-12 18-10 20-2-8 1-14 4-20 2z" fill="#7cbc55"></path>
-              <path d="M46 30c2-12 14-16 16-4" fill="none" stroke="#3d7a34" stroke-width="4" stroke-linecap="round"></path>
-              <ellipse cx="50" cy="68" rx="36" ry="32" fill="#f08a24"></ellipse>
-              <ellipse cx="32" cy="68" rx="14" ry="30" fill="#e06e14"></ellipse>
-              <ellipse cx="68" cy="68" rx="14" ry="30" fill="#ff9d3c"></ellipse>
-              <ellipse cx="40" cy="54" rx="6" ry="8" fill="#ffe0b8" opacity="0.85"></ellipse>
-              <ellipse cx="38" cy="62" rx="5.5" ry="6.5" fill="#fff8ee"></ellipse>
-              <ellipse cx="64" cy="62" rx="5.5" ry="6.5" fill="#fff8ee"></ellipse>
-              <circle cx="39" cy="63" r="2.5" fill="#4a3520"></circle>
-              <circle cx="65" cy="63" r="2.5" fill="#4a3520"></circle>
-              <path d="M38 78c5 9 19 9 24 0" fill="none" stroke="#4a3520" stroke-width="2.4" stroke-linecap="round"></path>
-              <rect x="47" y="80" width="6" height="6" rx="1" fill="#fff8ee" stroke="#4a3520" stroke-width="0.8"></rect>
-            </svg>
-          </div>
-          </div>
-          <p class="muted wristband-after" data-wristband-after hidden={currentTier !== null}>
-            These listed prices apply through October 29, 2026.
-          </p>
-          <p class="product-actions">
-            <a class="btn btn-peach" href={wristbandZeffyBuyHref} zeffy-form-link={wristbandZeffyFormLink}>
-              Buy a wristband
-            </a>
-          </p>
         </section>
 
         <section aria-labelledby="sponsorships-heading">
           <h2 id="sponsorships-heading" class="section-title">Sponsorships</h2>
-          <p>{carnivalNonprofitSentence}</p>
-          <div class="flyer-beside">
+          <p class="sponsor-intro">{carnivalNonprofitSentence}</p>
           <div class="product-grid">
             {
               sponsorships.map((item) => (
@@ -141,22 +126,6 @@ const currentTier = currentWristbandTierNow();
                 </article>
               ))
             }
-          </div>
-          <div class="flyer-pumpkin flyer-pumpkin-sponsor" aria-hidden="true">
-            <svg viewBox="0 0 100 112" xmlns="http://www.w3.org/2000/svg">
-              <path d="M54 22c8-11 20-8 22-1-9 0-16 3-22 1z" fill="#7cbc55"></path>
-              <path d="M48 28c1-11 12-16 15-5" fill="none" stroke="#3d7a34" stroke-width="4" stroke-linecap="round"></path>
-              <ellipse cx="50" cy="68" rx="36" ry="32" fill="#f08a24"></ellipse>
-              <ellipse cx="33" cy="68" rx="13" ry="29" fill="#e06e14"></ellipse>
-              <ellipse cx="67" cy="68" rx="13" ry="29" fill="#ff9d3c"></ellipse>
-              <ellipse cx="42" cy="52" rx="5" ry="7" fill="#ffe0b8" opacity="0.85"></ellipse>
-              <path d="M30 62c5-5 12-5 16 0" fill="none" stroke="#4a3520" stroke-width="2.4" stroke-linecap="round"></path>
-              <ellipse cx="66" cy="62" rx="5.5" ry="6.5" fill="#fff8ee"></ellipse>
-              <circle cx="67" cy="63" r="2.5" fill="#4a3520"></circle>
-              <path d="M36 76c6 8 22 6 28-2" fill="none" stroke="#4a3520" stroke-width="2.4" stroke-linecap="round"></path>
-              <ellipse cx="54" cy="84" rx="6" ry="5" fill="#f0a0b0"></ellipse>
-            </svg>
-          </div>
           </div>
           <p class="product-actions">
             <a
@@ -239,8 +208,9 @@ const currentTier = currentWristbandTierNow();
 
   .carnival-banner {
     display: inline-block;
-    margin: 0.9rem 0 0;
-    padding: 0.4rem 0.85rem;
+    max-width: 100%;
+    margin: 0.85rem 0 0;
+    padding: 0.45rem 0.85rem;
     background: var(--cream);
     color: #6b4c8a;
     border: 3px dashed #e07a2f;
@@ -248,35 +218,17 @@ const currentTier = currentWristbandTierNow();
     font-family: var(--heading);
     font-weight: 700;
     letter-spacing: 0.01em;
-    rotate: -1deg;
-  }
-
-  .flyer-beside {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 6.25rem;
-    gap: 0.75rem;
-    align-items: start;
-  }
-
-  .flyer-pumpkin svg {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .flyer-pumpkin-wrist {
-    rotate: -6deg;
-    margin-top: 0.4rem;
-  }
-
-  .flyer-pumpkin-sponsor {
-    rotate: 5deg;
-    margin-top: 0.4rem;
+    line-height: 1.35;
+    text-align: center;
   }
 
   .halloween-store :global(.page-hero) {
     background: linear-gradient(180deg, #efe6f8 0%, var(--cream-deep) 100%);
-    padding-top: 6.4rem;
+    padding-top: 6.6rem;
+  }
+
+  .halloween-store :global(.page-hero .wrap) {
+    min-width: 0;
   }
 
   .halloween-store :global(.page-hero .eyebrow) {
@@ -290,7 +242,7 @@ const currentTier = currentWristbandTierNow();
   .halloween-festive img {
     display: block;
     width: 100%;
-    max-height: 240px;
+    max-height: 180px;
     object-fit: cover;
     object-position: center 42%;
     background: var(--cream-deep);
@@ -298,23 +250,51 @@ const currentTier = currentWristbandTierNow();
     border-radius: var(--radius-img);
   }
 
+  .halloween-store .product-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.85rem;
+  }
+
+  .halloween-store .product {
+    min-width: 0;
+  }
+
+  .halloween-store .product h2 {
+    overflow-wrap: break-word;
+  }
+
+  .wristband-layout,
+  .wristband-details {
+    min-width: 0;
+  }
+
   .product-actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0.75rem 1rem;
-    margin: 0.85rem 0 0;
+    margin: 1rem 0 0;
+  }
+
+  .product-actions .btn {
+    max-width: 100%;
+    text-align: center;
   }
 
   .wristband-art {
     display: block;
-    width: min(280px, 100%);
+    width: min(220px, 100%);
     aspect-ratio: 1;
     object-fit: cover;
-    margin: 0 0 1rem;
+    margin: 0 auto 0.25rem;
     background: var(--cream-deep);
     border: 1px solid var(--rule);
     border-radius: var(--radius-img);
+  }
+
+  .sponsor-intro {
+    margin: 0 0 1.1rem;
+    max-width: 42rem;
   }
 
   .sponsor-blurb {
@@ -342,11 +322,13 @@ const currentTier = currentWristbandTierNow();
   }
 
   section + section {
-    margin-top: 2.2rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
   }
 
   .halloween-back {
-    margin-top: 1.6rem;
+    margin-top: 2rem;
   }
 
   @keyframes flyer-float {
@@ -359,9 +341,51 @@ const currentTier = currentWristbandTierNow();
     }
   }
 
-  @media (min-width: 800px) {
-    .flyer-beside {
-      grid-template-columns: minmax(0, 1fr) 8rem;
+  @media (max-width: 640px) {
+    .flyer-ghost {
+      width: 3.25rem;
+    }
+
+    .flyer-ghost-a {
+      top: 0.45rem;
+    }
+
+    .flyer-ghost-b {
+      top: 0.7rem;
+      width: 2.8rem;
+    }
+
+    .halloween-store :global(.page-hero) {
+      padding-top: 4.8rem;
+    }
+
+    .product-actions .btn {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 720px) {
+    .halloween-festive img {
+      max-height: 240px;
+    }
+
+    .halloween-store .product-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 860px) {
+    .wristband-layout {
+      display: grid;
+      grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .wristband-art {
+      width: 100%;
+      margin: 0;
     }
   }
 

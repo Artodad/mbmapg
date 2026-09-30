@@ -103,10 +103,10 @@ test('wristband checkout is its own $45 form and is not the sponsorship form', (
   assert.notEqual(wristbandZeffyBuyHref, sponsorshipZeffyBuyHref);
 });
 
-test('halloween page flyer keeps the banner and friendly drawings only', () => {
+test('halloween page keeps the ghosts and banner without pumpkins', () => {
   const page = readFileSync(new URL('../pages/shop/halloween.astro', import.meta.url), 'utf8');
   assert.equal((page.match(/class="flyer-ghost /g) ?? []).length, 2);
-  assert.equal((page.match(/class="flyer-pumpkin /g) ?? []).length, 2);
+  assert.equal((page.match(/flyer-pumpkin/g) ?? []).length, 0);
   assert.match(page, /<p class="carnival-banner">Beware: candy and face paint<\/p>/);
   assert.doesNotMatch(page, /Set Zeffy|checkbox|jump scare|spider/i);
 });
