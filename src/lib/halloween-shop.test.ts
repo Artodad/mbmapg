@@ -125,7 +125,8 @@ test('shop and halloween share the boxed Zeffy tip notice without confirmation c
 
 test('halloween wristband section shows the official flyer and pre-sale copy', () => {
   const page = readFileSync(new URL('../pages/shop/halloween.astro', import.meta.url), 'utf8');
-  assert.match(page, /images\/shop\/halloween-carnival-wristbands-flyer\.jpg/);
+  assert.match(page, /images\/shop\/halloween-carnival-wristbands-flyer\.png/);
+  assert.doesNotMatch(page, /halloween-carnival-wristbands-flyer\.jpg/);
   assert.match(page, /images\/shop\/halloween-wristband\.jpg/);
   assert.match(page, /images\/gallery\/halloween-pumpkins\.jpg/);
   assert.match(page, /max-width:\s*480px/);
@@ -138,11 +139,12 @@ test('halloween wristband section shows the official flyer and pre-sale copy', (
     'If you are purchasing for MBMA Alumni or non-MBMA persons, please pick up their ticket at the ticket booth on the day of carnival.',
   ];
   for (const line of copy) assert.match(page, new RegExp(line.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
-  assert.equal((page.match(/class="sponsor-art"/g) ?? []).length, 4);
+  assert.equal((page.match(/class="sponsor-art"/g) ?? []).length, 5);
   assert.match(page, /item\.name === 'Plentiful Pumpkins'/);
   assert.match(page, /item\.name === 'Giving Goblins'/);
   assert.match(page, /item\.name === 'Philanthropic Phantoms'/);
   assert.match(page, /item\.name === 'Magnanimous Mummies'/);
+  assert.match(page, /item\.name === 'Bounteous Bats'/);
   assert.doesNotMatch(page, /\$60|prize ticket|checkbox/i);
 });
 
