@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import {
   carnivalNonprofitSentence,
@@ -100,6 +101,14 @@ test('wristband checkout is its own $45 form and is not the sponsorship form', (
     'https://www.zeffy.com/embed/ticketing/2026-halloween-carnival-wristband?modal=true',
   );
   assert.notEqual(wristbandZeffyBuyHref, sponsorshipZeffyBuyHref);
+});
+
+test('halloween page flyer keeps the banner and friendly drawings only', () => {
+  const page = readFileSync(new URL('../pages/shop/halloween.astro', import.meta.url), 'utf8');
+  assert.equal((page.match(/class="flyer-ghost /g) ?? []).length, 2);
+  assert.equal((page.match(/class="flyer-pumpkin /g) ?? []).length, 2);
+  assert.match(page, /<p class="carnival-banner">Beware: candy and face paint<\/p>/);
+  assert.doesNotMatch(page, /Set Zeffy|checkbox|jump scare|spider/i);
 });
 
 test('carnival sentence is the flyer wording', () => {
