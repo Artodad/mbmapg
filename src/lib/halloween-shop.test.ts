@@ -4,7 +4,9 @@ import {
   carnivalNonprofitSentence,
   currentWristbandTier,
   currentWristbandTierNow,
+  balloonArtistBlurb,
   checkoutBoxesReady,
+  facePainterBlurb,
   sponsorships,
   sponsorshipZeffyBuyHref,
   sponsorshipZeffyFormLink,
@@ -57,6 +59,24 @@ test('sponsorship names and amounts match the 2026 list', () => {
       'Bounteous Bats $100.00',
       'Plentiful Pumpkins $50.00',
       'Giving Goblins $25.00',
+    ],
+  );
+});
+
+test('only Face Painter and Balloon Artist include the Wix blurbs', () => {
+  assert.equal(
+    sponsorships.find((item) => item.name === 'Sponsor Halloween Carnival Face Painter')?.blurb,
+    facePainterBlurb,
+  );
+  assert.equal(
+    sponsorships.find((item) => item.name === 'Sponsor Halloween Carnival Balloon Artist')?.blurb,
+    balloonArtistBlurb,
+  );
+  assert.deepEqual(
+    sponsorships.filter((item) => item.blurb).map((item) => item.name),
+    [
+      'Sponsor Halloween Carnival Face Painter',
+      'Sponsor Halloween Carnival Balloon Artist',
     ],
   );
 });

@@ -98,6 +98,7 @@ const currentTier = currentWristbandTierNow();
                 <article class="product">
                   <h2>{item.name}</h2>
                   <p class="price">{item.price}</p>
+                  {item.blurb ? <p class="sponsor-blurb">{item.blurb}</p> : null}
                 </article>
               ))
             }
@@ -245,6 +246,11 @@ const currentTier = currentWristbandTierNow();
     background: var(--cream-deep);
     border: 1px solid var(--rule);
     border-radius: var(--radius-img);
+  }
+
+  .sponsor-blurb {
+    margin: 0.55rem 0 0;
+    font-size: 0.95rem;
   }
 
   .product.is-current {

@@ -70,9 +70,23 @@ export function checkoutBoxesReady(checked: readonly boolean[]): boolean {
   return checked.length === 2 && checked.every(Boolean);
 }
 
-export const sponsorships: { name: string; price: string }[] = [
-  { name: 'Sponsor Halloween Carnival Face Painter', price: '$400.00' },
-  { name: 'Sponsor Halloween Carnival Balloon Artist', price: '$300.00' },
+export const facePainterBlurb =
+  'Add even more excitement to the Carnival by sponsoring our talented Face Painters! Always a hit with kids, the face painting station transforms little ones into spooky ghosts, playful animals, and festive characters. Your sponsorship helps us provide this memorable activity for all families, while also highlighting your support for our MBMA community.';
+
+export const balloonArtistBlurb =
+  'Help bring extra magic and fun to this year’s Halloween Carnival by sponsoring our Balloon Artist! Always a crowd favorite, the balloon station delights kids with creative, colorful designs and adds to the festive spirit of the day. Your sponsorship ensures this special activity is available for all families to enjoy, while also showing your support for our school community.';
+
+export const sponsorships: { name: string; price: string; blurb?: string }[] = [
+  {
+    name: 'Sponsor Halloween Carnival Face Painter',
+    price: '$400.00',
+    blurb: facePainterBlurb,
+  },
+  {
+    name: 'Sponsor Halloween Carnival Balloon Artist',
+    price: '$300.00',
+    blurb: balloonArtistBlurb,
+  },
   { name: 'Magnanimous Mummies', price: '$300.00' },
   { name: 'Philanthropic Phantoms', price: '$250.00' },
   { name: 'Bounteous Bats', price: '$100.00' },
