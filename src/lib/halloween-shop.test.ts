@@ -108,7 +108,19 @@ test('halloween page keeps the ghosts and banner without pumpkins', () => {
   assert.equal((page.match(/class="flyer-ghost /g) ?? []).length, 2);
   assert.equal((page.match(/flyer-pumpkin/g) ?? []).length, 0);
   assert.match(page, /<p class="carnival-banner">Beware: candy and face paint<\/p>/);
-  assert.doesNotMatch(page, /Set Zeffy|checkbox|jump scare|spider/i);
+  assert.match(page, /<ZeffyTipNotice \/>/);
+  assert.doesNotMatch(page, /checkbox|jump scare|spider/i);
+});
+
+test('shop and halloween share the boxed Zeffy tip notice without confirmation checkboxes', () => {
+  const shop = readFileSync(new URL('../pages/shop.astro', import.meta.url), 'utf8');
+  const notice = readFileSync(new URL('../components/ZeffyTipNotice.astro', import.meta.url), 'utf8');
+  assert.match(shop, /<ZeffyTipNotice \/>/);
+  assert.match(notice, /Set Zeffy’s tip to \$0/);
+  assert.match(notice, /It goes/);
+  assert.match(notice, /not to MBMA or the parents group/);
+  assert.doesNotMatch(notice, /checkbox/i);
+  assert.doesNotMatch(shop, /type="checkbox"/);
 });
 
 test('carnival sentence is the flyer wording', () => {
