@@ -34,6 +34,18 @@ test('homeComingUp is empty after the school year', () => {
   assert.deepEqual(homeComingUp('2027-06-05', sample), []);
 });
 
+test('October 15, 2026 coming up is the carnival and Penguin Patch, not Movie Night', () => {
+  const next = homeComingUp('2026-10-15');
+  assert.deepEqual(
+    next.map((event) => event.title),
+    ['Halloween Carnival', 'Penguin Patch Holiday Shop'],
+  );
+  const penguin = next[1];
+  assert.equal(penguin?.start, '2026-11-16');
+  assert.equal(penguin?.end, '2026-11-19');
+  assert.equal(penguin?.detail, '7:45–8:45am and 3–5pm');
+});
+
 test('eventPageHref maps known event pages and falls back to events', () => {
   assert.equal(
     eventPageHref({ start: '2026-08-22', end: '2026-08-22', title: 'Welcome Back Meet & Greet' }),
