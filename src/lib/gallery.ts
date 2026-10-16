@@ -5,6 +5,8 @@ export type GalleryItem = {
   alt: string;
   caption?: string;
   size?: GallerySize;
+  /** Home gallery only. Shows the whole photo instead of the 4:3 center crop. */
+  fit?: 'contain';
 };
 
 const captions: Record<string, { alt: string; caption: string }> = {
@@ -42,18 +44,22 @@ const restoredGallery: GalleryItem[] = [
   {
     src: 'images/gallery/art-contest-winner-1.jpg',
     alt: 'Halloween Art Contest Winner 2026',
+    fit: 'contain',
   },
   {
     src: 'images/gallery/art-contest-winner-2.jpg',
     alt: 'Halloween Art Contest Winner 2026',
+    fit: 'contain',
   },
   {
     src: 'images/gallery/art-contest-winner-3.jpg',
     alt: 'Halloween Art Contest Winner 2026',
+    fit: 'contain',
   },
   {
     src: 'images/gallery/art-contest-winner-4.jpg',
     alt: 'Halloween Art Contest Winner 2026',
+    fit: 'contain',
   },
   {
     src: 'images/gallery/fall-movie-night-1.jpg',

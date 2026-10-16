@@ -42,6 +42,7 @@ const statusText = total > 0 ? `${1}–${firstEnd} of ${total}` : '';
                 aria-label={`View larger: ${title}`}
               >
                 <img
+                  class={item.fit === 'contain' ? 'gallery-fit-contain' : undefined}
                   src={asset(item.src)}
                   alt={item.alt}
                   loading={index < pageSize ? 'eager' : 'lazy'}
