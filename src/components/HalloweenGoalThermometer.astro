@@ -1,0 +1,210 @@
+---
+import {
+  HALLOWEEN_DONATION_GOAL,
+  HALLOWEEN_DONATION_NOTE,
+  HALLOWEEN_DONATION_RAISED,
+  formatGoalDollars,
+  halloweenGoalMarks,
+  halloweenGoalProgress,
+} from '../lib/halloween-goal';
+
+interface Props {
+  /** Full-viewport page, as on /goal. Otherwise the card sits in the page flow. */
+  standalone?: boolean;
+}
+
+const { standalone = false } = Astro.props;
+const progress = halloweenGoalProgress();
+const marks = halloweenGoalMarks();
+---
+
+<section
+  class:list={['goal-thermometer', { 'is-standalone': standalone }]}
+  data-goal-thermometer
+  data-goal={HALLOWEEN_DONATION_GOAL}
+  data-raised={HALLOWEEN_DONATION_RAISED}
+  aria-label="Donation thermometer"
+>
+  <div class="goal-card">
+    <div class="goal-ghost" aria-hidden="true">👻</div>
+    <h2>Halloween Carnival Fundraiser</h2>
+    <div class="goal-sub">Mission Bay Montessori Academy Parents Group · Carnival Oct 30</div>
+    <div class="goal-amount">
+      $<span data-goal-raised>0</span> <small>of {formatGoalDollars(HALLOWEEN_DONATION_GOAL)}</small>
+    </div>
+    <div class="goal-track"><div class="goal-fill" data-goal-fill></div></div>
+    <div class="goal-marks">
+      {marks.map((amount) => <span>{formatGoalDollars(amount)}</span>)}
+    </div>
+    <div class="goal-pct" data-goal-pct>{progress.percentLabel}</div>
+    <div class="goal-togo" data-goal-togo>{progress.remainingLabel}</div>
+    <div class="goal-thanks">{HALLOWEEN_DONATION_NOTE}</div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-goal-thermometer]').forEach((root) => {
+    const goal = Number(root.dataset.goal);
+    const raised = Number(root.dataset.raised);
+    const percent = Math.min(100, (raised / goal) * 100);
+    const fill = root.querySelector<HTMLElement>('[data-goal-fill]');
+    const raisedEl = root.querySelector<HTMLElement>('[data-goal-raised]');
+    const pctEl = root.querySelector<HTMLElement>('[data-goal-pct]');
+    const togoEl = root.querySelector<HTMLElement>('[data-goal-togo]');
+    if (!fill || !raisedEl || !pctEl || !togoEl) return;
+
+    requestAnimationFrame(() =>
+      setTimeout(() => {
+        fill.style.width = `${percent}%`;
+      }, 200),
+    );
+
+    let startedAt: number | null = null;
+    const tick = (now: number) => {
+      startedAt = startedAt ?? now;
+      const k = Math.min(1, (now - startedAt) / 2400);
+      const eased = 1 - Math.pow(1 - k, 3);
+      raisedEl.textContent = Math.round(raised * eased).toLocaleString('en-US');
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    pctEl.textContent = `${percent.toFixed(0)}% of our goal`;
+    togoEl.textContent = `$${Math.round(goal - raised).toLocaleString('en-US')} to go`;
+  });
+</script>
+
+<style>
+  .goal-thermometer {
+    margin: 1.75rem auto 0;
+    padding: 28px 16px 32px;
+    border-radius: 28px;
+    background: radial-gradient(circle at 20% 10%, #4a1a6b, #1a0b2e 70%);
+    color: #fff;
+    font-family: 'Trebuchet MS', system-ui, sans-serif;
+    text-align: center;
+  }
+
+  .goal-thermometer.is-standalone {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    padding: 36px 16px;
+  }
+
+  .goal-card {
+    width: min(680px, 100%);
+    margin: 0 auto;
+    padding: 36px 32px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  }
+
+  .goal-ghost {
+    font-size: 2.4rem;
+    animation: goal-float 3s ease-in-out infinite;
+  }
+
+  .goal-card h2 {
+    margin: 0 0 4px;
+    font-family: 'Trebuchet MS', system-ui, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #ffa31a;
+  }
+
+  .goal-sub {
+    opacity: 0.8;
+    margin-bottom: 26px;
+  }
+
+  .goal-amount {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  .goal-amount small {
+    font-size: 1.1rem;
+    font-weight: 400;
+    opacity: 0.8;
+  }
+
+  .goal-track {
+    position: relative;
+    height: 46px;
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    margin: 22px 0 10px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .goal-fill {
+    height: 100%;
+    width: 0;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #ff6a00, #ffb300);
+    box-shadow: 0 0 24px #ff8c00;
+    transition: width 2.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+  }
+
+  .goal-fill::after {
+    content: '🎃';
+    position: absolute;
+    right: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+  }
+
+  .goal-marks {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+
+  .goal-pct {
+    font-size: 1.3rem;
+    margin-top: 18px;
+  }
+
+  .goal-togo {
+    opacity: 0.85;
+    margin-top: 6px;
+  }
+
+  .goal-thanks {
+    margin-top: 22px;
+    font-size: 0.95rem;
+    opacity: 0.75;
+  }
+
+  @keyframes goal-float {
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .goal-card {
+      padding: 28px 18px;
+    }
+
+    .goal-card h2 {
+      font-size: 1.55rem;
+    }
+
+    .goal-amount {
+      font-size: 2.4rem;
+    }
+  }
+</style>
