@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import HalloweenGoalThermometer from '../../components/HalloweenGoalThermometer.astro';
 import PageHero from '../../components/PageHero.astro';
 import ZeffyCheckout from '../../components/ZeffyCheckout.astro';
 import ZeffyTipNotice from '../../components/ZeffyTipNotice.astro';
@@ -248,6 +249,8 @@ const currentTier = currentWristbandTierNow();
             </a>
           </p>
         </section>
+
+        <HalloweenGoalThermometer />
 
         <p class="halloween-back">
           <a href={withBase('shop')}>Back to the shop</a>
