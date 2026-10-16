@@ -40,6 +40,22 @@ const captions: Record<string, { alt: string; caption: string }> = {
 
 const restoredGallery: GalleryItem[] = [
   {
+    src: 'images/gallery/fall-movie-night-1.jpg',
+    alt: 'Fall Movie Night',
+  },
+  {
+    src: 'images/gallery/fall-movie-night-2.jpg',
+    alt: 'Fall Movie Night',
+  },
+  {
+    src: 'images/gallery/fall-movie-night-3.jpg',
+    alt: 'Fall Movie Night',
+  },
+  {
+    src: 'images/gallery/fall-movie-night-4.jpg',
+    alt: 'Fall Movie Night',
+  },
+  {
     src: 'images/gallery/first-pg-meeting-outdoor-theatre.jpg',
     alt: 'Parents Night',
   },
@@ -130,22 +146,6 @@ const restoredGallery: GalleryItem[] = [
   {
     src: 'images/gallery/movie-night.jpg',
     alt: 'MBMA Parents Group outdoor movie night',
-  },
-  {
-    src: 'images/gallery/fall-movie-night-1.jpg',
-    alt: 'Fall Movie Night',
-  },
-  {
-    src: 'images/gallery/fall-movie-night-2.jpg',
-    alt: 'Fall Movie Night',
-  },
-  {
-    src: 'images/gallery/fall-movie-night-3.jpg',
-    alt: 'Fall Movie Night',
-  },
-  {
-    src: 'images/gallery/fall-movie-night-4.jpg',
-    alt: 'Fall Movie Night',
   },
   {
     src: 'images/gallery/halloween-pumpkins.jpg',
