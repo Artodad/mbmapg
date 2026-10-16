@@ -722,6 +722,14 @@ main {
   object-position: center;
 }
 
+/* Portrait contest photos: show the whole sheet, including the bottom edge. */
+.gallery-home img.gallery-fit-contain {
+  aspect-ratio: 3 / 4;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
 .gallery figcaption {
   padding: 0.5rem 0.2rem 0.15rem;
   font-size: 0.9rem;
