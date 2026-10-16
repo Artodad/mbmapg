@@ -132,6 +132,22 @@ const restoredGallery: GalleryItem[] = [
     alt: 'MBMA Parents Group outdoor movie night',
   },
   {
+    src: 'images/gallery/fall-movie-night-1.jpg',
+    alt: 'Fall Movie Night',
+  },
+  {
+    src: 'images/gallery/fall-movie-night-2.jpg',
+    alt: 'Fall Movie Night',
+  },
+  {
+    src: 'images/gallery/fall-movie-night-3.jpg',
+    alt: 'Fall Movie Night',
+  },
+  {
+    src: 'images/gallery/fall-movie-night-4.jpg',
+    alt: 'Fall Movie Night',
+  },
+  {
     src: 'images/gallery/halloween-pumpkins.jpg',
     alt: 'Decorated pumpkins at an MBMA Halloween contest',
   },
