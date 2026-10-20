@@ -1,6 +1,6 @@
 /** Donations and sponsorships only. Wristband sales are not included. */
 export const HALLOWEEN_DONATION_GOAL = 5000;
-export const HALLOWEEN_DONATION_RAISED = 1650;
+export const HALLOWEEN_DONATION_RAISED = 1750;
 
 export const HALLOWEEN_DONATION_NOTE =
   'Thank you to every family who has given. 🧡 Donations and sponsorships as of Oct 19, 2026.';
