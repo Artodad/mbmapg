@@ -1,9 +1,9 @@
 /** Donations and sponsorships only. Wristband sales are not included. */
 export const HALLOWEEN_DONATION_GOAL = 5000;
-export const HALLOWEEN_DONATION_RAISED = 2245;
+export const HALLOWEEN_DONATION_RAISED = 2345;
 
 export const HALLOWEEN_DONATION_NOTE =
-  'Thank you to every family who has given. 🧡 Donations and sponsorships as of Oct 26, 2026.';
+  'Thank you to every family who has given. 🧡 Donations and sponsorships as of Oct 27, 2026.';
 
 export function formatGoalDollars(amount: number): string {
   return `$${Math.round(amount).toLocaleString('en-US')}`;
