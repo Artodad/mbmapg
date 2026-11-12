@@ -42,6 +42,96 @@ const captions: Record<string, { alt: string; caption: string }> = {
 
 const restoredGallery: GalleryItem[] = [
   {
+    src: 'images/gallery/halloween-carnival-2026-01.jpg',
+    alt: 'Dolphin mascot at the haunted house doorway at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-02.jpg',
+    alt: 'Dolphin mascot standing at the haunted house door at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-03.jpg',
+    alt: 'Pumpkin Smash and Free Catapult booth at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-04.jpg',
+    alt: 'Splat the Rat booth at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-05.jpg',
+    alt: 'Fortune Teller booth at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-06.jpg',
+    alt: 'Little Boo and Big Boo pumpkin tables at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-07.jpg',
+    alt: 'Boo-tiful pumpkins at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-08.jpg',
+    alt: 'Creatures and Critters pumpkins at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-09.jpg',
+    alt: 'Miscellaneous pumpkins at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-10.jpg',
+    alt: 'Parents and Teachers pumpkins at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-11.jpg',
+    alt: 'Pumpkin contest room at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-12.jpg',
+    alt: 'Bounce house at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-13.jpg',
+    alt: 'Patio and game booths at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-14.jpg',
+    alt: 'Room 2 costume parade at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-15.jpg',
+    alt: 'Costume parade at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-16.jpg',
+    alt: 'K2 class costume walk at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-17.jpg',
+    alt: 'Cupcake table at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
+    src: 'images/gallery/halloween-carnival-2026-18.jpg',
+    alt: 'Boys playing a cardboard ramp game at the MBMA Halloween Carnival',
+    caption: 'Halloween Carnival',
+  },
+  {
     src: 'images/gallery/art-contest-winner-1.jpg',
     alt: 'Halloween Art Contest Winner 2026',
     fit: 'contain',
