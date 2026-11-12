@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import PhotoGallery from '../components/PhotoGallery.astro';
+import { homeGallery } from '../lib/gallery';
+---
+
+<Base
+  title="Gallery"
+  description="Photos from Mission Bay Montessori Academy Parents Group events."
+>
+  <PageHero
+    title="Gallery"
+    lede="Photos from Parents Group events at Mission Bay Montessori Academy."
+  />
+  <main id="main">
+    <div class="wrap wrap-gallery">
+      <PhotoGallery
+        items={homeGallery}
+        label="School photo gallery"
+        pageSize={homeGallery.length}
+      />
+    </div>
+  </main>
+</Base>

@@ -22,6 +22,7 @@ export const calendarPdfLabel = '2026–27 school calendar (PDF)';
 export const navItems = [
   { href: '', label: 'Home' },
   { href: 'events', label: 'Events' },
+  { href: 'gallery', label: 'Gallery' },
   { href: 'volunteer', label: 'Volunteer' },
   { href: 'shop', label: 'Shop' },
   { href: 'about', label: 'About' },
