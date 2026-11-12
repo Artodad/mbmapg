@@ -77,12 +77,6 @@ export const pgEvents: PgEvent[] = [
     detail: 'early dismissal day, 2:30–5:30pm',
   },
   {
-    start: '2026-11-16',
-    end: '2026-11-19',
-    title: 'Penguin Patch Holiday Shop',
-    detail: '7:45–8:45am and 3–5pm',
-  },
-  {
     start: '2026-11-20',
     end: '2026-11-20',
     title: 'Thanksgiving Feast',
@@ -92,6 +86,12 @@ export const pgEvents: PgEvent[] = [
     end: '2026-12-11',
     title: 'Winter Book Fair',
     detail: '7:45–8:45am and 3–5pm in the auditorium',
+  },
+  {
+    start: '2026-12-14',
+    end: '2026-12-15',
+    title: 'Penguin Patch Holiday Shop',
+    detail: '7:45–8:45am and 3–5pm',
   },
   {
     start: '2027-02-26',
@@ -198,7 +198,9 @@ export function todayYmd(now = new Date()): string {
 
 /** Events that have not ended yet, in calendar order. */
 export function upcomingEvents(from = todayYmd(), events = pgEvents): PgEvent[] {
-  return events.filter((event) => event.end >= from);
+  return events
+    .filter((event) => event.end >= from)
+    .sort((a, b) => a.start.localeCompare(b.start) || a.end.localeCompare(b.end));
 }
 
 function isPizzaEvent(event: PgEvent): boolean {
@@ -235,7 +237,7 @@ export function eventDayLabel(event: PgEvent): string {
   return String(Number(event.start.slice(8)));
 }
 
-/** Full date for upcoming lists, e.g. `October 9, 2026` or `November 16–19, 2026`. */
+/** Full date for upcoming lists, e.g. `October 9, 2026` or `December 14–15, 2026`. */
 export function formatEventWhen(event: PgEvent): string {
   const start = parseYmd(event.start);
   if (event.start === event.end) {

@@ -3,6 +3,7 @@ import test from 'node:test';
 import {
   eventPageHref,
   homeComingUp,
+  pgEvents,
   todayYmd,
   upcomingEvents,
   type PgEvent,
@@ -34,16 +35,39 @@ test('homeComingUp is empty after the school year', () => {
   assert.deepEqual(homeComingUp('2027-06-05', sample), []);
 });
 
-test('October 15, 2026 coming up is the carnival and Penguin Patch, not Movie Night', () => {
+test('October 15, 2026 coming up is the carnival and Thanksgiving Feast, not Movie Night', () => {
   const next = homeComingUp('2026-10-15');
   assert.deepEqual(
     next.map((event) => event.title),
-    ['Halloween Carnival', 'Penguin Patch Holiday Shop'],
+    ['Halloween Carnival', 'Thanksgiving Feast'],
   );
-  const penguin = next[1];
-  assert.equal(penguin?.start, '2026-11-16');
-  assert.equal(penguin?.end, '2026-11-19');
+});
+
+test('November 12, 2026 coming up starts with Thanksgiving Feast', () => {
+  const next = homeComingUp('2026-11-12');
+  assert.deepEqual(
+    next.map((event) => event.title),
+    ['Thanksgiving Feast', 'Winter Book Fair'],
+  );
+});
+
+test('Penguin Patch Holiday Shop is December 14–15, 2026', () => {
+  const penguin = pgEvents.find((event) => event.title === 'Penguin Patch Holiday Shop');
+  assert.equal(penguin?.start, '2026-12-14');
+  assert.equal(penguin?.end, '2026-12-15');
   assert.equal(penguin?.detail, '7:45–8:45am and 3–5pm');
+});
+
+test('upcomingEvents sorts later events after earlier ones even if the list is out of order', () => {
+  const shuffled: PgEvent[] = [
+    { start: '2026-12-14', end: '2026-12-15', title: 'Penguin Patch Holiday Shop' },
+    { start: '2026-11-20', end: '2026-11-20', title: 'Thanksgiving Feast' },
+  ];
+  const upcoming = upcomingEvents('2026-11-12', shuffled);
+  assert.deepEqual(
+    upcoming.map((event) => event.title),
+    ['Thanksgiving Feast', 'Penguin Patch Holiday Shop'],
+  );
 });
 
 test('eventPageHref maps known event pages and falls back to events', () => {
