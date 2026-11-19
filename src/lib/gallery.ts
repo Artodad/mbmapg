@@ -217,15 +217,15 @@ const restoredGallery: GalleryItem[] = [
   },
   {
     src: 'images/gallery/arcade-games.jpg',
-    alt: 'MBMA Parents Group photo at an arcade',
+    alt: 'Family Night Out',
   },
   {
     src: 'images/gallery/arcade-friends.jpg',
-    alt: 'Students at an MBMA Parents Group arcade outing',
+    alt: 'Family Night Out',
   },
   {
     src: 'images/gallery/arcade-air-hockey.jpg',
-    alt: 'Students playing air hockey at an MBMA Parents Group event',
+    alt: 'Family Night Out',
   },
   {
     src: 'images/gallery/holiday-meal-line.jpg',
