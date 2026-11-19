@@ -229,31 +229,31 @@ const restoredGallery: GalleryItem[] = [
   },
   {
     src: 'images/gallery/holiday-meal-line.jpg',
-    alt: 'Volunteers serving a holiday meal at MBMA',
+    alt: 'Thanksgiving Feast',
   },
   {
     src: 'images/gallery/holiday-meal-buffet.jpg',
-    alt: 'Holiday meal buffet at an MBMA Parents Group event',
+    alt: 'Thanksgiving Feast',
   },
   {
     src: 'images/gallery/holiday-meal-students.jpg',
-    alt: 'Students in line at an MBMA holiday meal',
+    alt: 'Thanksgiving Feast',
   },
   {
     src: 'images/gallery/holiday-meal-serving.jpg',
-    alt: 'Parents Group volunteers serving students at MBMA',
+    alt: 'Thanksgiving Feast',
   },
   {
     src: 'images/gallery/holiday-meal-corn.jpg',
-    alt: 'Students and volunteers at an MBMA holiday meal',
+    alt: 'Thanksgiving Feast',
   },
   {
     src: 'images/gallery/parents-at-table.jpg',
-    alt: 'Parents at an MBMA Parents Group gathering',
+    alt: 'Teachers enjoying the Thanksgiving Feast',
   },
   {
     src: 'images/gallery/sixth-grade-graduation.jpg',
-    alt: 'Families at an MBMA 6th Grade Graduation gathering',
+    alt: 'Thanksgiving Feast',
   },
   {
     src: 'images/gallery/movie-night.jpg',
