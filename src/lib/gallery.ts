@@ -42,6 +42,46 @@ const captions: Record<string, { alt: string; caption: string }> = {
 
 const restoredGallery: GalleryItem[] = [
   {
+    src: 'images/gallery/thanksgiving-feast-2026-01.jpg',
+    alt: 'Volunteer at the juice table at the MBMA Thanksgiving Feast',
+    caption: 'Thanksgiving Feast',
+  },
+  {
+    src: 'images/gallery/thanksgiving-feast-2026-02.jpg',
+    alt: 'Volunteers serving students in the buffet line at the MBMA Thanksgiving Feast',
+    caption: 'Thanksgiving Feast',
+  },
+  {
+    src: 'images/gallery/thanksgiving-feast-2026-03.jpg',
+    alt: 'Students and volunteers at the veggie and fruit table at the MBMA Thanksgiving Feast',
+    caption: 'Thanksgiving Feast',
+  },
+  {
+    src: 'images/gallery/thanksgiving-feast-2026-04.jpg',
+    alt: 'Volunteers serving students in the buffet line at the MBMA Thanksgiving Feast',
+    caption: 'Thanksgiving Feast',
+  },
+  {
+    src: 'images/gallery/thanksgiving-feast-2026-05.jpg',
+    alt: 'Parent volunteers behind the buffet at the MBMA Thanksgiving Feast',
+    caption: 'Thanksgiving Feast',
+  },
+  {
+    src: 'images/gallery/thanksgiving-feast-2026-06.jpg',
+    alt: '"I am thankful for" turkey craft at the MBMA Thanksgiving Feast',
+    caption: 'Thanksgiving Feast',
+  },
+  {
+    src: 'images/gallery/thanksgiving-feast-2026-07.jpg',
+    alt: 'Student crafts along the table at the MBMA Thanksgiving Feast',
+    caption: 'Thanksgiving Feast',
+  },
+  {
+    src: 'images/gallery/thanksgiving-feast-2026-08.jpg',
+    alt: 'Hand-print turkey board at the MBMA Thanksgiving Feast',
+    caption: 'Thanksgiving Feast',
+  },
+  {
     src: 'images/gallery/halloween-carnival-2026-01.jpg',
     alt: 'Dolphin mascot at the haunted house doorway at the MBMA Halloween Carnival',
     caption: 'Halloween Carnival',
